@@ -4,7 +4,7 @@
 
 ?>
     <!-- Hero Section Begin -->
-    <section class="hero spad set-bg" data-setbg="./images/homes.jpg" >
+    <section class="hero spad set-bg" data-setbg="../images/homes.jpg" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">

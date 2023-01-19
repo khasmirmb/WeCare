@@ -102,7 +102,7 @@
                             </ul>
                         </nav>
                         <div class="header__btn">
-                            <button id="login_show">Sign In</button>
+                            <button onclick="location.href='login.php'" id="login_show">Sign In</button>
                         </div>
                     </div>
                 </div>
