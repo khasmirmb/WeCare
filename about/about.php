@@ -1,11 +1,12 @@
 <?php
 
+    $page_title = 'WeCare - About Us';
     require_once '../includes/header.php';
     require_once '../includes/topnav.php';
 
 ?>
 <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-option spad set-bg" data-setbg="../image/homes.jpg">
+    <section class="breadcrumb-option spad set-bg" data-setbg="../images/homes.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -27,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <div class="about__video set-bg" data-setbg="../image/service.jpg">
+                    <div class="about__video set-bg" data-setbg="../images/service.jpg">
                         <a href="https://www.youtube.com/watch?v=y5Wde5pOwTQ&ab_channel=JoWhitfield1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
                     </div>
                 </div>

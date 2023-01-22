@@ -60,7 +60,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="../homepage/home.php">Home</a></li>
-                                <li><a href="../homepage/about.php">About</a></li>
+                                <li><a href="../about/about.php">About</a></li>
                                  <li><a href="../services/services.php">Services</a>
                                     <ul class="dropdown">
                                         <li><a href="../rooms/rooms.php">Rooms</a></li>
@@ -72,7 +72,7 @@
                             </ul>
                         </nav>
                         <div class="header__btn">
-                            <button onclick="location.href='login.php'" id="login_show">Sign In</button>
+                            <button onclick="location.href='../account/login.php'" id="login_show">Sign In</button>
                         </div>
                     </div>
                 </div>

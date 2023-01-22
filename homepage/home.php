@@ -1,5 +1,6 @@
 <?php
 
+    $page_title = 'WeCare - Nursing Home, Inc.';
     require_once '../includes/header.php';
     require_once '../includes/topnav.php';
 
@@ -91,7 +92,7 @@
 <!-- about section ends -->
 
     <!-- Services Section Begin -->
-    <section class="services spad set-bg" data-setbg="../image/service1.jpg">
+    <section class="services spad set-bg" data-setbg="../images/service1.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-6">

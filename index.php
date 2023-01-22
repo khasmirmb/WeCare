@@ -15,7 +15,7 @@
         header('location: staff/dashboard.php');
     }
     else{
-        header('location: homepage/homepage.php');
+        header('location: homepage/home.php');
     }
 
 ?>
