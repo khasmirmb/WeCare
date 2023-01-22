@@ -51,16 +51,16 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="../home/home.php"><img src="../img/logo.png" alt="" class="WeCare_logo"></a>
-                        <a href="../home/home.php" class="link_home"><h1 class="logo_text">WeCare</a></h1>
+                        <a href="../homepage/home.php"><img src="../img/logo.png" alt="" class="WeCare_logo"></a>
+                        <a href="../homepage/home.php" class="link_home"><h1 class="logo_text">WeCare</a></h1>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__menu__option">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="../home/home.php">Home</a></li>
-                                <li><a href="../about/about.php">About</a></li>
+                                <li class="active"><a href="../homepage/home.php">Home</a></li>
+                                <li><a href="../homepage/about.php">About</a></li>
                                  <li><a href="../services/services.php">Services</a>
                                     <ul class="dropdown">
                                         <li><a href="../rooms/rooms.php">Rooms</a></li>
