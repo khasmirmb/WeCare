@@ -6,7 +6,7 @@
 
 ?>
 <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-option spad set-bg" data-setbg="../images/homes.jpg">
+    <section class="breadcrumb-option spad set-bg" data-setbg="../images/home-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

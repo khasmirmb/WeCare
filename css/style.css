@@ -118,7 +118,7 @@ ol {
 }
 
 .section-title h2 {
-	color: #111111;
+	color: white;
 	font-weight: 700;
 	margin-top: 8px;
 }
@@ -301,7 +301,7 @@ button:hover{
 
 .header__top__left li {
 	font-size: 13px;
-	color: #000;
+	color: #ffff;
 	list-style: none;
 	display: inline-block;
 	margin-right: 25px;
@@ -682,6 +682,11 @@ a {
 	color: #ffffff;
 }
 
+.header__top__right i{
+	color: white;
+}
+
+
 /*---------------------
   Choose Us
 -----------------------*/
@@ -698,9 +703,11 @@ a {
     width: 35%;
 	margin-top: 5px;
 }
-.chooseus__item .carelogo {
+.chooseus__item i{
     width: 35%;
 	margin-top: 5px;
+	font-size: 45px;
+	color: white;
 }
 .chooseus {
 	padding-bottom: 50px;
@@ -710,21 +717,20 @@ a {
 .chooseus__item {
 	text-align: center;
 	margin-bottom: 30px;
-	background: #fff;
-	border-radius: 6px;
+	padding: 15px;
 }
 
 .chooseus__item h5 {
 	font-size: 20px;
-	color: #111111;
+	color: white;
 	font-weight: 600;
-	margin-top: 26px;
+	margin-top: 5px;
 	margin-bottom: 16px;
 }
 
 .chooseus__item p {
 	margin-bottom: 0;
-	color: #000;
+	color: white;
 }
 
 /*---------------------

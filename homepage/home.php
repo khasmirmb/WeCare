@@ -1,12 +1,12 @@
 <?php
-
+    session_start();
     $page_title = 'WeCare - Nursing Home, Inc.';
     require_once '../includes/header.php';
     require_once '../includes/topnav.php';
 
 ?>
     <!-- Hero Section Begin -->
-    <section class="hero spad set-bg" data-setbg="../images/homes.jpg" >
+    <section class="hero spad set-bg" data-setbg="../images/home-bg.jpg" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -35,30 +35,30 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
-                        <img src="../img/advan-equiptment.png" alt="" class="equiplogo">
+                    <i class="fa-solid fa-briefcase-medical"></i>
                         <h5>Equipment & Programs</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                        <p>WeCare offers equipment & programs that will make our patient comfortable and enjoy their stay</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
-                        <img src="../img/caregiver.png" alt="" class="caregiver">
+                    <i class="fa-solid fa-user-nurse"></i>
                         <h5>Qualified Caregivers</h5>
                         <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
-                        <img src="../img/homecare.png" alt="" class="ceftified">
-                        <h5>Certified services</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    <i class="fa-solid fa-user-doctor"></i>
+                        <h5>Your Doctor or Our Doctor</h5>
+                        <p>With WeCare you choose which doctor you want to see even potentially your own family doctor. If you don’t see your family doctor on our platform, tell her/him about us! We’d love to have them join!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
-                        <img src="../img/Caregiver_logo.png" alt="" class="carelogo">
-                        <h5>Care Services</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    <i class="fa-solid fa-hand-holding-medical"></i>
+                        <h5>Most Convenient Care and Services</h5>
+                        <p>Connect directly to WeCare, by phone, video or secure messaging from wherever you are.</p>
                     </div>
                 </div>
             </div>
@@ -175,19 +175,19 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="../image/walk.jpg" alt="">
+                        <img src="../images/walk.jpg" alt="">
                         <h5>Walking Area</h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="../image/terrace.jpg" alt="">
+                        <img src="../images/terrace.jpg" alt="">
                         <h5>Terrace</h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="../img/dinning.jpg" alt="">
+                        <img src="../imgages/dinning.jpg" alt="">
                         <h5>Dinning Area</h5>
                     </div>
                 </div>
@@ -200,26 +200,26 @@
     <div class="gallery">
         <div class="gallery__container">
             <div class="grid-sizer"></div>
-            <div class="gc__item set-bg" data-setbg="../img/4.jpg">
-                <a href="../img/4.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="gc__item set-bg" data-setbg="../images/display-1.jpg">
+                <a href="../images/display-1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
             </div>
-            <div class="gc__item set-bg" data-setbg="../images/1.jpg">
-                <a href="../images/1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="gc__item set-bg" data-setbg="../images/display-2.jpg">
+                <a href="../images/display-2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
             </div>
-            <div class="gc__item set-bg" data-setbg="../images/2.jpg">
-                <a href="../images/2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="gc__item set-bg" data-setbg="../images/display-3.jpg">
+                <a href="../images/display-3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
             </div>
-            <div class="gc__item gc__item__large set-bg" data-setbg="../images/3.jpg">
-                <a href="../images/3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="gc__item gc__item__large set-bg" data-setbg="../images/display-4.jpg">
+                <a href="../images/display-4.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
             </div>
-            <div class="gc__item set-bg" data-setbg="../images/4.jpg">
-                <a href="../images/4.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="gc__item set-bg" data-setbg="../images/display-5.jpg">
+                <a href="../images/display-6.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
             </div>
-            <div class="gc__item set-bg" data-setbg="../images/5.jpg">
-                <a href="../images/5.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="gc__item set-bg" data-setbg="../images/display-7.jpg">
+                <a href="../images/display-7.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
             </div>
-            <div class="gc__item set-bg" data-setbg="../images/6.jpg">
-                <a href="../images/6.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
+            <div class="gc__item set-bg" data-setbg="../images/display-8.jpg">
+                <a href="../images/display-8.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
             </div>
         </div>
     </div>
