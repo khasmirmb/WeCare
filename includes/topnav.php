@@ -4,11 +4,11 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="../home/home.php"><img src="../img/logo.png" alt=""></a>
+            <a href="../home/home.php"><img src="../images/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__btn">
-            <a href="#" class="primary-btn">Login</a>
+            <a href="#" class="primary-btn">Sign In</a>
         </div>
         <ul class="offcanvas__widget">
             <li><i class="fa fa-phone"></i> (062) 991 3236</li>

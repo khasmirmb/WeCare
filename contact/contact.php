@@ -2,6 +2,8 @@
 
     $page_title = 'WeCare - Contact Us';
     require_once '../includes/header.php';
+    session_start();
+
     require_once '../includes/topnav.php';
 
 

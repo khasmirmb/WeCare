@@ -2,8 +2,10 @@
 
     $page_title = 'WeCare - History';
     require_once '../includes/header.php';
+	session_start();
+
     require_once '../includes/topnav.php';
-    
+
 
 ?>
 

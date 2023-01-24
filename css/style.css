@@ -332,7 +332,8 @@ button:hover{
 }
 
 .header__logo {
-	padding: 42px 0;
+	padding-top: 15px;
+	justify-content: center;
 }
 
 .header__logo .WeCare_logo{
@@ -341,7 +342,7 @@ button:hover{
 	justify-content: center;
 	text-decoration: none;
 	display: inline-block;
-	padding-bottom: 1.5rem;
+	padding-bottom: 15px;
 }
 .header__logo .logo_text{
 	font-size: 1.4rem;
@@ -3943,4 +3944,17 @@ form + p{
 		border-radius: 50px;
 		padding: 14px 30px 12px;
 	}
+}
+.header_logo {
+	padding-top: 15px;
+	justify-content: center;
+	padding-bottom: 10px;
+}
+
+.header_logo .logo_login{
+	display: inline-block;
+	width: 25%;
+	justify-content: center;
+	text-decoration: none;
+	display: inline-block;
 }
