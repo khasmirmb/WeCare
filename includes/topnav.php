@@ -69,10 +69,19 @@
                                 </li>
                                 <li><a href="../history/history.php">History</a></li>
                                 <li><a href="../contact/contact.php">Contact</a></li>
+                                <?php
+                                if(isset($_SESSION['logged_id'])){
+                                ?>
+                                <li><a href="../appointment/appointment.php">Appointment</a></li>
+                                <?php } ?>
                             </ul>
                         </nav>
                         <div class="header__btn">
+                        <?php
+                                if(!isset($_SESSION['logged_id'])){
+                            ?>
                             <button onclick="location.href='../account/signin.php'" id="login_show">Sign In</button>
+                        <?php } ?>
                         </div>
                     </div>
                 </div>
