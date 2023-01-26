@@ -4,11 +4,15 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="../home/home.php"><img src="../images/logo.png" alt=""></a>
+            <a href="../homepage/home.php"><img src="../images/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__btn">
-            <a href="#" class="primary-btn">Sign In</a>
+        <?php
+            if(!isset($_SESSION['logged_id'])){
+        ?>
+            <a href="../account/signin.php" class="primary-btn">Sign In</a>
+        <?php } ?>
         </div>
         <ul class="offcanvas__widget">
             <li><i class="fa fa-phone"></i> (062) 991 3236</li>
@@ -73,6 +77,7 @@
                                 if(isset($_SESSION['logged_id'])){
                                 ?>
                                 <li><a href="../appointment/appointment.php">Appointment</a></li>
+                                <li><i class="fa-solid fa-bell"></i></li>
                                 <?php } ?>
                             </ul>
                         </nav>

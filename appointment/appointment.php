@@ -28,7 +28,7 @@
      <!-- Appointment Section Begin -->
      <section class="book" id="book">
 
-        <h1 class="heading"> <span>Get An</span> Appointment</h1> 
+        <h1 class="heading"> <span>Get An</span> Appointment</h1>
 
         <div class="row">
 

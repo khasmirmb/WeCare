@@ -366,6 +366,10 @@ a {
 	display: inline-block;
 	margin-right: 45px;
 }
+.header__menu i {
+	font-size: 25px;
+	color: #13a2b7;
+}
 
 .header__menu ul li {
 	list-style: none;
