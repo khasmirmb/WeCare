@@ -20,10 +20,10 @@
 
     <form action="" method="post">
         <label for="email">Email Address</label>
-        <input type="email" name="email" placeholder="Email">
+        <input type="email" name="email" placeholder="Email" required>
 
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password" required>
 
         <button type="submit" name="submit">Login</button>
     </form>
