@@ -86,7 +86,11 @@
                                 if(!isset($_SESSION['logged_id'])){
                             ?>
                             <button onclick="location.href='../account/signin.php'" id="login_show">Sign In</button>
-                        <?php } ?>
+                        <?php }
+                        if(isset($_SESSION['logged_id'])){
+                            ?>
+                            <img src="../images/home1.jpg" alt="Avatar" style="width:75px">
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
