@@ -116,7 +116,7 @@
                         </div>
                         <div class="services__item__text">
                             <h5>Caregiving</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            <p>WeCare provides for a person's everyday requirements who is unable to care for himself. A person who needs ongoing help and attention may also have physical and emotional needs that need to be met.
                             </p>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                         </div>
                         <div class="services__item__text">
                             <h5>Rehabilatation</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                            <p>WeCare rehabilitation offer is medical assistance that can help you regain, maintain, or increase the abilities you need to function in daily life. These skills could be cognitive, mental, or physical (thinking and learning).
                             </p>
                         </div>
                     </div>
