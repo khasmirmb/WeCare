@@ -400,8 +400,8 @@ a {
 	position: absolute;
 	left: 0;
 	top: 52px;
-	width: 150px;
-	background: #111111;
+	width: 120px;
+	background: #00ACB2;
 	text-align: left;
 	padding: 2px 0;
 	z-index: 9;
@@ -420,10 +420,15 @@ a {
 .header__menu ul li .dropdown li a {
 	font-size: 14px;
 	background: #00ACB2;
-	color: #ffffff;
+	color: #111111;
 	font-weight: 500;
 	padding: 8px 20px;
 	text-transform: capitalize;
+}
+
+.header__menu ul li .dropdown li a:hover{
+	background-color: #007bff;
+	color: #fff;
 }
 
 .header__menu ul li .dropdown li a:after {
@@ -731,7 +736,7 @@ a {
 
 .chooseus__item p {
 	margin-bottom: 0;
-	color: white;
+	color: #ece8e8;
 }
 
 /*---------------------
@@ -1332,6 +1337,19 @@ footer {
 .about__text .section-title {
 	margin-bottom: 25px;
 }
+.about__text .section-title .about_h2{
+	color: #000;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.about__text .section-title .about_span {
+	font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
 .about__text p {
 	margin-bottom: 25px;
@@ -1360,7 +1378,7 @@ footer {
 
 .testimonials {
 	overflow: hidden;
-	background: #f2f7f8;
+	background: #00ACB2;
 	padding-bottom: 90px;
 }
 
@@ -2183,12 +2201,28 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-	background: #f4f0db;
+	background: #fff;
 }
  .contact .content{
     max-width: 800px;
     text-align: center;
 }
+.section-header {
+	margin-bottom: 50px;
+	text-align: center;
+  }
+  
+  .section-header .contact_h2 {
+	color: #000;
+	font-weight: bold;
+	font-size: 3em;
+	margin-bottom: 20px;
+	padding-top: 2rem;
+  }
+  
+  .section-header .contact_p {
+	color: #000;
+  }
 .container_icon{
     width: 100%;
     display: flex;
@@ -2227,7 +2261,7 @@ footer {
 .contactForm {
     width: 60%;
     padding: 30px;
-    background: #ddd;
+    background: #fff;
     border-radius: 10px;
 }
 .contactForm h2{
@@ -2251,7 +2285,7 @@ footer {
     border-bottom: 2px solid #333;
     outline: none;
     resize: none;
-	background: #ddd;
+	background: #fff;
 }
 .contactForm .inputBox span{
     position: absolute;
@@ -2267,7 +2301,7 @@ footer {
 .contactForm .inputBox input:valid ~ span,
 .contactForm .inputBox textarea:focus ~ span,
 .contactForm .inputBox textarea:valid ~ span{
-    color: #e91e63;
+    color: #00ACB2;
     font-size: 12px;
     transform: translateY(-20px);
 }

@@ -10,6 +10,13 @@
 ?>
 
 <!-- Contact Section Begin -->
+<div class="section-header">
+             <div class="contact_container">
+                 <h2 class="contact_h2">Contact Us</h2>
+                     <p class="contact_p">Getting in touch is now easy. Email us with any question or inquries. We would be happy to answer your questions</p>
+                </div>
+            </div>
+
 <section class="contact spad">
         <div class="container">
             <div class="row">

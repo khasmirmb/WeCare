@@ -64,7 +64,7 @@
                                 <li><a href="../services/services.php">Services</a>
                                     <ul class="dropdown">
                                         <li><a href="../rooms/rooms.php">Rooms</a></li>
-                                        <li><a href="#">Details</a></li>
+                                        <li><a href="#">Apply</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="../history/history.php">History</a></li>
