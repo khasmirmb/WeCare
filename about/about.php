@@ -25,8 +25,8 @@
     </section>
     <!-- Breadcrumb Section End -->
 
-    <!-- About Section Begin -->
-    <section class="about spad">
+   <!-- About Section Begin -->
+   <section class="about spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
@@ -37,8 +37,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="about__text">
                         <div class="section-title">
-                            <span>ABOUT OUR BUSINESS</span>
-                            <h2>Welcome to WeCare <br> Nursing Home, Inc.</h2>
+                            <span class="about_span">ABOUT OUR BUSINESS</span>
+                            <h2 class="about_h2">Welcome to WeCare <br> Nursing Home, Inc.</h2>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua.</p>

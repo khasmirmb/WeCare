@@ -52,7 +52,7 @@
                     <div class="chooseus__item">
                     <i class="fa-solid fa-user-doctor"></i>
                         <h5>Your Doctor or Our Doctor</h5>
-                        <p>With WeCare you choose which doctor you want to see even potentially your own family doctor. If you don’t see your family doctor on our platform, tell her/him about us! We’d love to have them join!</p>
+                        <p>With WeCare you choose which doctor you want to see even potentially your own family doctor.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
