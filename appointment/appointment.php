@@ -1,11 +1,13 @@
 <?php
-
     $page_title = 'WeCare - Appointment';
     require_once '../includes/header.php';
     session_start();
 
-    require_once '../includes/topnav.php';
+    if(!isset($_SESSION['logged_id'])){
+        header('location: ../homepage/home.php');
+    }
 
+    require_once '../includes/topnav.php';
 ?>
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-option spad set-bg" data-setbg="../image/homes.jpg">
