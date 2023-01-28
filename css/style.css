@@ -165,9 +165,7 @@ button{
 	font-size: 15px;
 	font-weight: 500;
 	padding: 12px 30px 10px;
-	text-transform: uppercase;
 	color: #111111;
-	text-transform: uppercase;
 	letter-spacing: 2px;
 	border: 2px solid #13a2b7;
 	border-radius: 5px;
@@ -367,11 +365,14 @@ a {
 	margin-right: 45px;
 }
 .header__menu i {
-	font-size: 25px;
+	font-size: 20px;
 	color: #13a2b7;
+	cursor: pointer;
 }
-.header__btn img {
+.header__btn .user-pic {
 	border-radius: 50%;
+	width: 70px;
+	cursor: pointer;
 }
 .header__menu ul li {
 	list-style: none;
@@ -2528,30 +2529,6 @@ footer {
 	text-transform: uppercase;
 	color: var(--green);
   }
-  .btn {
-	display: inline-block;
-	margin-top: 1rem;
-	padding: .5rem;
-	padding-left: 1rem;
-	border: var(--border);
-	border-radius: .5rem;
-	box-shadow: var(--box-shadow);
-	color: var(--green);
-	cursor: pointer;
-	font-size: 1rem;
-	background: #fff;
-	text-decoration: none;
-  }
-  .btn:hover{
-	background: rgb(56, 122, 122);
-  }
-  .btn span {
-	padding: .7rem 1rem;
-	border-radius: .5rem;
-	background: var(--green);
-	color: #fff;
-	margin-left: .5rem;
-  }
   .fa, .fas {
 	font-weight: 900;
   }
@@ -2669,22 +2646,6 @@ form .fields .input-field{
 }
 .input-field input[type="date"]:valid{
     color: #333;
-}
-.container form button, .backBtn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 45px;
-    max-width: 200px;
-    width: 100%;
-    border: none;
-    outline: none;
-    color: #fff;
-    border-radius: 5px;
-    margin: 25px 0;
-    background-color: #00ACB2;
-    transition: all 0.3s linear;
-    cursor: pointer;
 }
 .container form .btnText{
     font-size: 14px;
@@ -3997,4 +3958,10 @@ form + p{
 	justify-content: center;
 	text-decoration: none;
 	display: inline-block;
+}
+.custom {
+    width: 55% !important;
+}
+.login-button{
+	width: 45% !important;
 }
