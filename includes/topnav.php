@@ -89,8 +89,9 @@
                         <?php }
                         if(isset($_SESSION['logged_id'])){
                             ?>
-                            <img src="../images/home1.jpg" alt="Avatar" class="user-pic">
-                            
+                            <div class="profile">
+                                <img src="../images/home1.jpg" alt="Avatar" class="user-pic">
+                            </div>
                             <?php } ?>
                         </div>
                     </div>

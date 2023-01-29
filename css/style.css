@@ -371,8 +371,11 @@ a {
 }
 .header__btn .user-pic {
 	border-radius: 50%;
-	width: 70px;
+	width: 65px;
 	cursor: pointer;
+}
+.header__btn .user-pic img{
+	object-fit: cover;
 }
 .header__menu ul li {
 	list-style: none;
@@ -3964,4 +3967,8 @@ form + p{
 }
 .login-button{
 	width: 45% !important;
+}
+.table-custom{
+	width: 80%;
+	
 }
