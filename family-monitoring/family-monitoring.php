@@ -10,12 +10,12 @@
     require_once '../includes/topnav.php';
 ?>
 
-<div class="row justify-content-center">
+<div class="row justify-content-center mr-0 ml-0">
     <div class="col-auto">
-      <table class="table table-responsive table-bordered text-center">
+      <table class="table table-bordered table-responsive text-center">
         <thead>
             <tr>
-            <th class="table-info" scope="col">Patient ID</th>
+            <th class="table-info" scope="col">Patient #</th>
             <th class="table-info" scope="col">Full Name</th>
             <th class="table-info" scope="col">Room</th>
             <th class="table-info" scope="col">Status</th>
@@ -28,7 +28,7 @@
             <td>Datu Batumbakal</td>
             <td>Room 1</td>
             <td>Active</td>
-            <td>Eljen Augusto</td>
+            <td>Active</td>
             </tr>
         </tbody>
       </table>
