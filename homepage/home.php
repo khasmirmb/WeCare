@@ -1,6 +1,6 @@
 <?php
 
-    $page_title = 'WeCare - Sign In';
+    $page_title = 'WeCare - Home';
     require_once '../includes/header.php';
     require_once '../classes/account.class.php';
     session_start();
