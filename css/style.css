@@ -44,8 +44,8 @@ p{
 
 .btn-primary {
     color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+    background-color: #00ACB2;
+    border-color: #00ACB2;
     padding: 12px 30px 10px;
 }
 
@@ -61,8 +61,8 @@ p{
 
 .btn-warning {
     color: #fff;
-    background-color: #13a2b7;
-    border-color: #13a2b7;
+    background-color: #00ACB2;
+    border-color: #00ACB2;
     font-weight: 600;
     font-family: 'Poppins';
     border-radius: 6px;
