@@ -1,5 +1,5 @@
 <!-- Top Navigation -->
-<div class="container-first-nav">
+        <div class="container-first-nav">
             <ul class="nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link text-white" href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -39,51 +39,64 @@
             </div>
                 
             <?php } ?>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <?php
+                    if(!isset($_SESSION['logged_id'])){
+            ?>
+            <div class="logo-nav mt-2 mb-2">
+                <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo" width="45px"></a>
+            </div>
+            <?php }?>
+            
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="../homepage/home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="../about/about.php">About</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Service</a>
+                <a class="nav-link" href="../service/service.php">Service</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="../contact/contact.php">Contact</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">History</a>
+                <a class="nav-link" href="../history/history.php">History</a>
                 </li>
                 <?php
                 if(isset($_SESSION['logged_id'])){
                 ?>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Appointment</a>
+                <a class="nav-link" href="../appointment/appointment.php">Appointment</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="../account/logout.php">Tempo Logout</a>
                 </li>
                 <?php } ?>
-                <?php
-                    if(!isset($_SESSION['logged_id'])){
-                ?>
-                <li class="nav-item m-1">
-                    <a class="btn btn-outline-info" href="../account/signin.php">Login</a>
-                </li>
-                <li class="nav-item m-1">
-                    <a class="btn btn-outline-info" href="#">SignUp</a>
-                </li>
-                <?php } ?>
 
             </ul>
-                <div class="logo-nav">
-                    <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo" width="45px"></a>
+            <?php
+                if(isset($_SESSION['logged_id'])){
+            ?>
+            <div class="logo-nav">
+                <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo" width="45px"></a>
+            </div>
+            <?php } ?>
+            <?php
+                    if(!isset($_SESSION['logged_id'])){
+                ?>
+                <div class="nav-item m-1">
+                    <a class="btn btn-outline-info" href="../account/signin.php">Login</a>
                 </div>
+                <div class="nav-item m-1">
+                    <a class="btn btn-outline-info" href="#">Sign Up</a>
+                </div>
+                <?php } ?>
             </div>
         </div>
         </nav>
