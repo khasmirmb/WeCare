@@ -1,15 +1,13 @@
 <?php
-
-    $page_title = 'WeCare - Contact Us';
+    $page_title = 'WeCare - Nursing Home, Inc.';
     require_once '../includes/header.php';
     session_start();
 
     require_once '../includes/topnav.php';
 
-
 ?>
 
-<!-- Contact Section Begin -->
+
 <!--Section: Contact v.2-->
 <section class="mb-4">
 
@@ -37,8 +35,8 @@
                     </div>
                     <!--Grid column-->
 
-                    <!--Grid column-->
-                    <div class="col-md-6">
+                     <!--Grid column-->
+                     <div class="col-md-6">
                         <div class="md-form mb-0">
                             <input type="text" id="name" name="name" class="form-control">
                             <label for="name" class="">Last name</label>
@@ -97,15 +95,15 @@
         <div class="col-md-3 text-center">
             <ul class="list-unstyled mb-0">
                 <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road</p>
+                    <p> Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road</p>
                 </li>
 
                 <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p> (062) 991 3236</p>
+                    <p>(062) 991 3236</p>
                 </li>
 
                 <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>contact@mdbootstrap.com</p>
+                    <p>W.C@yahoo.com</p>
                 </li>
             </ul>
         </div>
@@ -115,7 +113,8 @@
 
 </section>
 <!--Section: Contact v.2-->
-    <!-- Contact Section End -->
+
+
 
 <?php
 

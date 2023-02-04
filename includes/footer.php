@@ -1,97 +1,132 @@
 <!-- Footer Section Begin -->
-<footer>
-        <div class="containers">
-            <div class="row">
-                  <div class="col" id="company">
-                      <img src="../img/logo.png" alt="" class="logo">
-                      <p>
-                        We specialized in taking care of your loved ones.
-                        Even away from home.
-                      </p>
-                      <div class="social">
-                        <a href="https://www.facebook.com/pages/We-Care-Nursing-Home-zamboanga-city/340004616038796"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-google"></i></a>
-                      </div>
-                  </div>
 
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
 
-                  <div class="col" id="services">
-                     <h3>Services</h3>
-                     <div class="links">
-                        <a href="../services/services.php">Caregiving</a>
-                        <a href="#">Treatment</a>
-                        <a href="#">Consulting</a>
-                        <a href="#">Apply</a>
-                     </div>
-                  </div>
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
 
-                  <div class="col" id="useful-links">
-                     <h3>Links</h3>
-                     <div class="links">
-                        <a href="../about/about.php">About</a>
-                        <a href="../faq/faq.php">FAQ</a>
-                        <a href="#">Our Policy</a>
-                        <a href="#">Help</a>
-                     </div>
-                  </div>
-
-                  <div class="col" id="contact">
-                      <h3>Contact</h3>
-                      <div class="contact-details">
-                         <i class="fa fa-map-marker"></i>
-                         <p>Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road, Zamboanga City</p>
-                      </div>
-                      <div class="contact-details">
-                         <i class="fa fa-phone"></i>
-                         <p>(062) 991 3236 </p>
-                      </div>
-                  </div>
-            </div>
-
-            <div class="row">
-                  <div class="form">
-                    <form action="">
-                        <input type="text" placeholder="Email here...">
-                        <button><i class="fa fa-paper-plane"></i></button>
-                    </form>
-                  </div>
-            </div>
-
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+          <img src="../images/logo.png" alt="Logo" width="24" height="36" class="d-inline-block align-text-top">
+                WeCare
+               </a>
+          </h6>
+          <p>
+            We specialized in taking care of your loved ones. Even away from home.
+          </p>
         </div>
-        <div class="footer__copyright">
-            <div class="cont">
-                <div class="row">
-                    <div class="col-lg-7">
-                      
-                        <div class="footer__copyright__text">
-                            <p>WeCare Nursing Home, Inc. Copyright</p>
-                        </div>
-                        
-                    </div>
-                    <div class="col-lg-5">
-                        <ul>
-                            <li>All Rights Reserved</li>
-                            <li>Terms & Use</li>
-                            <li>Privacy Policy</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Services
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Caregiving</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Rehabilitation</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Consultation</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Apply Now</a>
+          </p>
         </div>
-    </footer>
-    <!-- Footer Section End -->
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Rooms</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">FAQ</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            W.C@yahoo.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> (062) 991 3236</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: #00ACB2;">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold">WeCare Nursing Home, Inc.</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+<!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.magnific-popup.min.js"></script>
-    <script src="../js/masonry.pkgd.min.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/jquery.nice-select.min.js"></script>
-    <script src="../js/jquery.slicknav.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/popup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/hover.js"></script>
 
 </body>
 
