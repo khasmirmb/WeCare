@@ -8,38 +8,61 @@
 
 ?>
 
-<section style="background-color: #F0F2F5;">
+<section class="gradient-custom-5">
   <div class="container py-5">
-    <div class="main-timeline">
-      <div class="timeline left">
+    <div class="main-timeline-5">
+      <div class="timeline-5 right-5">
         <div class="card">
           <div class="card-body p-4">
-            <h3>2001</h3>
-            <p class="mb-0">On October of 2001, three cousins founded a non-profit organization named WeCare Nursing Home INC by Jarah Bernardo, Sheila, Padua and Gianelli Delos Santos on Governor Camins Avenue, Zamboanga City but later on transfered to barangay Boalan near Inland Resort Hotel & Restaurant</p>
+            <h5>Title of section 1</h5>
+            <span class="small text-muted"><i class="fas fa-clock me-1"></i>21 March, 2020</span>
+            <p class="mt-2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque
+              diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis
+              sagittis ligula in sodales vehicula....</p>
           </div>
         </div>
       </div>
-      <div class="timeline right">
+      <div class="timeline-5 right-5">
         <div class="card">
           <div class="card-body p-4">
-            <h3>2012</h3>
-            <p class="mb-0">Years later, they transfered to Sta. Maria during the year of 2012 </p>
+            <h5>Title of section 2</h5>
+            <span class="small text-muted"><i class="fas fa-clock me-1"></i>5 April, 2020</span>
+            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam
+              non nisi semper.</p>
+            <p class="mb-0">Libero expedita explicabo eius fugiat quia aspernatur autem laudantium error
+              architecto recusandae natus sapiente sit nam eaque, consectetur porro molestiae ipsam! Deleniti.
+            </p>
           </div>
         </div>
       </div>
-      <div class="timeline left">
+      <div class="timeline-5 right-5">
         <div class="card">
           <div class="card-body p-4">
-            <h3>2023</h3>
-            <p class="mb-0">Now since 2012 they are located at Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road and already 21 years in service and nurses aged people up until today.</p>
+            <h5>Title of section 3</h5>
+            <span class="small text-muted"><i class="fas fa-clock me-1"></i>18 August, 2020</span>
+            <p class="mt-2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque
+              diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis
+              sagittis ligula in sodales vehicula....</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-5 right-5">
+        <div class="card">
+          <div class="card-body p-4">
+            <h5>Title of section 4</h5>
+            <span class="small text-muted"><i class="fas fa-clock me-1"></i>10 October, 2020</span>
+            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam
+              non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis
+              ligula in sodales vehicula....</p>
+            <p class="mb-0">Voluptatibus temporibus esse illum eum aspernatur, fugiat suscipit natus! Eum
+              corporis illum nihil officiis tempore. Excepturi illo natus libero sit doloremque, laborum
+              molestias rerum pariatur quam ipsam necessitatibus incidunt, explicabo.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
 
 <?php
 
