@@ -21,6 +21,13 @@ p{
     font-weight: 500;
 }
 
+.service-p{
+  font-size: .5;
+  color: #000;
+  font-weight: 500;
+  display: block;
+}
+
 /*---------------------
   Button
 -----------------------*/

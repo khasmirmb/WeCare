@@ -26,8 +26,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Caregiving</h3>
-                            <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
-                                odio data center for managing database.</p>
+                            <p>Our service provide assistance with their social or medical requirements. Help with one or more essential daily activities, including bathing and dressing, might be included in caregiving.</p>
                             <p><a href="#" class="btn btn-warning mt3">Learn More</a></p>
                         </div>
                     </div>
@@ -39,8 +38,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Rehabilitation</h3>
-                            <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
-                                odio data center for managing database.</p>
+                            <p> WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical.</p>
                             <p><a href="#" class="btn btn-warning mt3">Learn More</a></p>
                         </div>
                     </div>
@@ -52,8 +50,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Consultation</h3>
-                            <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
-                                odio data center for managing database.</p>
+                            <p>Involves consulting and seeking advice from a licensed medical expert for assessment and diagnostic findings, therapeutic interventions, or other services that will be beneficial to the client.</p>
                              <p><a href="#" class="btn btn-warning mt3">Learn More</a></p>
                         </div>
                     </div>
