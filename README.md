@@ -1,0 +1,3 @@
+# WeCare
+
+SANA MAKATAPOS THIS SEM SE 2
