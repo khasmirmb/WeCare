@@ -25,7 +25,7 @@
             <div class="carousel-caption">
                 <h3 class="fw-bolder fst-italic text-white display-4" >Why Choose WeCare?</strong></h3>
                 <p>WeCare Offers A lot of Perks That Our Costumer Needs</p>
-                <p><a href="#" class="btn btn-info mt3">Learn More</a></p>
+                <p><a href="#choose-us" class="btn btn-info mt3">Learn More</a></p>
             </div>
           </div>
           <div class="carousel-item carousel-image bg-img-2">
@@ -55,7 +55,7 @@
         <!-- Carousel End -->
 
     <!-- Choose Us -->
-    <div class="choose-us-container">
+    <div class="choose-us-container" id="choose-us">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -100,7 +100,7 @@
     <!-- Choose Us End -->
 
     <!-- Own Area -->
-    <div class="own-area-container">
+    <div class="own-area-container" id="own-area">
         <div class="container mb-5">
             <div class="col text-center">
                 <div class="section-title">
