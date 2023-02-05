@@ -1,10 +1,11 @@
 <?php
-    $page_title = 'WeCare - Nursing Home, Inc.';
+
+    $page_title = 'WeCare Nursing Home Inc.';
     require_once '../includes/header.php';
+    require_once '../classes/account.class.php';
     session_start();
 
-    require_once '../includes/topnav.php';
-
+    require_once '../includes/navbar.php';
 ?>
 
 <main>
@@ -18,7 +19,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="../images/home-bg.jpg" class="d-block w-100" alt="...">
+                <img src="../images/home-display4.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Why Choose WeCare?</h5>
                     <p class="caroul-p">WeCare Offers A lot of Perks That Our Costumer Needs</p>
@@ -26,7 +27,7 @@
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img src="../images/service1.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
+                <img src="../images/home-display2.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Find Best Care Service With WeCare</h5>
                     <p class="caroul-p">WeCare Offers Years of Experience in Caring</p>
@@ -34,7 +35,7 @@
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img src="../images/display-5.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
+                <img src="../images/display-4.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Our Own Area</h5>
                     <p class="caroul-p">Walking Area, Terrace and Dinning Area</p>
@@ -42,7 +43,7 @@
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img src="../images/display-4.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
+                <img src="../images/home-display1.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Our Services</h5>
                     <p class="caroul-p">Caregiving, Memory Care, Rehabilitation, Long Term Care</p>
@@ -141,6 +142,6 @@
 
 <?php
 
-    require_once '../includes/footer.php';
+require_once '../includes/footer.php';
 
 ?>

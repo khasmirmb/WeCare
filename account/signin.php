@@ -66,7 +66,9 @@
                     <input type="password" id="form2Example27" class="form-control form-control-lg" />
                     <label class="form-label" for="form2Example27">Password</label>
                   </div>
-                    
+                  <!--<div class="forgot_password">
+                  <a href="#!">Forgot password?</a>
+                  </div> -->
                   <div class="pt-1 mb-4">
                     <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
                     

@@ -1,17 +1,17 @@
 <?php
-    $page_title = 'WeCare - Nursing Home, Inc.';
+
+    $page_title = 'WeCare - About';
     require_once '../includes/header.php';
+    require_once '../classes/account.class.php';
     session_start();
 
-    require_once '../includes/topnav.php';
-
+    require_once '../includes/navbar.php';
 ?>
 
-
-
+        
 
 <?php
 
-    require_once '../includes/footer.php';
+require_once '../includes/footer.php';
 
 ?>

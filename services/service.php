@@ -1,13 +1,14 @@
 <?php
-    $page_title = 'WeCare - Nursing Home, Inc.';
+
+    $page_title = 'WeCare - Service';
     require_once '../includes/header.php';
+    require_once '../classes/account.class.php';
     session_start();
 
-    require_once '../includes/topnav.php';
-
+    require_once '../includes/navbar.php';
 ?>
-
-<section class="section bg-color">
+<div class="service-container">
+    <section class="section bg-color">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-5 col-md-8 m-auto">
@@ -25,7 +26,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Caregiving</h3>
-                            <p>Our service provide assistance with their social or medical requirements. Help with one or more essential daily activities, including bathing and dressing, might be included in caregiving.</p>
+                            <p>Our service provide assistance with their social or medical requirements. Help with one or more essential daily activities, including bathing and dressing, might be included in caregiving.</p>
                         </div>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Rehabilitation</h3>
-                            <p> WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical included in this service.</p>
+                            <p>WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical included in this service.</p>
                         </div>
                     </div>
                 </div>
@@ -57,7 +58,7 @@
                             <img src="img/4.png" class="img-fluid w-25" alt="">
                         </div>
                         <div class="service-content">
-                            <h3 class="mb-3">Apply Now</h3>
+                            <h3 class="mb-3">Apply Now <i class="fa-solid fa-chevrons-right"></i></h3>
                             <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
                                 odio data center for managing database.</p>
                         </div>
@@ -69,7 +70,7 @@
                             <img src="img/5.png" class="img-fluid w-25" alt="">
                         </div>
                         <div class="service-content">
-                            <h3 class="mb-3">Rooms</h3>
+                            <h3 class="mb-3">Rooms <i class="fa-solid fa-chevrons-right"></i></h3>
                             <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
                                 odio data center for managing database.</p>
                         </div>
@@ -89,7 +90,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>   
+</div> 
 
 <?php
 
