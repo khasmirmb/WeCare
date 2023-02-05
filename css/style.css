@@ -9,6 +9,9 @@
 body{
     background: f1fbff;
 }
+/*---------------------
+  Home
+-----------------------*/
 .section-padding{
     padding: 100px 0;
 }
@@ -33,6 +36,10 @@ body{
     line-height: 1.9;
     margin-bottom: 10px;
 }
+
+/*---------------------
+  Navigation Bar
+-----------------------*/
 .container-first-nav{
     background: #00ACB2;
     height: 40px;
@@ -49,9 +56,30 @@ body{
 .container .user-profile img{
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
+}
+.container .nav-item .btn{
+  color: #00ACB2;
+  border-color: #00ACB2;
 }
 /*---------------------
-  Timeline
+  Footer
+-----------------------*/
+
+.social-right i{
+  color: white;
+}
+.social-right a{
+  text-decoration: none;
+}
+.social-left span{
+  color: white;
+}
+.social-media{
+  background: #00ACB2;
+}
+/*---------------------
+  History
 -----------------------*/
 
 /* The actual timeline (the vertical ruler) */
@@ -205,4 +233,48 @@ body{
 }
 .map-area h2{
     font-weight: 600;
+}
+
+/*---------------------
+  Service
+-----------------------*/
+
+.section{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.bg-color{
+  background: url(../images/home-display1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sub-heading span{
+  color: #00ACB2;
+  font-weight: 600;
+}
+.sub-heading h2{
+  font-weight: 700;
+  font-family: 'Livvic', sans-serif;
+  color: #fff;
+}
+.service-box{
+  padding: 25px;
+  background-color: #fff;
+  transition: .4s;
+  transform: translateY(0);
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+.service-content h3{
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(58, 58, 58);
+}
+.service-box:hover{
+  box-shadow: 0 0 30px #eee;
+  transform: translateY(-.5rem);
+}
+.service-content h3:hover{
+  color: #106eea;
 }

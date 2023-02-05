@@ -1,27 +1,9 @@
 <!-- Top Navigation -->
         <div class="container-first-nav">
             <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#"><i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#"><i class="fa-brands fa-twitter"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#"><i class="fa-brands fa-google"></i></a>
-            </li>
-            <li class="nav-item">
-                <p class="nav-link text-white" href="#"><i class="fa-solid fa-phone"></i> (062) 991 3236</p>
-            </li>
-            <li class="nav-item">
-                <p class="nav-link text-white" href="#"><i class="fa-solid fa-location-dot"></i> Bernado Drive, 143 S. De Leon Street, Sta.Maria Road</p>
-            </li>
-            <li class="nav-item">
-                <p class="nav-link text-white" href="#"><i class="fa-solid fa-clock"></i> Mon to Sat 9:00pm to 9:00pm</p>
-            </li>
+                <li class="nav-item">
+                    <p class="nav-link text-white" href="#"><i class="fa-solid fa-clock"></i> Mon to Sat 9:00pm to 9:00pm</p>
+                </li>
             </ul>
         </div>
     
@@ -31,7 +13,15 @@
                 if(isset($_SESSION['logged_id'])){
             ?>
             <div class="user-profile">
-                <img src="../images/home1.jpg" alt="Avatar" width="65px">
+                <img src="../images/home1.jpg" alt="Avatar" width="65px" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
             </div>
 
             <div class="user-bell">

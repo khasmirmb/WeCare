@@ -1,56 +1,117 @@
-    <!-- Footer Start -->
-    <footer class="text-center text-white" style="background-color: #00ACB2;">
-    <!-- Grid container -->
-    <div class="container pt-4">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-        <!-- Facebook -->
-        <a
-            class="btn btn-link btn-floating btn-lg text-white m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="dark"
-            ><i class="fab fa-facebook-f"></i
-        ></a>
-
-        <!-- Twitter -->
-        <a
-            class="btn btn-link btn-floating btn-lg text-white m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="white"
-            ><i class="fab fa-twitter"></i
-        ></a>
-
-        <!-- Google -->
-        <a
-            class="btn btn-link btn-floating btn-lg text-white m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="white"
-            ><i class="fab fa-google"></i
-        ></a>
-
-        <!-- Instagram -->
-        <a
-            class="btn btn-link btn-floating btn-lg text-white m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="white"
-            ><i class="fab fa-instagram"></i
-        ></a>
-        </section>
-        <!-- Section: Social media -->
+<!-- Footer -->
+<footer class="text-center text-lg-start text-muted">
+  <!-- Section: Social media -->
+  <section class="social-media d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="social-left me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
     </div>
-    <!-- Grid container -->
+    <!-- Left -->
 
-    <!-- Copyright -->
-    <div class="text-center text-dark p-3" style="background-color: white;">
-        © 2020 Copyright:
-        <a class="text-dark" href="#">WeCare.com</a>
+    <!-- Right -->
+    <div class="social-right">
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
     </div>
-    <!-- Copyright -->
-    </footer>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <img src="../images/logo.png" alt="Logo" width="35px"></i>WeCare Nursing Home Inc.
+          </h6>
+          <p>
+          WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Services
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Caregiving</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Rehabilitation</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Consultation</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">OJT</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">About Us</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">History</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Faq</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i>Bernado Drive, 143 S. De Leon Street, Sta.Maria Road</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            W.C@yahoo.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> (062) 991 3236</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="copyright-area text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2023 Copyright:
+    <a class="text-reset fw-bold" href="https://www.wecarenursinghome.online/">WeCare</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
     <!-- Footer End -->
 
