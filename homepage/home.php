@@ -1,6 +1,6 @@
 <?php
 
-    $page_title = 'WeCare - Home';
+    $page_title = 'WeCare Nursing Home Inc.';
     require_once '../includes/header.php';
     require_once '../classes/account.class.php';
     session_start();
