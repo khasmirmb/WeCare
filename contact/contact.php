@@ -10,7 +10,6 @@
 
 <div class="contact-area mb-7">
     <div class="container">
-        <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="section-title">
                     <!--Section heading-->
@@ -20,7 +19,6 @@
                     a matter of hours to help you.</p>
                 </div>
             </div>
-        </div>
 
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">

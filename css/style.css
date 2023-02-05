@@ -125,12 +125,12 @@ body{
 }
 .user-profile ul li span{
   color: white;
-  background: #00ACB2;
-  padding: 10px;
-  border-radius: 100%;
 }
 .user-profile ul li p{
   color: white;
+}
+.user-profile ul li span:hover{
+  color: #00ACB2;
 }
 
 .user-profile .dropdown-menu{
@@ -292,6 +292,10 @@ body{
 }
 .section-title h2{
     font-weight: 700;
+    color: #000;
+}
+.section-title p{
+  color: #000;
 }
 .contact-form{
     background-color: white;
@@ -348,6 +352,7 @@ body{
   transform: translateY(0);
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  border-radius: 2%;
 }
 .service-content h3{
   font-size: 24px;
@@ -366,6 +371,9 @@ body{
 -----------------------*/
 .choose-us-container{
   background: #00ACB2;
+}
+.choose-us-container .section-title h2{
+  color: white;
 }
 .chooseus__item .equiplogo {
   width: 60%;
@@ -423,8 +431,8 @@ color: #ece8e8;
   margin-top: 8rem;
 }
 
-.section-title{
-  margin-top: 5rem;
+.own-area-container .section-title{
+  margin-top: 3rem;
 }
 
 .team__item {
