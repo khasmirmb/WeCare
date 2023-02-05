@@ -84,7 +84,7 @@
                     <div class="chooseus__item">
                     <i class="fa-solid fa-user-nurse"></i>
                         <h5>Qualified Caregivers & Staff</h5>
-                        <p>WeCare caregiver and staff has patience and adaptable. There will be several obstacles in the way.</p>
+                        <p>WeCare caregiver and staff has patience, adaptable, professional and Care that make them qualified.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
