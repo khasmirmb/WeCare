@@ -30,7 +30,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Find Best Care Service With WeCare</h5>
                     <p class="caroul-p">WeCare Offers Years of Experience in Caring</p>
-                    <p><a href="../services/services.php" class="btn btn-warning mt3">Learn More</a></p>
+                    <p><a href="#" class="btn btn-warning mt3">Learn More</a></p>
                 </div>
                 </div>
                 <div class="carousel-item">
@@ -45,8 +45,8 @@
                 <img src="../images/display-4.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Our Services</h5>
-                    <p class="caroul-p">Caregiving, Memory Care, Rehabilitation, Long Term Care</p>
-                    <p><a href="#" class="btn btn-warning mt3">Learn More</a></p>
+                    <p class="caroul-p">Caregiving, Memory Care, Rehabilitation, and etc.</p>
+                    <p><a href="../services/servces.php" class="btn btn-warning mt3">Learn More</a></p>
                 </div>
                 </div>
             </div>
