@@ -38,6 +38,25 @@ body{
   border: #00ACB2;
 }
 
+.primary-btn.normal-btn {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 30px 10px;
+  text-transform: uppercase;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid #00ACB2;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.primary-btn.normal-btn:hover{
+	background: #00ACB2;
+}
+
+
 /*---------------------
   Home
 -----------------------*/
@@ -467,4 +486,59 @@ color: #ece8e8;
 
 .team__item .team__item__social a:last-child {
 	margin-right: 0;
+}
+
+/*---------------------
+  About
+-----------------------*/
+
+.about {
+	padding-bottom: 0;
+}
+
+.about .container {
+	padding-bottom: 100px;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.about__text {
+	padding-left: 20px;
+}
+
+.about__text .section-title {
+	margin-bottom: 25px;
+}
+.about__text .section-title .about_h2{
+	color: #000;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.about__text .section-title .about_span {
+	font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about__text p {
+	margin-bottom: 25px;
+}
+
+.about__text ul {
+	margin-bottom: 25px;
+}
+
+.about__text ul li {
+	list-style: none;
+	font-size: 15px;
+	color: #666666;
+	line-height: 36px;
+}
+
+.about__text ul li i {
+	color: #13a2b7;
+	font-size: 15px;
+	margin-right: 6px;
 }
