@@ -39,6 +39,15 @@
   </div>
 </section> 
 
+
+<div class="container">
+  <div class="founder-container">
+    <div class="founder-title">
+      
+    </div>
+  </div>
+</div>
+
 <?php
 
 require_once '../includes/footer.php';

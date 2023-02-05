@@ -17,13 +17,13 @@ body{
 }
 .carousel-item{
     height: 100vh;
-    min-height: 300px;
+    min-height: 250px;
 }
 .carousel-caption{
     bottom: 220px;
     z-index: 2;
 }
-.carousel-caption h5{
+.carousel-caption h3{
     font-size: 35px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -35,6 +35,41 @@ body{
     font-size: 15px;
     line-height: 1.9;
     margin-bottom: 10px;
+}
+.carousel-inner:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(37, 36, 36, 0.7);
+	z-index: 1;
+}
+.carousel-inner .carousel-caption .btn{
+  background-color: #00ACB2;
+  color: #fff;
+  border: none;
+}
+.bg-img-1 {
+  background-image: url('../images/home-display1.jpg');
+}
+
+.bg-img-2 {
+  background-image: url('../images/home-display2.jpg');
+}
+
+.bg-img-3 {
+  background-image: url('../images/home-display3.jpg');
+}
+.bg-img-4 {
+  background-image: url('../images/home-display4.jpg');
+}
+
+.carousel-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /*---------------------
@@ -50,18 +85,66 @@ body{
 .container .user-bell{
     font-size: 25px;
     color: #00ACB2;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-right: 25px;
 }
-.container .user-profile img{
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
+.container .user-bell i{
+  cursor: pointer;
+  padding: 5px;
+}
+.user-bell i:hover{
+  cursor: pointer;
+  background: #00ACB2;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+.user-profile a{
+  text-decoration: none;
+}
+.user-profile img{
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.user-profile img:hover{
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+  filter: brightness(50%)
+}
+.user-profile ul li{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.user-profile ul li i{
+  margin-right: 5px;
+  color: white;
+  padding: 8px;
+  background: #00ACB2;
+  border-radius: 50%;
+}
+.user-profile ul li span{
+  color: white;
+  background: #00ACB2;
+  padding: 10px;
+  border-radius: 100%;
+}
+.user-profile ul li p{
+  color: white;
+}
+
+.user-profile .dropdown-menu{
+  background: #00ACB2;
 }
 .container .nav-item .btn{
   color: #00ACB2;
   border-color: #00ACB2;
 }
+.container .nav-item .btn:hover{
+  color: #fff;
+  background: #00ACB2;
+}
+
 /*---------------------
   Footer
 -----------------------*/
@@ -276,5 +359,131 @@ body{
   transform: translateY(-.5rem);
 }
 .service-content h3:hover{
-  color: #106eea;
+  color:#00ACB2;
+}
+/*---------------------
+  Choose Us
+-----------------------*/
+.choose-us-container{
+  background: #00ACB2;
+}
+.chooseus__item .equiplogo {
+  width: 60%;
+margin-top: 5px;
+}
+.chooseus__item .ceftified {
+  width: 65%;
+margin-top: 5px;
+}
+
+.chooseus__item .caregiver {
+  width: 35%;
+margin-top: 5px;
+}
+.chooseus__item i{
+  width: 35%;
+margin-top: 5px;
+font-size: 45px;
+color: white;
+}
+.chooseus {
+padding-bottom: 50px;
+background: #00ACB2;
+margin-top: 8rem;
+}
+
+.chooseus__item {
+text-align: center;
+margin-bottom: 30px;
+padding: 15px;
+}
+
+.chooseus__item h5 {
+font-size: 20px;
+color: white;
+font-weight: 600;
+margin-top: 5px;
+margin-bottom: 16px;
+}
+
+.chooseus__item p {
+margin-bottom: 0;
+color: #ece8e8;
+}
+.container .section-title{
+  color: white;
+}
+
+/*---------------------
+  Areas
+-----------------------*/
+
+.team {
+	padding-bottom: 70px;
+  margin-top: 8rem;
+}
+
+.section-title{
+  margin-top: 5rem;
+}
+
+.team__item {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.team .team_span{
+	font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.team__item:hover img {
+	border-color: #13a2b7;
+}
+
+.team__item img {
+	height: 270px;
+	width: 270px;
+	border-radius: 50%;
+	border: 10px solid #ffffff;
+	-webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+	margin-bottom: 32px;
+	-webkit-transition: all, 0.5s;
+	-o-transition: all, 0.5s;
+	transition: all, 0.5s;
+}
+
+.team__item h5 {
+	font-size: 20px;
+	color: #111111;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+.team h2{
+    font-size: calc(1.325rem + .9vw);
+    color: #000;
+}
+
+.team__item span {
+	font-size: 15px;
+	color: #13a2b7;
+	display: block;
+	margin-bottom: 12px;
+}
+
+.team__item .team__item__social a {
+	font-size: 15px;
+	color: #666666;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.team__item .team__item__social a:last-child {
+	margin-right: 0;
+}
+.own-area-container .container .section-title{
+  color: #000;
 }
