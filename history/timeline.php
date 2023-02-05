@@ -19,7 +19,7 @@
 ?>
 
 <h2 class="text-center py-3">WeCare Timeline</h2>
-
+<div class="timeline_body"> 
 <div class="container py-2 mt-4 mb-4">
   <!-- timeline item 1 -->
   <div class="row no-gutters">
@@ -95,12 +95,13 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">2012 - 2022 </h4>
-          <p>They are already 21 years in service and nurses aged people up until today.</p>
+          <p class="card-text">They are already 21 years in service and nurses aged people up until today.</p>
         </div>
       </div>
     </div>
   </div>
   <!--/row-->
+</div>
 </div>
 
 

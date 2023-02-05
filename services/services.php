@@ -8,7 +8,6 @@
 ?>
 
 <section class="section bg-color">
-<p><a href="../homepage/home.php" class="btn btn-warning mt3">Back</a></p>
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-5 col-md-8 m-auto">
