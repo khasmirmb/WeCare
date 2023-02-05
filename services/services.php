@@ -36,7 +36,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Rehabilitation</h3>
-                            <p> WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical.</p>
+                            <p> WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical included in this service.</p>
                         </div>
                     </div>
                 </div>
