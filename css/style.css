@@ -229,7 +229,15 @@ Services
   padding-bottom: 50px;
 }
 .bg-color{
-  background-color: #F6F7F9;
+  background: url(../images/service1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text-center {
+text-align: center!important;
+color: #fff;
+font-family: 'Poppins', sans-serif;
 }
 .sub-heading span{
   color: #106eea;
