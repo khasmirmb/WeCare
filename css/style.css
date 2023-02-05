@@ -270,3 +270,122 @@ font-family: 'Poppins', sans-serif;
 /*---------------------
 About Us
 -----------------------*/
+
+
+/*---------------------
+  Choose Us
+-----------------------*/
+.chooseus__item .equiplogo {
+  width: 60%;
+margin-top: 5px;
+}
+.chooseus__item .ceftified {
+  width: 65%;
+margin-top: 5px;
+}
+
+.chooseus__item .caregiver {
+  width: 35%;
+margin-top: 5px;
+}
+.chooseus__item i{
+  width: 35%;
+margin-top: 5px;
+font-size: 45px;
+color: white;
+}
+.chooseus {
+padding-bottom: 50px;
+background: #00ACB2;
+margin-top: 8rem;
+}
+
+.chooseus__item {
+text-align: center;
+margin-bottom: 30px;
+padding: 15px;
+}
+
+.chooseus__item h5 {
+font-size: 20px;
+color: white;
+font-weight: 600;
+margin-top: 5px;
+margin-bottom: 16px;
+}
+
+.chooseus__item p {
+margin-bottom: 0;
+color: #ece8e8;
+}
+
+/*---------------------
+  Areas
+-----------------------*/
+
+.team {
+	padding-bottom: 70px;
+  margin-top: 8rem;
+}
+
+.section-title{
+  margin-top: 5rem;
+}
+
+.team__item {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.team .team_span{
+	font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.team__item:hover img {
+	border-color: #13a2b7;
+}
+
+.team__item img {
+	height: 270px;
+	width: 270px;
+	border-radius: 50%;
+	border: 10px solid #ffffff;
+	-webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+	margin-bottom: 32px;
+	-webkit-transition: all, 0.5s;
+	-o-transition: all, 0.5s;
+	transition: all, 0.5s;
+}
+
+.team__item h5 {
+	font-size: 20px;
+	color: #111111;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+.team h2{
+    font-size: calc(1.325rem + .9vw);
+    color: #000;
+}
+
+.team__item span {
+	font-size: 15px;
+	color: #13a2b7;
+	display: block;
+	margin-bottom: 12px;
+}
+
+.team__item .team__item__social a {
+	font-size: 15px;
+	color: #666666;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.team__item .team__item__social a:last-child {
+	margin-right: 0;
+}

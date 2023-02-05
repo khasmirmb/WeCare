@@ -30,7 +30,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Find Best Care Service With WeCare</h5>
                     <p class="caroul-p">WeCare Offers Years of Experience in Caring</p>
-                    <p><a href="#" class="btn btn-warning mt3">Learn More</a></p>
+                    <p><a href="#chooseus spad" class="btn btn-warning mt3">Learn More</a></p>
                 </div>
                 </div>
                 <div class="carousel-item">
@@ -38,15 +38,15 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Our Own Area</h5>
                     <p class="caroul-p">Walking Area, Terrace and Dinning Area</p>
-                    <p><a href="../rooms/rooms.php" class="btn btn-warning mt3">Learn More</a></p>
+                    <p><a href="#team spad" class="btn btn-warning mt3">Learn More</a></p>
                 </div>
                 </div>
                 <div class="carousel-item">
                 <img src="../images/display-4.jpg" class="d-block w-100" alt="..." style="filter: brightness(50%);">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Our Services</h5>
-                    <p class="caroul-p">Caregiving, Memory Care, Rehabilitation, and etc.</p>
-                    <p><a href="../services/servces.php" class="btn btn-warning mt3">Learn More</a></p>
+                    <p class="caroul-p">Caregiving, Memory Care, Rehabilitation, Long Term Care</p>
+                    <p><a href="../services/services.php" class="btn btn-warning mt3">Learn More</a></p>
                 </div>
                 </div>
             </div>
@@ -61,6 +61,82 @@
         </div>
         <!-- Carousel End -->
 <main>
+
+<section id="chooseus spad" class="chooseus spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span>Why choose us?</span>
+                        <h2>WeCare Offers</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                    <i class="fa-solid fa-briefcase-medical"></i>
+                        <h5>Equipment & Programs</h5>
+                        <p>WeCare offers equipment & programs that will make our patient comfortable and enjoy their stay</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                    <i class="fa-solid fa-user-nurse"></i>
+                        <h5>Qualified Caregivers</h5>
+                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                    <i class="fa-solid fa-user-doctor"></i>
+                        <h5>Your Doctor or Our Doctor</h5>
+                        <p>With WeCare you choose which doctor you want to see even potentially your own family doctor.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="chooseus__item">
+                    <i class="fa-solid fa-hand-holding-medical"></i>
+                        <h5>Most Convenient Care and Services</h5>
+                        <p>Connect directly to WeCare, by phone, video or secure messaging from wherever you are.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team spad" class="team spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <span class="team_span">Our Own</span>
+                        <h2>Areas</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="../images/walk.jpg" alt="">
+                        <h5>Walking Area</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="../images/terrace.jpg" alt="">
+                        <h5>Terrace</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <img src="../images/display-6.jpg" alt="">
+                        <h5>Entrace</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
 
 
 <?php
