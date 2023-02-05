@@ -389,3 +389,53 @@ color: #ece8e8;
 .team__item .team__item__social a:last-child {
 	margin-right: 0;
 }
+
+
+/*---------------------
+  Sign In
+-----------------------*/
+
+.py-5 {
+  padding-top: 1rem!important;
+  padding-bottom: 3rem!important;
+}
+
+.p-4 {
+  padding: 1.5rem!important;
+  height: 34rem;
+}
+
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  height: 32rem;
+}
+
+.signin_icon{
+  margin-top: 1rem;
+  left: 0;
+}
+
+.btn-primary {
+  color: #00ACB2;
+  background-color: #fff;
+  border: 1px solid #00ACB2;
+  border-radius: 40px;
+}
+
+.forgot_password{
+  padding-bottom: 1rem;
+}
+
+.forgot_password a{
+  text-decoration: none;
+  color: #00ACB2;
+}
+
+.forgot_password a:hover{
+  text-decoration: underline;
+}
+
