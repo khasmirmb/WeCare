@@ -68,7 +68,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
                         <span>Why choose us?</span>
-                        <h2>WeCare Offers</h2>
+                        <h2>WeCare offers</h2>
                     </div>
                 </div>
             </div>
@@ -83,8 +83,8 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
                     <i class="fa-solid fa-user-nurse"></i>
-                        <h5>Qualified Caregivers</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                        <h5>Qualified Caregivers & Staff</h5>
+                        <p>WeCare caregiver and staff has patience and adaptable. There will be several obstacles in the way.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
