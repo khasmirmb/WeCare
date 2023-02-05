@@ -395,5 +395,23 @@ color: #ece8e8;
   Sign In
 -----------------------*/
 
+/*---------------------
+  Sign In
+-----------------------*/
 
+.img-fluids {
+  max-width: 100%;
+  height: 32rem;
+}
 
+.btn-primary {
+  color: #00ACB2;
+  background-color: #fff;
+  border-color: #00ACB2;
+  border-radius: 40px;
+}
+
+.py-5 {
+  padding-top: 1rem!important;
+  padding-bottom: 3rem!important;
+}
