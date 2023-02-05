@@ -77,7 +77,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
                     <i class="fa-solid fa-briefcase-medical"></i>
-                        <h5>Equipment & Programs</h5>
+                        <h5>Best Equipment & Programs</h5>
                         <p>WeCare offers equipment & programs that will make our patient comfortable and enjoy their stay</p>
                     </div>
                 </div>

@@ -60,7 +60,7 @@
             <a href="../service/service.php" class="text-reset">Consultation</a>
           </p>
           <p>
-            <a href="../service/service.php" class="text-reset">OJT</a>
+            <a href="../service/service.php" class="text-reset">Apply to us</a>
           </p>
         </div>
         <!-- Grid column -->
