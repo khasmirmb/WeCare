@@ -51,16 +51,16 @@
             Services
           </h6>
           <p>
-            <a href="#!" class="text-reset">Caregiving</a>
+            <a href="../service/service.php" class="text-reset">Caregiving</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Rehabilitation</a>
+            <a href="../service/service.php" class="text-reset">Rehabilitation</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Consultation</a>
+            <a href="../service/service.php" class="text-reset">Consultation</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">OJT</a>
+            <a href="../service/service.php" class="text-reset">OJT</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -72,16 +72,16 @@
             Useful links
           </h6>
           <p>
-            <a href="#!" class="text-reset">About Us</a>
+            <a href="../about/about.php" class="text-reset">About Us</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">History</a>
+            <a href="../history/history.php" class="text-reset">History</a>
+          </p>
+          <p>
+            <a href="../contact/contact.php" class="text-reset">Contact</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Faq</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
           </p>
         </div>
         <!-- Grid column -->
