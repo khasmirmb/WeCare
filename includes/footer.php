@@ -39,7 +39,7 @@
             <img src="../images/logo.png" alt="Logo" width="35px"></i>WeCare Nursing Home Inc.
           </h6>
           <p>
-          WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical.
+          We specialized in taking care of your loved ones. Even away from home.
           </p>
         </div>
         <!-- Grid column -->

@@ -24,6 +24,19 @@ body{
   background: #00ACB2;
   color: #fff;
 }
+.btn-warning {
+  color: #fff;
+  background-color: #00ACB2;
+  border-color: #00ACB2;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.btn-warning:hover{
+  color: #000;
+  background: #fff;
+  border: #00ACB2;
+}
 
 /*---------------------
   Home
@@ -78,6 +91,14 @@ body{
   color: #00ACB2;
   border-color: #00ACB2;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #00ACB2;
+}
 /*---------------------
   Footer
 -----------------------*/
@@ -93,6 +114,10 @@ body{
 }
 .social-media{
   background: #00ACB2;
+}
+.text-reset {
+  color: inherit!important;
+  text-decoration: none;
 }
 /*---------------------
   History

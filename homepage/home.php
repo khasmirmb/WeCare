@@ -47,7 +47,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Our Services</h5>
                     <p class="caroul-p">Caregiving, Memory Care, Rehabilitation, Long Term Care</p>
-                    <p><a href="../services/services.php" class="btn btn-warning mt3">Learn More</a></p>
+                    <p><a href="../service/service.php" class="btn btn-warning mt3">Learn More</a></p>
                 </div>
                 </div>
             </div>
