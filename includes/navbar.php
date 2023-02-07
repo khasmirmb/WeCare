@@ -50,7 +50,7 @@
                     <a class="btn btn-outline-info" href="../account/signin.php">Login</a>
                 </div>
                 <div class="nav-item m-1">
-                    <a class="btn btn-outline-info" href="#">Sign Up</a>
+                    <a class="btn btn-outline-info" href="../account/signup.php">Sign Up</a>
                 </div>
                 <?php } ?>
             </div>

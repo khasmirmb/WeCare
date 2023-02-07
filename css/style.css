@@ -495,3 +495,31 @@ color: #ece8e8;
 .own-area-container .container .section-title{
   color: #000;
 }
+/*---------------------
+  Sign Up
+-----------------------*/
+.container-signup {
+  background: #fff
+}
+.container-signup .card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url(../images/display-6.jpg);
+  background-size: cover;
+}
+
+.container-signup .btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+.container-signup .btn-google {
+  color: white !important;
+  background-color: #ea4335;
+}
+
+.container-signup .btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
+}
