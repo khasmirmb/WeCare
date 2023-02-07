@@ -47,7 +47,7 @@
       </div>
     </nav>
 
-<section class="vh-100" style="background: #fff">
+<section style="background: #fff">
   <div class="container-signin py-5 h-100">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10 justify-content-center align-items-center h-100">
