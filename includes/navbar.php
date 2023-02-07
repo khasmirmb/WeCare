@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <div class="logo-nav mt-2 mb-2">
-                <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo" width="45px"></a>
+                <a class="navbar-brand" href="../homepage/home.php"><img src="../images/logo.png" alt="Logo" width="45px"></a>
             </div>
             
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">

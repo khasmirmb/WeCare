@@ -4,6 +4,10 @@
     require_once '../includes/header.php';
     require_once '../classes/account.class.php';
 
+    if(isset($_SESSION['logged-in'])){
+      header('location: ../homepage/home.php');
+    }
+
     session_start();
 
     $account_obj = new Account();
@@ -35,55 +39,91 @@
 
 ?>
 
-<div class="py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h4>SignIn To WeCare</h4>
-                    </div>
-                    <div class="card-body">
-                        <form action="signin.php" method="post" class="need-validation">
-                            <div class="form-group mb-3">
-                                <label for="">Email Address</label>
-                                <input type="text" name="email"class="form-control" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="">Password</label>
-                                <input type="password" name="password"class="form-control" required>
-                            </div>
-                            <div class="form-group text-center">
-                                <button type="Submit" class="btn btn-primary login-button">SignIn</button>
-                            </div>
-                            <div class="col-md">
-                                <hr class="mt-4 mb-4">
-                            </div>
-                            <div class="form-group mt-3">
-                                <p class="text-center continue-google">
-                                <a href="#" class="btn btn-primary custom">
-                                <i class="fa-brands fa-google"></i>
-                                SignIn with Google
-                                </a>
-                                </p>
-                            </div>
-                            <div class="form-group mt-1">
-                                <p class="text-center continue-google">
-                                <a href="#" class="btn btn-primary custom">
-                                <i class="fa-brands fa-facebook"></i>
-                                SignIn with Facebook
-                                </a>
-                                </p>
-                            </div>
-                        </form>
-                        <div class="row mt-3 text-center">
-                            <p class="text-center">
-                                Don't have an account? <a class="green" href="signup.php">Sign up</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../homepage/home.php">
+          <img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">
+        </a>
+      </div>
+    </nav>
+
+<section class="vh-100" style="background: #fff">
+  <div class="container-signin py-5 h-100">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10 justify-content-center align-items-center h-100">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="image-side col-md-6 col-lg-5 d-none d-md-block">
+              <img src="../images/terrace.jpg"
+                alt="login form" class="img-fluids" style="border-radius: 1rem 0 0 1rem;" />
             </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form action="signin.php" method="post">
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <a href="../homepage/home.php"><img src="../images/logo.png" alt="" width="50px"></a>
+                    <span>WeCare</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="email" class="form-control form-control-lg" name="email"/>
+                    <label class="form-label" for="email">Email address</label>
+                  </div>
+
+                  <div class="form-outline mb-1">
+                    <input type="password" id="password" class="form-control form-control-lg" name="password" />
+                    <label class="form-label" for="password">Password</label>
+                  </div>
+                  <!--<div class="forgot_password">
+                  <a href="#!">Forgot password?</a>
+                  </div> -->
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" name="login">Login</button>
+
+                    <?php
+                        //Display the error message if there is any.
+                        if(isset($error)){
+                        echo '<div><p class="error">'.$error.'</p></div>';
+                        }
+                                    
+                     ?>
+                    <hr>
+                    <p class="lead fw-normal mb-0 me-3 text-center">Or Sign In With:</p>
+                    
+                    <div class ="signin_icon text-center">
+                    <div class="flex-row align-items-center justify-content-center justify-content-lg-start">
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-twitter"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                        </button>
+                    </div>
+                  </div>
+                  <a class="d-block mt-2 small text-center" href="../account/signup.php">Don't have an account? Sign Up</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
+</section>
+
+<?php
+
+require_once '../includes/footer.php';
+
+?>

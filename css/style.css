@@ -7,7 +7,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background: f1fbff;
+    background: #fff;
 }
 /*---------------------
   Home
@@ -326,26 +326,26 @@ body{
   Service
 -----------------------*/
 
-.section{
+.service-container .section{
   padding-top: 50px;
   padding-bottom: 50px;
 }
-.bg-color{
+.service-container .bg-color{
   background: url(../images/home-display1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.sub-heading span{
+.service-container .sub-heading span{
   color: #00ACB2;
   font-weight: 600;
 }
-.sub-heading h2{
+.service-container .sub-heading h2{
   font-weight: 700;
   font-family: 'Livvic', sans-serif;
   color: #fff;
 }
-.service-box{
+.service-container .service-box{
   padding: 25px;
   background-color: #fff;
   transition: .4s;
@@ -354,16 +354,16 @@ body{
   box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
   border-radius: 2%;
 }
-.service-content h3{
+.service-container .service-content h3{
   font-size: 24px;
   font-weight: 700;
   color: rgb(58, 58, 58);
 }
-.service-box:hover{
+.service-container .service-box:hover{
   box-shadow: 0 0 30px #eee;
   transform: translateY(-.5rem);
 }
-.service-content h3:hover{
+.service-container .service-content h3:hover{
   color:#00ACB2;
 }
 /*---------------------
@@ -506,12 +506,15 @@ color: #ece8e8;
   /* Link to your background image using in the property below! */
   background: scroll center url(../images/display-6.jpg);
   background-size: cover;
+  filter: brightness(70%)
 }
 
 .container-signup .btn-login {
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
+  background-color: #00ACB2;
+  border-color: #00ACB2;
 }
 
 .container-signup .btn-google {
@@ -522,4 +525,103 @@ color: #ece8e8;
 .container-signup .btn-facebook {
   color: white !important;
   background-color: #3b5998;
+}
+
+/*---------------------
+  About
+-----------------------*/
+
+.about {
+	padding-bottom: 0;
+}
+
+.about .container-aboutus {
+	padding-bottom: 100px;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.container-aboutus .about__text {
+	padding-left: 20px;
+}
+
+.container-aboutus .about__text .section-title {
+	margin-bottom: 25px;
+}
+.container-aboutus .about__text .section-title .about_h2{
+	color: #000;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.container-aboutus .about__text .section-title .about_span {
+	font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.container-aboutus .about__text p {
+	margin-bottom: 25px;
+}
+
+.container-aboutus .about__text ul {
+	margin-bottom: 25px;
+}
+
+.container-aboutus .about__text ul li {
+	list-style: none;
+	font-size: 15px;
+	color: #666666;
+	line-height: 36px;
+}
+
+.container-aboutus .about__text ul li i {
+	color: #13a2b7;
+	font-size: 15px;
+	margin-right: 6px;
+}
+/*---------------------
+  Sign In
+-----------------------*/
+.container-signin .img-fluids {
+  max-width: 100%;
+  height: 44rem;
+}
+.container-signin .image-side img{
+  object-fit: cover;
+  filter: brightness(80%)
+}
+
+.container-signin .btn-primary {
+  color: #00ACB2;
+  background-color: #fff;
+  border-color: #00ACB2;
+  border-radius: 40px;
+}
+
+.container-signin .py-5 {
+  padding-top: 1rem!important;
+  padding-bottom: 3rem!important;
+}
+
+.container-signin .btn-dark{
+  margin-bottom: 10px;
+  width: auto;
+  background-color: #00ACB2;
+  border-color: #00ACB2;
+}
+.container-signin a{
+  margin-top: 30px;
+  text-decoration: none;
+  font-size: 15px;
+}
+.container-signin .signin_icon{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.container-signin span{
+  color: #00ACB2;
+  font-weight: 700;
+  margin-top: 30px;
 }

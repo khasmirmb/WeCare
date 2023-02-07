@@ -2,11 +2,23 @@
 
     $page_title = 'WeCare - Sign Up';
     require_once '../includes/header.php';
+    
     session_start();
+
+    if(isset($_SESSION['logged-in'])){
+      header('location: ../homepage/home.php');
+    }
+
 ?>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../homepage/home.php">
+          <img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">
+        </a>
+      </div>
+    </nav>
 
   <div class="container-signup">
-    <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
         <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
           <div class="card-img-left d-none d-md-flex">
@@ -62,5 +74,10 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
+
+<?php
+
+require_once '../includes/footer.php';
+
+?>
