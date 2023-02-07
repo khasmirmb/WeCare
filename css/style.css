@@ -535,25 +535,25 @@ color: #ece8e8;
 	padding-bottom: 0;
 }
 
-.about .container-aboutus {
+.about .container {
 	padding-bottom: 100px;
 	border-bottom: 1px solid #e1e1e1;
 }
 
-.container-aboutus .about__text {
+.about__text {
 	padding-left: 20px;
 }
 
-.container-aboutus .about__text .section-title {
+.about__text .section-title {
 	margin-bottom: 25px;
 }
-.container-aboutus .about__text .section-title .about_h2{
+.about__text .section-title .about_h2{
 	color: #000;
     font-weight: 700;
     margin-top: 8px;
 }
 
-.container-aboutus .about__text .section-title .about_span {
+.about__text .section-title .about_span {
 	font-size: 15px;
     color: #000;
     font-weight: 500;
@@ -561,26 +561,45 @@ color: #ece8e8;
     text-transform: uppercase;
 }
 
-.container-aboutus .about__text p {
+.about__text p {
 	margin-bottom: 25px;
 }
 
-.container-aboutus .about__text ul {
+.about__text ul {
 	margin-bottom: 25px;
 }
 
-.container-aboutus .about__text ul li {
+.about__text ul li {
 	list-style: none;
 	font-size: 15px;
 	color: #666666;
 	line-height: 36px;
 }
 
-.container-aboutus .about__text ul li i {
+.about__text ul li i {
 	color: #13a2b7;
 	font-size: 15px;
 	margin-right: 6px;
 }
+.about__text .btn{
+  color: #fff;
+  background-color: #00ACB2;
+  border-color: #00ACB2;
+}
+
+/*---------------------
+  About
+-----------------------*/
+.founder{
+  padding-bottom: 70px;
+  margin-top: 4rem;
+}
+.founder .container .section-title h2{
+  color: #666666;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
 /*---------------------
   Sign In
 -----------------------*/

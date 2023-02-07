@@ -9,8 +9,8 @@
 ?>
 
          <!-- About Section Begin -->
-    <section class="about spad">
-        <div class="container-aboutus">
+   <section class="about spad">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="about__us set-bg" data-setbg="../images/home-display4.jpg">
@@ -29,7 +29,7 @@
                             <li><i class="fa fa-check-circle"></i> Excellence in Healthcare every</li>
                             <li><i class="fa fa-check-circle"></i> Building a healthy environment</li>
                         </ul>
-                        <a href="../contact/contact.php" class="primary-btn normal-btn">Contact us</a>
+                        <a href="../contact/contact.php" class="btn btn-info">Contact us</a>
                     </div>
                 </div>
             </div>
@@ -38,12 +38,11 @@
     <!-- About Section End -->
 
     <!-- Team Founder Begin -->
-    <section class="team spad">
-        <div class="container-team-founder">
+    <section class="founder spad">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
-                        <span>Our Team</span>
                         <h2>Founders</h2>
                     </div>
                 </div>
