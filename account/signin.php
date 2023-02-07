@@ -4,11 +4,11 @@
     require_once '../includes/header.php';
     require_once '../classes/account.class.php';
 
-    if(isset($_SESSION['logged-in'])){
+    session_start();
+
+    if(isset($_SESSION['logged_id'])){
       header('location: ../homepage/home.php');
     }
-
-    session_start();
 
     $account_obj = new Account();
     if(isset($_POST['email']) && isset($_POST['password'])){

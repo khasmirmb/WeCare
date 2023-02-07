@@ -5,7 +5,7 @@
     
     session_start();
 
-    if(isset($_SESSION['logged-in'])){
+    if(isset($_SESSION['logged_id'])){
       header('location: ../homepage/home.php');
     }
 
