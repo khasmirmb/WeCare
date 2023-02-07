@@ -39,7 +39,7 @@
 
 ?>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar bg-#fff">
       <div class="container-fluid ms-2">
         <a class="navbar-brand" href="../homepage/home.php">
           <img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">
