@@ -5,9 +5,10 @@
     require_once '../classes/account.class.php';
     session_start();
 
-    if(!isset($_SESSION['logged-in'])){
+    if(!isset($_SESSION['logged_id'])){
         header('location: ../homepage/home.php');
     }
+
     require_once '../includes/navbar.php';
 ?>
 
