@@ -67,7 +67,7 @@
               </div>
 
               <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
+                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" name="submit">Register</button>
               </div>
 
               <a class="d-block text-center mt-2 small" href="../account/signin.php">Have an account? Sign In</a>
