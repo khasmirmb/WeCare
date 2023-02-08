@@ -578,18 +578,3 @@ body {
   Content
 -----------------------*/
 
-#content{
-  padding-bottom: 0;
-}
-
-#content .content-container .row .image img{
-  width: 100%;
-  border-radius: 20px;
-  margin-top: 8rem;
-  height: 25rem;
-}
-
-#content .content-container {
-  padding-bottom: 100px;
-  border-bottom: 1px solid #e1e1e1;
-}
