@@ -119,7 +119,7 @@
                     <div class="about__text">
                         <div class="section-title">
                             <span class="about_span">Care for our loved ones</span>
-                            <h2 class="about_h2">We bring care even away from</h2>
+                            <h2 class="about_h2">We bring care even away from home</h2>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua.</p>
@@ -130,7 +130,7 @@
         </div>
     </section>
      <!-- Content Section Begin -->
-     
+
     <section id="team spad" class="team spad">
         <div class="container">
             <div class="row">
