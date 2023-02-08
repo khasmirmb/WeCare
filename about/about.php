@@ -10,7 +10,7 @@
 
          <!-- About Section Begin -->
          <section class="about spad">
-        <div class="container">
+        <div class="about-container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                 <div class="image">

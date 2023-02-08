@@ -496,7 +496,7 @@ color: #ece8e8;
 	padding-bottom: 0;
 }
 
-.about .container {
+.about .about-container {
 	padding-bottom: 100px;
 	border-bottom: 1px solid #e1e1e1;
 }
@@ -582,14 +582,14 @@ body {
   padding-bottom: 0;
 }
 
-#content .container .row .image img{
+#content .content-container .row .image img{
   width: 100%;
   border-radius: 20px;
   margin-top: 8rem;
   height: 25rem;
 }
 
-#content .container {
+#content .content-container {
   padding-bottom: 100px;
   border-bottom: 1px solid #e1e1e1;
 }

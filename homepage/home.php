@@ -108,7 +108,7 @@
 
     <!-- Content-->
     <section class="content" id="content">
-    <div class="container">
+    <div class="content-container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                 <div class="image">
