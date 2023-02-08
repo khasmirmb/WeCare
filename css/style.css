@@ -548,7 +548,7 @@ color: #ece8e8;
 -----------------------*/
 
 body {
-  background: #fff
+  background: #fff;
 }
 
 .card-img-left {
@@ -572,4 +572,24 @@ body {
 .btn-facebook {
   color: white !important;
   background-color: #3b5998;
+}
+
+/*---------------------
+  Content
+-----------------------*/
+
+#content{
+  padding-bottom: 0;
+}
+
+#content .container .row .image img{
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 8rem;
+  height: 25rem;
+}
+
+#content .container {
+  padding-bottom: 100px;
+  border-bottom: 1px solid #e1e1e1;
 }

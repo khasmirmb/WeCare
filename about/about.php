@@ -9,12 +9,13 @@
 ?>
 
          <!-- About Section Begin -->
-   <section class="about spad">
+         <section class="about spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <div class="about__us set-bg" data-setbg="../images/home-display4.jpg">
-                    </div>
+                <div class="image">
+                    <img src="../images/home-display1.jpg" class="rounded mx-auto d-block" alt="">
+                </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="about__text">
