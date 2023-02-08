@@ -9,12 +9,6 @@
       header('location: ../homepage/home.php');
     }
 
-    
-    if(isset($_POST['submit'])){
-
-
-      //check
-    }
 ?>
     <nav class="navbar bg-#fff">
       <div class="container-fluid ms-2">
