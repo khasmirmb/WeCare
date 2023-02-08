@@ -9,6 +9,12 @@
       header('location: ../homepage/home.php');
     }
 
+    
+    if(isset($_POST['submit'])){
+
+
+      //check
+    }
 ?>
     <nav class="navbar bg-#fff">
       <div class="container-fluid ms-2">
@@ -27,6 +33,16 @@
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
             <form>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                <label for="floatingInputUsername">Firstname</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                <label for="floatingInputUsername">Lastname</label>
+              </div>
 
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
