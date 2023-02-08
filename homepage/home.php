@@ -106,6 +106,31 @@
         </div>
     </section>
 
+        <!-- Content Section Begin -->
+   <section class="about spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                <div class="images">
+                    <img src="../images/home-display4.jpg" class="rounded mx-auto d-block" alt="">
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <span class="about_span">Care for our loved ones</span>
+                            <h2 class="about_h2">We bring care even away from</h2>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                        <a href="../service/service.php" class="primary-btn normal-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Content Section Begin -->
+     
     <section id="team spad" class="team spad">
         <div class="container">
             <div class="row">

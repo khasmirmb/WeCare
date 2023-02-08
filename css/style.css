@@ -578,3 +578,10 @@ body {
   Content
 -----------------------*/
 
+.about .container .row .images img{
+  width: 100%;
+	border-radius: 20px;
+  margin-top: 8rem;
+  height: 25rem;
+  border-radius: 10px;
+}
