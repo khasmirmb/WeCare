@@ -72,25 +72,25 @@
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa-solid fa-hand-holding-medical h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Care</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="about-text-dark">Care</a></h6>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa-solid fa-person-shelter h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Secure</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="about-text-dark">Secure</a></h6>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa-solid fa-user-nurse h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Qualified staff</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="about-text-dark">Qualified staff</a></h6>
                         </div>
                     </div>
                     <div class="col-lg-6 mt-4 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa-solid fa-briefcase-medical h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Best programs</a></h6>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="about-text-dark">Best programs</a></h6>
                         </div>
                     </div>
                 </div>
