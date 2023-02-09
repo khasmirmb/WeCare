@@ -9,33 +9,97 @@
 ?>
 
          <!-- About Section Begin -->
-         <section class="about spad">
-        <div class="about-container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                <div class="image">
-                    <img src="../images/home-display1.jpg" class="rounded mx-auto d-block" alt="">
-                </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="about__text">
-                        <div class="section-title">
-                            <span class="about_span">ABOUT OUR BUSINESS</span>
-                            <h2 class="about_h2">Welcome to WeCare <br> Nursing Home, Inc.</h2>
+         <div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6 order-2 order-md-1 mt-4 pt-2 mt-sm-0 opt-sm-0">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-6">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 mt-4 pt-2">
+                            <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
+                                <img src="../images/home-display4.jpg" class="img-fluid" alt="Image" />
+                                <div class="img-overlay bg-dark"></div>
+                            </div>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                        <ul>
-                            <li><i class="fa fa-check-circle"></i> Routine and Giving care</li>
-                            <li><i class="fa fa-check-circle"></i> Excellence in Healthcare every</li>
-                            <li><i class="fa fa-check-circle"></i> Building a healthy environment</li>
-                        </ul>
-                        <a href="../contact/contact.php" class="primary-btn normal-btn">Contact us</a>
+                        <!--end col-->
+
+                        <div class="col-12">
+                            <div class="mt-4 pt-2 text-right">
+                                <a href="../contact/contact.php" class="btn btn-info">Contact Us <i class="mdi mdi-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end row-->
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-6 col-md-6 col-6">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
+                                <img src="../images/about-display2.jpg" class="img-fluid" alt="Image" />
+                                <div class="img-overlay bg-dark"></div>
+                            </div>
+                        </div>
+                        <!--end col-->
+
+                        <div class="col-lg-12 col-md-12 mt-4 pt-2">
+                            <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
+                                <img src="../images/about-display1.jpg" class="img-fluid" alt="Image" />
+                                <div class="img-overlay bg-dark"></div>
+                            </div>
+                        </div>
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end col-->
+
+        <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
+            <div class="section-title ml-lg-5">
+                <h5 class="text-custom font-weight-normal mb-3">WeCare Nursing Home, Inc.</h5>
+                <h4 class="title mb-4">
+                    Your Home Away From Home <br />
+                    make your life full of care.
+                </h4>
+                <p class="text-muted mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit quod debitis praesentium pariatur temporibus ipsa, cum quidem obcaecati sunt?</p>
+
+                <div class="row">
+                    <div class="col-lg-6 mt-4 pt-2">
+                        <div class="media align-items-center rounded shadow p-3">
+                            <i class="fa-solid fa-hand-holding-medical h4 mb-0 text-custom"></i>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Care</a></h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-4 pt-2">
+                        <div class="media align-items-center rounded shadow p-3">
+                            <i class="fa-solid fa-person-shelter h4 mb-0 text-custom"></i>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Secure</a></h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-4 pt-2">
+                        <div class="media align-items-center rounded shadow p-3">
+                            <i class="fa-solid fa-user-nurse h4 mb-0 text-custom"></i>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Qualified staff</a></h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-4 pt-2">
+                        <div class="media align-items-center rounded shadow p-3">
+                            <i class="fa-solid fa-briefcase-medical h4 mb-0 text-custom"></i>
+                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Best programs</a></h6>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <!--end col-->
+    </div>
+    <!--enr row-->
+</div>
     <!-- About Section End -->
 
     <!-- Team Founder Begin -->
