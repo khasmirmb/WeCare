@@ -501,6 +501,21 @@ color: #ece8e8;
   color: #00ACB2 !important;
   }
 
+.about-text-customs{
+    color: #00ACB2 !important;
+}
+
+.about-titles{
+    margin-bottom: 1.5rem!important;
+    text-align: center;
+    padding: 25px 0;
+    color: #000;
+}
+.about-h4-titles{
+margin-bottom: 1.5rem!important;
+font-size: calc(1.275rem + .3vw);
+}
+
 /*---------------------
   Sign Up
 -----------------------*/
