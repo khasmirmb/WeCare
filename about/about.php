@@ -66,7 +66,7 @@
                     Your Home Away From Home <br />
                     make your life full of care.
                 </h4>
-                <p class="text-muteds mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit quod debitis praesentium pariatur temporibus ipsa, cum quidem obcaecati sunt?</p>
+                <p class="about-text-muteds mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit quod debitis praesentium pariatur temporibus ipsa, cum quidem obcaecati sunt?</p>
 
                 <div class="row">
                     <div class="col-lg-6 mt-4 pt-2">

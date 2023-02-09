@@ -516,6 +516,11 @@ margin-bottom: 1.5rem!important;
 font-size: calc(1.275rem + .3vw);
 }
 
+.about-text-muteds{
+  margin-bottom: 0!important;
+  color: #000;
+}
+
 /*---------------------
   Sign Up
 -----------------------*/
