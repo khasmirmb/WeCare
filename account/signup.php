@@ -39,11 +39,6 @@
               </div>
 
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
-                <label for="floatingInputUsername">Username</label>
-              </div>
-
-              <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email">
                 <label for="floatingInputEmail">Email address</label>
               </div>

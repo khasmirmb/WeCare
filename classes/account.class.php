@@ -2,12 +2,17 @@
 
 require_once 'database.php';
 
-class Account{
+class Users{
 
     public $id;
     public $email;
-    public $password;
+    public $firstname;
+    public $lastname;
+    public $gender;
+    public $picture;
+    public $verifiedEmail;
     public $type;
+    public $password;
 
     protected $db;
 
@@ -17,7 +22,7 @@ class Account{
     }
 
     function sign_in(){
-        $sql = "SELECT * FROM account WHERE BINARY email = :email AND BINARY password = :password;";
+        $sql = "SELECT * FROM users WHERE BINARY email = :email AND BINARY password = :password;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':email', $this->email);
         $query->bindParam(':password', $this->password);
@@ -31,12 +36,11 @@ class Account{
 
     function get_account_info($id=0){
         if($id == 0){
-            $sql = "SELECT * FROM account WHERE BINARY email = :email AND BINARY password = :password;";
+            $sql = "SELECT * FROM users WHERE BINARY email = :email;";
             $query=$this->db->connect()->prepare($sql);
             $query->bindParam(':email', $this->email);
-            $query->bindParam(':password', $this->password);
         }else{
-            $sql = "SELECT * FROM account WHERE id = :id;";
+            $sql = "SELECT * FROM users WHERE id = :id;";
             $query=$this->db->connect()->prepare($sql);
             $query->bindParam(':id', $id);
         }
@@ -44,6 +48,27 @@ class Account{
             $data = $query->fetchAll();
         }
         return $data;
+    }
+
+    function add_user(){
+        $sql = "INSERT INTO users (email, firstname, lastname, gender, picture, verifiedEmail, type) VALUES
+        (:email, :firstname, :lastname, :gender, :picture, :verifiedEmail, :type);";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':firstname', $this->firstname);
+        $query->bindParam(':lastname', $this->lastname);
+        $query->bindParam(':gender', $this->gender);
+        $query->bindParam(':picture', $this->picture);
+        $query->bindParam(':verifiedEmail', $this->verifiedEmail);
+        $query->bindParam(':type', $this->type);
+
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

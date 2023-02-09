@@ -1,23 +1,24 @@
 <?php
+    // Session Start
+    session_start();
 
     $page_title = 'WeCare - Sign In';
     require_once '../includes/header.php';
     require_once '../classes/account.class.php';
-
-    session_start();
+    require_once '../tools/config.php';
 
     if(isset($_SESSION['logged_id'])){
       header('location: ../homepage/home.php');
     }
 
-    $account_obj = new Account();
+    $users_account = new Users();
     if(isset($_POST['email']) && isset($_POST['password'])){
     //Sanitizing the inputs of the users. Mandatory to prevent injections!
-    $account_obj->email = htmlentities($_POST['email']);
-    $account_obj->password = htmlentities($_POST['password']);
-    if($account_obj->sign_in()){
-        $account = $account_obj->get_account_info();
-        foreach($account as $row){
+    $users_account->email = htmlentities($_POST['email']);
+    $users_account->password = htmlentities($_POST['password']);
+    if($users_account->sign_in()){
+        $users = $users_account->get_account_info();
+        foreach($users as $row){
             $_SESSION['logged_id'] = $row['id'];
             $_SESSION['fullname'] = 'Temporary';
             $_SESSION['user_type'] = $row['type'];
@@ -35,6 +36,8 @@
         $error = 'Invalid email/password. Try again.';
     }
   }
+
+  $loginURL = $gClient->createAuthUrl();
 
 
 ?>
@@ -99,12 +102,8 @@
                         <button type="button" class="btn btn-primary btn-floating mx-1">
                         <i class="fab fa-facebook-f"></i>
                         </button>
-
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
-                        </button>
-
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                        
+                        <button type="button" onclick="window.location = '<?php echo $loginURL ?>';" class="btn btn-primary btn-floating mx-1">
                         <i class="fab fa-google"></i>
                         </button>
                     </div>
