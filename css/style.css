@@ -586,6 +586,18 @@ color: #ece8e8;
   background-color: #00ACB2;
   border-color: #00ACB2;
 }
+.about .container .row .image img{
+  width: 100%;
+	border-radius: 20px;
+  margin-top: 8rem;
+  height: 25rem;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.about .container .row .section-title h2{
+  font-size: 25px;
+  font-weight: 600;
+}
 
 /*---------------------
   About
