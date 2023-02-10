@@ -34,13 +34,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="../history/history.php">History</a>
                 </li>
-                <?php
-                if(isset($_SESSION['logged_id'])){
-                ?>
                 <li class="nav-item">
                 <a class="nav-link" href="../appointment/appointment.php">Appointment</a>
                 </li>
-                <?php } ?>
 
             </ul>
             <?php

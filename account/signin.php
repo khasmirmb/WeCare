@@ -37,8 +37,6 @@
     }
   }
 
-  $loginURL = $gClient->createAuthUrl();
-
 
 ?>
 
@@ -103,7 +101,7 @@
                         <i class="fab fa-facebook-f"></i>
                         </button>
                         
-                        <button type="button" onclick="window.location = '<?php echo $loginURL ?>';" class="btn btn-primary btn-floating mx-1">
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
                         <i class="fab fa-google"></i>
                         </button>
                     </div>
