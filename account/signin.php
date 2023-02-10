@@ -4,7 +4,7 @@
 
     $page_title = 'WeCare - Sign In';
     require_once '../includes/header.php';
-    require_once '../classes/account.class.php';
+    require_once '../classes/users.class.php';
     require_once '../tools/config.php';
 
     if(isset($_SESSION['logged_id'])){
