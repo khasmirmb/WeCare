@@ -7,14 +7,14 @@ $phone = $_POST['phone'];
 $message = $_POST['message'];
 
 // Email where to send the inputs
-$to = "xt202001178@wmsu.edu.ph";
+$to = "alamnaerz23@gmail.com";
 
 // Subject will be send to email
 $subject = "Mail from WeCare Website";
 
 // Message Header
 $headers = "From: " . $name . "(" . $email . ")" . "\r\n" .
-"CC: xt202001178@wmsu.edu.ph";
+"CC: alamnaerz23@gmail.com";
 
 // Message Content
 $txt = "You have received an email from " . "\r\n Email: " . $email . "\r\n Message: ". $message;
