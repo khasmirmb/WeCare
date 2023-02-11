@@ -21,7 +21,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <!-- <label for="name">Name</label> --> 
-                        <input class="appointment-form-control" type="text" placeholder="Phone"> </div>
+                        <input class="appointment-form-control" type="number" placeholder="Phone"> </div>
                 </div>
             </div>
             <div class="row">
