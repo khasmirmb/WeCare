@@ -656,3 +656,58 @@ color: #ece8e8;
   font-weight: 700;
   margin-top: 30px;
 }
+/*---------------------
+  Appointment
+-----------------------*/
+
+.appointment-card{
+  width: 500px;
+  background-color:#fff;
+  border:none;
+  border-radius: 12px;
+  border: 1px solid #000;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+ 
+}
+
+.appointment-card-title{
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+}
+
+.appointment-card-body{
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+.appointment-label{
+  margin-top: 1rem;
+}
+
+.appointment-form-control{
+  margin-top: 10px;
+  height: 48px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.appointment-form-control:focus
+{box-shadow: none;
+  border: 2px solid #039BE5;
+}
+
+.appointment-agree-text{
+  font-size: 12px;
+}
+
+.terms{
+  font-size: 12px;
+  text-decoration: none;
+  color: #039BE5;
+}
+
+.confirm-button{
+  height: 50px;
+  border-radius: 10px;
+}

@@ -2,7 +2,7 @@
         <div class="container-first-nav">
             <ul class="nav justify-content-center">
             <li class="nav-item">
-                <p class="nav-link text-white" href="#"><i class="fa-solid fa-clock"></i> Mon to Sat 9:00pm to 9:00pm</p>
+                <p class="nav-link text-white" href="#"><i class="fa-solid fa-clock"></i> Mon to Sat 9:00am to 9:00pm</p>
             </li>
             </ul>
         </div>

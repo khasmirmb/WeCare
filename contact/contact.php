@@ -23,30 +23,30 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="contact-form">
                     <h2 class="h1-responsive font-weight-bold text-center my-2">Send Message</h2>
-                    <form>
+                    <form action="mail.php" method="post" autocomplete="off">
                     
                     <div class="mb-3">
                         <label for="firstname" class="form-label">FirstName</label>
-                        <input type="text" id="firstname" class="form-control" required>
+                        <input type="text" id="firstname" class="form-control" placeholder="Firstname" required name="firstname">
                     </div>
                     <div class="mb-3">
                         <label for="lastname" class="form-label">Last Name</label>
-                        <input type="text" id="lastname" class="form-control" required>
+                        <input type="text" id="lastname" class="form-control" placeholder="Lastname" required name="lastname">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" id="email"class="form-control" required>
+                        <input type="text" id="email" class="form-control" placeholder="Email" required name="email">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="number" id="phone"class="form-control" required>
+                        <input type="number" id="phone" class="form-control" placeholder="Phone Number" required name="phone">
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Messsage</label>
-                        <textarea type="text" id="message" class="form-control" required></textarea>
+                        <textarea type="text" id="message" class="form-control" placeholder="How can we help you?" required style="height:150px" name="message"></textarea>
                     </div>
   
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -69,7 +69,6 @@
             </div>
     </div>
 </div>
-
 
 <?php
 

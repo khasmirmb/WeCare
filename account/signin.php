@@ -5,8 +5,8 @@
     $page_title = 'WeCare - Sign In';
     require_once '../includes/header.php';
     require_once '../classes/users.class.php';
-    require_once '../tools/config.php';
 
+    // If user is already logged in go to homepage
     if(isset($_SESSION['logged_id'])){
       header('location: ../homepage/home.php');
     }
@@ -17,7 +17,7 @@
     $users_account->email = htmlentities($_POST['email']);
     $users_account->password = htmlentities($_POST['password']);
     if($users_account->sign_in()){
-        $users = $users_account->get_account_info();
+        $users = $users_account->get_user_info();
         foreach($users as $row){
             $_SESSION['logged_id'] = $row['id'];
             $_SESSION['fullname'] = 'Temporary';
@@ -71,7 +71,7 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="email" class="form-control form-control-lg" name="email"/>
+                    <input type="email" id="email" class="form-control form-control-lg" name="email"/>
                     <label class="form-label" for="email">Email address</label>
                   </div>
 
