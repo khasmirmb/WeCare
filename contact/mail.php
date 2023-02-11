@@ -25,6 +25,6 @@ if($email!=NULL){
 }
 
 // redirect
-header('contact.php')
+header('Location: contact.php')
 
 ?>
