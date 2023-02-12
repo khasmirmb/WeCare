@@ -7,6 +7,8 @@
     
     session_start();
 
+    $users_account = new Users();
+
     $unique_id = $_SESSION['unique_id'];
     if(empty($unique_id)){
       header("Location: ../account/signin.php");
@@ -16,8 +18,21 @@
       $row = mysqli_fetch_assoc($qry);
       if($row){
         $_SESSION['verification_status'] = $row['verification_status'];
-        if($row['verification_status'] == 'Verified'){
-          header("Location: signin.php");
+        if($row['verification_status'] == 'Verified' && !isset($_SESSION['logged_id'])){
+            $users = $users_account->get_user_info();
+            foreach($users as $row){
+            $_SESSION['logged_id'] = $row['id'];
+            $_SESSION['fullname'] = 'Temporary';
+            $_SESSION['user_type'] = $row['type'];
+            //display the appropriate dashboard page for user
+            if($row['type'] == 'admin'){
+                header('location: ../admin/dashboard.php');
+            }else if($row['type'] == 'staff'){
+                header('location: ../staff/dashboard.php');
+            }else if($row['type'] == 'client'){
+                header('location: ../homepage/home.php');
+            }
+          }
         }
       }
     }

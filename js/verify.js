@@ -43,7 +43,7 @@ submitbtn.onclick = () =>{
             if(xhr.status == 200){
                 let data = xhr.response;
                 if(data == "Success"){
-                    location.href = "../homepage/home.php"
+                    location.href = "../account/signin.php"
                 }
                 else{
                     errortxt.textContent = data;
