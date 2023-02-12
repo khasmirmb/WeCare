@@ -23,6 +23,7 @@
             $_SESSION['fullname'] = 'Temporary';
             $_SESSION['user_type'] = $row['type'];
             $_SESSION['user_image'] = $row['image'];
+            $_SESSION['verification_status'] = $row['verification_status'];
             //display the appropriate dashboard page for user
             if($row['verification_status'] != 'Verified'){
                 header('location: ../account/verify.php');
