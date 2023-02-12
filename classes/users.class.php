@@ -76,6 +76,10 @@ class Users{
         // Return the data
         return $data;
     }
+    // Method for adding/register for user
+    function user_register(){
+        $sql = "";
+    }
 
 }
 
