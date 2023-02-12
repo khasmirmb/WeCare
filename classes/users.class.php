@@ -27,7 +27,7 @@ class Users{
     function sign_in(){
 
          // SQL statement to retrieve the user with the matching email and password
-        $sql = "SELECT * FROM users WHERE BINARY email = :email AND BINARY password = :password;";
+        $sql = "SELECT * FROM users WHERE BINARY email = :email AND BINARY password = :password AND verification_status = 'Verified';";
 
         // Prepare the SQL statement for execution
         $query=$this->db->connect()->prepare($sql);
