@@ -24,7 +24,7 @@
             $_SESSION['user_type'] = $row['type'];
             $_SESSION['user_image'] = $row['image'];
             //display the appropriate dashboard page for user
-            if($row['verification_status'] == 0){
+            if($row['verification_status'] != 'Verified'){
                 header('location: ../account/verify.php');
             }
             else{
