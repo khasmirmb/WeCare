@@ -2,8 +2,26 @@
 
     $page_title = 'WeCare - Verify';
     require_once '../includes/header.php';
+    require_once '../classes/basic.database.php';
+    require_once '../classes/users.class.php';
     
     session_start();
+
+    $unique_id = $_SESSION['unique_id'];
+    if(empty($unique_id)){
+      header("Location: ../account/signin.php");
+    }
+    $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'");
+    if(mysqli_num_rows($qry) > 0){
+      $row = mysqli_fetch_assoc($qry);
+      if($row){
+        $_SESSION['verification_status'] = $row['verification_status'];
+        if($row['verification_status'] == 'Verified'){
+          header("Location: signin.php");
+        }
+      }
+    }
+
 
     if(isset($_SESSION['logged_id'])){
       header('location: ../homepage/home.php');
@@ -39,7 +57,7 @@
                     </div>
 
                 <div class="submit d-grid mb-2 mt-3">
-                    <input class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" name="submit" value="Verify Now">
+                    <input class="button btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" name="submit" value="Verify Now">
                 </div>
             </form>
             

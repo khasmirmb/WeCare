@@ -60,7 +60,7 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                                         $reciver = $email;
                                         $subject = "From: $fname $lname <$email>";
                                         $body = "Name " . "$fname $lname \n Email: " . "$email \n" . "$otp";
-                                        $sender = "From: alamnaerz23@gmail.com";
+                                        $sender = "From: WeCare@gmail.com";
 
                                         if(mail($reciver, $subject, $body, $sender)){
                                             echo "Success";

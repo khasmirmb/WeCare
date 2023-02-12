@@ -11,32 +11,6 @@
       header('location: ../homepage/home.php');
     }
 
-    $users_account = new Users();
-    if(isset($_POST['email']) && isset($_POST['password'])){
-    //Sanitizing the inputs of the users. Mandatory to prevent injections!
-    $users_account->email = htmlentities($_POST['email']);
-    $users_account->password = htmlentities($_POST['password']);
-    if($users_account->sign_in()){
-        $users = $users_account->get_user_info();
-        foreach($users as $row){
-            $_SESSION['logged_id'] = $row['id'];
-            $_SESSION['fullname'] = 'Temporary';
-            $_SESSION['user_type'] = $row['type'];
-            //display the appropriate dashboard page for user
-            if($row['type'] == 'admin'){
-                header('location: ../admin/dashboard.php');
-            }else if($row['type'] == 'staff'){
-                header('location: ../staff/dashboard.php');
-            }else if($row['type'] == 'client'){
-                header('location: ../homepage/home.php');
-            }
-        }
-    }else{
-        //set the error message if account is invalid
-        $error = 'Invalid email/password. Try again.';
-    }
-  }
-
 
 ?>
 
@@ -61,7 +35,7 @@
             <div class="form col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form action="signin.php" method="post" autocomplete="off">
+                <form action="login.php" method="post" autocomplete="off">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <a href="../homepage/home.php"><img src="../images/logo.png" alt="" width="50px"></a>
@@ -87,13 +61,6 @@
                   <div class="submit pt-1 mb-4">
                     <input class="btn btn-dark btn-lg btn-block" type="submit" name="login" value="Login">
 
-                    <?php
-                        //Display the error message if there is any.
-                        if(isset($error)){
-                        echo '<div><p class="error">'.$error.'</p></div>';
-                        }
-                                    
-                     ?>
                     <hr>
                     <p class="lead fw-normal mb-0 me-3 text-center">Or Sign In With:</p>
                     
