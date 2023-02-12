@@ -8,8 +8,8 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
-$password = md5($_POST['pass']); // md5 for Secure password
-$cpassword = md5($_POST['cpass']);
+$password = $_POST['pass'];
+$cpassword = $_POST['cpass'];
 $type = 'client';
 $verification_status = '0';
 
