@@ -58,10 +58,10 @@
               <img src="../images/terrace.jpg"
                 alt="login form" class="img-fluids" style="border-radius: 1rem 0 0 1rem;" />
             </div>
-            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+            <div class="form col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form action="signin.php" method="post">
+                <form action="signin.php" method="post" autocomplete="off">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <a href="../homepage/home.php"><img src="../images/logo.png" alt="" width="50px"></a>
@@ -70,20 +70,22 @@
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
-                  <div class="form-outline mb-4">
-                    <input type="email" id="email" class="form-control form-control-lg" name="email"/>
-                    <label class="form-label" for="email">Email address</label>
+                  <div class="error-text">Error</div>
+
+                  <div class="form-floating mb-4">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Eneter Your Email" required>
+                    <label for="email">Email</label>
                   </div>
 
-                  <div class="form-outline mb-1">
-                    <input type="password" id="password" class="form-control form-control-lg" name="password" />
-                    <label class="form-label" for="password">Password</label>
+                  <div class="form-floating mb-3">
+                    <input type="password" name="pass" class="form-control" id="pass" placeholder="Password" required>
+                    <label for="pass">Password</label>
                   </div>
                   <!--<div class="forgot_password">
                   <a href="#!">Forgot password?</a>
                   </div> -->
-                  <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit" name="login">Login</button>
+                  <div class="submit pt-1 mb-4">
+                    <input class="btn btn-dark btn-lg btn-block" type="submit" name="login" value="Login">
 
                     <?php
                         //Display the error message if there is any.
@@ -118,9 +120,3 @@
   </div>
 </div>
 </section>
-
-<?php
-
-require_once '../includes/footer.php';
-
-?>

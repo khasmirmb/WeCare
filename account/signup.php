@@ -24,39 +24,52 @@
           <div class="card-img-left d-none d-md-flex">
             <!-- Background image for card set in CSS! -->
           </div>
-          <div class="card-body p-4 p-sm-5">
+          <div class="form card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
-            <form>
+            <form action="" enctype="multipart/form-data">
+              
+              <div class="error-text">Error</div>
 
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInputUsername" placeholder="Firstname" required autofocus>
-                <label for="floatingInputUsername">Firstname</label>
+                <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name" required pattern="[a-zA-Z'-'\s]*">
+                <label for="fname">Firstname</label>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInputUsername" placeholder="Lastname" required autofocus>
-                <label for="floatingInputUsername">Lastname</label>
+                <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name" required pattern="[a-zA-Z'-'\s]*">
+                <label for="lname">Lastname</label>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email">
-                <label for="floatingInputEmail">Email address</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Eneter Your Email" required>
+                <label for="email">Email</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="tel" name="phone" class="form-control" id="phone" placeholder="Phone Number" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')">
+                <label for="phone">Phone Number</label>
+              </div>
+
+              <div class="mb-3">
+                <label for="image-preview" class="form-label">Upload Profile Image</label>
+                <input class="form-control" name="image" type="file" id="image-preview" required oninvalid="this.setCustomValidity('Select a Profile Image')" oninput="this.setCustomValidity('')">
               </div>
 
               <hr>
 
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password" name="pass" class="form-control" id="pass" placeholder="Password" required>
+                <label for="pass">Password</label>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
-                <label for="floatingPasswordConfirm">Confirm Password</label>
+                <input type="password" name="cpass"class="form-control" id="cpass" placeholder="Confirm Password" required>
+                <label for="cpass">Confirm Password</label>
               </div>
 
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" name="submit">Register</button>
+
+              <div class="submit d-grid mb-2">
+                <input class="btn btn-lg btn-primary btn-login fw-bold" type="submit" name="submit" value="Register">
               </div>
 
               <a class="d-block text-center mt-2 small" href="../account/signin.php">Have an account? Sign In</a>
@@ -75,14 +88,10 @@
                 </button>
               </div>
 
+              </div>
             </form>
           </div>
         </div>
       </div>
   </div>
-
-<?php
-
-require_once '../includes/footer.php';
-
-?>
+  <script src="../js/signup.js"></script>

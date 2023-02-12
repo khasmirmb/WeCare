@@ -8,8 +8,11 @@ class Users{
     // Class attributes
     public $id;
     public $email;
+    public $phone;
     public $password;
+    public $verification_status;
     public $type;
+    
 
      // protected property to store the database connection
     protected $db;
@@ -75,10 +78,6 @@ class Users{
         }
         // Return the data
         return $data;
-    }
-    // Method for adding/register for user
-    function user_register(){
-        $sql = "";
     }
 
 }

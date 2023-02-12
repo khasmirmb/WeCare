@@ -22,6 +22,7 @@ class Patients{
     public $background_history;
     public $doctors_diagnosis;
     public $allergies;
+    public $picture;
 
      // protected property to store the database connection
      protected $db;
@@ -35,8 +36,8 @@ class Patients{
      //Methods
      function add_patient(){
         // SQL statement to add patient
-        $sql = "INSERT INTO patient (firstname, lastname, suffix, date_of_birth, place_of_birth, gender, province, barangay, city, postal, background_history, doctors_diagnosis, allergies) VALUES 
-        (:firstname, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies);";
+        $sql = "INSERT INTO patient (firstname, lastname, suffix, date_of_birth, place_of_birth, gender, province, barangay, city, postal, background_history, doctors_diagnosis, allergies, picture) VALUES 
+        (:firstname, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture);";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':firstname', $this->firstname);
@@ -51,6 +52,7 @@ class Patients{
         $query->bindParam(':background_history', $this->background_history);
         $query->bindParam(':doctors_diagnosis', $this->doctors_diagnosis);
         $query->bindParam(':allergies', $this->allergies);
+        $query->bindParam(':picture', $this->picture);
         
         if($query->execute()){
             return true;
