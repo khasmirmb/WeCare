@@ -23,7 +23,7 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="contact-form">
                     <h2 class="h1-responsive font-weight-bold text-center my-2">Send Message</h2>
-                    <form action="mail.php" method="post">
+                    <form action="#" method="post">
                     
                     <div class="mb-3">
                         <label for="firstname" class="form-label">FirstName</label>
