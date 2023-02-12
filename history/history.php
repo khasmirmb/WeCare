@@ -2,7 +2,6 @@
 
     $page_title = 'WeCare - History';
     require_once '../includes/header.php';
-    require_once '../classes/account.class.php';
     session_start();
 
     require_once '../includes/navbar.php';
@@ -38,6 +37,15 @@
     </div>
   </div>
 </section> 
+
+
+<div class="container">
+  <div class="founder-container">
+    <div class="founder-title">
+      
+    </div>
+  </div>
+</div>
 
 <?php
 

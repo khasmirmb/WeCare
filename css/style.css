@@ -7,56 +7,8 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background: f1fbff;
+    background: #fff;
 }
-
-.btn-dark {
-  color: #000;
-  background: #fff;
-  border: 2px solid #00ACB2;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  padding: 5px 38px 8px;
-  margin-bottom: 1rem;
-}
-
-.btn-dark:hover{
-  background: #00ACB2;
-  color: #fff;
-}
-.btn-warning {
-  color: #fff;
-  background-color: #00ACB2;
-  border-color: #00ACB2;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-.btn-warning:hover{
-  color: #000;
-  background: #fff;
-  border: #00ACB2;
-}
-
-.primary-btn.normal-btn {
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 12px 30px 10px;
-  text-transform: uppercase;
-  color: #111111;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: 2px solid #00ACB2;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.primary-btn.normal-btn:hover{
-	background: #00ACB2;
-}
-
-
 /*---------------------
   Home
 -----------------------*/
@@ -64,16 +16,14 @@ body{
     padding: 100px 0;
 }
 .carousel-item{
-  height: 100vh;
-  min-height: 250px;
+    height: 100vh;
+    min-height: 250px;
 }
-
 .carousel-caption{
-  bottom: 220px;
-  z-index: 2;
+    bottom: 220px;
+    z-index: 2;
 }
-
-.carousel-caption h5{
+.carousel-caption h3{
     font-size: 35px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -85,6 +35,41 @@ body{
     font-size: 15px;
     line-height: 1.9;
     margin-bottom: 10px;
+}
+.carousel-inner:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(37, 36, 36, 0.7);
+	z-index: 1;
+}
+.carousel-inner .carousel-caption .btn{
+  background-color: #00ACB2;
+  color: #fff;
+  border: none;
+}
+.bg-img-1 {
+  background-image: url('../images/home-display1.jpg');
+}
+
+.bg-img-2 {
+  background-image: url('../images/home-display2.jpg');
+}
+
+.bg-img-3 {
+  background-image: url('../images/home-display3.jpg');
+}
+.bg-img-4 {
+  background-image: url('../images/home-display4.jpg');
+}
+
+.carousel-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /*---------------------
@@ -100,26 +85,66 @@ body{
 .container .user-bell{
     font-size: 25px;
     color: #00ACB2;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-right: 25px;
 }
-.container .user-profile img{
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
+.container .user-bell i{
+  cursor: pointer;
+  padding: 5px;
+}
+.user-bell i:hover{
+  cursor: pointer;
+  background: #00ACB2;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+.user-profile a{
+  text-decoration: none;
+}
+.user-profile img{
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.user-profile img:hover{
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+  filter: brightness(50%)
+}
+.user-profile ul li{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.user-profile ul li i{
+  margin-right: 5px;
+  color: white;
+  padding: 8px;
+  background: #00ACB2;
+  border-radius: 50%;
+}
+.user-profile ul li span{
+  color: white;
+}
+.user-profile ul li p{
+  color: white;
+}
+.user-profile ul li span:hover{
+  color: #00ACB2;
+}
+
+.user-profile .dropdown-menu{
+  background: #00ACB2;
 }
 .container .nav-item .btn{
   color: #00ACB2;
   border-color: #00ACB2;
 }
-
-.navbar-light .navbar-nav .nav-link {
-  color: #000;
+.container .nav-item .btn:hover{
+  color: #fff;
+  background: #00ACB2;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-  color: #00ACB2;
-}
 /*---------------------
   Footer
 -----------------------*/
@@ -135,10 +160,6 @@ body{
 }
 .social-media{
   background: #00ACB2;
-}
-.text-reset {
-  color: inherit!important;
-  text-decoration: none;
 }
 /*---------------------
   History
@@ -271,6 +292,10 @@ body{
 }
 .section-title h2{
     font-weight: 700;
+    color: #000;
+}
+.section-title p{
+  color: #000;
 }
 .contact-form{
     background-color: white;
@@ -281,7 +306,6 @@ body{
 .contact-form .btn{
     background: #00ACB2;
     border: none;
-    color: #fff;
 }
 .map-area{
     background-color: white;
@@ -302,77 +326,55 @@ body{
   Service
 -----------------------*/
 
-.section{
+.service-container .section{
   padding-top: 50px;
   padding-bottom: 50px;
 }
-.bg-color{
+.service-container .bg-color{
   background: url(../images/home-display1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.sub-heading span{
+.service-container .sub-heading span{
   color: #00ACB2;
   font-weight: 600;
 }
-.sub-heading h2{
+.service-container .sub-heading h2{
   font-weight: 700;
   font-family: 'Livvic', sans-serif;
   color: #fff;
 }
-.service-box{
+.service-container .service-box{
   padding: 25px;
   background-color: #fff;
   transition: .4s;
   transform: translateY(0);
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  border-radius: 2%;
 }
-.service-content h3{
+.service-container .service-content h3{
   font-size: 24px;
   font-weight: 700;
   color: rgb(58, 58, 58);
 }
-.service-box:hover{
+.service-container .service-box:hover{
   box-shadow: 0 0 30px #eee;
   transform: translateY(-.5rem);
 }
-.service-content h3:hover{
-  color: #106eea;
+.service-container .service-content h3:hover{
+  color:#00ACB2;
 }
-
-
-.container .card .card-header .text-center h4{
-  color: #000;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-}
-
-/*---------------------
-  Sign In
------------------------*/
-
-.img-fluids {
-  max-width: 100%;
-  height: 32rem;
-}
-
-.btn-primary {
-  color: #00ACB2;
-  background-color: #fff;
-  border-color: #00ACB2;
-  border-radius: 40px;
-}
-
-.py-5 {
-  padding-top: 1rem!important;
-  padding-bottom: 3rem!important;
-} 
-
 /*---------------------
   Choose Us
 -----------------------*/
+.choose-us-container{
+  background: #00ACB2;
+}
+.choose-us-container .section-title h2{
+  color: white;
+}
 .chooseus__item .equiplogo {
   width: 60%;
 margin-top: 5px;
@@ -416,6 +418,9 @@ margin-bottom: 16px;
 margin-bottom: 0;
 color: #ece8e8;
 }
+.container .section-title{
+  color: white;
+}
 
 /*---------------------
   Areas
@@ -426,8 +431,8 @@ color: #ece8e8;
   margin-top: 8rem;
 }
 
-.section-title{
-  margin-top: 5rem;
+.own-area-container .section-title{
+  margin-top: 3rem;
 }
 
 .team__item {
@@ -487,6 +492,40 @@ color: #ece8e8;
 .team__item .team__item__social a:last-child {
 	margin-right: 0;
 }
+.own-area-container .container .section-title{
+  color: #000;
+}
+/*---------------------
+  Sign Up
+-----------------------*/
+.container-signup {
+  background: #fff
+}
+.container-signup .card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url(../images/display-6.jpg);
+  background-size: cover;
+  filter: brightness(70%)
+}
+
+.container-signup .btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  background-color: #00ACB2;
+  border-color: #00ACB2;
+}
+
+.container-signup .btn-google {
+  color: white !important;
+  background-color: #ea4335;
+}
+
+.container-signup .btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
+}
 
 /*---------------------
   About Us
@@ -516,42 +555,69 @@ margin-bottom: 1.5rem!important;
 font-size: calc(1.275rem + .3vw);
 }
 
-.about-text-muteds{
+.text-muteds{
   margin-bottom: 0!important;
   color: #000;
 }
 
+
 /*---------------------
-  Sign Up
+  About Founder
 -----------------------*/
-
-body {
-  background: #fff;
+.founder{
+  padding-bottom: 70px;
+  margin-top: 4rem;
+}
+.founder .container .section-title h2{
+  color: #666666;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-.card-img-left {
-  width: 45%;
-  /* Link to your background image using in the property below! */
-  background: scroll center url(../images/display-6.jpg);
-  background-size: cover;
+/*---------------------
+  Sign In
+-----------------------*/
+.container-signin .img-fluids {
+  max-width: 100%;
+  height: 44rem;
+}
+.container-signin .image-side img{
+  object-fit: cover;
+  filter: brightness(80%)
 }
 
-.btn-login {
-  font-size: 0.9rem;
-  letter-spacing: 0.05rem;
-  padding: 0.75rem 1rem;
+.container-signin .btn-primary {
+  color: #00ACB2;
+  background-color: #fff;
+  border-color: #00ACB2;
+  border-radius: 40px;
 }
 
-.btn-google {
-  color: white !important;
-  background-color: #ea4335;
+.container-signin .py-5 {
+  padding-top: 1rem!important;
+  padding-bottom: 3rem!important;
 }
 
-.btn-facebook {
-  color: white !important;
-  background-color: #3b5998;
+.container-signin .btn-dark{
+  margin-bottom: 10px;
+  width: auto;
+  background-color: #00ACB2;
+  border-color: #00ACB2;
 }
-
+.container-signin a{
+  margin-top: 30px;
+  text-decoration: none;
+  font-size: 15px;
+}
+.container-signin .signin_icon{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.container-signin span{
+  color: #00ACB2;
+  font-weight: 700;
+  margin-top: 30px;
+}
 /*---------------------
   Appointment
 -----------------------*/

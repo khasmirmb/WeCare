@@ -2,7 +2,6 @@
 
     $page_title = 'WeCare - Service';
     require_once '../includes/header.php';
-    require_once '../classes/account.class.php';
     session_start();
 
     require_once '../includes/navbar.php';
@@ -58,7 +57,7 @@
                             <img src="img/4.png" class="img-fluid w-25" alt="">
                         </div>
                         <div class="service-content">
-                            <h3 class="mb-3">Apply Now <i class="fa-solid fa-chevrons-right"></i></h3>
+                            <h3 class="mb-3">Apply Now</h3>
                             <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
                                 odio data center for managing database.</p>
                         </div>
@@ -70,7 +69,7 @@
                             <img src="img/5.png" class="img-fluid w-25" alt="">
                         </div>
                         <div class="service-content">
-                            <h3 class="mb-3">Rooms <i class="fa-solid fa-chevrons-right"></i></h3>
+                            <h3 class="mb-3">Rooms</h3>
                             <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
                                 odio data center for managing database.</p>
                         </div>

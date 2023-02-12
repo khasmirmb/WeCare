@@ -2,9 +2,9 @@
 
 class Database{
     private $host = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $database = 'wecare';
+    private $username = 'u883397428_wecare';
+    private $password = 'CYpVhA[^i3';
+    private $database = 'u883397428_wecare';
     protected $connection;
 
     function connect(){

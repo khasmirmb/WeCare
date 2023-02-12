@@ -2,7 +2,6 @@
 
     $page_title = 'WeCare - About';
     require_once '../includes/header.php';
-    require_once '../classes/account.class.php';
     session_start();
 
     require_once '../includes/navbar.php';
@@ -66,7 +65,7 @@
                     Your Home Away From Home <br />
                     make your life full of care.
                 </h4>
-                <p class="about-text-muteds mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit quod debitis praesentium pariatur temporibus ipsa, cum quidem obcaecati sunt?</p>
+                <p class="text-muteds mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit quod debitis praesentium pariatur temporibus ipsa, cum quidem obcaecati sunt?</p>
 
                 <div class="row">
                     <div class="col-lg-6 mt-4 pt-2">
@@ -103,12 +102,11 @@
     <!-- About Section End -->
 
     <!-- Team Founder Begin -->
-    <section class="team spad">
+    <section class="founder spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
-                        <span>Our Team</span>
                         <h2>Founders</h2>
                     </div>
                 </div>

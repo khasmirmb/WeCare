@@ -7,7 +7,6 @@
       <span>Get connected with us on social networks:</span>
     </div>
     <!-- Left -->
-
     <!-- Right -->
     <div class="social-right">
       <a href="" class="me-4 text-reset">
@@ -43,7 +42,6 @@
           </p>
         </div>
         <!-- Grid column -->
-
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
@@ -64,7 +62,6 @@
           </p>
         </div>
         <!-- Grid column -->
-
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
@@ -85,7 +82,6 @@
           </p>
         </div>
         <!-- Grid column -->
-
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
@@ -117,9 +113,8 @@
 
     <!-- Font Awesome JS -->
     <script src="https://kit.fontawesome.com/3a762edbf5.js" crossorigin="anonymous"></script>
-
+  
     <!--Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </body>
 </html>

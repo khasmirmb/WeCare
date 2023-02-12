@@ -1,48 +1,24 @@
 <!-- Top Navigation -->
         <div class="container-first-nav">
             <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <p class="nav-link text-white" href="#"><i class="fa-solid fa-clock"></i> Mon to Sat 9:00pm to 9:00pm</p>
-                </li>
+            <li class="nav-item">
+                <p class="nav-link text-white" href="#"><i class="fa-solid fa-clock"></i> Mon to Sat 9:00am to 9:00pm</p>
+            </li>
             </ul>
         </div>
     
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <?php
-                if(isset($_SESSION['logged_id'])){
-            ?>
-            <div class="user-profile">
-                <img src="../images/home1.jpg" alt="Avatar" width="65px" data-bs-toggle="dropdown" aria-expanded="false">
-
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-            </div>
-
-            <div class="user-bell">
-                <i class="fa-solid fa-bell"></i>
-            </div>
-                
-            <?php } ?>
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <?php
-                    if(!isset($_SESSION['logged_id'])){
-            ?>
+
             <div class="logo-nav mt-2 mb-2">
-                <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo" width="45px"></a>
+                <a class="navbar-brand" href="../homepage/home.php"><img src="../images/logo.png" alt="Logo" width="45px"></a>
             </div>
-            <?php }?>
             
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                 <a class="nav-link" href="../homepage/home.php">Home</a>
                 </li>
@@ -50,7 +26,7 @@
                 <a class="nav-link" href="../about/about.php">About</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="../service/service.php">Services</a>
+                <a class="nav-link" href="../service/service.php">Service</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="../contact/contact.php">Contact</a>
@@ -58,25 +34,11 @@
                 <li class="nav-item">
                 <a class="nav-link" href="../history/history.php">History</a>
                 </li>
-                <?php
-                if(isset($_SESSION['logged_id'])){
-                ?>
                 <li class="nav-item">
                 <a class="nav-link" href="../appointment/appointment.php">Appointment</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="../account/logout.php">Tempo Logout</a>
-                </li>
-                <?php } ?>
 
             </ul>
-            <?php
-                if(isset($_SESSION['logged_id'])){
-            ?>
-            <div class="logo-nav">
-                <a class="navbar-brand" href="#"><img src="../images/logo.png" alt="Logo" width="45px"></a>
-            </div>
-            <?php } ?>
             <?php
                     if(!isset($_SESSION['logged_id'])){
                 ?>
@@ -88,6 +50,39 @@
                 </div>
                 <?php } ?>
             </div>
+            <?php
+                if(isset($_SESSION['logged_id'])){
+            ?>
+            <div class="user-bell">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <div class="user-profile">
+                <img src="../images/home1.jpg" alt="Avatar" width="65px" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li class="ms-3 mt-2"><p class="font-weight-bold"><?php echo $_SESSION['fullname'] ?></p></li>
+                    <hr>
+                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-desktop"></i><span>Family Monitoring</span></button></a></li>
+
+                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-money-bill"></i><span>Payment/History</span></button></a></li>
+
+                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-ticket"></i><span>Admission</span></button></a></li>
+
+                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-gear"></i><span>Account Settings</span></button></a></li>
+
+                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-circle-info"></i><span>Help & Support</span></button></a></li>
+
+                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-comment"></i><span>Give Feedback</span></button></a></li>
+
+                    <hr>
+                    <li><a href="../account/logout.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></button></a></li>
+                </ul>
+
+
+            </div>
+                
+            <?php } ?>
         </div>
         </nav>
         <!-- Top Navigation End-->

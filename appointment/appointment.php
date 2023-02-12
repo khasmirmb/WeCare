@@ -2,12 +2,12 @@
 
     $page_title = 'WeCare - Appointment';
     require_once '../includes/header.php';
-    require_once '../classes/account.class.php';
     session_start();
 
-    if(!isset($_SESSION['logged-in'])){
-        header('location: ../homepage/home.php');
+    if(!isset($_SESSION['logged_id'])){
+        header('location: ../account/signin.php');
     }
+
     require_once '../includes/navbar.php';
 ?>
 
@@ -62,8 +62,7 @@
             <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="appointment-agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a> </div> <button class="btn btn-primary btn-block confirm-button">Confirm</button>
         </div>
     </div>
-</div>
-              
+</div>     
 
 <?php
 

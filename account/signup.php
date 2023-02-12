@@ -2,12 +2,23 @@
 
     $page_title = 'WeCare - Sign Up';
     require_once '../includes/header.php';
+    
     session_start();
-?>
 
-<body>
-  <div class="container">
-    <div class="row">
+    if(isset($_SESSION['logged_id'])){
+      header('location: ../homepage/home.php');
+    }
+
+?>
+    <nav class="navbar bg-#fff">
+      <div class="container-fluid ms-2">
+        <a class="navbar-brand" href="../homepage/home.php">
+          <img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">
+        </a>
+      </div>
+    </nav>
+
+  <div class="container-signup">
       <div class="col-lg-10 col-xl-9 mx-auto">
         <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
           <div class="card-img-left d-none d-md-flex">
@@ -18,12 +29,17 @@
             <form>
 
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
-                <label for="floatingInputUsername">Username</label>
+                <input type="text" class="form-control" id="floatingInputUsername" placeholder="Firstname" required autofocus>
+                <label for="floatingInputUsername">Firstname</label>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+                <input type="text" class="form-control" id="floatingInputUsername" placeholder="Lastname" required autofocus>
+                <label for="floatingInputUsername">Lastname</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInputEmail" placeholder="Email">
                 <label for="floatingInputEmail">Email address</label>
               </div>
 
@@ -40,7 +56,7 @@
               </div>
 
               <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
+                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" name="submit">Register</button>
               </div>
 
               <a class="d-block text-center mt-2 small" href="../account/signin.php">Have an account? Sign In</a>
@@ -49,13 +65,13 @@
 
               <div class="d-grid mb-2">
                 <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
-                  <i class="fab fa-google me-2"></i> Sign up with Google
+                    <i class="fa-brands fa-google"></i> Sign up with Google
                 </button>
               </div>
 
               <div class="d-grid">
                 <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
-                  <i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
+                    <i class="fa-brands fa-facebook"></i> Sign up with Facebook
                 </button>
               </div>
 
@@ -63,6 +79,10 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
-</body>
+
+<?php
+
+require_once '../includes/footer.php';
+
+?>
