@@ -17,7 +17,7 @@ if(!empty($otp)){
         $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}' AND otp = '{$otp}'");
         if(mysqli_num_rows($sql) > 0){ // if unique id and session otp matches
             $null_otp = 0; // send the otp value 0 it means verified user
-            $sql2 = mysqli_query($conn, "UPDATE users SET 'verification_status' = 'Verified', 'otp' = '$null_otp' WHERE unique_id = '{$unique_id}'");
+            $sql2 = mysqli_query($conn, "UPDATE users SET `verification_status` = 'Verified', `otp` = '$null_otp' WHERE unique_id = '{$unique_id}'");
             if($sql2){
                 $row = mysqli_fetch_assoc($sql);
                 $_SESSION['unique_id'] = $row['unique_id'];
