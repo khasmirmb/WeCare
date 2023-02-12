@@ -28,7 +28,7 @@
             if($row['verification_status'] != 'Verified'){
                 header('location: ../account/verify.php');
             }
-            else{
+            else if ($row['verification_status'] == 'Verified'){
               if($row['type'] == 'staff'){
                 header('location: ../staff/dashboard.php');
               }else if($row['type'] == 'client'){
