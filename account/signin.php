@@ -22,20 +22,18 @@
             $_SESSION['logged_id'] = $row['id'];
             $_SESSION['fullname'] = 'Temporary';
             $_SESSION['user_type'] = $row['type'];
-            $_SESSION['user_image'] = $row['image'];
-            $_SESSION['verification_status'] = $row['verification_status'];
             //display the appropriate dashboard page for user
-            if($row['verification_status'] != 'Verified'){
-                header('location: ../account/verify.php');
-            }
-            else if ($row['verification_status'] == 'Verified'){
-              if($row['type'] == 'staff'){
+            if($row['type'] == 'admin'){
+                header('location: ../admin/dashboard.php');
+            }else if($row['type'] == 'staff'){
                 header('location: ../staff/dashboard.php');
-              }else if($row['type'] == 'client'){
-                header('location: ../homepage/home.php');
-              }else if($row['type'] == 'admin'){
-                header('location: ../account/verify.php');
-              }
+            }else if($row['type'] == 'client'){
+              
+                if($row['verification_status'] != 'Verified'){
+                  header('location: ../account/verify.php');
+                }else{
+                  header('location: ../homepage/home.php');
+                }
             }
         }
     }else{
