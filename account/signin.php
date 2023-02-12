@@ -24,14 +24,17 @@
             $_SESSION['user_type'] = $row['type'];
             $_SESSION['user_image'] = $row['image'];
             //display the appropriate dashboard page for user
-            if($row['verification_status'] == '0'){
+            if($row['verification_status'] == 0){
                 header('location: ../account/verify.php');
-            }else if($row['type'] == 'staff'){
+            }
+            else{
+              if($row['type'] == 'staff'){
                 header('location: ../staff/dashboard.php');
-            }else if($row['type'] == 'client'){
+              }else if($row['type'] == 'client'){
                 header('location: ../homepage/home.php');
-            }else if($row['type'] == 'admin'){
-              header('location: ../account/verify.php');
+              }else if($row['type'] == 'admin'){
+                header('location: ../account/verify.php');
+              }
             }
         }
     }else{
