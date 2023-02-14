@@ -8,27 +8,29 @@
     require_once '../includes/navbar.php';
 ?>
 <!--Breadscrumbs-->
-<div class="bg-primary text-white p-5">
-  <nav style="--bs-breadcrumb-divider: '>>';" aria-label="breadcrumb">
-        <ol class="breadcrumb d-flex justify-content-center">
-          <li class="breadcrumb-item"aria-current="page">Survey</li>
+<div class="bg-primary p-5">
+  <nav style="--bs-breadcrumb-divider: '>>'; color: white;" aria-label="breadcrumb">
+    <ol class="breadcrumb d-flex justify-content-center" style="color: white">
+    <li class="breadcrumb-item"aria-current="page">Survey</li>
           <li class="breadcrumb-item active"aria-current="page">Patient Info</li>
           <li class="breadcrumb-item active" aria-current="page">Relative Details</li>
           <li class="breadcrumb-item active" aria-current="page">Review</li>
-        </ol>
-      </nav>
+    </ol>
+  </nav>
 </div>
 
 <!--Survey & Services-->
 <div class="container align-items-center pt-3">
+<div class="container form-control">
   <h2 class="text-center">Survey & Services</h2>
   <h6 class="text-center">Just fill out this form, and we will know the initial care level recommendation.</h6>
   
-  <div class="container form-control">
   <form>
     <div class="container-fluid">
       <div class="row align-items-start">
+
       <label for="services"><strong>Services Needed:</strong></label><br>
+      
         <div class="col-lg-2 col-md-3 col-sm-4">
           <input type="checkbox" id="caregiving" name="caregiving">
           <label for="caregiving">Caregiving</label><br>

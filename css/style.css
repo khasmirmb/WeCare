@@ -495,3 +495,7 @@ color: #ece8e8;
 .own-area-container .container .section-title{
   color: #000;
 }
+.breadcrumb-item + .breadcrumb-item::before {
+  color: white;
+  content: "/\00a0";
+}

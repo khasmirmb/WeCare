@@ -24,11 +24,13 @@
 <div class="container form-control">
 <div class="container-fluid">
 <h2 class="mb-4"><strong>Patient's Personal Details</strong></h2>
+<form class="row needs-validation">
   <div class="row">
   <div class="col-sm">
   <label for="firstname"><strong>Firstname:</strong></label><br>
   <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Ex.Juan"><br>
   </div>
+  
   <div class="col-sm">
   <label for="middlename"><strong>Middlename:</strong></label><br>
   <input class="form-control" type="text" name="middlename" id="middlename" placeholder="Ex. Buenaventura"><br>
@@ -45,7 +47,7 @@
   <div class="row">
     <div class="col-sm">
     <label for="dateofbirth"><strong>Date of Birth</strong></label><br>
-    <input class="form-control" type="date" value="dateofbirth"><br>
+    <input class="form-control" type="date" value="dateofbirth" required><br>
     </div>
     <div class="col-sm">
     <label for="placeofbirth"><strong>Place of Birth:</strong></label><br>
@@ -74,7 +76,7 @@
     </div>
     <div class="col-sm">
     <label for="city"><strong>City:</strong></label><br>
-    <input class="form-control" type="text" name="city" id="city"><br>
+    <input class="form-control" type="text" name="city" id="city" required><br>
     </div>
     <div class="col-sm">
     <label for="postal"><strong>Postal:</strong></label><br>
@@ -82,22 +84,29 @@
     </div>
     </div>
     
-    <label for="history"><strong>Background History:</strong></label><br>
-    <input class="form-control" type="text" name="history" id="history"><br>
+    <div class="mb-3">
+    <label for="history" class="form-label"><strong>Background History:</strong></label><br>
+    <textarea class="form-control" id="history" rows="3"></textarea>
+    </div>
+    
+    <div class="mb-3">
+    <label for="diagnosis" class="form-label"><strong>Doctors Diagnosis:</strong></label><br>
+    <textarea class="form-control" id="diagnosis" rows="3"></textarea>
+    </div>
 
-    <label for="diagnosis"><strong>Doctors Diagnosis:</strong></label><br>
-    <input class="form-control" type="text" name="diagnosis" id="diagnosis"><br>
-
-    <label for="allergies"><strong>Allergies:</strong></label><br>
-    <input class="form-control" type="text" name="allergies" id="allergies"><br>
+    <div class="mb-3">
+    <label for="allergies" class="form-label"><strong>Allergies:</strong></label><br>
+    <textarea class="form-control" id="allergies" rows="3"></textarea>
     </div>
     </div>
+    </div>
+    </form>
     <div class="py-3">
     <a href="survey.php" class="btn btn-outline-primary" role="button" aria-pressed="true">Back</a>
     <button class="btn btn-primary" type="button"><a class="text-white text-decoration-none" href="relative-details.php">Next</a></button>
     </div>
     </div>
-    
+
 
 
 
