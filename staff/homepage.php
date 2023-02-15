@@ -32,7 +32,7 @@
         <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
         <a href="../staff/attendance.php"><i class="fas fa-clipboard-user"></i><span>Attendance</span></a>
         <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
-        <a href="#"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
+        <a href="../homepage/home.php"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
@@ -48,7 +48,7 @@
       <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="../staff/attendance.php"><i class="fas fa-clipboard-user"></i><span>Attendance</span></a>
       <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
-      <a href="#"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
+      <a href="../homepage/home.php"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
     </div>
     <!--sidebar end-->
 
