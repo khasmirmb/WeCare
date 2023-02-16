@@ -1,8 +1,23 @@
 <?php
 
     $page_title = 'WeCare - Verify';
-    require_once '../includes/header.php';  
+    require_once '../includes/header.php';
+    require_once '../classes/users.class.php';
     session_start();
+
+    if(!isset($_SESSION['logged_id'])){
+      header('location: ../account/signin.php');
+    }
+
+    $users_account = new Users();
+
+    $users = $users_account->get_user_info();
+    foreach($users as $row){
+        $_SESSION['verification_status'] = $row['verification_status'];
+        if($row['verification_status'] != 'Verified'){
+           header("location: verify.php");
+        }
+    }
 
 ?>
     <nav class="navbar bg-#fff">
