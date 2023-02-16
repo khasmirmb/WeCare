@@ -33,9 +33,9 @@
             }else if($row['type'] == 'client'){
               
                 if($row['verification_status'] != 'Verified'){
-                  header('location: ../account/verify.php');
-                }else{
                   header('location: ../homepage/home.php');
+                }else{
+                  header('location: ../account/verify.php');
                 }
             }
         }
