@@ -24,8 +24,8 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
         }
         else{
             // Checking for password and confirm password
-            if(strlen($password) < 9 ) {
-                echo "Password should be above 9 length";
+            if(strlen($password) < 8 ) {
+                echo "Password should be above 8 length";
             }
             elseif(!preg_match("#[0-9]+#", $password)) {
                 echo "Password should have at least one number";
