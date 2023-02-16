@@ -4,12 +4,12 @@ session_start();
 
 include_once '../classes/basic.database.php';
 
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$password = $_POST['pass'];
-$cpassword = $_POST['cpass'];
+$fname = htmlentities($_POST['fname']);
+$lname = htmlentities($_POST['lname']);
+$email = htmlentities($_POST['email']);
+$phone = htmlentities($_POST['phone']);
+$password = htmlentities($_POST['pass']);
+$cpassword = htmlentities($_POST['cpass']);
 $type = 'client';
 $verification_status = '0';
 
@@ -24,6 +24,19 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
         }
         else{
             // Checking for password and confirm password
+            if(strlen($password) < 9 ) {
+                echo "Password should be above 9 length";
+            }
+            elseif(!preg_match("#[0-9]+#", $password)) {
+                echo "Password should have at least one number";
+            }
+            elseif(!preg_match("#[A-Z]+#", $password)) {
+                echo "Password should have at least uppercase letter";
+            }
+            elseif(!preg_match("#[a-z]+#", $password)) {
+                echo "Password should have at least lowercase letter";
+            }else{
+
             if($password == $cpassword){
                 // Checking if user uploded a file or not
                 if(isset($_FILES['image'])){
@@ -88,6 +101,7 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
             }
             else{
                 echo "Confirm Password and Password Doesn't Match";
+             }
             }
         }
     }

@@ -4,10 +4,10 @@ session_start();
 
 include_once '../classes/basic.database.php';
 
-$otp1 = $_POST['otp1'];
-$otp2 = $_POST['otp2'];
-$otp3 = $_POST['otp3'];
-$otp4 = $_POST['otp4'];
+$otp1 = htmlentities($_POST['otp1']);
+$otp2 = htmlentities($_POST['otp2']);
+$otp3 = htmlentities($_POST['otp3']);
+$otp4 = htmlentities($_POST['otp4']);
 $unique_id = $_SESSION['unique_id'];
 $session_otp = $_SESSION['otp'];
 $otp = $otp1.$otp2.$otp3.$otp4;
