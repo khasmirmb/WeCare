@@ -32,10 +32,10 @@
                 header('location: ../staff/dashboard.php');
             }else if($row['type'] == 'client'){
               
-                if($row['verification_status'] != 'Verified'){
-                  header('location: ../homepage/home.php');
-                }else{
+                if($row['verification_status'] == '0'){
                   header('location: ../account/verify.php');
+                }else{
+                  header('location: ../homepage/home.php');
                 }
             }
         }
