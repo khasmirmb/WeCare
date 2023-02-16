@@ -18,9 +18,17 @@ $verification_status = '0';
 if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empty($password) && !empty($cpassword)){
     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
         // Checking if email already exists
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        
         $sql = mysqli_query($conn, "SELECT email FROM users WHERE email = '{$email}'");
+
         if(mysqli_num_rows($sql) > 0){
             echo "$email already Exists";
+        } else if(strlen(trim($fname))<1){
+            echo "Invalid First Name";
+        }
+        else if(strlen(trim($lname))<1){
+            echo "Invalid Last Name";
         }
         else{
             // Checking for password and confirm password
