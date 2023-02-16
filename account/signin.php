@@ -26,18 +26,17 @@
             $_SESSION['profile_pic'] = $row['image'];
             $_SESSION['verification_status'] = $row['verification_status'];
             //display the appropriate dashboard page for user
+          if($row['verification_status'] == '0'){
+            header('location: ../account/verify.php');
+          }else{
             if($row['type'] == 'admin'){
-                header('location: ../admin/dashboard.php');
+              header('location: ../admin/dashboard.php');
             }else if($row['type'] == 'staff'){
-                header('location: ../staff/dashboard.php');
+              header('location: ../staff/dashboard.php');
             }else if($row['type'] == 'client'){
-              
-                if($row['verification_status'] == '0'){
-                  header('location: ../account/verify.php');
-                }else{
-                  header('location: ../homepage/home.php');
-                }
+             header('location: ../homepage/home.php');
             }
+          }
         }
     }else{
         //set the error message if account is invalid
