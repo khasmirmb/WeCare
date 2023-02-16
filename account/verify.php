@@ -5,10 +5,6 @@
     require_once '../classes/users.class.php';
     session_start();
 
-    if(!isset($_SESSION['logged_id'])){
-      header('location: ../account/signin.php');
-    }
-
     $users_account = new Users();
 
     $users = $users_account->get_user_info();
