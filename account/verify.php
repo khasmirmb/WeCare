@@ -12,6 +12,8 @@
         $_SESSION['verification_status'] = $row['verification_status'];
         if($row['verification_status'] != 'Verified'){
            header("location: verify.php");
+        }else{
+          header('location: signin.php');
         }
     }
 
