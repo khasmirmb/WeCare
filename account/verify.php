@@ -7,28 +7,6 @@
     
     session_start();
 
-    $users_account = new Users();
-
-    $unique_id = $_SESSION['unique_id'];
-    if(empty($unique_id)){
-      header("Location: signin.php");
-    }
-    $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'");
-    if(mysqli_num_rows($qry) > 0){
-      $row = mysqli_fetch_assoc($qry);
-      if($row){
-        $_SESSION['verification_status'] = $row['verification_status'];
-        if($row['verification_status'] != 'Verified'){
-           header("Location: verify.php");
-        }
-      }
-    }
-
-
-    if(isset($_SESSION['logged_id'])){
-      header('location: ../homepage/home.php');
-    }
-
 ?>
     <nav class="navbar bg-#fff">
       <div class="container-fluid ms-2">
