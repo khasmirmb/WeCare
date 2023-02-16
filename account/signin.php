@@ -22,6 +22,7 @@
             $_SESSION['logged_id'] = $row['id'];
             $_SESSION['fullname'] = 'Temporary';
             $_SESSION['user_type'] = $row['type'];
+            $_SESSION['unique_id'] = $row['unique_id'];
             //display the appropriate dashboard page for user
             if($row['type'] == 'admin'){
                 header('location: ../admin/dashboard.php');
