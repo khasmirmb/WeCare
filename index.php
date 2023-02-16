@@ -5,17 +5,21 @@
     session_start();
 
     //check if user is login already otherwise send to login page
-    if (isset($_SESSION['user_type']) == 'client'){
-        header('location: homepage/home.php');
-    }
-    else if (isset($_SESSION['user_type']) == 'admin'){
-        header('location: admin/dashboard.php');
-    }
-    else if (isset($_SESSION['user_type']) == 'staff'){
-        header('location: staff/dashboard.php');
-    }
-    else{
-        header('location: homepage/home.php');
+    if(isset($_SESSION['verification_status ']) == '0'){
+        header('location: account/verify.php');
+    }else{
+        if (isset($_SESSION['user_type']) == 'client'){
+            header('location: homepage/home.php');
+        }
+        else if (isset($_SESSION['user_type']) == 'admin'){
+            header('location: admin/dashboard.php');
+        }
+        else if (isset($_SESSION['user_type']) == 'staff'){
+            header('location: staff/dashboard.php');
+        }
+        else{
+            header('location: homepage/home.php');
+        }
     }
 
 ?>

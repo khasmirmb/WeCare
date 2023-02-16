@@ -4,6 +4,10 @@
     require_once '../includes/header.php';
     session_start();
 
+    if(isset($_SESSION['verification_status']) == '0'){
+      header('location: ../account/verify.php');
+    }
+
     require_once '../includes/navbar.php';
 ?>
 

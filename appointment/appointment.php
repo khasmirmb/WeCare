@@ -7,7 +7,11 @@
     if(!isset($_SESSION['logged_id'])){
         header('location: ../account/signin.php');
     }
-
+    
+    if(!isset($_SESSION['verification_status']) == '0'){
+        header('location: ../account/verify.php');
+    }
+    
     require_once '../includes/navbar.php';
 ?>
 
