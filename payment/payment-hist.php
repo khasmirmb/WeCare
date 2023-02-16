@@ -16,7 +16,7 @@
             </div>
             <div class="col">
                 <h5>Next Payment Due Date</h5>
-                <h3>February 23, 2023</h3>
+                <h3><strong>February 23, 2023</strong></h3>
             </div>
     </div>
 </div>
