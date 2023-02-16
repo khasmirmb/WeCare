@@ -4,8 +4,8 @@ session_start();
 
 include_once '../classes/basic.database.php';
 
-$fname = htmlentities($_POST['fname']);
-$lname = htmlentities($_POST['lname']);
+$fname = htmlentities(ucfirst($_POST['fname']));
+$lname = htmlentities(ucfirst($_POST['lname']));
 $email = htmlentities($_POST['email']);
 $phone = htmlentities($_POST['phone']);
 $password = htmlentities($_POST['pass']);
@@ -19,16 +19,17 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
         // Checking if email already exists
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        
+
         $sql = mysqli_query($conn, "SELECT email FROM users WHERE email = '{$email}'");
 
         if(mysqli_num_rows($sql) > 0){
             echo "$email already Exists";
-        } else if(strlen(trim($fname))<1){
-            echo "Invalid First Name";
         }
-        else if(strlen(trim($lname))<1){
+        // Checking for First Name and Last Name
+        else if(strlen(trim($lname)) > 1  && strlen(trim($lname)) < 255 && !preg_match("/^[a-zA-z]*$/", $lname)){
             echo "Invalid Last Name";
+        }else if(strlen(trim($fname)) > 1  && strlen(trim($fname)) < 255 && !preg_match("/^[a-zA-z]*$/", $fname)){
+            echo "Invalid First Name";
         }
         else{
             // Checking for password and confirm password
