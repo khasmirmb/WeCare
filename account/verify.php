@@ -1,26 +1,8 @@
 <?php
 
     $page_title = 'WeCare - Verify';
-    require_once '../includes/header.php';
-    require_once '../classes/basic.database.php';
-    require_once '../classes/users.class.php';
-    
+    require_once '../includes/header.php';  
     session_start();
-
-    $unique_id = $_SESSION['unique_id'];
-    if(empty($unique_id)){
-      header("Location: signin.php");
-    }
-    $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'");
-    if(mysqli_num_rows($qry) > 0){
-      $row = mysqli_fetch_assoc($qry);
-      if($row){
-        $_SESSION['verification_status'] = $row['verification_status'];
-        if($row['verification_status'] != 'Verified'){
-           header("location: verify.php");
-        }
-      }
-    }
 
 ?>
     <nav class="navbar bg-#fff">
