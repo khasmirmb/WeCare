@@ -28,7 +28,7 @@
       </div>
       <div class="mobile_nav_items">
         <a href="#"><i class="fas fa-clipboard-list"></i><span>Patient List</span></a>
-        <a href="#"><i class="fas fa-user"></i><span>Admission</span></a>
+        <a href="../staff/admission.php"><i class="fas fa-user"></i><span>Admission</span></a>
         <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
         <a href="../staff/attendance.php"><i class="fas fa-clipboard-user"></i><span>Attendance</span></a>
         <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
@@ -44,7 +44,7 @@
         <h5>Registered Nurse</h5>
       </div>
       <a href="#"><i class="fas fa-clipboard-list"></i><span>Patient List</span></a>
-      <a href="#"><i class="fas fa-user"></i><span>Admission</span></a>
+      <a href="../staff/admission.php"><i class="fas fa-user"></i><span>Admission</span></a>
       <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="../staff/attendance.php"><i class="fas fa-clipboard-user"></i><span>Attendance</span></a>
       <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>

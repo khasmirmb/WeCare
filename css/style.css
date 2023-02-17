@@ -919,6 +919,10 @@ label #sidebar_btn:hover{
 
 
 
+/*---------------------
+  Attendance
+-----------------------*/
+
 .intro {
   height: 100%;
 }
@@ -931,7 +935,7 @@ table th {
 }
 
 thead th {
-  color: #fff;
+  color: #000;
 }
 
 .card {
@@ -948,4 +952,14 @@ thead th {
 thead {
   top: 0;
   position: sticky;
+}
+
+.filter_class{
+  padding-right: 0.5rem!important;
+  padding-left: 0.5rem!important;
+  border: 1px solid #00ACB2;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #00ACB2;
+  
 }
