@@ -935,7 +935,7 @@ table th {
 }
 
 thead th {
-  color: #000;
+  color: #fff;
 }
 
 .card {
@@ -961,5 +961,9 @@ thead {
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   color: #00ACB2;
-  
+  padding: 5px 5px; 
+}
+
+.tab-row{
+  background: #00ACB2;
 }

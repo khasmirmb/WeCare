@@ -70,10 +70,10 @@
         
     </div>
     <div class="table-responsive">
-    <table class="table table-responsive table-borderless">
+    <table class="table table-responsive">
         
       <thead>
-        <tr class="bg-light">
+        <tr class="tab-row">
           <th scope="col" width="30%">Name</th>
           <th scope="col" width="20%">Time</th>
           <th scope="col" width="30%">Date</th>
@@ -128,6 +128,7 @@
 </table>
   
   </div>
+</div>
 </div>
 </div>
     </div>
