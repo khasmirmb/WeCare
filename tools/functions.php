@@ -28,5 +28,11 @@ function validate_email($POST){
         return false;
     }
 }
+function validate_contact_us($POST){
+    if(!validate_first_name($POST) || !validate_last_name($POST) || !validate_email($POST)){
+        return false;
+     }
+    return true;
+}
 
 ?>
