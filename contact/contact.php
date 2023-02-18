@@ -4,8 +4,28 @@
     require_once '../includes/header.php';
     session_start();
 
+    if(isset($_POST['send'])){
+        $mailto = "alamnaerz23@gmail.com"; // Owner Email
+        $from = htmlentities($_POST['email']); // Sender Email
+        $name = htmlentities(ucfirst($_POST['firstname'])) ." ". htmlentities(ucfirst($_POST['lastname']));
+        $phone = htmlentities($_POST['phone']); // Sender Phone Number
+        $subject = "WeCare Nursing Home Contact Mail"; // Subject send to owner
+        $subject2 = "Your Message is Submitted Successfully │ WeCare Nursing Home"; // Subject for sender
+        $message = "Name: " . $name . "\nPhone: " . $phone .  "\nMessage: " . "\n\n". htmlentities($_POST['message']);
+        $message2 = "Dear ". $name . ",\n\n" . "Thank you for contacting us! We'll get back to you shortly";
+        $header = "From: ". $from;
+        $header2 = "From: ". $mailto;
+        $result = mail($mailto, $subject, $message, $header);
+        $result2 = mail($from, $subject2, $message2, $header2);
+        if ($result){
+            echo '<script type="text"/javascript">alert("Message was sent Successfully")</script>';
+        }else{
+            echo '<script type="text"/javascript">alert("Message was not sent")</script>';
+        }
+    }
 
     require_once '../includes/navbar.php';
+
 ?>
 
 <div class="contact-area mb-7">
@@ -24,7 +44,7 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="contact-form">
                     <h2 class="h1-responsive font-weight-bold text-center my-2">Send Message</h2>
-                    <form action="#" method="post">
+                    <form action="contact.php" method="post">
                     
                     <div class="mb-3">
                         <label for="firstname" class="form-label">FirstName</label>
@@ -36,18 +56,18 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" id="email" class="form-control" placeholder="Email" required name="email">
+                        <input type="email" id="email" class="form-control" placeholder="Email" required name="email">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="number" id="phone" class="form-control" placeholder="Phone Number" required name="phone">
+                        <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required name="phone" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')">
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Messsage</label>
                         <textarea type="text" id="message" class="form-control" placeholder="How can we help you?" required style="height:150px" name="message"></textarea>
                     </div>
   
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary" name="send">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -70,6 +90,9 @@
             </div>
     </div>
 </div>
+
+
+
 
 <?php
 
