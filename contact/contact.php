@@ -49,9 +49,9 @@
                     <?php
                         //Display the error message if there is any.
                         if(isset($error)){
-                            echo '<div class="error-text">'. $error .'</div>';
+                            echo '<div><p class="error">'.$error.'</p></div>';
                         }else{
-                            echo '<div class="sucess-text">'. $sucess .'</div>';
+                            echo '<div><p class="sucess">'.$sucess.'</p></div>';
                         }
                                     
                     ?>

@@ -327,6 +327,24 @@ body{
   color: #FFFFFF;  
   font-weight: bold;  
 } 
+.contact-form form .sucess{
+  color: #1c943a;
+  padding: 4px 6px;
+  text-align: center;
+  border-radius: 4px;
+  background: #ffe3e5;
+  border: 1px solid #ecf3f0;
+  margin-bottom: 10px;
+}
+.contact-form form .error{
+  color: #851923;
+  padding: 4px 6px;
+  text-align: center;
+  border-radius: 4px;
+  background: #ffe3e5;
+  border: 1px solid #dfa5ab;
+  margin-bottom: 10px;
+}
 /*---------------------
   Service
 -----------------------*/
@@ -750,16 +768,6 @@ form .error-text{
   border-radius: 4px;
   background: #ffe3e5;
   border: 1px solid #dfa5ab;
-  margin-bottom: 10px;
-  display: none;
-}
-form .sucess-text{
-  color: #1c943a;
-  padding: 4px 6px;
-  text-align: center;
-  border-radius: 4px;
-  background: #ffe3e5;
-  border: 1px solid #ecf3f0;
   margin-bottom: 10px;
   display: none;
 }
