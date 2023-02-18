@@ -743,13 +743,23 @@ color: #ece8e8;
 /*---------------------
   Error Message
 -----------------------*/
-form .error-text{
+form .error-text p{
   color: #851923;
   padding: 4px 6px;
   text-align: center;
   border-radius: 4px;
   background: #ffe3e5;
   border: 1px solid #dfa5ab;
+  margin-bottom: 10px;
+  display: none;
+}
+form .sucess-text p{
+  color: #1c943a;
+  padding: 4px 6px;
+  text-align: center;
+  border-radius: 4px;
+  background: #ffe3e5;
+  border: 1px solid #ecf3f0;
   margin-bottom: 10px;
   display: none;
 }

@@ -18,9 +18,9 @@
         $result = mail($mailto, $subject, $message, $header);
         $result2 = mail($from, $subject2, $message2, $header2);
         if($result){
-            echo '<script type="text/javascript">alert("Message was sent Successfully")</script>';
+            $sucess = 'Your Message has been sent. We will get back to you shortly.';
         }else{
-            echo '<script type="text/javascript">alert("Message was not sent")</script>';
+            $error = 'Message was not sent.';
         }
     }
 
@@ -45,6 +45,16 @@
                 <div class="contact-form">
                     <h2 class="h1-responsive font-weight-bold text-center my-2">Send Message</h2>
                     <form action="contact.php" method="post">
+
+                    <?php
+                        //Display the error message if there is any.
+                        if(isset($error)){
+                            echo '<div class="error-text">'. $error .'</div>';
+                        }else{
+                            echo '<div class="sucess-text">'. $sucess .'</div>';
+                        }
+                                    
+                    ?>
                     
                     <div class="mb-3">
                         <label for="firstname" class="form-label">FirstName</label>
@@ -68,6 +78,7 @@
                     </div>
   
                     <button type="submit" class="btn btn-primary" name="send">Send Message</button>
+                    
                     </form>
                 </div>
             </div>
