@@ -96,7 +96,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Messsage</label>
-                        <textarea type="text" id="message" class="form-control" placeholder="How can we help you?" required style="height:150px" name="message" value="<?php if(isset($_POST['message'])) { echo $_POST['message']; } ?>"></textarea>
+                        <textarea type="text" id="message" class="form-control" placeholder="How can we help you?" required style="height:150px" name="message"><?php if(isset($_POST['message'])) { echo $_POST['message']; } ?></textarea>
                     </div>
   
                     <button type="submit" class="btn btn-primary" name="send">Send Message</button>
