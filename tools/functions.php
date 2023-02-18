@@ -1,18 +1,14 @@
 <?php 
 
 function validate_first_name($POST){
-    if(!isset($POST['fn'])){
-        return false;
-    }else if(strlen(trim($POST['fn']))<1){
+    if(strlen(trim($POST['firstname'])) > 1  && strlen(trim($$POST['firstname'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['firstname'])){
         return false;
     }
     return true;
 }
 
 function validate_last_name($POST){
-    if(!isset($POST['ln'])){
-        return false;
-    }else if(strlen(trim($POST['ln']))<1){
+    if(strlen(trim($POST['lastname'])) > 1  && strlen(trim($$POST['lastname'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['lastname'])){
         return false;
     }
     return true;

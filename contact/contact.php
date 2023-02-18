@@ -55,8 +55,7 @@
                             echo '<div><p class="error">'.$error.'</p></div>';
                         }else{
                             echo '<div><p class="sucess">'.$sucess.'</p></div>';
-                        }
-                                    
+                        }             
                     ?>
                     
                     <div class="mb-3">
