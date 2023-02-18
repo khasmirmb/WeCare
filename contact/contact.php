@@ -16,7 +16,7 @@
         $message2 = "Dear ". $name . ",\n\n" . "Thank you for contacting us! We'll get back to you shortly";
         $header = "From: ". $from;
         $header2 = "From: ". $mailto;
-        if(validate_contact_us($_POST)){
+        if(validate_email($_POST)){
             $result = mail($mailto, $subject, $message, $header);
             $result2 = mail($from, $subject2, $message2, $header2);
             if($result){
