@@ -743,7 +743,7 @@ color: #ece8e8;
 /*---------------------
   Error Message
 -----------------------*/
-form .error-text p{
+form .error-text{
   color: #851923;
   padding: 4px 6px;
   text-align: center;
@@ -753,7 +753,7 @@ form .error-text p{
   margin-bottom: 10px;
   display: none;
 }
-form .sucess-text p{
+form .sucess-text{
   color: #1c943a;
   padding: 4px 6px;
   text-align: center;
