@@ -499,3 +499,11 @@ color: #ece8e8;
   color: white;
   content: "/\00a0";
 }
+.drop-zone {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 25px;
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+}
