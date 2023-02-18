@@ -78,7 +78,7 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="email" class="form-control form-control-lg" name="email"/>
+                    <input type="email" id="email" class="form-control form-control-lg" name="email" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>"/>
                     <label class="form-label" for="email">Email address</label>
                   </div>
 
