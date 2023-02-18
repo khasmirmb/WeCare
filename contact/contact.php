@@ -63,24 +63,12 @@
                         <label for="firstname" class="form-label">FirstName</label>
                         <input type="text" id="firstname" class="form-control" placeholder="Firstname" required name="firstname" value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } ?>">
                     </div>
-                    <?php
-                        if(isset($_POST['send']) && !validate_first_name($_POST)){
-                    ?>
-                                <p class="error">First name is invalid. Trailing spaces will be ignored.</p>
-                    <?php
-                        }
-                    ?>
+
                     <div class="mb-3">
                         <label for="lastname" class="form-label">Last Name</label>
                         <input type="text" id="lastname" class="form-control" placeholder="Lastname" required name="lastname" value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } ?>">
                     </div>
-                    <?php
-                        if(isset($_POST['send']) && !validate_last_name($_POST)){
-                    ?>
-                                <p class="error">Last name is invalid. Trailing spaces will be ignored.</p>
-                    <?php
-                        }
-                    ?>
+
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" class="form-control" placeholder="Email" required name="email" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
