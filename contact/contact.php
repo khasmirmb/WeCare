@@ -17,10 +17,10 @@
         $header2 = "From: ". $mailto;
         $result = mail($mailto, $subject, $message, $header);
         $result2 = mail($from, $subject2, $message2, $header2);
-        if ($result){
-            echo '<script type="text"/javascript">alert("Message was sent Successfully")</script>';
+        if($result){
+            echo '<script type="text/javascript">alert("Message was sent Successfully")</script>';
         }else{
-            echo '<script type="text"/javascript">alert("Message was not sent")</script>';
+            echo '<script type="text/javascript">alert("Message was not sent")</script>';
         }
     }
 
