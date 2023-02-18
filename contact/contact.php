@@ -65,7 +65,7 @@
                     <?php
                         if(isset($_POST['send']) && !validate_first_name($_POST)){
                     ?>
-                                <p class="error">First name is invalid. Trailing spaces will be ignored.</p>
+                                <p class="error">First name is invalid.</p>
                     <?php
                         }
                     ?>
@@ -76,7 +76,7 @@
                     <?php
                         if(isset($_POST['send']) && !validate_last_name($_POST)){
                     ?>
-                                <p class="error">Last name is invalid. Trailing spaces will be ignored.</p>
+                                <p class="error">Last name is invalid.</p>
                     <?php
                         }
                     ?>
