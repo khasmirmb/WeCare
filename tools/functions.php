@@ -3,7 +3,7 @@
 function validate_first_name($POST){
     if(!isset($POST['fn'])){
         return false;
-    }else if(strlen(trim($POST['fn'])) > 1  && strlen(trim($POST['fn'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['fn'])){
+    }else if(strlen(trim($POST['fn']))<1){
         return false;
     }
     return true;
@@ -12,7 +12,7 @@ function validate_first_name($POST){
 function validate_last_name($POST){
     if(!isset($POST['ln'])){
         return false;
-    }else if(strlen(trim($POST['ln'])) > 1  && strlen(trim($POST['ln'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['ln'])){
+    }else if(strlen(trim($POST['ln']))<1){
         return false;
     }
     return true;

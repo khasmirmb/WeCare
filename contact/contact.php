@@ -19,7 +19,9 @@
         if(validate_contact_us($_POST)){
             $result = mail($mailto, $subject, $message, $header);
             $result2 = mail($from, $subject2, $message2, $header2);
-            $sucess = 'Your Message has been sent. We will get back to you shortly.';
+            if($result){
+                $sucess = 'Your Message has been sent. We will get back to you shortly.';
+            }
         }else{
             $error = 'Message was not sent.';
         }
