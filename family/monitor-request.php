@@ -10,11 +10,10 @@
 <div class="container align-items-center pt-3">
 <h2 class="pb-3"><strong>Monitoring Request</strong></h2>
 <div class="container form-control">
-<div class="container-fluid">
 <form class="row needs-validation">
-<h4 class="bg-primary bg-gradient py-3 px-3 text-white"><strong>Patient Information</strong></h2>
+<h4 class="bg-primary bg-gradient py-3 text-white"><strong>Patient Information</strong></h2>
 
-  <div class="row pt-3">
+  <div class="row pt-3 pb-3">
   <div class="col-sm">
   <label for="firstname"><strong>Firstname:</strong></label><br>
   <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Ex.Juan"><br>
@@ -50,16 +49,13 @@
 </div>
 </div>
 </div>
-<div class="pt-3">
-    <h4 class="bg-primary bg-gradient py-3 px-3 text-white"><strong>Upload ID or any Identification that you're related to patient</strong></h4>
-</div>
+<h4 class="bg-primary bg-gradient py-3 px-3 text-white"><strong>Upload ID or any Identification that you're related to patient</strong></h4>
 <div class="row pt-3">
 <div class="mb-3">
   <input class="form-control" type="file" id="formFileMultiple" multiple>
 </div>
 </div>
 </form>
-</div>
 </div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
     <button type="button" class="btn btn-primary">Submit</button>
