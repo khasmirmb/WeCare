@@ -21,7 +21,7 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <li><a class="dropdown-item" href="#">
-            <div class="row btn btn-primary">
+            <div class="row">
                 <div class="col">
                     <p><strong>Log</strong></p>
                 </div>
@@ -98,16 +98,28 @@
     </ul>
     </div><!--End of dropdown-->
 
-    <div class="container align-items-center">
-        <div class="status pb-3">
+    <div class="container-fluid">
+    <div class="row align-items-start">
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
         <button type="button" class="btn btn-primary">Present</button>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
         <button type="button" class="btn btn-primary">Break</button>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
         <button type="button" class="btn btn-primary">Absent</button>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
         <button type="button" class="btn btn-primary">Leave</button>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
         <button type="button" class="btn btn-primary">Sick Leave</button>
         </div>
         </div>
+        </div>
+       
 
+<div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
@@ -149,5 +161,6 @@
         </tr>
     </tbody>
 </table>
+</div>
 </div>
 
