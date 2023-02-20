@@ -27,10 +27,10 @@
         $client_came = "Pending";
 
         // Check the client
-        $clients = $client->show_client_data();
+        $clients_obj = $client->show_client_data();
     
-        foreach($clients as $row){
-            if(isset($_SESSION['logged_in']) == $row['user_id']){
+        foreach($clients_obj as $row){
+            if(isset($_SESSION['logged_id']) == $row['user_id']){
                 $_SESSION['client_id'] = $row['id'];
             }
         }
