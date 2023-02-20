@@ -69,7 +69,6 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                             '{$fname}', '{$lname}', '{$email}', '{$phone}', '{$password}',
                             '{$newimagename}' , '{$otp}', '{$verification_status}', '{$type}')");
 
-
                             if($sql2){
                                 $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
                                 if(mysqli_num_rows($sql3) > 0){
@@ -77,7 +76,6 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                                     $_SESSION['unique_id'] = $row['unique_id'];
                                     $_SESSION['email'] = $row['email'];
                                     $_SESSION['otp'] = $row['otp'];
-                                    $_SESSION['user_id'] = $row['id'];
 
                                     // Mail function
                                     if($otp){
@@ -88,21 +86,6 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
 
                                         if(mail($reciver, $subject, $body, $sender)){
                                             echo "Success";
-                                            require_once '../classes/client.class.php';
-
-                                            $client = new Client();
-                
-                                            $client->user_id = $_SESSION['user_id'];
-                                            $client->firstname = $fname;
-                                            $client->lastname = $lname;
-                                            $client->middlename = " ";
-                                            $client->suffix = " ";
-                                            $client->date_of_birth = "2023-02-26";
-                                            $client->gender = " ";
-                                            $client->address = " ";
-                                            $client->martial_status = " ";
-        
-                                            $client->add_client();
                                         }
                                         else{
                                             echo "Email Problem" . mysqli_error($conn);
