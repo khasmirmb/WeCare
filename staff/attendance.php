@@ -101,6 +101,7 @@
     <div class="container align-items-center">
         <div class="status pb-3">
         <button type="button" class="btn btn-primary">Present</button>
+        <button type="button" class="btn btn-primary">Break</button>
         <button type="button" class="btn btn-primary">Absent</button>
         <button type="button" class="btn btn-primary">Leave</button>
         <button type="button" class="btn btn-primary">Sick Leave</button>
