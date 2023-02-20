@@ -27,6 +27,7 @@
         $status = "In Process";
         $client_came = "Pending";
 
+        // Check for available staff for the day
         $staff_schedule = $staffs->show_staff_schedule();
     
         foreach($staff_schedule as $row){
@@ -36,6 +37,7 @@
             }
         }
 
+        // Get the max appointment_number and add one
         $appointment_max_num = $appointment->show_max_app_number();
 
         $appointment_number = 0;
@@ -47,6 +49,7 @@
 
         $_SESSION['appointment_number_max'] = $appointment_number + 1;
 
+        // Insert the appointment
         $appointment->staff_id = $_SESSION['staff_available'];
         $appointment->client_id = $client;
         $appointment->staff_schedule_id = $_SESSION['staff_schedule'];
@@ -58,7 +61,7 @@
         $appointment->status = $status;
         $appointment->client_came = $client_came;
         if($appointment->add_appointment()){
-            //redirect user to program page after saving
+            //redirect user to appointment list page
             header('location: appointment.list.php');
         }
         
