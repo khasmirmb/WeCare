@@ -26,7 +26,7 @@
         $status = "In Process";
         $client_came = "Pending";
 
-        // Check the client
+        // Still have an error required fixing
         $clients_obj = $client->show_client_data();
     
         foreach($clients_obj as $row){
