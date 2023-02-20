@@ -55,7 +55,7 @@
     <!--sidebar end-->
 
     <div class="content">
-      <div class="cont-header"> <h3 class="content-text">Admission</h3></div>
+      <div class="cont-header"> <h3 class="content-text">Appointment</h3></div>
       <div class="cont-table">
     <div class="container mt-5 px-2">
     <div class="table_border">

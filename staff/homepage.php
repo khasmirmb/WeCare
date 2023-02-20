@@ -1,7 +1,7 @@
 <?php
 
     $page_title = 'WeCare Nursing Home Inc.';
-    require_once '../includes/header.php';
+    require_once '../includes/sidebar.php';
     session_start();
 
 ?>
@@ -29,7 +29,7 @@
       <div class="mobile_nav_items">
         <a href="#"><i class="fas fa-clipboard-list"></i><span>Patient List</span></a>
         <a href="../staff/admission.php"><i class="fas fa-user"></i><span>Admission</span></a>
-        <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
+        <a href="../staff/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
         <a href="../staff/attendance.php"><i class="fas fa-clipboard-user"></i><span>Attendance</span></a>
         <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
         <a href="../homepage/home.php"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
@@ -45,7 +45,7 @@
       </div>
       <a href="#"><i class="fas fa-clipboard-list"></i><span>Patient List</span></a>
       <a href="../staff/admission.php"><i class="fas fa-user"></i><span>Admission</span></a>
-      <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
+      <a href="../staff/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="../staff/attendance.php"><i class="fas fa-clipboard-user"></i><span>Attendance</span></a>
       <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
       <a href="../homepage/home.php"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
@@ -53,16 +53,21 @@
     <!--sidebar end-->
 
     <div class="content">
-      <div class="card">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <div class="container">
+           <div class="row height d-flex justify-content-center align-items-center">
+            <div class="cont-search">
+            <div class="col-md-6">
+               <div class="search">
+                 <i class="fa fa-search"></i>
+              <input type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-primary">Search</button>
+            </div>
+          </div>
+          <div class="col-md-4"> </div>
+        </div>
       </div>
-      <div class="card">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-      </div>
-      <div class="card">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-      </div>
-    </div>
+  </div>
+</div>
 
     <script type="text/javascript">
     $(document).ready(function(){
