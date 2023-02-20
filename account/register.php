@@ -78,9 +78,7 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                                     $_SESSION['otp'] = $row['otp'];
                                     $user_id = $row['id'];
 
-                                    $sql4 = mysqli_query($conn, "INSERT INTO client (user_id, fname, lname, middlename, suffix, date_of_birth, gender, address, martial_status) VALUES ({$user_id}, 
-                                    '{$fname}', '{$lname}', 'middlename', 'suffix', 2023-02-26,
-                                    'Other' , 'NULL', 'NULL')");
+                                    $sql4 = mysqli_query($conn, "INSERT INTO client (user_id, fname, lname, middlename, suffix, date_of_birth, gender, address, martial_status) VALUES ({$user_id}, '{$fname}', '{$lname}', 'middlename', 'suffix', 2023-02-26, 'Other' , 'NULL', 'NULL')");
 
                                     // Mail function
                                     if($otp){
