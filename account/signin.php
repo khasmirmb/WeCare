@@ -5,6 +5,7 @@
     $page_title = 'WeCare - Sign In';
     require_once '../includes/header.php';
     require_once '../classes/users.class.php';
+    require_once '../classes/client.class.php';
 
     // If user is already logged in go to homepage
     if(isset($_SESSION['logged_id'])){
@@ -12,6 +13,8 @@
     }
 
     $users_account = new Users();
+    $client = new Client();
+  
     if(isset($_POST['email']) && isset($_POST['password'])){
     //Sanitizing the inputs of the users. Mandatory to prevent injections!
     $users_account->email = htmlentities($_POST['email']);
@@ -29,7 +32,22 @@
             $_SESSION['unique_id'] = $row['unique_id'];
             $_SESSION['profile_pic'] = $row['image'];
             $_SESSION['verification_status'] = $row['verification_status'];
-            //display the appropriate dashboard page for user
+        
+            if($client->show_client_data()){
+              if(!$client->user_id == $row['id']){
+                $client->user_id = $row['id'];
+                $client->firstname = $row['fname'];
+                $client->lastname = $row['lname'];
+                $client->middlename = "middlename";
+                $client->suffix = " ";
+                $client->date_of_birth = 2023-02-26;
+                $client->gender = "Other";
+                $client->address = "None";
+                $client->martial_status = "None";
+                $client->add_client();
+              }
+            }
+          //display the appropriate dashboard page for user
           if($row['verification_status'] == '0'){
             header('location: ../account/verify.php');
           }else{
