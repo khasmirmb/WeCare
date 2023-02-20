@@ -4,7 +4,7 @@
 require_once 'database.php';
 
 // Declare Class
-class Patients{
+class Patient{
 
     // Class attributes
     public $id;

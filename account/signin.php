@@ -21,6 +21,10 @@
         foreach($users as $row){
             $_SESSION['logged_id'] = $row['id'];
             $_SESSION['fullname'] = $row['fname'] . ' ' . $row['lname'];
+            $_SESSION['user_firstname'] = $row['fname'];
+            $_SESSION['user_lastname'] = $row['lname'];
+            $_SESSION['user_email'] = $row['email'];
+            $_SESSION['user_phone'] = $row['phone'];
             $_SESSION['user_type'] = $row['type'];
             $_SESSION['unique_id'] = $row['unique_id'];
             $_SESSION['profile_pic'] = $row['image'];
