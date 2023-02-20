@@ -23,9 +23,17 @@
         $purpose = $_POST['purpose'];
         $others = htmlentities($_POST['others']);
         $day = date('l', strtotime($_POST['date']));
-        $client = '1';
         $status = "In Process";
         $client_came = "Pending";
+
+        // Check the client
+        $clients = $client->show_client_data();
+    
+        foreach($clients as $row){
+            if(isset($_SESSION['logged_in']) == $row['user_id']){
+                $_SESSION['client_id'] = $row['id'];
+            }
+        }
 
         // Check for available staff for the day
         $staff_schedule = $staffs->show_staff_schedule();
@@ -51,7 +59,7 @@
 
         // Insert the appointment
         $appointment->staff_id = $_SESSION['staff_available'];
-        $appointment->client_id = $client;
+        $appointment->client_id = $_SESSION['client_id'];
         $appointment->staff_schedule_id = $_SESSION['staff_schedule'];
         $appointment->appointment_number = $_SESSION['appointment_number_max'];
         $appointment->purpose_for_appointment = $purpose;
