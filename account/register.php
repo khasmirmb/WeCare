@@ -69,12 +69,6 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                             '{$fname}', '{$lname}', '{$email}', '{$phone}', '{$password}',
                             '{$newimagename}' , '{$otp}', '{$verification_status}', '{$type}')");
 
-                            $rows = mysqli_fetch_assoc($sql3);
-
-                            $user_id = $rows['id'];
-
-                            $sql4 = mysqli_query($conn, "INSERT INTO client (user_id, fname, lname, middlename, suffix, date_of_birth, gender, address, martial_status) VALUES ({$user_id}, '{$fname}', '{$lname}', 'middlename', 'suffix', 2023-02-26, 'Other' , 'NULL', 'NULL')");
-
                             if($sql2){
                                 $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
                                 if(mysqli_num_rows($sql3) > 0){
