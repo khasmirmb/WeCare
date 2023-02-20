@@ -79,22 +79,6 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                                     $_SESSION['otp'] = $row['otp'];
                                     $_SESSION['user_id'] = $row['id'];
 
-                                    require_once '../classes/client.class.php';
-
-                                    $client = new Client();
-        
-                                    $client->user_id = $_SESSION['user_id'];
-                                    $client->firstname = $fname;
-                                    $client->lastname = $lname;
-                                    $client->middlename = " ";
-                                    $client->suffix = " ";
-                                    $client->date_of_birth = "2023-02-26";
-                                    $client->gender = " ";
-                                    $client->address = " ";
-                                    $client->martial_status = " ";
-
-                                    $client->add_client();
-
                                     // Mail function
                                     if($otp){
                                         $reciver = $email;
@@ -104,6 +88,21 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
 
                                         if(mail($reciver, $subject, $body, $sender)){
                                             echo "Success";
+                                            require_once '../classes/client.class.php';
+
+                                            $client = new Client();
+                
+                                            $client->user_id = $_SESSION['user_id'];
+                                            $client->firstname = $fname;
+                                            $client->lastname = $lname;
+                                            $client->middlename = " ";
+                                            $client->suffix = " ";
+                                            $client->date_of_birth = "2023-02-26";
+                                            $client->gender = " ";
+                                            $client->address = " ";
+                                            $client->martial_status = " ";
+        
+                                            $client->add_client();
                                         }
                                         else{
                                             echo "Email Problem" . mysqli_error($conn);
