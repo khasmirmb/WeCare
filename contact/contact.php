@@ -1,128 +1,79 @@
 <?php
 
-    $page_title = 'WeCare - Contact Us';
+    $page_title = 'WeCare - Contact';
     require_once '../includes/header.php';
+    require_once '../classes/account.class.php';
     session_start();
 
-    require_once '../includes/topnav.php';
-
-
+    require_once '../includes/navbar.php';
 ?>
 
-<!-- Contact Section Begin -->
-<div class="section-header">
-             <div class="contact_container">
-                 <h2 class="contact_h2">Contact Us</h2>
-                     <p class="contact_p">Getting in touch is now easy. Email us with any question or inquries. We would be happy to answer your questions</p>
+<div class="contact-area mb-7">
+    <div class="container">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="section-title">
+                    <!--Section heading-->
+                    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact Us</h2>
+                    <!--Section description-->
+                    <p class="text-center w-responsive mx-auto mb-4">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                    a matter of hours to help you.</p>
                 </div>
             </div>
 
-<section class="contact spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="contact__widget">
-                        <div class="contact__widget__icon">
-                            <i class="fa fa-facebook"></i>
-                        </div>
-                        <div class="contact__widget__text">
-                            <h5>Facebook</h5>
-                            <p>WeCare facebook</p>
-                        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="contact-form">
+                    <h2 class="h1-responsive font-weight-bold text-center my-2">Send Message</h2>
+                    <form>
+                    
+                    <div class="mb-3">
+                        <label for="firstname" class="form-label">FirstName</label>
+                        <input type="text" id="firstname" class="form-control" required>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="contact__widget">
-                        <div class="contact__widget__icon">
-                            <i class="fa fa-twitter"></i>
-                        </div>
-                        <div class="contact__widget__text">
-                            <h5>twitter</h5>
-                            <p>@WeCare twitter</p>
-                        </div>
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label">Last Name</label>
+                        <input type="text" id="lastname" class="form-control" required>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="contact__widget">
-                        <div class="contact__widget__icon">
-                            <i class="fa fa-google"></i>
-                        </div>
-                        <div class="contact__widget__text">
-                            <h5>Email</h5>
-                            <p>Support@gmail.com</p>
-                        </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" id="email"class="form-control" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="number" id="phone"class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Messsage</label>
+                        <textarea type="text" id="message" class="form-control" required></textarea>
+                    </div>
+  
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
+            <div class="map-area col-md-6 col-sm-12 col-xs-12 text-center">
+            <h2 class="h1-responsive font-weight-bold text-center my-3">Google Map</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6920639767577!2d122.0685292148573!3d6.927363220258151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32504192be79c72d%3A0x16f9d93319ea27f8!2sWeCare%20Nursing%20Home%2C%20Inc.!5e0!3m2!1sen!2sph!4v1675539411670!5m2!1sen!2sph" class="h-40 w-100 border" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="icon-map-area">
 
-            <section class="contact"> 
-                <div class="container_icon">
-                    <div class="contactInfo">
-                        <div class="box">
-                            <div class="icon"></div>
-                            <div class="text">
-                    <h3> Address <i class="fa fa-map-marker" aria-hidden="true"></i></h3>
-                    <p> Bernardo Drive, 143 S. De Leon Street, <br> Sta. Maria Road, Zamboanga, <br> 7000 Zamboanga del Sur </p>
-             </div>
-         </div>
-                <div class="box">
-                    <div class="icon"></div>
-                        <div class="text">
-                                <h3> Phone <i class="fa fa-phone" aria-hidden="true"></i> </h3>
-                                 <p> (062) 991 3236 </p>
-                            </div>
-                        </div>
-                <div class="box">
-                    <div class="icon"></div>
-                        <div class="text">
-                            <h3> Email <i class="fa fa-envelope-o" aria-hidden="true"></i></h3>
-                                <p> WC@yahoo.com </p>
-                            </div>
-                        </div>
-                    </div>
+            <i class="fa-solid fa-location-dot mt-4"></i>     
+            <p class="text-center w-responsive mx-auto mb-4">Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road</p>
+            
+            <i class="fa-solid fa-phone"></i>
+            <p class="text-center w-responsive mx-auto mb-4">(062) 991 3236</p>
 
-                        <div class="contactForm">
-                            <form clas="cont_form">
-                                <h2> Send Message </h2>
-                                    <div class="inputBox">
-                                    <input type="text" name="" required="required">
-                                    <span> First Name </span>
-                                </div>  
-                                <div class="inputBox">
-                                    <input type="text" name="" required="required">
-                                    <span> Last Name </span>
-                                </div> 
-
-                                <div class="inputBox">
-                                    <input type="number" name="" required="required">
-                                    <span> Contact No. </span>
-                                </div>
-
-                                <div class="inputBox">
-                                    <input type="email" name="" required="required">
-                                    <span> Email </span>
-                                </div> 
-
-                                <div class="inputBox">
-                                    <textarea required="required"></textarea>
-                                    <span> Type your Message...</span>
-                                </div>  
-
-                            <div class="inputBox">
-                                <input type="submit" name="" value="send">
-                                </form>
-                        </div>
-                     </div>
-                </div>
-            </section>
-        </div>
+            <i class="fa-solid fa-envelope"></i>
+            <p class="text-center w-responsive mx-auto mb-4">W.C@yahoo.com</p>
+        
+            </div>
+            
+            </div>
     </div>
 </div>
-</section>
-    <!-- Contact Section End -->
+
 
 <?php
 
-    require_once '../includes/footer.php';
+require_once '../includes/footer.php';
 
 ?>

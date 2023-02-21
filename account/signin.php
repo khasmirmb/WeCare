@@ -7,7 +7,7 @@
     session_start();
 
     $account_obj = new Account();
-  if(isset($_POST['email']) && isset($_POST['password'])){
+    if(isset($_POST['email']) && isset($_POST['password'])){
     //Sanitizing the inputs of the users. Mandatory to prevent injections!
     $account_obj->email = htmlentities($_POST['email']);
     $account_obj->password = htmlentities($_POST['password']);
@@ -32,27 +32,58 @@
     }
   }
 
+
 ?>
 
-<body id="sign-in">
-<!-- Header -->
-<header>
-    <div class="col-lg-2">
-        <div class="header_logo">
-            <a href="../homepage/home.php"><img src="../images/logo.png" alt="" class="logo_login"></a>
+<div class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4>SignIn To WeCare</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="signin.php" method="post" class="need-validation">
+                            <div class="form-group mb-3">
+                                <label for="">Email Address</label>
+                                <input type="text" name="email"class="form-control" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="">Password</label>
+                                <input type="password" name="password"class="form-control" required>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="Submit" class="btn btn-primary login-button">SignIn</button>
+                            </div>
+                            <div class="col-md">
+                                <hr class="mt-4 mb-4">
+                            </div>
+                            <div class="form-group mt-3">
+                                <p class="text-center continue-google">
+                                <a href="#" class="btn btn-primary custom">
+                                <i class="fa-brands fa-google"></i>
+                                SignIn with Google
+                                </a>
+                                </p>
+                            </div>
+                            <div class="form-group mt-1">
+                                <p class="text-center continue-google">
+                                <a href="#" class="btn btn-primary custom">
+                                <i class="fa-brands fa-facebook"></i>
+                                SignIn with Facebook
+                                </a>
+                                </p>
+                            </div>
+                        </form>
+                        <div class="row mt-3 text-center">
+                            <p class="text-center">
+                                Don't have an account? <a class="green" href="signup.php">Sign up</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</header>
-    <!-- End Header -->
-
-    <form action="signin.php" method="post">
-        <label for="email">Email Address</label>
-        <input type="email" name="email" placeholder="Email" required>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password" required>
-
-        <button type="submit" name="submit">Login</button>
-    </form>
-
-</body>
+</div>

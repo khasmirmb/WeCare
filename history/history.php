@@ -2,78 +2,54 @@
 
     $page_title = 'WeCare - History';
     require_once '../includes/header.php';
-	session_start();
+    require_once '../classes/account.class.php';
+    session_start();
 
-    require_once '../includes/topnav.php';
-
-
+    require_once '../includes/navbar.php';
 ?>
 
-<!-- History Section Begin -->
-<section class="timeline-section">
-	<div class="timeline-items">
-		<div class="timeline-item">
-			<div class="timeline-dot"></div>
-			<div class="timeline-date">2001</div>
-			<div class="timeline-content">
-				<h3>timeline item title</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-			</div>
-		</div>
-		<div class="timeline-item">
-			<div class="timeline-dot"></div>
-			<div class="timeline-date">2006</div>
-			<div class="timeline-content">
-				<h3>timeline item title</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-			</div>
-		</div>
-		<div class="timeline-item">
-			<div class="timeline-dot"></div>
-			<div class="timeline-date">2009</div>
-			<div class="timeline-content">
-				<h3>timeline item title</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-			</div>
-		</div>
-		<div class="timeline-item">
-			<div class="timeline-dot"></div>
-			<div class="timeline-date">2018</div>
-			<div class="timeline-content">
-				<h3>timeline item title</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-			</div>
-		</div>
-		<div class="timeline-item">
-			<div class="timeline-dot"></div>
-			<div class="timeline-date">2019</div>
-			<div class="timeline-content">
-				<h3>timeline item title</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-			</div>
-		</div>
-		<div class="timeline-item">
-			<div class="timeline-dot"></div>
-			<div class="timeline-date">2020</div>
-			<div class="timeline-content">
-				<h3>timeline item title</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-			</div>
-		</div>
-		<div class="timeline-item">
-			<div class="timeline-dot"></div>
-			<div class="timeline-date">2021</div>
-			<div class="timeline-content">
-				<h3>timeline item title</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-			</div>
-		</div>
-	</div>
-</section>
-    <!-- History Section End -->
+<section style="background-color: #F0F2F5;">
+  <div class="container py-5">
+    <div class="main-timeline">
+      <div class="timeline left">
+        <div class="card">
+          <div class="card-body p-4">
+            <h3>2001</h3>
+            <p class="mb-0">On October of 2001, three cousins founded a non-profit organization named WeCare Nursing Home INC by Jarah Bernardo, Sheila, Padua and Gianelli Delos Santos on Governor Camins Avenue, Zamboanga City but later on transfered to barangay Boalan near Inland Resort Hotel & Restaurant</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline right">
+        <div class="card">
+          <div class="card-body p-4">
+            <h3>2012</h3>
+            <p class="mb-0">Years later, they transfered to Sta. Maria during the year of 2012 </p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline left">
+        <div class="card">
+          <div class="card-body p-4">
+            <h3>2023</h3>
+            <p class="mb-0">Now since 2012 they are located at Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road and already 21 years in service and nurses aged people up until today.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+
+<div class="container">
+  <div class="founder-container">
+    <div class="founder-title">
+      
+    </div>
+  </div>
+</div>
 
 <?php
 
-    require_once '../includes/footer.php';
+require_once '../includes/footer.php';
 
 ?>

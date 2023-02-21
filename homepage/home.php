@@ -1,35 +1,67 @@
 <?php
-    $page_title = 'WeCare - Nursing Home, Inc.';
+
+    $page_title = 'WeCare Nursing Home Inc.';
     require_once '../includes/header.php';
+    require_once '../classes/account.class.php';
     session_start();
 
-    require_once '../includes/topnav.php';
-
+    require_once '../includes/navbar.php';
 ?>
-    <!-- Hero Section Begin -->
-    <section class="hero spad set-bg" data-setbg="../images/home-bg.jpg" >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="hero__text">
-                        <span>WeCare Nursing Home, Inc. </span>
-                        <h2>Your Home Away From Home</h2>
-                        <p class="hero_p">Book an online appointment with WeCare’s Services </p>
-                        <a href="../appointment/appointment.php" class="primary-btn normal-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Chooseus Section Begin -->
-    <section class="chooseus spad">
+        <!-- Carousel Start -->
+    <section>
+      <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleIndicators">
+        <div class="carousel-indicators">
+        <button aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button>
+
+        <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators" type="button"></button>
+
+        <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators" type="button"></button>
+
+        <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#carouselExampleIndicators" type="button"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item carousel-image bg-img-1 active">
+            <div class="carousel-caption">
+                <h3 class="fw-bolder fst-italic text-white display-4" >Why Choose WeCare?</strong></h3>
+                <p>WeCare Offers A lot of Perks That Our Costumer Needs</p>
+                <p><a href="#choose-us" class="btn btn-info mt3">Learn More</a></p>
+            </div>
+          </div>
+          <div class="carousel-item carousel-image bg-img-2">
+            <div class="carousel-caption">
+                <h3 class="fw-bolder fst-italic text-white display-4" >Find Best Care Service With WeCare</strong></h3>
+                <p>WeCare Offers Years of Experience in Caring</p>
+                <p><a href="#" class="btn btn-info mt3">Learn More</a></p>
+            </div>
+          </div>
+          <div class="carousel-item carousel-image bg-img-3">
+            <div class="carousel-caption">
+                <h3 class="fw-bolder fst-italic text-white display-4" >Our Own Area</strong></h3>
+                <p>Walking Area, Terrace and Dinning Area</p>
+                <p><a href="#" class="btn btn-info mt3">Learn More</a></p>
+            </div>
+          </div>
+          <div class="carousel-item carousel-image bg-img-4">
+            <div class="carousel-caption">
+                <h3 class="fw-bolder fst-italic text-white display-4" >Our Services</strong></h3>
+                <p>Caregiving, Memory Care, Rehabilitation, Long Term Care</p>
+                <p><a href="#" class="btn btn-info mt3">Learn More</a></p>
+            </div>
+          </div>
+        </div><button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleIndicators" type="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="visually-hidden">Previous</span></button> <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleIndicators" type="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="visually-hidden">Next</span></button>
+      </div>
+     </section>
+        <!-- Carousel End -->
+
+    <!-- Choose Us -->
+    <div class="choose-us-container" id="choose-us">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
                         <span>Why choose us?</span>
-                        <h2>WeCare Offers</h2>
+                        <h2>WeCare offers</h2>
                     </div>
                 </div>
             </div>
@@ -44,8 +76,8 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="chooseus__item">
                     <i class="fa-solid fa-user-nurse"></i>
-                        <h5>Qualified Caregivers</h5>
-                        <p>Lorem ipsum amet, consectetur adipiscing elit, sed do eiusmod tempor cididunt facilisis.</p>
+                        <h5>Qualified Caregivers & Staff</h5>
+                        <p>WeCare caregiver and staff has patience, adaptable, professional and Care that make them qualified.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -64,114 +96,17 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Chooseus Section End -->
-
-    <!-- about section starts  -->
-
-<section class="about" id="about">
-
-<h1 class="heading"> <span>Care</span> for Loved Ones </h1>
-
-<div class="rows">
-
-    <div class="image">
-        <img src="../img/careg.jpg" alt="">
     </div>
+    <!-- Choose Us End -->
 
-    <div class="content">
-        <h3>We provide care even away from home.</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure ducimus, quod ex cupiditate ullam in assumenda maiores et culpa odit tempora ipsam qui, quisquam quis facere iste fuga, minus nesciunt.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus vero ipsam laborum porro voluptates voluptatibus a nihil temporibus deserunt vel?</p>
-        <a href="../about/about.php" class="btn"> Learn more <span class="fas fa-chevron-right"></span> </a>
-    </div>
-
-</div>
-
-</section>
-
-<!-- about section ends -->
-
-    <!-- Services Section Begin -->
-    <section class="services spad set-bg" data-setbg="../images/service1.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-6">
-                    <div class="section-title">
-                        <span>Our services</span>
-                        <h2>Offers for you</h2>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="services__btn">
-                        <a href="../rooms/rooms.php" class="primary-btn">Rooms</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <span class="#"></span>
-                        </div>
-                        <div class="services__item__text">
-                            <h5>Caregiving</h5>
-                            <p>WeCare provides for a person's everyday requirements who is unable to care for himself. A person who needs ongoing help and attention may also have physical and emotional needs that need to be met.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <span class="#"></span>
-                        </div>
-                        <div class="services__item__text">
-                            <h5>Rehabilatation</h5>
-                            <p>WeCare rehabilitation offer is medical assistance that can help you regain, maintain, or increase the abilities you need to function in daily life. These skills could be cognitive, mental, or physical (thinking and learning).
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <span class="#"></span>
-                        </div>
-                        <div class="services__item__text">
-                            <h5>Consultation</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <span class="#"></span>
-                        </div>
-                        <div class="services__item__text">
-                            <h5>Apply For Us</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Section End -->
-
-    <!-- Team Section Begin -->
-    <section class="team spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-title">
-                        <span class="team_span">Our Own</span>
-                        <h2>Areas</h2>
-                    </div>
-                </div>
+    <!-- Own Area -->
+    <div class="own-area-container" id="own-area">
+        <div class="container mb-5">
+            <div class="col text-center">
+                <div class="section-title">
+                    <span class="team_span">Our Own</span>
+                    <h2>Areas</h2>
+                </div> 
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -188,47 +123,17 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="team__item">
-                        <img src="../imgages/dinning.jpg" alt="">
-                        <h5>Dinning Area</h5>
+                        <img src="../images/display-6.jpg" alt="">
+                        <h5>Entrace</h5>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Team Section End -->
-
-    <!-- Gallery Begin -->
-    <div class="gallery">
-        <div class="gallery__container">
-            <div class="grid-sizer"></div>
-            <div class="gc__item set-bg" data-setbg="../images/display-1.jpg">
-                <a href="../images/display-1.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="../images/display-2.jpg">
-                <a href="../images/display-2.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="../images/display-3.jpg">
-                <a href="../images/display-3.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item gc__item__large set-bg" data-setbg="../images/display-4.jpg">
-                <a href="../images/display-4.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="../images/display-5.jpg">
-                <a href="../images/display-6.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="../images/display-7.jpg">
-                <a href="../images/display-7.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-            <div class="gc__item set-bg" data-setbg="../images/display-8.jpg">
-                <a href="../images/display-8.jpg" class="image-popup"><i class="fa fa-search-plus"></i></a>
-            </div>
-        </div>
     </div>
-    <!-- Gallery End -->
-
+    <!-- Own Area End -->
 
 <?php
 
-    require_once '../includes/footer.php';
+require_once '../includes/footer.php';
 
 ?>
