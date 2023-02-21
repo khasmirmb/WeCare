@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 02:51 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Host: 127.0.0.1:3306
+-- Generation Time: Feb 21, 2023 at 07:38 AM
+-- Server version: 10.5.12-MariaDB-cll-lve
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wecare`
+-- Database: `u883397428_wecare`
 --
 
 -- --------------------------------------------------------
@@ -29,15 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `appointment` (
   `id` int(11) NOT NULL,
-  `patient_id` int(11) NOT NULL,
-  `appointment_num` int(11) NOT NULL,
-  `purpose` int(11) NOT NULL,
-  `others` text NOT NULL,
   `staff_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `staff_schedule_id` int(11) NOT NULL,
+  `appointment_number` int(11) NOT NULL,
+  `purpose_for_appointment` int(11) NOT NULL,
+  `other_purpose` mediumtext NOT NULL,
   `appointment_date` date NOT NULL,
   `appointment_time` time NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` varchar(30) NOT NULL,
+  `client_came` enum('No','Yes','Pending') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`id`, `staff_id`, `client_id`, `staff_schedule_id`, `appointment_number`, `purpose_for_appointment`, `other_purpose`, `appointment_date`, `appointment_time`, `status`, `client_came`) VALUES
+(1, 1, 1, 1, 1, 2, '', '2023-02-20', '14:22:00', 'In Process', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -47,8 +56,20 @@ CREATE TABLE `appointment` (
 
 CREATE TABLE `appointment_purpose` (
   `id` int(11) NOT NULL,
-  `purpose` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `purpose` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `appointment_purpose`
+--
+
+INSERT INTO `appointment_purpose` (`id`, `purpose`) VALUES
+(1, 'OJT'),
+(2, 'Inquire'),
+(3, 'Caregiving'),
+(4, 'Rehabilitation'),
+(5, 'Consultation'),
+(6, 'Others');
 
 -- --------------------------------------------------------
 
@@ -61,24 +82,22 @@ CREATE TABLE `client` (
   `user_id` int(11) NOT NULL,
   `firstname` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
-  `phone` int(11) NOT NULL,
-  `picture` varchar(255) NOT NULL,
-  `is_relative` int(11) NOT NULL,
-  `relative_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
+  `middlename` varchar(100) NOT NULL,
+  `suffix` enum('Sr','Jr','I','II','III') NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `gender` enum('Male','Female','Other') NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `martial_status` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Table structure for table `monitoring_request`
+-- Dumping data for table `client`
 --
 
-CREATE TABLE `monitoring_request` (
-  `id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `files` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `client` (`id`, `user_id`, `firstname`, `lastname`, `middlename`, `suffix`, `date_of_birth`, `gender`, `address`, `martial_status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Khasmir', 'Basaluddin', 'Mahadali', '', '2023-02-26', 'Male', 'Sta. Catalina', 'Single', '2023-02-20 06:33:00', '2023-02-20 14:37:39');
 
 -- --------------------------------------------------------
 
@@ -104,7 +123,7 @@ CREATE TABLE `patient` (
   `allergies` longtext NOT NULL,
   `picture` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `patient`
@@ -117,55 +136,13 @@ INSERT INTO `patient` (`id`, `firstname`, `lastname`, `suffix`, `date_of_birth`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient_monitoring`
---
-
-CREATE TABLE `patient_monitoring` (
-  `id` int(11) NOT NULL,
-  `patient_id` int(11) NOT NULL,
-  `room` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `staff_id` int(11) NOT NULL,
-  `relative_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment`
---
-
-CREATE TABLE `payment` (
-  `id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `patient_id` int(11) NOT NULL,
-  `month` varchar(100) NOT NULL,
-  `amount` int(30) NOT NULL,
-  `date` date NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment_status`
---
-
-CREATE TABLE `payment_status` (
-  `id` int(11) NOT NULL,
-  `status` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `relationship`
 --
 
 CREATE TABLE `relationship` (
   `id` int(11) NOT NULL,
   `relationship` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `relationship`
@@ -188,65 +165,54 @@ INSERT INTO `relationship` (`id`, `relationship`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `relative`
---
-
-CREATE TABLE `relative` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `firstname` varchar(100) NOT NULL,
-  `middlename` varchar(100) NOT NULL,
-  `lastname` varchar(100) NOT NULL,
-  `suffix` varchar(50) NOT NULL,
-  `date_of_birth` date NOT NULL,
-  `place_of_birth` varchar(100) NOT NULL,
-  `gender` varchar(50) NOT NULL,
-  `province` varchar(100) NOT NULL,
-  `street` varchar(100) NOT NULL,
-  `barangay` varchar(100) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `postal` varchar(100) NOT NULL,
-  `relationship` int(11) NOT NULL,
-  `phone_number` int(11) NOT NULL,
-  `telephone_number` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `staff`
 --
 
 CREATE TABLE `staff` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `firstname` varchar(100) NOT NULL,
+  `middlename` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
+  `suffix` enum('Sr','Jr','I','II','III') NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `degree` varchar(100) NOT NULL,
   `position` varchar(100) NOT NULL,
-  `joined_date` date NOT NULL,
-  `retired_date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` enum('Active','Inactive') NOT NULL,
+  `added_on` datetime NOT NULL,
+  `retired_on` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `address`, `date_of_birth`, `degree`, `position`, `status`, `added_on`, `retired_on`) VALUES
+(1, 2, 'Staff', 'Staff', 'Staff', 'Jr', 'Sta Catalina', '2023-02-16', 'Graduate', 'Nurse', 'Active', '2023-02-20 07:25:37', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status`
+-- Table structure for table `staff_schedule`
 --
 
-CREATE TABLE `status` (
+CREATE TABLE `staff_schedule` (
   `id` int(11) NOT NULL,
-  `status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `staff_id` int(11) NOT NULL,
+  `day` enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `status` enum('Active','Inactive') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `status`
+-- Dumping data for table `staff_schedule`
 --
 
-INSERT INTO `status` (`id`, `status`) VALUES
-(1, 'Accepted'),
-(2, 'Rejected'),
-(3, 'Pending'),
-(4, 'Completed');
+INSERT INTO `staff_schedule` (`id`, `staff_id`, `day`, `start_time`, `end_time`, `status`) VALUES
+(1, 1, 'Monday', '07:33:22', '04:33:22', 'Active'),
+(3, 1, 'Thursday', '18:38:54', '31:38:54', 'Active');
 
 -- --------------------------------------------------------
 
@@ -268,28 +234,15 @@ CREATE TABLE `users` (
   `type` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Table structure for table `user_type`
+-- Dumping data for table `users`
 --
 
-CREATE TABLE `user_type` (
-  `id` int(11) NOT NULL,
-  `type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_type`
---
-
-INSERT INTO `user_type` (`id`, `type`) VALUES
-(1, 'client'),
-(2, 'admin'),
-(3, 'staff'),
-(4, 'patient');
+INSERT INTO `users` (`id`, `unique_id`, `fname`, `lname`, `email`, `phone`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
+(1, 1039537853, 'Khasmir', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', '', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-02-20 06:23:07'),
+(2, 42139240, 'Staff', 'Staff', 'staff@gmail.com', '09152354148', '', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-02-20 06:28:22');
 
 --
 -- Indexes for dumped tables
@@ -299,7 +252,11 @@ INSERT INTO `user_type` (`id`, `type`) VALUES
 -- Indexes for table `appointment`
 --
 ALTER TABLE `appointment`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `staff_id` (`staff_id`),
+  ADD KEY `client_id` (`client_id`),
+  ADD KEY `staff_schedule_id` (`staff_schedule_id`),
+  ADD KEY `purpose_for_appointment` (`purpose_for_appointment`);
 
 --
 -- Indexes for table `appointment_purpose`
@@ -315,33 +272,9 @@ ALTER TABLE `client`
   ADD KEY `user_client` (`user_id`);
 
 --
--- Indexes for table `monitoring_request`
---
-ALTER TABLE `monitoring_request`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `patient`
 --
 ALTER TABLE `patient`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `patient_monitoring`
---
-ALTER TABLE `patient_monitoring`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payment_status`
---
-ALTER TABLE `payment_status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -351,33 +284,23 @@ ALTER TABLE `relationship`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `relative`
---
-ALTER TABLE `relative`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_staff` (`user_id`);
 
 --
--- Indexes for table `status`
+-- Indexes for table `staff_schedule`
 --
-ALTER TABLE `status`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `staff_schedule`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `staff_sched` (`staff_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_type`
---
-ALTER TABLE `user_type`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -388,25 +311,19 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `appointment_purpose`
 --
 ALTER TABLE `appointment_purpose`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `monitoring_request`
---
-ALTER TABLE `monitoring_request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -415,68 +332,59 @@ ALTER TABLE `patient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `patient_monitoring`
---
-ALTER TABLE `patient_monitoring`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `payment_status`
---
-ALTER TABLE `payment_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `relationship`
 --
 ALTER TABLE `relationship`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `relative`
---
-ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `status`
+-- AUTO_INCREMENT for table `staff_schedule`
 --
-ALTER TABLE `status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `staff_schedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `user_type`
---
-ALTER TABLE `user_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `appointment`
+--
+ALTER TABLE `appointment`
+  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`),
+  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`),
+  ADD CONSTRAINT `appointment_ibfk_3` FOREIGN KEY (`staff_schedule_id`) REFERENCES `staff_schedule` (`id`),
+  ADD CONSTRAINT `appointment_ibfk_4` FOREIGN KEY (`purpose_for_appointment`) REFERENCES `appointment_purpose` (`id`);
+
+--
 -- Constraints for table `client`
 --
 ALTER TABLE `client`
   ADD CONSTRAINT `user_client` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `staff`
+--
+ALTER TABLE `staff`
+  ADD CONSTRAINT `user_staff` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `staff_schedule`
+--
+ALTER TABLE `staff_schedule`
+  ADD CONSTRAINT `staff_sched` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -87,7 +87,6 @@
 
             <form action="appointment.php" method="POST">
 
-
                 <div class="col-sm-12 mt-3">
                     <div class="form-group">
                         <div class="input-group">
