@@ -50,7 +50,13 @@
             <div class="col"><h5><strong>Observation</strong></h5></div>
             <div class="col"><p>Complexities due to age. Remain tensed about his younger daughter who is addicted and does not have any stable job. Allergic to peanuts.</p></div>
         </div>
+        
 </div>
+    <div class="card">
+    <div class="card-body">
+    Last Updated and Inputed: 01:00 PM December 07, 2022
+    </div>
+    </div>
 </div> <!--End of details of the patient-->
     <div class="col-6 col-md-4 pt-3"> <!--Appointment-->
         <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
@@ -60,7 +66,9 @@
             <h6><strong>Current Problem:</strong></h6>
             <p class="bd-lead">Feeling pain in chest occasionally in the morning after waking up. No coughing but runny nose. no fever in last 3 weeks. Diarrhea for todays last week.</p>
         </div>
-        </div>
+      
+        
+</div>
 </div>
 </div>
 
