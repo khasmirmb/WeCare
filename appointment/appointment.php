@@ -87,35 +87,6 @@
 
             <form action="appointment.php" method="POST">
 
-            <fieldset disabled>
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input type="text" id="firstname" class="form-control" value="<?php echo $_SESSION['user_firstname'] ?>">
-                    </div>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" id="lastname" class="form-control" value="<?php echo $_SESSION['user_lastname'] ?>">
-                    </div>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" class="form-control" value="<?php echo $_SESSION['user_email'] ?>">
-                    </div>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" id="phone" class="form-control" value="<?php echo $_SESSION['user_phone'] ?>">
-                    </div>
-                </div>
-            </fieldset>
 
                 <div class="col-sm-12 mt-3">
                     <div class="form-group">
