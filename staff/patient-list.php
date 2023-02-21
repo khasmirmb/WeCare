@@ -22,8 +22,8 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="#">Name</a></li>
-            <li><a class="dropdown-item" href="#">Date</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Room</a></li>
+            <li><a class="dropdown-item" href="#">Status</a></li>
           </ul>
         </div>
         </div>
@@ -40,7 +40,7 @@
                 <thead style="background-color: #00ACB2;">
                   <tr>
                     <th scope="col" width="35%">NAMES</th>
-                    <th scope="col" width="35%">ROOMS</th>
+                    <th scope="col" width="35%">ROOM</th>
                     <th scope="col" width="10%">STATUS</th>
 
                   </tr>
@@ -48,18 +48,18 @@
                 <tbody>
                   <tr>
                     <th scope="row" style="color: #666666;">Tiger Nixon</th>
-                    <td>System Architect</td>
-                    <td>tnixon12@example.com</td>
+                    <td>Room 2</td>
+                    <td><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
                   </tr>
                   <tr>
                     <th scope="row" style="color: #666666;">Sonya Frost</th>
-                    <td>Software Engineer</td>
-                    <td>sfrost34@example.com</td>
+                    <td>Room 1</td>
+                    <td><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
                   </tr>
                   <tr>
                     <th scope="row" style="color: #666666;">Jena Gaines</th>
-                    <td>Office Manager</td>
-                    <td>jgaines75@example.com</td>
+                    <td>Room 3</td>
+                    <td><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
                 </tbody>
               </table>
             </div>

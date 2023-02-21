@@ -354,3 +354,14 @@ thead {
   height: 100%;
   margin-top: 2rem;
 }
+
+.label-success{
+  border: 1px solid #FF0000;
+  color: #00ACB2; 
+  padding: 5px 5px 5px 5px;
+  border-radius: 4px;
+}
+
+.fa-ellipsis-h{
+  color: #00ACB2;
+}
