@@ -10,6 +10,7 @@
 
 <div class="p-5">
     <h2 class="pb-3"><strong>Family Monitoring</strong></h2>
+    <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
@@ -22,12 +23,12 @@
     </thead>
     <tbody>
         <tr>
-        <td>Al-khasmir Basaluddin</td>
+        <td><a href="family-patient.php">Al-khasmir Basaluddin</a></td>
         <td class="text-center">Father</td>
         <td class="text-center">Room 1</td>
         <td class="text-center">Active</td>
-        <td class="text-center">Mikaylah Chu</td>
-        </tr>
+        <td class="text-center">Mikaylah Chu</td></a>
+       </tr>
         <tr>
         <td>Rob Roche Villanueva</td>
         <td class="text-center">Uncle</td>
@@ -37,6 +38,7 @@
         </tr>
     </tbody>
 </table>
+</div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="monitor-request.php">Request Monitoring</a></button>
     </div>
