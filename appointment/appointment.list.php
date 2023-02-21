@@ -10,50 +10,70 @@
 
     require_once '../includes/navbar.php';
 
-    require_once '../classes/appointment.class.php';
+    require_once '../classes/basic.database.php';
 
-    $appointments = new Appointment();
+    $login_id = $_SESSION['logged_id'];
 
-    $appointment_list = $appointments->show_appointment_data();
+    $query = mysqli_query($conn, "SELECT * FROM client WHERE user_id  = $login_id");
+        while($rows = mysqli_fetch_array($query)){
+            $client_id = $rows['id'];
+            $client_name = $rows['firstname'] . " " . $rows['lastname'];
+        }
+    
+    $sql = "SELECT * FROM appointment JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id WHERE client_id = $client_id ORDER BY status DESC";
+    $result = $conn->query($sql);
     
 
 ?>
-    <div class="table-responsive">
-        <table class="table caption-top">
-        <caption>List of Appointments</caption>
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            </tr>
-        </tbody>
+    <div class="table-responsive mt-5 mb-5">
+        <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+                <tr>
+                <th>Name</th>
+                <th>Appointment Purpose</th>
+                <th>Appointment Time</th>
+                <th>Appointment Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()) {
+            
+            ?>
+                <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="ms-2">
+                            <p class="fw-bold mb-1"><?php echo $client_name ?></p>
+                            <p class="text-muted mb-0"><?php echo $_SESSION['user_email'] ?></p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-1"><?php echo $row['purpose'] ?></p>
+                    <?php if($row['purpose'] == 'Others'){ ?>
+                        <p class="text-muted mb-0"><?php echo $row['other_purpose'] ?></p>
+                    <?php } ?>
+                </td>
+                <td>
+                    <p class="fw-normal mb-1"><?php echo $row['appointment_time'] ?></p>
+                </td>
+                <td>
+                    <p class="fw-normal mb-1"><?php echo $row['appointment_date'] ?></p>
+                </td>
+                <td>
+                    <p class="fw-normal mb-1"><?php echo $row['status'] ?></p>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger">Cancel</button>
+                </td>
+                </tr>
+            <?php
+                }
+            }
+            ?>
+            </tbody>
         </table>
     </div>
-
-<?php
-
-require_once '../includes/footer.php';
-
-?>

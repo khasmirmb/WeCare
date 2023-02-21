@@ -3,8 +3,8 @@
     $page_title = 'WeCare - Appointment';
     require_once '../includes/header.php';
     require_once '../classes/staff.class.php';
-    require_once '../classes/client.class.php';
     require_once '../classes/appointment.class.php';
+    require_once '../classes/basic.database.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){
@@ -12,7 +12,6 @@
     }
 
     $staffs = new Staff();
-    $client = new Client();
 
     if(isset($_POST['confirm'])){
 
@@ -26,13 +25,12 @@
         $status = "In Process";
         $client_came = "Pending";
 
-        // Still have an error required fixing
-        $clients_obj = $client->show_client_data();
-    
-        foreach($clients_obj as $row){
-            if(isset($_SESSION['logged_id']) == $row['user_id']){
-                $_SESSION['client_id'] = $row['id'];
-            }
+        // Get client_id by user_id
+        $login_id = $_SESSION['logged_id'];
+
+        $query = mysqli_query($conn, "SELECT * FROM client WHERE user_id  = $login_id");
+        while($rows = mysqli_fetch_array($query)){
+            $client_id = $rows['id'];
         }
 
         // Check for available staff for the day
@@ -40,8 +38,8 @@
     
         foreach($staff_schedule as $row){
             if($day == $row['day']){
-                $_SESSION['staff_available'] = $row['staff_id'];
-                $_SESSION['staff_schedule'] = $row['id'];
+                $staff_available = $row['staff_id'];
+                $staff_schedule = $row['id'];
             }
         }
 
@@ -55,13 +53,13 @@
 			$appointment_number = $row["appointment_number"];
 		}
 
-        $_SESSION['appointment_number_max'] = $appointment_number + 1;
+        $app_max_number = $appointment_number + 1;
 
         // Insert the appointment
-        $appointment->staff_id = $_SESSION['staff_available'];
-        $appointment->client_id = $_SESSION['client_id'];
-        $appointment->staff_schedule_id = $_SESSION['staff_schedule'];
-        $appointment->appointment_number = $_SESSION['appointment_number_max'];
+        $appointment->staff_id = $staff_available;
+        $appointment->client_id = $client_id;
+        $appointment->staff_schedule_id = $staff_schedule;
+        $appointment->appointment_number = $app_max_number;
         $appointment->purpose_for_appointment = $purpose;
         $appointment->other_purpose = $others;
         $appointment->appointment_date = $date;
