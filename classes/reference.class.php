@@ -19,4 +19,22 @@ class Reference{
         }
         return $data;
     }
+
+    function get_relationship(){
+        $sql = "SELECT * FROM relationship;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function get_survey_questions(){
+        $sql = "SELECT * FROM survey_question;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 }

@@ -63,7 +63,7 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li class="ms-3 mt-2"><p class="font-weight-bold"><?php echo $_SESSION['fullname'] ?></p></li>
                     <hr>
-                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-desktop"></i><span>Family Monitoring</span></button></a></li>
+                    <li><a href="../family/monitoring.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-desktop"></i><span>Family Monitoring</span></button></a></li>
 
                     <li><a href="../appointment/appointment.list.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-calendar-check"></i><span>Appointment List</span></button></a></li>
 
