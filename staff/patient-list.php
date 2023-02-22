@@ -36,30 +36,30 @@
         <div class="row justify-content-center">
           <div class="col-12">
             <div class="table-responsive">
-              <table class="table mb-0">
+              <table class="table mb-0 table-bordered">
                 <thead style="background-color: #00ACB2;">
                   <tr>
-                    <th scope="col" width="35%">NAMES</th>
-                    <th scope="col" width="35%">ROOM</th>
-                    <th scope="col" width="10%">STATUS</th>
+                    <th scope="col" class="text-center" >NAMES</th>
+                    <th scope="col" class="text-center">ROOM</th>
+                    <th scope="col" class="text-center" >STATUS</th>
 
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row" style="color: #666666;">Tiger Nixon</th>
-                    <td>Room 2</td>
-                    <td><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
+                    <td class="text-center">Room 2</td>
+                    <td class="text-center"><button type="button" class="btn btn-primary">Sample Button</button></td>
                   </tr>
                   <tr>
                     <th scope="row" style="color: #666666;">Sonya Frost</th>
-                    <td>Room 1</td>
-                    <td><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
+                    <td class="text-center">Room 1</td>
+                    <td class="text-center"><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
                   </tr>
                   <tr>
                     <th scope="row" style="color: #666666;">Jena Gaines</th>
-                    <td>Room 3</td>
-                    <td><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
+                    <td class="text-center">Room 3</td>
+                    <td class="text-center"><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
                 </tbody>
               </table>
             </div>
@@ -71,13 +71,6 @@
 </section>
 </div>
 
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $('.nav_btn').click(function(){
-        $('.mobile_nav_items').toggleClass('active');
-      });
-    });
-    </script>
 
   </body>
 </html>
