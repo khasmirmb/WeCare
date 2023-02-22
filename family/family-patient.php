@@ -26,7 +26,7 @@
     <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
     <div class="row">
         <div class="col">
-        <img src="download.jpg" class="rounded float-start" alt="Datu J. Batumbaka">
+        <img src="download.jpg" class="rounded float-start img-fluid" alt="Datu J. Batumbaka">
         </div>
         <div class="col">
         <div class="row">
