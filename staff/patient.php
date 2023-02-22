@@ -464,7 +464,7 @@
             </div>
         </div>
         <div class="d-grid gap-2 pt-3">
-        <button class="btn btn-primary" type="button">Add more</button>
+        <button class="btn btn-primary" type="button">Add more</button> <!--This should be a pop out-->
         </div>
     </div>
     </div>
@@ -475,6 +475,18 @@
     <button class="btn btn-primary" type="button">Save</button>
     </div>
 
+   
 </div> <!--Don't touch-->
 
-
+<!--Pop Out-->
+<!--
+    <div class="container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        
+    <div class="btn-group pt-3" role="group">
+        <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
+        <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
+    </div>
+</div>
+-->
