@@ -321,7 +321,7 @@
     <div class="row">
         <div class="col">
              <h6 class="text-center mt-4 pt-3"><strong>Nurse Assign</strong></h6>
-            <img src="image/download.jpg" class="rounded-circle" alt="Mikaylah B. Chu">
+            <img class="rounded-circle" src="images/download.jpg"  alt="Mikaylah B. Chu">
             <p class="text-center">Mikaylah B. Chu</p>
             </div>
             
@@ -346,12 +346,14 @@
                 <h7><strong>Socials</strong></h7>
             </div>
             <div class="row pt-3">
-               <ul class="list-unstyled">
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Tweeter</li>
-                <li>LinkedIn</li>
-               </ul>
+                <div class="col">
+                    <p>Facebook</p>
+                    <p>Instagram</p>
+                </div>
+                <div class="col">
+                    <p>Tweeter</p>
+                    <p>LinkedIn</p>
+                </div>
             </div>
         </div>
         </div>    
