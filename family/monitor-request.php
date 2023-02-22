@@ -7,12 +7,13 @@
 
     require_once '../includes/navbar.php';
 ?>
-<div class="container align-items-center pt-3">
+<div class="container align-items-center pt-3 p-0">
 <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="family-moni.php">< Family Monitoring</a></button>
 <h2 class="pb-3 pt-3"><strong>Monitoring Request</strong></h2>
-<div class="container form-control">
-<form class="row needs-validation">
-<h4 class="bg-primary bg-gradient py-3 text-white"><strong>Patient Information</strong></h2>
+<div class="container form-control p-0">
+<div class="p-3 pt-0">
+<form class="row needs-validation p-0">
+<h4 class="bg-primary bg-gradient py-3 px-3 p-0 text-white"><strong>Patient Information</strong></h2>
 
   <div class="row pt-3 pb-3">
   <div class="col-sm">
@@ -57,6 +58,7 @@
 </div>
 </div>
 </form>
+</div>
 </div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
   <button type="button" class="btn btn-outline-primary">Cancel</button>
