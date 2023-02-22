@@ -49,17 +49,41 @@
                   <tr>
                     <th scope="row" style="color: #666666;">Tiger Nixon</th>
                     <td class="text-center">Room 2</td>
-                    <td class="text-center"><button type="button" class="btn btn-primary">Sample Button</button></td>
+                    <td class="text-center"><span class="label label-success">Discharged</span>
+                    <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                  </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Discharged</a></li>
+                    <li><a class="dropdown-item" href="#">Reassigned Patient</a></li>
+                    <li><a class="dropdown-item" href="#">Deceased</a></li>
+                  </ul>
+                </div></td>
                   </tr>
                   <tr>
                     <th scope="row" style="color: #666666;">Sonya Frost</th>
                     <td class="text-center">Room 1</td>
-                    <td class="text-center"><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
+                    <td class="text-center"><span class="label label-success">Discharged</span>
+                    <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                  </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Discharged</a></li>
+                    <li><a class="dropdown-item" href="#">Reassigned Patient</a></li>
+                    <li><a class="dropdown-item" href="#">Deceased</a></li>
+                  </ul>
+                </div></td>
                   </tr>
                   <tr>
                     <th scope="row" style="color: #666666;">Jena Gaines</th>
                     <td class="text-center">Room 3</td>
-                    <td class="text-center"><span class="label label-success">Discharged</span><i class="fa fa-ellipsis-h  ms-2"></i></td>
+                    <td class="text-center"><span class="label label-success">Discharged</span>
+                    <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                  </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Discharged</a></li>
+                    <li><a class="dropdown-item" href="#">Reassigned Patient</a></li>
+                    <li><a class="dropdown-item" href="#">Deceased</a></li>
+                  </ul>
+                </div></td>
                 </tbody>
               </table>
             </div>
