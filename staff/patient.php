@@ -7,16 +7,16 @@
 
     require_once '../includes/navbar.php';
 ?>
-<div class="container align-items-center pt-3">
+<div class="container align-items-center pt-3 container-fluid">
     <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="family-list.php">< Patient List</a></button>
 
     <div class="pt-3">
-    <div class=" container bg-primary p-3">
+    <div class=" container bg-primary p-3 container-fluid">
     <div class="row">
         <div class="col-4 pt-3">
         <img src="\images\amongus2.jpg" class="img-thumbnail img-fluid" alt="among us"><!--Image of the patient-->
         </div>
-        <div class="col-8 text-light">
+        <div class="col-8 col-md-6 text-light">
             <h1><strong>Carl Bonifacio Jr</strong></h1>
             <h5>MALE - 75 years old</h5>
             <h5 class="pt-3">Diseases:</h5>
@@ -28,23 +28,23 @@
 
     <h2 class="pt-4"><strong>Patient Monitoring</strong></h2>
     
-    <div class="row pt-3">
-        <div class="col-4 pb-3">
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
         <div class="form-group">
         <label for="date-input">Date:</label>
         <input type="date" class="form-control" id="date-input">
         </div>
 
         </div>
-        <div class="col-4 pb-3">
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
         <div class="form-group">
         <label for="time-input">Time:</label>
         <input type="time" class="form-control" id="time-input">
         </div>
         </div>
 
-        <div class="col-4 pb-3">
-        <div class="form-group">
+        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
+        <div class="form-group justify-content-center">
             <label for="health-stat">Health Status</label><br>
             <select name="health-stat" id="health-stat">
                 <option value="healthy">Healthy</option>
@@ -60,31 +60,29 @@
         <h2 class="bg-primary bg-gradient py-3 px-3 text-white">Medicine</h2>
         <div class="p-3 pt-0">
         <div class="row">
-            <div class="col-3">
-                <h5>Check</h5>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
+                <h6>Check</h6>
             </div>
-            <div class="col-2">
-                <h5 class="text-center">Time</h5>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
+                <h6 class="text-center">Time</h6>
             </div>
-            <div class="col-4">
-                <h5 class="text-center">Measurement</h5>
-            </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                <h6 class="text-center">Measurement</h6>
             </div>
             <hr class="divider">
         </div>
         <div class="row pt-2">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="medicine" name="medicine">
             <label for="medicine">Biogesic</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -92,17 +90,17 @@
             </div>
         </div>
         <div class="row pt-2">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="medicine" name="medicine">
             <label for="medicine">Lasartan</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -122,31 +120,29 @@
         <h2 class="bg-primary bg-gradient py-3 px-3 text-white">Health</h2>
         <div class="p-3 pt-0">
         <div class="row">
-            <div class="col-3">
-                <h5>Check</h5>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
+                <h6>Check</h6>
             </div>
-            <div class="col-2">
-                <h5 class="text-center">Time</h5>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
+                <h6 class="text-center">Time</h6>
             </div>
-            <div class="col-4">
-                <h5 class="text-center">Measurement</h5>
-            </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                <h6 class="text-center">Measurement</h6>
             </div>
             <hr class="divider">
         </div>
         <div class="row pt-2">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="medicine" name="medicine">
             <label for="medicine">Check Blood Pressure</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -154,17 +150,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="sugar" name="sugar">
             <label for="sugar">Check Blood Sugar</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -184,31 +180,29 @@
         <h2 class="bg-primary bg-gradient py-3 px-3 text-white">Nutrition</h2>
         <div class="p-3 pt-0">
         <div class="row">
-            <div class="col-3">
-                <h5>Check</h5>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
+                <h6>Check</h6>
             </div>
-            <div class="col-2">
-                <h5 class="text-center">Time</h5>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
+                <h6 class="text-center">Time</h6>
             </div>
-            <div class="col-4">
-                <h5 class="text-center">Measurement</h5>
-            </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
+                <h6 class="text-center">Measurement</h6>
             </div>
             <hr class="divider">
         </div>
         <div class="row pt-2">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="breakfast" name="breakfast">
             <label for="breakfast">Breakfast</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -216,17 +210,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="am-snack" name="am-snack">
             <label for="am-snack">A.M Snack</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -234,17 +228,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="lunch" name="lunch">
             <label for="lunch">Lunch</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -252,17 +246,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="pm-snack" name="pm-snack">
             <label for="pm-snack">P.M Snack</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -270,17 +264,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="dinner" name="dinner">
             <label for="dinner">Dinner</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -299,31 +293,29 @@
         <h2 class="bg-primary bg-gradient py-3 px-3 text-white">Hygiene</h2>
         <div class="p-3 pt-0">
         <div class="row pt-2">
-            <div class="col-3">
-                <h5>Check</h5>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
+                <h6>Check</h6>
             </div>
-            <div class="col-2">
-                <h5 class="text-center">Time</h5>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-2">
+                <h6 class="text-center">Time</h6>
             </div>
-            <div class="col-4">
-                <h5 class="text-center">Measurement</h5>
-            </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                <h6 class="text-center">Measurement</h5>
             </div>
             <hr class="divider">
         </div>
         <div class="row pt-2">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="bath" name="bath">
             <label for="bath">Take a bath</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -331,17 +323,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="diapers" name="diapers">
             <label for="diapers">Change Diapers</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -349,17 +341,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="clothes" name="clothes">
             <label for="clothes">Change Clothes</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -367,17 +359,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="hair" name="hair">
             <label for="hair">Combed Hair</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -385,17 +377,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="teeth" name="teeth">
             <label for="teeth">Brushed Teeth</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -414,31 +406,29 @@
         <h2 class="bg-primary bg-gradient py-3 px-3 text-white">Room Cleaning</h2>
         <div class="p-3 pt-0">
         <div class="row pt-2">
-            <div class="col-3">
-                <h5>Check</h5>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
+                <h6>Check</h6>
             </div>
-            <div class="col-2">
-                <h5 class="text-center">Time</h5>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-2">
+                <h6 class="text-center">Time</h6>
             </div>
-            <div class="col-4">
-                <h5 class="text-center">Measurement</h5>
-            </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                <h6 class="text-center">Measurement</h6>
             </div>
             <hr class="divider">
         </div>
         <div class="row pt-2">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="bedsheets" name="bedsheets">
             <label for="bedsheets">Change bedsheets</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
@@ -446,17 +436,17 @@
             </div>
         </div>
         <div class="row pt-3">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
             <input type="checkbox" id="floors" name="floors">
             <label for="floors">Clean Floors</label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="time" class="form-control" id="time-input">
             </div>
-            <div class="col-4">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <input type="text" class="form-control" id="text-input">
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
                 <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
                 <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
