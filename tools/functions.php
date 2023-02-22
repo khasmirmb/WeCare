@@ -40,5 +40,59 @@ function validate_contact_us($POST){
      }
     return true;
 }
+function validate_survey_question_walk($POST){
+    if(!isset($POST['walk'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_question_wheelchair($POST){
+    if(!isset($POST['wheelchair'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_question_bedridden($POST){
+    if(!isset($POST['bedridden'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_question_memory($POST){
+    if(!isset($POST['memory'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_question_bath($POST){
+    if(!isset($POST['bath'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_question_eating($POST){
+    if(!isset($POST['eating'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_question_restless($POST){
+    if(!isset($POST['restless'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_question_feeding($POST){
+    if(!isset($POST['feeding'])){
+        return false;
+    }
+    return true;
+}
+function validate_survey_questions($POST){
+    if(!validate_survey_question_walk($POST) || !validate_survey_question_wheelchair($POST) || !validate_survey_question_bedridden($POST) || !validate_survey_question_memory($POST) || !validate_survey_question_bath($POST) || !validate_survey_question_eating($POST) || !validate_survey_question_restless($POST) || !validate_survey_question_feeding($POST)){
+        return false;
+     }
+    return true;
+}
 
 ?>

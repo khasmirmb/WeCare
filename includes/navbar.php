@@ -69,7 +69,7 @@
 
                     <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-money-bill"></i><span>Payment/History</span></button></a></li>
 
-                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-ticket"></i><span>Admission</span></button></a></li>
+                    <li><a href="../admission/admission.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-ticket"></i><span>Admission</span></button></a></li>
 
                     <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-gear"></i><span>Account Settings</span></button></a></li>
 
