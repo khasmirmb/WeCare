@@ -78,9 +78,6 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                                     $_SESSION['otp'] = $row['otp'];
                                     $user_id = $row['id'];
                                     
-                                    // Add the registered user to client
-                                    $sql5 = mysqli_query($conn, "INSERT INTO client (user_id, firstname, lastname, middlename, suffix, date_of_birth, gender, address, martial_status) VALUES ({$user_id}, '{$fname}', '{$lname}', 'middlename', '', 0000-00-00, 'Other', 'None', 'None')");
-                                    
 
                                     // Mail function
                                     if($otp){

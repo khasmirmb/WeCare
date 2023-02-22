@@ -4,7 +4,6 @@
     require_once '../includes/header.php';
     require_once '../classes/staff.class.php';
     require_once '../classes/appointment.class.php';
-    require_once '../classes/basic.database.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){
@@ -25,13 +24,6 @@
         $status = "In Process";
         $client_came = "Pending";
 
-        // Get client_id by user_id
-        $login_id = $_SESSION['logged_id'];
-
-        $query = mysqli_query($conn, "SELECT * FROM client WHERE user_id  = $login_id");
-        while($rows = mysqli_fetch_array($query)){
-            $client_id = $rows['id'];
-        }
 
         // Check for available staff for the day
         $staff_schedule = $staffs->show_staff_schedule();
@@ -57,7 +49,7 @@
 
         // Insert the appointment
         $appointment->staff_id = $staff_available;
-        $appointment->client_id = $client_id;
+        $appointment->user_id = $_SESSION['logged_id'];
         $appointment->staff_schedule_id = $staff_schedule;
         $appointment->appointment_number = $app_max_number;
         $appointment->purpose_for_appointment = $purpose;

@@ -14,13 +14,7 @@
 
     $login_id = $_SESSION['logged_id'];
 
-    $query = mysqli_query($conn, "SELECT * FROM client WHERE user_id  = $login_id");
-        while($rows = mysqli_fetch_array($query)){
-            $client_id = $rows['id'];
-            $client_name = $rows['firstname'] . " " . $rows['lastname'];
-        }
-    
-    $sql = "SELECT * FROM appointment JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id WHERE client_id = $client_id ORDER BY status DESC";
+    $sql = "SELECT * FROM appointment JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id WHERE user_id = $login_id ORDER BY status DESC";
     $result = $conn->query($sql);
     
 
@@ -46,7 +40,7 @@
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="ms-2">
-                            <p class="fw-bold mb-1"><?php echo $client_name ?></p>
+                            <p class="fw-bold mb-1"><?php echo $_SESSION['fullname'] ?></p>
                             <p class="text-muted mb-0"><?php echo $_SESSION['user_email'] ?></p>
                         </div>
                     </div>

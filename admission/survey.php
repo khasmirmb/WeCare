@@ -4,6 +4,10 @@
     require_once '../includes/header.php';
     session_start();
 
+    if(!isset($_SESSION['logged_id'])){
+        header('location: ../account/signin.php');
+    }
+    
     require_once '../includes/navbar.php';
 ?>
 <!--Breadscrumbs-->
@@ -84,7 +88,7 @@
 
                 $survey = $survey_question->get_survey_questions();
                 
-                 foreach($survey as $row){ ?>
+                foreach($survey as $row){ ?>
 
                 <div class="row mt-2">
                     <li><strong><?php echo $row['question'] ?></strong></li>

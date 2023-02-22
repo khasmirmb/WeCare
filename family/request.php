@@ -4,6 +4,10 @@
     require_once '../includes/header.php';
     session_start();
 
+    if(!isset($_SESSION['logged_id'])){
+      header('location: ../account/signin.php');
+    }
+
     require_once '../includes/navbar.php';
 ?>
 <div class="container align-items-center pt-3">

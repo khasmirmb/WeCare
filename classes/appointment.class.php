@@ -9,7 +9,7 @@ class Appointment{
     // Class attributes
     public $id;
     public $staff_id;
-    public $client_id;
+    public $user_id;
     public $staff_schedule_id;
     public $appointment_number;
     public $purpose_for_appointment;
@@ -31,12 +31,12 @@ class Appointment{
      //Methods
      function add_appointment(){
 
-        $sql = "INSERT INTO appointment (staff_id, client_id, staff_schedule_id, appointment_number, purpose_for_appointment, other_purpose, appointment_date, appointment_time, status, client_came) VALUES 
-        (:staff_id, :client_id, :staff_schedule_id, :appointment_number, :purpose_for_appointment, :other_purpose, :appointment_date, :appointment_time, :status, :client_came);";
+        $sql = "INSERT INTO appointment (staff_id, user_id, staff_schedule_id, appointment_number, purpose_for_appointment, other_purpose, appointment_date, appointment_time, status, client_came) VALUES 
+        (:staff_id, :user_id, :staff_schedule_id, :appointment_number, :purpose_for_appointment, :other_purpose, :appointment_date, :appointment_time, :status, :client_came);";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':staff_id', $this->staff_id);
-        $query->bindParam(':client_id', $this->client_id);
+        $query->bindParam(':user_id', $this->user_id);
         $query->bindParam(':staff_schedule_id', $this->staff_schedule_id);
         $query->bindParam(':appointment_number', $this->appointment_number);
         $query->bindParam(':purpose_for_appointment', $this->purpose_for_appointment);
