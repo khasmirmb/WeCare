@@ -6,27 +6,27 @@
                     <div class="row align-items-start">
                         <label for="service"><strong>Services Needed:</strong></label><br>
                         <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input type="checkbox" id="service[]" name="service[]" value="Caregiving" <?php if(isset($_POST['service'])) { if (preg_match('/(Caregiving)/', $services)) echo ' checked'; } ?>>
+                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Caregiving" <?php if(isset($_POST['service'])) { if (preg_match('/(Caregiving)/', $services)) echo ' checked'; } ?>>
                             <label for="service[]">Caregiving</label><br>
                         </div>
                         <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input type="checkbox" id="service[]" name="service[]" value="Rehabilitation" <?php if(isset($_POST['service'])) { if (preg_match('/(Rehabilitation)/', $services)) echo ' checked'; } ?>>
+                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Rehabilitation" <?php if(isset($_POST['service'])) { if (preg_match('/(Rehabilitation)/', $services)) echo ' checked'; } ?>>
                             <label for="service[]">Rehabilitation</label><br>
                         </div>
                         <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input type="checkbox" id="service[]" name="service[]" value="Consultation" <?php if(isset($_POST['service'])) { if (preg_match('/(Consultation)/', $services)) echo ' checked'; } ?>>
+                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Consultation" <?php if(isset($_POST['service'])) { if (preg_match('/(Consultation)/', $services)) echo ' checked'; } ?>>
                             <label for="service[]">Consultation</label><br>
                         </div>
                         <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input type="checkbox" id="service[]" name="service[]" value="Rooms" <?php if(isset($_POST['service'])) { if (preg_match('/(Rooms)/', $services)) echo ' checked'; } ?>>
+                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Rooms" <?php if(isset($_POST['service'])) { if (preg_match('/(Rooms)/', $services)) echo ' checked'; } ?>>
                             <label for="service[]">Rooms</label><br>
                         </div>
                         <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input type="checkbox" id="service[]" name="service[]"  value="Bundle" <?php if(isset($_POST['service'])) { if (preg_match('/(Bundle)/', $services)) echo ' checked'; } ?>>
+                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]"  value="Bundle" <?php if(isset($_POST['service'])) { if (preg_match('/(Bundle)/', $services)) echo ' checked'; } ?>>
                             <label for="service[]">Bundle</label><br>
                         </div>
                         <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input type="checkbox" id="service[]" name="service[]" value="All" <?php if(isset($_POST['service'])) { if (preg_match('/(All)/', $services)) echo ' checked'; } ?>>
+                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="All" <?php if(isset($_POST['service'])) { if (preg_match('/(All)/', $services)) echo ' checked'; } ?>>
                             <label for="service[]" class="mb-3">Applied All</label><br>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
 
                             $relation = $relationship->get_relationship();
                             ?>
-                            <select name="inquire" id="inquire">
+                            <select class="form-select" name="inquire" id="inquire">
 
                             <?php foreach($relation as $row){ ?>
                             <option value="<?php echo $row['relationship'] ?>" <?php if(isset($_POST['inquire'])) { if ($_POST['inquire'] == $row['relationship']) echo ' selected="selected"'; } ?>><?php echo $row['relationship'] ?></option>

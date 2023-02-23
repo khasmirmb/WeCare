@@ -28,4 +28,22 @@ class Reference{
         }
         return $data;
     }
+
+    function get_refcitymun(){
+        $sql = "SELECT * FROM refcitymun ORDER BY citymunDesc ASC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function get_refprovince(){
+        $sql = "SELECT * FROM refprovince ORDER BY provDesc ASC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 }

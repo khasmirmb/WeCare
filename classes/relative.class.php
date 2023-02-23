@@ -4,7 +4,7 @@
 require_once 'database.php';
 
 // Declare Class
-class Patient{
+class Relative{
 
     // Class attributes
     public $id;
@@ -21,11 +21,12 @@ class Patient{
     public $barangay;
     public $city;
     public $postal;
-    public $background_history;
-    public $doctors_diagnosis;
-    public $allergies;
+    public $relationship;
+    public $phone;
+    public $telephone;
+    public $email;
     public $picture;
-    public $patient_info_no;
+    public $relative_info_no;
 
      // protected property to store the database connection
      protected $db;
@@ -37,10 +38,10 @@ class Patient{
     }
 
      //Methods
-     function add_patient_info(){
+     function add_relative_info(){
         // SQL statement to add patient
-        $sql = "INSERT INTO patient_info (user_id, firstname, middlename, lastname, suffix, date_of_birth, place_of_birth, gender, province, barangay, city, postal, background_history, doctors_diagnosis, allergies, picture, patient_info_no) VALUES 
-        (:user_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :patient_info_no);";
+        $sql = "INSERT INTO relative_info (user_id, firstname, middlename, lastname, suffix, date_of_birth, place_of_birth, gender, province, barangay, city, postal, relationship, phone, telephone, email, picture, relative_info_no) VALUES 
+        (:user_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :barangay, :city, :postal, :relationship, :phone, :telephone, :email, :picture, :relative_info_no);";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $this->user_id);
@@ -55,11 +56,12 @@ class Patient{
         $query->bindParam(':barangay', $this->barangay);
         $query->bindParam(':city', $this->city);
         $query->bindParam(':postal', $this->postal);
-        $query->bindParam(':background_history', $this->background_history);
-        $query->bindParam(':doctors_diagnosis', $this->doctors_diagnosis);
-        $query->bindParam(':allergies', $this->allergies);
+        $query->bindParam(':relationship', $this->relationship);
+        $query->bindParam(':phone', $this->phone);
+        $query->bindParam(':telephone', $this->telephone);
+        $query->bindParam(':email', $this->email);
         $query->bindParam(':picture', $this->picture);
-        $query->bindParam(':patient_info_no', $this->patient_info_no);
+        $query->bindParam(':relative_info_no', $this->relative_info_no);
         
         if($query->execute()){
             return true;
@@ -68,6 +70,7 @@ class Patient{
             return false;
         }	
     }
+
 
 
 }
