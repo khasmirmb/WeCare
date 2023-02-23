@@ -59,7 +59,7 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                     if(in_array($img_extension, $extensions) === true){
                         $time = time();
                         $newimagename = $time . $img_name;  // Creating a unique name for image
-                        if(move_uploaded_file($tmp_name, "../images/". $newimagename)) // Store img in folder
+                        if(move_uploaded_file($tmp_name, "../images/account-image/". $newimagename)) // Store img in folder
                         {
                             $random_id = rand(time(), 10000000); // create a user unique id
                             $otp = mt_rand(1111,9999); // creating 4 random digits for otp
