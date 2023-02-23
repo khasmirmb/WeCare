@@ -69,7 +69,7 @@
                     $r_new_img_name = "Relative_" . $time . $r_img_name;
 
                     // Moving the uplaoded file to folder image
-                    if(move_uploaded_file($p_tmp_name, "../images/admission-image/". $p_new_img_name) && move_uploaded_file($r_tmp_name, "../images/admission-image/". $r_new_img_name)){
+                    if(move_uploaded_file($p_tmp_name, "../images/". $p_new_img_name) && move_uploaded_file($r_tmp_name, "../images/". $r_new_img_name)){
 
                         // Adding Answered Survey Question to DB
                         if(isset($_POST['walk'])){
