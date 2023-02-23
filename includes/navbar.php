@@ -58,7 +58,7 @@
             </div>
 
             <div class="user-profile">
-                <img src="../images/<?php echo $_SESSION['profile_pic'] ?>" alt="Avatar" width="65px" height ="65px" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../images/account-image/<?php echo $_SESSION['profile_pic'] ?>" alt="Avatar" width="65px" height ="65px" data-bs-toggle="dropdown" aria-expanded="false">
 
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li class="ms-3 mt-2"><p class="font-weight-bold"><?php echo $_SESSION['fullname'] ?></p></li>
