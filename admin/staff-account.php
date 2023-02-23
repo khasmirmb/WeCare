@@ -15,14 +15,38 @@
         <a class="nav-link" href="user-account.php">Users</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="staff-count.php">Staff</a>
+        <a class="nav-link active"  aria-current="true" href="staff-account.php">Staff</a>
       </li>
     </ul>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+    
+      <div class="col-12 col-lg-1 col-md-3 col-sm-4">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Ascending</a></li>
+          <li><a class="dropdown-item" href="#">Descending</a></li>
+        </ul>
+      </div>
+      </div>
+       
+</div>
+  </div>
+</div>
+    
   </div>
 </div>
 </div>

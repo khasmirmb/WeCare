@@ -22,7 +22,7 @@
   <div class="card-body">
   <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-12 col-lg-6">
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search for...">
         <div class="input-group-append">
@@ -30,20 +30,20 @@
         </div>
       </div>
     </div>
-        <div class="col-lg-2 col-md-3 col-sm-4">
-        <button class="btn btn-primary" type="button">Add User</button>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4">
-        <div class="form-group justify-content-center">
-            <label for="filter">Filter</label><br>
-            <select name="filter" id="filter">
-                <option value="ascending">Ascending</option>
-                <option value="descending">Descending</option>
-                <option value="alphabetical">Alphabetical</option>
-                <option value="date">Date</option>
-            </select>
-            </div>
-            </div>
+
+      <div class="col-lg-1 col-md-3 col-sm-4">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Ascending</a></li>
+          <li><a class="dropdown-item" href="#">Descending</a></li>
+        </ul>
+      </div>
+      </div>
+       
+</div>
   </div>
 </div>
     
