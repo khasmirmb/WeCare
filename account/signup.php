@@ -52,7 +52,7 @@
 
               <div class="mb-3">
                 <label for="image-preview" class="form-label">Upload Profile Image</label>
-                <input class="form-control" name="image" type="file" id="image-preview" required oninvalid="this.setCustomValidity('Select a Profile Image')" oninput="this.setCustomValidity('')">
+                <input class="form-control" name="image" type="file" id="image-preview" required oninvalid="this.setCustomValidity('Select a Profile Image')" oninput="this.setCustomValidity('')" accept="image/*">
               </div>
 
               <hr>

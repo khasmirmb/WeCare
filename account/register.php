@@ -76,7 +76,6 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                                     $_SESSION['unique_id'] = $row['unique_id'];
                                     $_SESSION['email'] = $row['email'];
                                     $_SESSION['otp'] = $row['otp'];
-                                    $user_id = $row['id'];
                                     
 
                                     // Mail function
