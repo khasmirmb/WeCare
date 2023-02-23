@@ -431,7 +431,7 @@ thead {
 }
 
 .patient-delete{
-  padding: 5px 20px 5px;
+  padding: 5px 6px 5px;
   color: #fff;
   background: #dc3545;
   border: 1px solid #dc3545;
@@ -440,7 +440,7 @@ thead {
 }
 
 .patient-edit{
-  padding: 5px 20px 5px;
+  padding: 5px 10px 5px;
   color: #00ACB2;
   background: #fff;
   border: 1px solid #00ACB2;
