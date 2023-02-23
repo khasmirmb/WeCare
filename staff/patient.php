@@ -14,7 +14,7 @@
     <div class=" container bg-primary p-3 container-fluid">
     <div class="row">
         <div class="col-4 pt-3">
-        <img src="\images\amongus2.jpg" class="img-thumbnail img-fluid" alt="among us"><!--Image of the patient-->
+        <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka"><!--Image of the patient-->
         </div>
         <div class="col-8 col-md-6 text-light">
             <h1><strong>Carl Bonifacio Jr</strong></h1>
