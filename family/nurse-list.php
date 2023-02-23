@@ -11,6 +11,7 @@
 <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none" href="family-patient.php"> < Back</a></button>
 
 <!--Data of Previous Nurse-->
+<div class="col-12 col-lg-12">
 <h4 class="pt-3 pb-3"><strong>Previous Nurse</strong></h4>
     <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
@@ -37,5 +38,6 @@
         </tr>
     </tbody>
 </table>
+</div>
 </div>
 </div>

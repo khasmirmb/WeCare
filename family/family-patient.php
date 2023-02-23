@@ -22,33 +22,33 @@
 </div>
 <div class="container">
     <div class="row"><!--Details of the patient-->
-    <div class="col-md-8 col-md-4 pt-3"><!--Big blue thing-->
+    <div class="col-12 col-lg-8 pt-3"><!--Big blue thing-->
     <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
     <div class="row">
-        <div class="col">
-        <img src="download.jpg" class="rounded float-start img-fluid" alt="Datu J. Batumbaka">
+        <div class="col-12 col-lg-4 pb-3">
+        <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
         </div>
-        <div class="col">
+        <div class="col-12 col-lg-8">
         <div class="row">
-        <h5><strong>Datu J. Batumbakal</strong></h5>
-        <p>Male - 57 Years Old</p>
+        <h4><strong>Datu J. Batumbakal</strong></h4>
+        <p class="pb-3">Male - 57 Years Old</p>
         </div>
         <div class="row row-cols-2">
             <div class="col">High BP</div>
             <div class="col">Bedridden</div>
-            <div class="col">Fracture</div>
-            <div class="col pb-3">Low Hearing</div>
+            <div class="col pt-3">Fracture</div>
+            <div class="col pt-3 pb-3">Low Hearing</div>
         </div>
         <hr class="divider">
         </div>
         </div>
         <div class="row">
-            <div class="col"><h5><strong>Last Check</strong></h4></div>
-            <div class="col"><p>Dr. Eljen Mae Augusto on 23rd Dec 2020</p></div>
+            <div class="col-12 col-lg-4"><h5><strong>Last Check</strong></h4></div>
+            <div class="col-12 col-lg-8"><p>Dr. Eljen Mae Augusto on 23rd Dec 2020</p></div>
         </div>
         <div class="row">
-            <div class="col"><h5><strong>Observation</strong></h5></div>
-            <div class="col"><p>Complexities due to age. Remain tensed about his younger daughter who is addicted and does not have any stable job. Allergic to peanuts.</p></div>
+            <div class="col-12 col-lg-4"><h5><strong>Observation</strong></h5></div>
+            <div class="col-12 col-lg-8"><p>Complexities due to age. Remain tensed about his younger daughter who is addicted and does not have any stable job. Allergic to peanuts.</p></div>
         </div>
         
 </div>
@@ -58,7 +58,8 @@
     </div>
     </div>
 </div> <!--End of details of the patient-->
-    <div class="col-6 col-md-4 pt-3"> <!--Appointment-->
+
+    <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
         <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
             <h5><strong>Appointment</strong></h5>
             <h6 class="bg-secondary text-white d-inline">5:00 PM - 6:00 PM</strong></h6>
@@ -74,7 +75,7 @@
 
 <!--Table medicine-->
 <div class="row">
-<div class="col-8 p-3">
+<div class="col-12 col-lg-8 p-3">
     <h4 class="pb-3"><strong>Medicine</strong></h4>
     <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
@@ -128,36 +129,37 @@
 </div>
 </div>
 
-    <div class="col-6 col-md-4 pt-3">
+
+    <div class="col-12 col-lg-4 pt-3">
         <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
         <h4 class="pb-3"><strong>Reports</strong></h4>
             <div class="row">
-                <div class="col-8">
+                <div class="col-8 col-lg-8">
                     <!--Blood Image-->
                     <h6><strong>Complete blood count</strong></h6>
                     <p class="text-black-50">Dec 19, 2022</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 col-lg-4">
                     <!--Eye image-->
                 </div>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-8 col-lg-8">
                     <!--Electrict image-->
                     <h6><strong>Electrocardiography</strong></h6>
                     <p class="text-black-50">Dec 19, 2022</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 col-lg-4">
                     <!--Eye image-->
                 </div>
             </div>
             <div class="row">
-                <div class="col-8">
+                <div class="col-8 col-lg-8">
                     <!--x-ray image-->
                     <h6><strong>X-Ray</strong></h6>
                     <p class="text-black-50">Dec 19, 2022</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 col-lg-4">
                     <!--Eye image-->
                 </div>
             </div>
@@ -166,8 +168,7 @@
     </div>
     
 <!--Table Nutrition-->
-<div class="row">
-<div class="col-8 p-3">
+<div class="col-12 col-lg-8 p-3">
     <h4 class="pb-3"><strong>Nutrition</strong></h4>
     <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
@@ -222,11 +223,12 @@
 </div>
 
 
-    <div class="col-6 col-md-4 pt-3">
+    <div class="col-12 col-lg-4 pt-3">
     <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
         <h4 class="pb-3"><strong>Photo Update</strong></h4>
         <div class="row">
                 <div class="col-8">
+                <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
                     <!--Image-->
                 </div>
                 <div class="col-4">
@@ -234,23 +236,8 @@
                 </div>
          </div>
          <div class="row">
-                <div class="col-8">
-                    <!--Image-->
-                </div>
-                <div class="col-4">
-                    <!--Eye Image-->
-                </div>
-         </div>
-         <div class="row">
-                <div class="col-8">
-                    <!--Image-->
-                </div>
-                <div class="col-4">
-                    <!--Eye Image-->
-                </div>
-         </div>
-         <div class="row">
-                <div class="col-8">
+                <div class="col-8 pt-3">
+                <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
                     <!--Image-->
                 </div>
                 <div class="col-4">
@@ -262,8 +249,8 @@
     </div>
 
 <!--Table Hygiene-->
+<div class="col-12 col-lg-8 p-3">
 <div class="row">
-<div class="col-8 p-3">
     <h4 class="pb-3"><strong>Hygiene</strong></h4>
     <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered">
@@ -313,35 +300,36 @@
 </div>
 
 <!--Nurse-->
-    <div class="bg-primary text-wrap py-3 px-5 text-light rounded float-start">
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="button" class="btn btn-outline-light text-primary"><a class="text-light" href="nurse-list.php">Previous Nurse</a></button>
+<div class="col-12 col-lg-12">
+    <div class="bg-primary text-wrap py-3 px-5 text-light rounded">
+        <div class="d-grid justify-content-md-end">
+        <button type="button" class="btn btn-outline-light text-primary"><a class="text-decoration-none text-light" href="nurse-list.php">Previous Nurse</a></button>
         </div>
         
     <div class="row">
-        <div class="col">
-             <h6 class="text-center mt-4 pt-3"><strong>Nurse Assign</strong></h6>
-            <img class="rounded-circle" src="images/download.jpg"  alt="Mikaylah B. Chu">
-            <p class="text-center">Mikaylah B. Chu</p>
+        <div class="col-12 col-lg-4">
+             <h6 class="text-center mt-4 pt-3 pb-3"><strong>Nurse Assign</strong></h6>
+             <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid mx-auto d-block" alt="Mikaylah B. Chu" style="width: 30%; height: auto;">
+            <p class="text-center pt-3">Mikaylah B. Chu</p>
             </div>
             
-        <div class="col">
+        <div class="col-12 col-lg-2">
             <div class="row pt-5">
                 <h7><strong>Contact Number</strong></h7>
             </div>
-            <div class="row pt-3">
+            <div class="row pt-2">
                 <p>0956342354</p>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg-3">
             <div class="row pt-5">
                 <h7><strong>Email Address</strong></h7>
             </div>
-            <div class="row pt-3">
+            <div class="row pt-2">
                 <p>mikaylahchu@gmail.com</p>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg-2">
         <div class="row pt-5">
                 <h7><strong>Socials</strong></h7>
             </div>
@@ -358,5 +346,7 @@
         </div>
         </div>    
         </div>
+        </div>
+
 </div><!--Don't touch-->
 

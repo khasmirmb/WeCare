@@ -23,7 +23,7 @@
     </thead>
     <tbody>
         <tr>
-        <td><a href="family-patient.php">Al-khasmir Basaluddin</a></td>
+        <td><a href="family-patient.php" class="text-decoration-none text-dark">Al-khasmir Basaluddin</a></td>
         <td class="text-center">Father</td>
         <td class="text-center">Room 1</td>
         <td class="text-center">Active</td>
