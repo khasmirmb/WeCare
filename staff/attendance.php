@@ -3,6 +3,7 @@
 $page_title = 'Staff - Attendance';
 require_once '../includes/sidebar.php';
 session_start();
+require_once '../classes/account.class.php';
 
 ?>
 

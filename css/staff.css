@@ -367,10 +367,86 @@ thead {
   color: #00ACB2;
   border: 1px solid #fff;
   background: #fff;
-  margin-left: 5px;
-  
+  margin-left: 5px; 
 }
 
+.patient-prof{
+  text-decoration: none;
+  color: #666666;
+}
+
+.patient-prof:hover{
+  text-decoration: underline;
+  color: #00ACB2;
+}
+
+.fa-arrow-left{
+  margin-right: 10px;
+}
+.fa-circle-plus{
+  margin-right: 10px;
+}
+
+.patient-back-btn{
+  padding: 5px 10px 5px;
+  background: #00ACB2;
+  border-radius: 6px;
+  border: none;
+}
+
+.patient-save-btn{
+  padding: 10px 45px 10px;
+  background: #00ACB2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.patient-reset-btn{
+  padding: 10px 35px 10px;
+  background: #fff;
+  color: #00ACB2;
+  border: 2px solid #00ACB2;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.patient-reset-btn:hover{
+  color:#fff;
+  background: #dc3545;
+}  
+.patient-save-btn:hover{
+  background: #0d6efd;
+}
+
+.fa-pen{
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.fa-trash{
+  margin-top: 5px;
+  margin-right: 5px;
+  color: #fff;
+}
+
+.patient-delete{
+  padding: 5px 20px 5px;
+  color: #fff;
+  background: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.patient-edit{
+  padding: 5px 20px 5px;
+  color: #00ACB2;
+  background: #fff;
+  border: 1px solid #00ACB2;
+  border-radius: 10px;
+  font-weight: 500;
+}
 /*---------------------
 Attendance 
 -----------------------*/

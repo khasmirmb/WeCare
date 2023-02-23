@@ -3,7 +3,7 @@
     $page_title = 'WeCare Nursing Home Inc.';
     require_once '../includes/sidebar.php';
     session_start();
-
+    require_once '../classes/account.class.php';
 ?>
 
     <div class="content">
@@ -47,7 +47,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row" style="color: #666666;">Tiger Nixon</th>
+                    <th scope="row" style="color: #666666;"><a href="../staff/patient-profile.php" class="patient-prof">Carl Bonifacio Sr</a></th>
                     <td class="text-center">Room 2</td>
                     <td class="text-center"><span class="label label-success">Discharged</span>
                     <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
@@ -60,7 +60,7 @@
                 </div></td>
                   </tr>
                   <tr>
-                    <th scope="row" style="color: #666666;">Sonya Frost</th>
+                    <th scope="row" style="color: #666666;"><a href="../staff/patient-profile.php" class="patient-prof">Sonya Frost</a></th>
                     <td class="text-center">Room 1</td>
                     <td class="text-center"><span class="label label-success">Discharged</span>
                     <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
@@ -73,7 +73,7 @@
                 </div></td>
                   </tr>
                   <tr>
-                    <th scope="row" style="color: #666666;">Jena Gaines</th>
+                    <th scope="row" style="color: #666666;"><a href="../staff/patient-profile.php" class="patient-prof">Jena Gaines</a></th>
                     <td class="text-center">Room 3</td>
                     <td class="text-center"><span class="label label-success">Discharged</span>
                     <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
