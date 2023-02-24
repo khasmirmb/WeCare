@@ -2,7 +2,8 @@
 
     $page_title = 'WeCare Nursing Home Inc.';
     require_once '../includes/sidebar.php';
-    
+    session_start();
+    require_once '../classes/account.class.php';
 
 ?>
 
