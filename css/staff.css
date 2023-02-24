@@ -36,7 +36,7 @@ Sidebar
 -----------------------*/
 
 header{
-  z-index: 1;
+  z-index: 13;
   position: fixed;
   background: #ccc;
   padding: 20px;
@@ -58,7 +58,7 @@ header{
 }
   
 .sidebar{
-  z-index: 1;
+  z-index: 13;
   top: 0;
   background: #00ACB2;
   margin-top: 70px;
@@ -475,4 +475,71 @@ Attendance
 .atten-time{
   border: 2px solid #00ACB2;
   display: inline-block;
+}
+
+/*---------------------
+Settings
+-----------------------*/
+
+.card {
+margin-bottom: 1.5rem;
+box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+}
+.card {
+position: relative;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-direction: column;
+flex-direction: column;
+min-width: 0;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border: 1px solid #e5e9f2;
+border-radius: .2rem;
+}
+.card-header:first-child {
+border-radius: calc(.2rem - 1px) calc(.2rem - 1px) 0 0;
+}
+.card-header {
+border-bottom-width: 1px;
+}
+.card-header {
+padding: .75rem 1.25rem;
+margin-bottom: 0;
+color: inherit;
+background-color: #fff;
+border-bottom: 1px solid #e5e9f2;
+}
+
+.setting-form-btn{
+padding: 10px 20px 10px;
+border-radius: 5px;
+background: #00ACB2;
+color: #fff;
+border: none;
+font-weight: 600;
+}
+
+.btn-save{
+color: #fff;
+background-color: #00ACB2;
+border: none;
+font-weight: 600;
+margin-left: 1rem;
+margin-bottom: 10px;
+border-radius: 6px;
+padding: 10px 20px 10px;
+width: fit-content;
+}
+
+.save-pass-btn{
+color: #fff;
+background-color: #00ACB2;
+border: none;
+font-weight: 600;
+margin: 20px 10px 10px 0px ;
+border-radius: 6px;
+padding: 10px 20px 10px;
+width: fit-content;
 }
