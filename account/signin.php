@@ -38,7 +38,7 @@
             if($row['type'] == 'admin'){
               header('location: ../admin/dashboard.php');
             }else if($row['type'] == 'staff'){
-              header('location: ../staff/dashboard.php');
+              header('location: ../staff/patient-list.php');
             }else if($row['type'] == 'client'){
              header('location: ../homepage/home.php');
             }

@@ -67,7 +67,7 @@
 
                     <li><a href="../appointment/appointment.list.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-calendar-check"></i><span>Appointment List</span></button></a></li>
 
-                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-money-bill"></i><span>Payment/History</span></button></a></li>
+                    <li><a href="../payment/payment.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-money-bill"></i><span>Payment/History</span></button></a></li>
 
                     <li><a href="../admission/admission.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-ticket"></i><span>Admission</span></button></a></li>
 

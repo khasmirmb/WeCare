@@ -13,7 +13,7 @@
         header('location: admin/dashboard.php');
     }
     else if (isset($_SESSION['user_type']) == 'staff'){
-         header('location: staff/dashboard.php');
+         header('location: staff/patient-list.php');
     }
     else{
          header('location: homepage/home.php');
