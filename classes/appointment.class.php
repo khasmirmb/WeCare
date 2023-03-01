@@ -73,6 +73,27 @@ class Appointment{
         return $data;
     }
 
+    function show_user_appointment($user_id){
+        $sql = "SELECT appointment.id, staff_id, user_id, staff_schedule_id, appointment_purpose.purpose, other_purpose, appointment_date, appointment_time, status FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id WHERE user_id = :user_id ORDER BY status DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+    function cancel_appointment($record_id){
+        $sql = "UPDATE appointment SET status = :status WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        $query->bindParam(':status', $this->status);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 }

@@ -321,12 +321,6 @@ body{
 .map-area h2{
     font-weight: 600;
 }
-.ui-widget-header,.ui-state-default, ui-button{  
-  background: #00ACB2;  
-  border: 1px solid #00ACB2;  
-  color: #FFFFFF;  
-  font-weight: bold;  
-} 
 .contact-form form .sucess{
   color: #1c943a;
   padding: 4px 6px;
@@ -778,3 +772,12 @@ form .error-text{
   margin-bottom: 10px;
   background-color: #ffe3e5;
 }
+/*---------------------
+  JQuery CSS
+-----------------------*/
+.ui-widget-header,.ui-state-default{  
+  background: #00ACB2;  
+  border: 1px solid #00ACB2;  
+  color: #FFFFFF;  
+  font-weight: bold;  
+} 

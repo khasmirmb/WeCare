@@ -7,7 +7,6 @@
     require_once '../classes/patient.class.php';
     require_once '../classes/relative.class.php';
     require_once '../classes/admission.class.php';
-    require_once '../classes/basic.database.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){
@@ -196,32 +195,26 @@
                             $admission->user_id = $_SESSION['logged_id'];
                             $admission->admission_no = $admission_no;
 
-                            $sql1 = "SELECT * FROM survey_info WHERE survey_no = $admission_no AND user_id = $user_id";
+                            $survey_answered = $admission->show_user_admission_survey_info($_SESSION['logged_id'], $admission_no);
 
-                            $result1 = $conn->query($sql1);
-                            if($result1->num_rows > 0){
-                                while($row = $result1->fetch_assoc()) {
-                                    $admission->survey_info = $row['id'];
-                                }
+                            foreach($survey_answered as $survey_information){
+                                $admission->survey_info = $survey_information['id'];
                             }
-    
-                            $sql2 = "SELECT * FROM patient_info WHERE patient_info_no = $admission_no AND user_id = $user_id";
-    
-                            $result2 = $conn->query($sql2);
-                            if($result2->num_rows > 0){
-                                while($row = $result2->fetch_assoc()) {
-                                    $admission->patient_info = $row['id'];
-                                }
+
+                            $patient_info_answered = $admission->show_user_admission_patient_info($_SESSION['logged_id'], $admission_no);
+
+                            foreach($patient_info_answered as $patient_information){
+                                $admission->patient_info = $patient_information['id'];
                             }
-    
-                            $sql3 = "SELECT * FROM relative_info WHERE relative_info_no = $admission_no AND user_id = $user_id";
-    
-                            $result3 = $conn->query($sql3);
-                            if($result3->num_rows > 0){
-                                while($row = $result3->fetch_assoc()) {
-                                    $admission->relative_info = $row['id'];
-                                }
+
+                            $relative_info_answered = $admission->show_user_admission_relative_info($_SESSION['logged_id'], $admission_no);
+
+                            foreach($relative_info_answered as $relative_information){
+                                $admission->relative_info = $relative_information['id'];
                             }
+
+                            $admission->staff_id = 0;
+                            $admission->status = "Pending";
 
                             if($admission->add_admission()){
                                 header('location: admission.list.php');

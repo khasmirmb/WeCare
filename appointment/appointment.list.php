@@ -2,6 +2,7 @@
 
     $page_title = 'WeCare - Appointment';
     require_once '../includes/header.php';
+    require_once '../classes/appointment.class.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){
@@ -9,13 +10,6 @@
     }
 
     require_once '../includes/navbar.php';
-
-    require_once '../classes/basic.database.php';
-
-    $login_id = $_SESSION['logged_id'];
-
-    $sql = "SELECT * FROM appointment JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id WHERE user_id = $login_id ORDER BY status DESC";
-    $result = $conn->query($sql);
     
 
 ?>
@@ -32,9 +26,14 @@
                 </tr>
             </thead>
             <tbody>
-            <?php if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()) {
-            
+            <?php 
+
+            $appointment = new Appointment();
+
+            $appointment_list = $appointment->show_user_appointment($_SESSION['logged_id']);
+
+            foreach($appointment_list as $row){
+
             ?>
                 <tr>
                 <td>
@@ -52,22 +51,61 @@
                     <?php } ?>
                 </td>
                 <td>
-                    <p class="fw-normal mb-1"><?php echo $row['appointment_time'] ?></p>
+                    <p class="fw-normal mb-1"><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></p>
                 </td>
                 <td>
-                    <p class="fw-normal mb-1"><?php echo $row['appointment_date'] ?></p>
+                    <p class="fw-normal mb-1"><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></p>
                 </td>
                 <td>
                     <p class="fw-normal mb-1"><?php echo $row['status'] ?></p>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger">Cancel</button>
+                    <?php if($row['status'] == "Completed"){
+                    ?>
+                    <p class="fw-bold mb-1 color text-success">Completed</p>
+                    <?php } else if($row['status'] == "Canceled"){ ?>
+                        <p class="fw-bold mb-1 color text-danger">Canceled</p>
+                    <?php } else { ?>
+                    <a type="button" class="btn btn-danger" id="action-cancel" href="appointment.cancel.php?id=<?php echo $row['id'] ?>">Cancel</a>
+                    <?php }?>
                 </td>
                 </tr>
             <?php
                 }
-            }
             ?>
             </tbody>
         </table>
     </div>
+
+    <div id="cancel-dialog" class="dialog" title="Cancel Appointment">
+        <p><span>Are you sure you want to cancel the selected appointment?</span></p>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        $("#cancel-dialog").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+
+        });
+        $("#action-cancel").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#cancel-dialog").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#cancel-dialog").dialog("open");
+        });
+    });
+</script>
