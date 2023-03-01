@@ -96,7 +96,7 @@
 </div><!--End of table-->
   <div class="row"><!--Start of counting-->
   <div class="col pt-2">
-    <h7>Total Visitor: <strong>100</strong></h7>
+    <h7>Total Visitor: <strong>100</strong></h7>s
     </div>
     <div class="col pt-2">
     <h7>Active Visitor: <strong>50</strong></h7>
