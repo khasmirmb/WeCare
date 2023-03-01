@@ -19,7 +19,7 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="../css/admin.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="../js/sidebar-offcanvas.js"></script>
@@ -48,7 +48,7 @@
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-      <a href="#"><i class="fas fa-grid-horizontal"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fas fa-chart-simple"></i><span>Dashboard</span></a>
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="#"><i class="fas fa-list-check"></i><span>Patient List</span></a>
@@ -64,7 +64,7 @@
 
     <!--sidebar start-->
     <div class="sidebar">
-      <a href="#"><i class="fas fa-grid-horizontal"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fas fa-chart-simple"></i><span>Dashboard</span></a>
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="#"><i class="fas fa-list-check"></i><span>Patient List</span></a>

@@ -21,7 +21,7 @@
     <div class="d-flex justify-content-center pt-2"><!--start of button refresh,delete, mark all-->
     <div class="btn-group btn-group-lg" role="group" style="width: 100%;">
     <button type="button" class="btn btn-light"><i class="fa-solid fa-rotate-right"></i>Refresh</button><!--should have icon-->
-    <button type="button" class="btn btn-light"><i class="fa-solid fa-trash"></i>Delete</button><!--should have icon and modal for delete-->
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i>Delete</button><!--should have icon and modal for delete-->
     <button type="button" class="btn btn-light"><i class="fa-solid fa-square-check"></i>Mark All</button><!--should have icon-->
     </div>
     </div><!--end of button refresh,delete, mark all-->
@@ -121,6 +121,26 @@
 
 </div><!--End of all-->
 
+ <!-- Delete Modal -->
+ <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="del-modal-header">
+      <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      </div>
+      <div class="del-modal-body">
+				<p>Do you really want to delete these feedbacks? This process cannot be undone.</p>
+			</div>
+      <div class="del-modal-footer">
+        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="del-btn">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
