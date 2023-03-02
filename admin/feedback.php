@@ -8,7 +8,7 @@
 
 <div class="content">
 <div class="container align-items-center pt-3">
-    <h2 class="pb-3">Feedback</h2><!--Feedback title-->
+    <h2 class="pb-3" style="color: #00ACB2;">Feedback</h2><!--Feedback title-->
 
     <div class="d-flex justify-content-center"><!--start of button-->
     <div class="btn-group btn-group-lg" role="group" style="width: 100%;">

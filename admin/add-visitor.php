@@ -1,22 +1,23 @@
 <?php
 
-    $page_title = 'Admin - Add staff';
+    $page_title = 'Admin - Add visitor';
     session_start();
     require_once '../classes/account.class.php';
     require_once '../includes/admin-sidebar.php';
 ?>
 
 <div class="content">
+
 <div class="container align-items-center pt-3">
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/staff-accounts.php"><i class="fa-solid fa-arrow-left"></i> Back </a></button>
+<button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/visitor-log.php"><i class="fa-solid fa-arrow-left"></i> Back </a></button>
 
     <div class="pt-4">
-    <h2 class="mb-4"><strong>Add Staff</strong></h2>
+    <h2 class="mb-4"><strong>Add Visitor</strong></h2>
     <div class="container form-control">
     <div class="container-fluid">
    
 
-  <form><!--Starting of the form-->
+    <form><!--Starting of the form-->
   <div class="pt-3">
 
   <div class="row"><!--First row-->
@@ -71,8 +72,12 @@
     <input class="form-control" type="text" name="city" id="city"><br>
     </div>
     <div class="col-sm">
-    <label for="position"><strong>Position:</strong></label><br>
-    <input class="form-control" type="text" name="position" id="position"><br>
+    <label for="patient-name"><strong>Name of the Patient:</strong></label><br>
+    <input class="form-control" type="text" name="patient-name" id="patient-name"><br>
+    </div>
+    <div class="col-sm">
+    <label for="patient-relationship"><strong>Patient's Relationship:</strong></label><br>
+    <input class="form-control" type="text" name="patient-relationship" id="patient-relationship"><br>
     </div>
     </div><!--End of Third row-->
     </div><!--Last of the div inside of the form-->
@@ -81,9 +86,16 @@
     </div><!--Last of the container form-control-->
     </div> <!--Last of the div-->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3 pb-3"><!--Starting of buttons-->
-  <button class="btn btn-danger me-md-2" type="button">Clear Data</button> <!--Should have modal-->
-  <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Add Staff</button> <!--Should have modal-->
+  <button class="btn btn-danger me-md-2" type="button">Cancel</button> <!--Should have modal-->
+  <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Add Visitor</button> <!--Should have modal-->
 </div><!--End of buttons-->
     </div><!--End of first container-->
+
+
+
+
+
+
+
 
 </div>

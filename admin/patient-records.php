@@ -11,7 +11,7 @@
 <div class="container align-items-center pt-3">
 
     <div class="">
-        <h3 class="pb-3">Patient Records</h3>
+        <h3 class="pb-3" style="color: #00ACB2;">Patient Records</h3>
     </div>
 
     <div class="row"><!--Start of row-->

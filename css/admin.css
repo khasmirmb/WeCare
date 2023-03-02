@@ -204,7 +204,6 @@ label #sidebar_btn:hover{
     display: block;
   }
 }
-
 /*---------------------
 Modal
 -----------------------*/
@@ -350,4 +349,17 @@ Feedback
   color: #fff;
   background-color: #00ACB2;
   border-color: #000;
+}
+
+/*---------------------
+Admission
+-----------------------*/
+
+.btn-outline-secondary{
+border: 1px solid red;
+color: #00ACB2;
+}
+
+.btn-outline-secondary:hover{
+background: red;
 }

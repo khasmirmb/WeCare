@@ -1,6 +1,6 @@
 <?php
 
-    $page_title = 'Admin - Admission';
+    $page_title = 'Admin - Appointment';
     session_start();
     require_once '../classes/account.class.php';
     require_once '../includes/admin-sidebar.php';
@@ -10,13 +10,14 @@
 
 <div class="container align-items-center pt-3">
 <div class="card text-center">
+
   <div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/admission.php">Admission</a>
+        <a class="nav-link"  href="../admin/admission.php">Admission</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../admin/appointment.php">Appointment</a>
+        <a class="nav-link active" aria-current="true" href="../admin/appointment.php">Appointment</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../admin/visitor-log.php">Visitor</a>
@@ -25,7 +26,7 @@
   </div><!--End of Card-->
   
   <div class="col-7 col-lg-2 pt-4"> <!--Start of name of appointment-->
-    <h4 class="mb-4">Admission</h4>
+    <h4 class="mb-4">Appointment</h4>
   </div><!--End of name of appointment-->
 
   <div class="col-4 col-lg-2"><!--Start of date-->
@@ -46,7 +47,7 @@
     <tbody>
       <tr>
         <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
+        <td class="pt-4"><a href="../admin/appointment-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
         <td class="pt-4">
           <div class="input-group" >
           <select name="assigned" id="assigned" class="form-control">
@@ -64,7 +65,7 @@
       </tr>
       <tr>
         <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
+        <td class="pt-4"><a href="../admin/appointment-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
         <td class="pt-4">
           <div class="input-group" >
           <select name="assigned" id="assigned" class="form-control">
@@ -103,7 +104,25 @@
     <tbody>
       <tr>
         <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
+        <td class="pt-4"><a href="../admin/appointment-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
+        <td class="pt-4">
+          <div class="input-group">
+          <select name="assigned" id="assigned" class="form-control">
+          <option value="adhyne">Adhyne Greanne Pogoy</option>
+          <option value="jorylle">Jorylle Reyes</option>
+          </select>
+          </div>
+      </td>
+        <td>
+        <div class="d-grid gap-2">
+        <button type="button" class="btn btn-outline-secondary">Decline</button>
+        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
+        </div>
+      </td>
+      </tr>
+      <tr>
+        <th scope="row" class="pt-4">10:30 AM</th>
+        <td class="pt-4"><a href="../admin/appointment-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
         <td class="pt-4">
           <div class="input-group" >
           <select name="assigned" id="assigned" class="form-control">
@@ -121,25 +140,7 @@
       </tr>
       <tr>
         <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="admission-details.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
-        <td class="pt-4">
-          <div class="input-group" >
-          <select name="assigned" id="assigned" class="form-control">
-          <option value="adhyne">Adhyne Greanne Pogoy</option>
-          <option value="jorylle">Jorylle Reyes</option>
-          </select>
-          </div>
-      </td>
-        <td>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Decline</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
-        </div>
-      </td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
+        <td class="pt-4"><a href="../admin/appointment-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
         <td class="pt-4">
           <div class="input-group" >
           <select name="assigned" id="assigned" class="form-control">
@@ -159,9 +160,12 @@
   </table>
 </div>
 </div><!--End of 2nd Table-->
+  
 
-</div>
-</div>
+</div><!--End of Card-->
+</div><!--End of Container-->
+
+
 
 
 

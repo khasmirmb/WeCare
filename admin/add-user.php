@@ -47,7 +47,7 @@
     </div>
     <div class="col-sm">
     <label for="gender"><strong>Gender:</strong></label><br>
-    <select name="gender" id="gender">
+    <select name="gender" id="gender" class="form-control">
           <option value="male">Male</option>
           <option value="Female">Female</option>
         </select>

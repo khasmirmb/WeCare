@@ -54,7 +54,7 @@
       <a href="#"><i class="fas fa-list-check"></i><span>Patient List</span></a>
       <a href="../admin/patient-records.php"><i class="fas fa-file-medical"></i><span>Patient records</span></a>
       <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span></a>
-      <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
+      <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
       <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
       </div>
@@ -70,7 +70,7 @@
       <a href="#"><i class="fas fa-list-check"></i><span>Patient List</span></a>
       <a href="../admin/patient-records.php"><i class="fas fa-file-medical"></i><span>Patient records</span></a>
       <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span></a>
-      <a href="#"><i class="fas fa-calendar"></i><span>Appointment</span></a>
+      <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
       <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
     </div>
