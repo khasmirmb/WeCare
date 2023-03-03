@@ -219,7 +219,7 @@
                 <p>List of New User</p>
                 </div>
                 </div>
-              <div class="container container-fluid pt-3 pb-3">
+              <div class="container container-fluid pt-3">
                 <div class="table-responsive">
               <table class="table table-striped table-hover">
                 <thead>
@@ -287,7 +287,7 @@
                 <div class="card-body p-0">
                     <div class="row">
                         <div class="card-body bg-warning text-white rounded">
-                            <div class="col-3 col-lg-3">
+                            <div class="col-12 col-lg-8">
                             <h5 class="card-title">Tasks:</h5>
                             </div>
                             <div class="col-12 col-lg-12">
@@ -304,18 +304,18 @@
                             </div>
                         </div>
                     </div><!--End of row-->
-                    <div class="container container-fluid pt-3 pb-3"><!--Start of container-->
+                    <div class="container-fluid pt-3 pb-3"><!--Start of container-->
                     <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action">
                         <div class="row">
-                            <div class="col-1">
+                            <div class="col-2 col-lg-1 pt-5">
                                 <input class="form-check-input" type="checkbox" value="check" id="mark">
                             </div>
-                            <div class="col-6">
+                            <div class="col-10 col-lg-7 pt-3">
                                 <p>Sign contact for "What are conference organizers afraid of?"</p>
                             </div>
-                            <div class="col-4 pt-3">
-                            <div class="d-grid gap-2">
+                            <div class="col-12 col-lg-4 pt-3">
+                            <div class="d-grid gap-2 p-0">
                             <button type="button" class="btn btn-primary">Edit</button> 
                             <button type="button" class="btn btn-outline-danger">Cancel</button>
                             </div>
@@ -324,15 +324,15 @@
                     </a>
                     <a href="#" class="list-group-item list-group-item-action">
                     <div class="row">
-                            <div class="col-1">
-                                <input class="form-check-input" type="checkbox" value="" id="mark">
+                            <div class="col-2 col-lg-1 pt-5">
+                                <input class="form-check-input" type="checkbox" value="check" id="mark">
                             </div>
-                            <div class="col-6">
+                            <div class="col-10 col-lg-7 pt-3">
                                 <p>Sign contact for "What are conference organizers afraid of?"</p>
                             </div>
-                            <div class="col-4 pt-3">
-                            <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-primary">Edit</button>
+                            <div class="col-12 col-lg-4 pt-3">
+                            <div class="d-grid gap-2 p-0">
+                            <button type="button" class="btn btn-primary">Edit</button> 
                             <button type="button" class="btn btn-outline-danger">Cancel</button>
                             </div>
                             </div>
@@ -340,19 +340,19 @@
                     </a>
                     <a href="#" class="list-group-item list-group-item-action">
                     <div class="row">
-                            <div class="col-1">
-                                <input class="form-check-input" type="checkbox" value="" id="mark">
+                            <div class="col-2 col-lg-1 pt-5">
+                                <input class="form-check-input" type="checkbox" value="check" id="mark">
                             </div>
-                            <div class="col-6">
+                            <div class="col-10 col-lg-7 pt-3">
                                 <p>Sign contact for "What are conference organizers afraid of?"</p>
                             </div>
-                            <div class="col-4 pt-4">
-                            <div class="d-grid btn-block d-flex gap-1">
-                            <button type="button" class="btn btn-primary">Edit</button>
+                            <div class="col-12 col-lg-4 pt-3">
+                            <div class="d-grid gap-2 p-0">
+                            <button type="button" class="btn btn-primary">Edit</button> 
                             <button type="button" class="btn btn-outline-danger">Cancel</button>
                             </div>
                             </div>
-                    </div>
+                        </div>
                     </a>
                         </div><!--End of list group-->
                     </div> <!--End of container-->
