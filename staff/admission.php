@@ -51,7 +51,6 @@
 
           <thead>
             <tr class="tab-row">
-              <th scope="col" class="text-center">Username</th>
               <th scope="col" class="text-center">Patient Name</th>
               <th scope="col" class="text-center">Relative Name</th>
               <th scope="col" class="text-center">Relationship</th>
@@ -65,8 +64,6 @@
           <?php foreach($staff_addmi_list as $row){ ?>
 
             <tr>
-              <td class="text-center"><?php echo $row['fname'] . " " . $row['lname'] ?></td>
-
               <td class="text-center"><?php echo $row['p_firstname'] . " " . $row['p_lastname'] ?></td>
 
               <td class="text-center"><?php echo $row['r_firstname'] . " " . $row['r_lastname'] ?></td>
@@ -78,9 +75,9 @@
               <td class="text-center"><?php echo $row['status'] ?></td>
 
               <td class="text-center">
-                <a type="button" class="action-completed btn btn-success" href="add.completed.php?id=<?php echo $row['id'] ?>">Completed</a>
+                <a class="action-completed btn btn-success" href="add.completed.php?id=<?php echo $row['id'] ?>">Completed</a>
 
-                <a type="button" class="action-noshow btn btn-danger" href="add.canceled.php?id=<?php echo $row['id'] ?>">Canceled</a>
+                <a class="action-noshow btn btn-danger" href="add.canceled.php?id=<?php echo $row['id'] ?>">Canceled</a>
               </td>
 
             </tr>
