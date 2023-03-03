@@ -4,7 +4,7 @@
   require_once '../includes/staff-header.php';
   session_start();
 
-  if(!isset($_SESSION['logged_id'])){
+  if(!isset($_SESSION['staff_logged'])){
   header('location: ../account/signin.php');
   }
 
@@ -36,29 +36,56 @@
             </ul>
           </div>
 
+          <?php
+          require_once '../classes/admission.class.php';
+
+          $staff_admission = new Admission;
+
+          $staff_addmi_list = $staff_admission->show_assigned_staff_admission($_SESSION['logged_id'], $_SESSION['staff_logged']);
+
+        ?>
+
         </div>
         <div class="table-responsive">
           <table class="table table-responsive table-bordered">
 
           <thead>
             <tr class="tab-row">
-              <th scope="col" class="text-center">Name</th>
-              <th scope="col" class="text-center">Time</th>
-              <th scope="col" class="text-center">Date</th>
-              <th scope="col" class="text-center">Done</th>
-              <th scope="col" class="text-center"><span>No-show</span></th>
+              <th scope="col" class="text-center">Username</th>
+              <th scope="col" class="text-center">Patient Name</th>
+              <th scope="col" class="text-center">Relative Name</th>
+              <th scope="col" class="text-center">Relationship</th>
+              <th scope="col" class="text-center">Admission No.</th>
+              <th scope="col" class="text-center">Status</th>
+              <th scope="col" class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
 
+          <?php foreach($staff_addmi_list as $row){ ?>
+
             <tr>
-              <td></td>
-              <td class="text-center"></td>
-              <td class="text-center"><i class="fa fa-check-circle-o green"></i><span class="ms-1">January 30, 2020</span></td>
-              <td scope="row" class="text-center"><input class="form-check-input" type="checkbox"></td>
-              <td scope="row" class="text-center"><input class="form-check-input" type="checkbox"></td>
+              <td class="text-center"><?php echo $row['fname'] . " " . $row['lname'] ?></td>
+
+              <td class="text-center"><?php echo $row['p_firstname'] . " " . $row['p_lastname'] ?></td>
+
+              <td class="text-center"><?php echo $row['r_firstname'] . " " . $row['r_lastname'] ?></td>
+
+              <td class="text-center"><?php echo $row['inquire'] ?></td>
+
+              <td class="text-center"><?php echo $row['admission_no'] ?></td>
+
+              <td class="text-center"><?php echo $row['status'] ?></td>
+
+              <td class="text-center">
+                <a type="button" class="action-completed btn btn-success" href="add.completed.php?id=<?php echo $row['id'] ?>">Completed</a>
+
+                <a type="button" class="action-noshow btn btn-danger" href="add.canceled.php?id=<?php echo $row['id'] ?>">Canceled</a>
+              </td>
+
             </tr>
 
+          <?php } ?>
           </tbody>
           </table>
         </div>

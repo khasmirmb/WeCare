@@ -91,6 +91,30 @@ class Admission{
         return $data;
     }
 
+    function show_assigned_staff_admission($user_id, $staff_id){
+        $sql = "SELECT admission.id, admission.status, admission.admission_no, survey_info.inquire, patient_info.firstname AS p_firstname, patient_info.lastname AS p_lastname, relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.lname FROM admission INNER JOIN survey_info ON survey_info = survey_info.id  INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON admission.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':staff_id', $staff_id);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function staff_admission_action($record_id){
+        $sql = "UPDATE admission SET status = :status WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        $query->bindParam(':status', $this->status);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 }

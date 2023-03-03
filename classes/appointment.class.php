@@ -82,6 +82,7 @@ class Appointment{
         }
         return $data;
     }
+
     function cancel_appointment($record_id){
         $sql = "UPDATE appointment SET status = :status WHERE id = :id;";
         $query=$this->db->connect()->prepare($sql);
@@ -95,8 +96,32 @@ class Appointment{
         }
     }
 
+    function show_assigned_staff_appointment($user_id, $staff_id){
+        $sql = "SELECT appointment.id, staff_id, appointment_purpose.purpose, other_purpose, appointment_date, appointment_time, appointment.status, client_came, users.fname, users.lname FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON appointment.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':staff_id', $staff_id);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function staff_action_appointment($record_id){
+        $sql = "UPDATE appointment SET status = :status, client_came = :client_came WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        $query->bindParam(':status', $this->status);
+        $query->bindParam(':client_came', $this->client_came);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }
-
 
 ?>

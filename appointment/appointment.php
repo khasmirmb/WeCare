@@ -26,18 +26,18 @@
 
 
         // Check for available staff for the day
-        $staff_schedule = $staffs->show_staff_schedule();
+        $staff_s = $staffs->show_staff_schedule();
     
-        foreach($staff_schedule as $row){
+        foreach($staff_s as $row){
             if($day == $row['day']){
-                $staff_available = $row['staff_id'];
-                $staff_schedule = $row['id'];
+                $staff_avail = $row['staff_id'];
+                $staff_sched = $row['id'];
             }
         }
 
         // Get the max appointment_number and add one
         $appointment_max_num = $appointment->show_max_app_number();
-
+                                
         $appointment_number = 0;
 
 		foreach($appointment_max_num as $row)
@@ -48,9 +48,9 @@
         $app_max_number = $appointment_number + 1;
 
         // Insert the appointment
-        $appointment->staff_id = $staff_available;
+        $appointment->staff_id = $staff_avail;
         $appointment->user_id = $_SESSION['logged_id'];
-        $appointment->staff_schedule_id = $staff_schedule;
+        $appointment->staff_schedule_id = $staff_sched;
         $appointment->appointment_number = $app_max_number;
         $appointment->purpose_for_appointment = $purpose;
         $appointment->other_purpose = $others;

@@ -70,6 +70,16 @@ class Staff{
         return $data;
     }
 
+    function staff_user_info($user_id){
+        $sql = "SELECT staff.id, staff.user_id FROM staff INNER JOIN users ON staff.user_id = users.id WHERE user_id = :user_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 
 }
 

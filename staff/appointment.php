@@ -4,7 +4,7 @@
   require_once '../includes/staff-header.php';
   session_start();
 
-  if(!isset($_SESSION['logged_id'])){
+  if(!isset($_SESSION['staff_logged'])){
       header('location: ../account/signin.php');
   }
 
@@ -38,6 +38,14 @@
             </ul>
           </div>
 
+        <?php
+          require_once '../classes/appointment.class.php';
+
+          $staff_appointment = new Appointment;
+
+          $staff_app_list = $staff_appointment->show_assigned_staff_appointment($_SESSION['logged_id'], $_SESSION['staff_logged']);
+
+        ?>
         </div>
         <div class="table-responsive">
           <table class="table table-responsive table-bordered">
@@ -45,22 +53,42 @@
           <thead>
             <tr class="tab-row">
               <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">Purpose</th>
               <th scope="col" class="text-center">Time</th>
               <th scope="col" class="text-center">Date</th>
-              <th scope="col" class="text-center">Done</th>
-              <th scope="col" class="text-center"><span>No-show</span></th>
+              <th scope="col" class="text-center">Status</th>
+              <th scope="col" class="text-center"><span>Client Showed</span></th>
+              <th scope="col" class="text-center"><span>Action</span></th>
             </tr>
           </thead>
           <tbody>
-
+            <?php foreach($staff_app_list as $row){ ?>
             <tr>
-              <td></td>
-              <td class="text-center"></td>
-              <td class="text-center"><i class="fa fa-check-circle-o green"></i><span class="ms-1">January 30, 2020</span></td>
-              <td scope="row" class="text-center"><input class="form-check-input" type="checkbox"></td>
-              <td scope="row" class="text-center"><input class="form-check-input" type="checkbox"></td>
-            </tr>
+              <td class="text-center"><?php echo $row['fname'] . " " . $row['lname']?></td>
 
+              <td class="text-center">
+              <?php if($row['purpose'] != "Others"){
+                echo $row['purpose'];
+              }else{
+                echo $row['other_purpose'];
+              }?></td>
+
+              <td class="text-center"><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></td>
+
+              <td class="text-center"><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></td>
+
+              <td class="text-center"><?php echo $row['status']?></td>
+
+              <td class="text-center"><?php echo $row['client_came']?></td>
+
+              <td class="text-center">
+                <a type="button" class="action-completed btn btn-success" href="app.completed.php?id=<?php echo $row['id'] ?>">Completed</a>
+
+                <a type="button" class="action-noshow btn btn-danger" href="app.noshow.php?id=<?php echo $row['id'] ?>">No-Show</a>
+              </td>
+
+            </tr>
+          <?php } ?>
           </tbody>
           </table>
         </div>

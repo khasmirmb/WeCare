@@ -4,7 +4,7 @@
     require_once '../includes/staff-header.php';
     session_start();
 
-    if(!isset($_SESSION['logged_id'])){
+    if(!isset($_SESSION['staff_logged'])){
       header('location: ../account/signin.php');
     }
 

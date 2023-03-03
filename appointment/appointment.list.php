@@ -65,8 +65,10 @@
                     <p class="fw-bold mb-1 color text-success">Completed</p>
                     <?php } else if($row['status'] == "Canceled"){ ?>
                         <p class="fw-bold mb-1 color text-danger">Canceled</p>
+                        <?php } else if($row['status'] == "No-Show"){ ?>
+                        <p class="fw-bold mb-1 color text-danger">No-Show</p>
                     <?php } else { ?>
-                    <a type="button" class="btn btn-danger" id="action-cancel" href="appointment.cancel.php?id=<?php echo $row['id'] ?>">Cancel</a>
+                    <a type="button" class="action-cancel btn btn-danger" href="appointment.cancel.php?id=<?php echo $row['id'] ?>">Cancel</a>
                     <?php }?>
                 </td>
                 </tr>
@@ -92,7 +94,7 @@
             autoOpen: false
 
         });
-        $("#action-cancel").on('click', function(e) {
+        $(".action-cancel").on('click', function(e) {
             e.preventDefault();
             var theHREF = $(this).attr("href");
 

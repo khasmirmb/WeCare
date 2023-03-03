@@ -5,6 +5,7 @@
     $page_title = 'WeCare - Sign In';
     require_once '../includes/header.php';
     require_once '../classes/users.class.php';
+    require_once '../classes/staff.class.php';
 
     // If user is already logged in go to homepage
     if(isset($_SESSION['logged_id'])){
@@ -12,6 +13,7 @@
     }
 
     $users_account = new Users();
+    $staff_user = new Staff();
     
     if(isset($_POST['email']) && isset($_POST['password'])){
     //Sanitizing the inputs of the users. Mandatory to prevent injections!
@@ -38,6 +40,10 @@
             if($row['type'] == 'admin'){
               header('location: ../admin/dashboard.php');
             }else if($row['type'] == 'staff'){
+              $staff =  $staff_user->staff_user_info($row['id']);
+              foreach($staff as $value){
+                $_SESSION['staff_logged'] = $value['id'];
+              }
               header('location: ../staff/patient-list.php');
             }else if($row['type'] == 'client'){
              header('location: ../homepage/home.php');
