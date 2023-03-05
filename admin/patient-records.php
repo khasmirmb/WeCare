@@ -44,15 +44,21 @@
    
 
     <div class="list-group pt-3"><!--Start of Patient List-->
-    <a href="patient-backup.php" class="list-group-item list-group-item-action">Darla Johhanson</a>
-    <a href="patient-backup.php" class="list-group-item list-group-item-action">Darla Johhanson</a>
-    <a href="patient-backup.php" class="list-group-item list-group-item-action">Darla Johhanson</a>
+    <a href="../admin/patient-backup.php" class="list-group-item list-group-item-action">Darla Johhanson</a>
+    <a href="../admin/patient-backup.php" class="list-group-item list-group-item-action">Darla Johhanson</a>
+    <a href="../admin/patient-backup.php" class="list-group-item list-group-item-action">Darla Johhanson</a>
     <a href="#" class="list-group-item list-group-item-action">A second link item</a>
     <a href="#" class="list-group-item list-group-item-action">A third link item</a>
     <a href="#" class="list-group-item list-group-item-action">A second link item</a>
     <a href="#" class="list-group-item list-group-item-action">A third link item</a>
     </div><!--End of Patient List-->
     
+
+</div>
+
+
+
+
 
 </div>
 

@@ -48,7 +48,7 @@
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-      <a href="#"><i class="fas fa-chart-simple"></i><span>Dashboard</span></a>
+      <a href="../admin/dashboard.php"><i class="fas fa-chart-simple"></i><span>Dashboard</span></a>
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="#"><i class="fas fa-list-check"></i><span>Patient List</span></a>
@@ -64,7 +64,7 @@
 
     <!--sidebar start-->
     <div class="sidebar">
-      <a href="#"><i class="fas fa-chart-simple"></i><span>Dashboard</span></a>
+      <a href="../admin/dashboard.php"><i class="fas fa-chart-simple"></i><span>Dashboard</span></a>
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="#"><i class="fas fa-list-check"></i><span>Patient List</span></a>

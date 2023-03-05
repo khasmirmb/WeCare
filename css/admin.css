@@ -363,3 +363,105 @@ color: #00ACB2;
 .btn-outline-secondary:hover{
 background: red;
 }
+
+
+
+
+
+
+/*---------------------
+Dashboard
+-----------------------*/
+
+.fa-bed {
+font-size: 2.5rem;
+align-items: center;
+}
+
+.fa-person-walking{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.udpate-icon{
+width: 10%;
+margin-right: 10px;
+}
+
+.fa-bug{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.fa-user-nurse{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.fa-facebook{
+font-size: 2.5rem;
+align-items: center;
+color: #4267B2;
+}
+
+.fa-users{
+font-size: 2.5rem;
+align-items: center;
+color: #00ACB2;
+}
+
+.fa-person-cane{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.btn-outline-light{
+color: #fff;
+border-color: #fff;
+font-weight: bold;
+}
+
+.fa-cloud{
+margin-right: 5px;
+}
+
+.fa-globe{
+margin-right: 5px;
+}
+
+.fa-bug-slash{
+margin-right: 5px;
+}
+
+.room-icon{
+width: 40%;
+}
+
+.fa-arrow-up{
+color: green;
+margin-right: 5px;
+}
+
+/*---------------------
+Patient backup
+-----------------------*/
+
+
+.fa-file-circle-plus{
+margin-right: 5px;
+}
+
+.fa-folder-plus{
+margin-right: 5px;
+}
+
+.fa-file{
+margin-left: 15px;
+margin-right: 3px;
+color: #00ACB2
+}
+
+.bi-trash{
+margin-right: 5px;
+color: #fff;
+}
