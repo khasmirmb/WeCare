@@ -1,0 +1,467 @@
+/*---------------------
+  Sidebar
+-----------------------*/
+
+header{
+  z-index: 13;
+  position: fixed;
+  background: #ccc;
+  padding: 20px;
+  width: calc(100% - 0%);
+  top: 0;
+  height: 70px;
+}
+
+.left_area h3{
+  color: #fff;
+  margin: -2.3rem 0rem 0rem 0rem;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.left_area span{
+  color: #19B3D3;
+}
+  
+.sidebar{
+  z-index: 13;
+  top: 0;
+  background: #00ACB2;
+  margin-top: 70px;
+  padding-top: 30px;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: calc(100% - 9%);
+  transition: 0.5s;
+  transition-property: left;
+  overflow-y: auto;
+}
+
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover{
+  background: #19B3D3;
+}
+
+.sidebar i{
+  padding-right: 10px;
+}
+
+label #sidebar_btn{
+  z-index: 1;
+  color: #fff;
+  position: fixed;
+  cursor: pointer;
+  left: 300px;
+  font-size: 20px;
+  margin: 5px 0;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+label #sidebar_btn:hover{
+  color: #19B3D3;
+}
+
+#check:checked ~ .sidebar{
+  left: -185px;
+}
+
+#check:checked ~ .sidebar a span{
+  display: none;
+}
+
+#check:checked ~ .sidebar a{
+  font-size: 20px;
+  margin-left: 165px;
+  width: 100%;
+}
+
+.content{
+  width: (100% - 250px);
+  margin-top: 60px;
+  padding: 20px;
+  margin-left: 250px;
+  background: url(background.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+#check:checked ~ .content{
+  margin-left: 60px;
+}
+
+#check:checked ~ .sidebar .profile_info{
+  display: none;
+}
+
+#check{
+  display: none;
+}
+
+.mobile_nav{
+  display: none;
+}
+
+.content .card p{
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Responsive CSS */
+
+@media screen and (max-width: 780px){
+  .sidebar{
+    display: none;
+  }
+
+  #sidebar_btn{
+    display: none;
+  }
+
+  .content{
+    margin-left: 0;
+    margin-top: 0;
+    padding: 10px 20px;
+    transition: 0s;
+  }
+
+  #check:checked ~ .content{
+    margin-left: 0;
+  }
+
+  .mobile_nav{
+    display: block;
+    width: calc(100% - 0%);
+  }
+
+  .nav_bar{
+      background: #ccc;
+    width: (100% - 0px);
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .nav_bar .nav_btn{
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-property: color;
+  }
+
+  .nav_bar .nav_btn:hover{
+    color: #19B3D3;
+  }
+
+  .mobile_nav_items{
+    background: #2F323A;
+    display: none;
+  }
+
+  .mobile_nav_items a{
+    color: #fff;
+    display: block;
+    background: #00ACB2;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 60px;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+  }
+
+  .mobile_nav_items a:hover{
+    background: #19B3D3;
+  }
+
+  .mobile_nav_items i{
+    padding-right: 10px;
+  }
+
+  .active{
+    display: block;
+  }
+}
+/*---------------------
+Modal
+-----------------------*/
+
+.yes-btn{
+  padding: 10px 45px 10px;
+  background: #00ACB2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.close-btn{
+  padding: 10px 35px 10px;
+  background: #fff;
+  color: #00ACB2;
+  border: 2px solid #00ACB2;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+
+.close-btn:hover{
+  color:#fff;
+  background: #dc3545;
+}  
+.yes-btn:hover{
+  background: #0d6efd;
+}
+
+/*---------------------
+Delete Modal
+-----------------------*/
+
+.modal-content .del-modal-header .icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 6px auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+
+.modal-content .del-modal-header .icon-box i {
+  color: #f15e5e;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+.del-modal-body{
+  margin-top: 20px;
+  color: #999;
+  text-align: center;
+}
+
+.del-btn{
+  padding: 10px 45px 10px;
+  background: #f15e5e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.cancel-btn{
+  padding: 10px 45px 10px;
+  background: #00ACB2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.del-modal-title{
+  text-align: center;
+font-size: 26px;
+margin: 30px 0 -10px;
+}
+
+.del-modal-footer{
+  border: none;
+text-align: center;		
+border-radius: 5px;
+font-size: 13px;
+padding: 10px 15px 25px;
+}
+
+/*---------------------
+Staff and User
+-----------------------*/
+
+.fa-pen{
+  margin-top: 5px;
+  margin-right: 5px;
+  color: #00ACB2;
+}
+.fa-trash{
+  margin-top: 5px;
+  margin-left: 5px;
+  color: red;
+}
+
+.fa-arrow-left{
+  margin-right: 5px;
+}
+
+.fa-bell{
+  color: #00ACB2;
+}
+
+
+/*---------------------
+Feedback
+-----------------------*/
+
+.btn-outline-primary {
+  color: #fff;
+  border-color: #00ACB2;
+}
+
+.btn-outline-primary:hover {
+  background: #00ACB2;
+}
+.feedback-a{
+  text-decoration: none;
+  color: #000;
+  border-color: #00ACB2;
+  padding: 0.375rem 0.75rem;
+  
+}
+
+.fa-rotate-right{
+  margin-right: 5px;
+}
+
+.fa-square-check{
+  margin-right: 5px;
+}
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #00ACB2;
+  border-color: #000;
+}
+
+/*---------------------
+Admission
+-----------------------*/
+
+.btn-outline-secondary{
+border: 1px solid red;
+color: #00ACB2;
+}
+
+.btn-outline-secondary:hover{
+background: red;
+}
+
+
+
+
+
+
+/*---------------------
+Dashboard
+-----------------------*/
+
+.fa-bed {
+font-size: 2.5rem;
+align-items: center;
+}
+
+.fa-person-walking{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.udpate-icon{
+width: 10%;
+margin-right: 10px;
+}
+
+.fa-bug{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.fa-user-nurse{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.fa-facebook{
+font-size: 2.5rem;
+align-items: center;
+color: #4267B2;
+}
+
+.fa-users{
+font-size: 2.5rem;
+align-items: center;
+color: #00ACB2;
+}
+
+.fa-person-cane{
+font-size: 2.5rem;
+align-items: center;
+}
+
+.btn-outline-light{
+color: #fff;
+border-color: #fff;
+font-weight: bold;
+}
+
+.fa-cloud{
+margin-right: 5px;
+}
+
+.fa-globe{
+margin-right: 5px;
+}
+
+.fa-bug-slash{
+margin-right: 5px;
+}
+
+.room-icon{
+width: 40%;
+}
+
+.fa-arrow-up{
+color: green;
+margin-right: 5px;
+}
+
+/*---------------------
+Patient backup
+-----------------------*/
+
+
+.fa-file-circle-plus{
+margin-right: 5px;
+}
+
+.fa-folder-plus{
+margin-right: 5px;
+}
+
+.fa-file{
+margin-left: 15px;
+margin-right: 3px;
+color: #00ACB2
+}
+
+.bi-trash{
+margin-right: 5px;
+color: #fff;
+}
