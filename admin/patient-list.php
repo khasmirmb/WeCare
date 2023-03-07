@@ -14,7 +14,7 @@
     <h3>Patient List</h3>
     </div><!--End of Name-->
     <div class="col-4 col-lg-1 pb-3"><!--Request button-->
-        <a class="btn btn-primary" href="#" role="button">Request</a>
+        <a class="btn btn-primary" href="request.php" role="button">Request</a>
     </div>
     <div class="col-4 col-lg-1"><!--Button Filter-->
         <div class="dropdown">
@@ -28,7 +28,7 @@
         </div>
         </div><!--End of Button Filter-->
     <div class="col-6 col-lg-2 pb-3"><!--Add Patient button-->
-        <a class="btn btn-primary" href="#" role="button">Add Patient</a>
+        <a class="btn btn-primary" href="add-patient.php" role="button">Add Patient</a>
     </div><!--End of Add Patient button-->
     <div class="col-12 col-lg-4"><!--Start of Search bar-->
         <form class="d-flex" role="search">
