@@ -10,7 +10,7 @@
 <div class="container align-items-center pt-3">
     <button class="btn btn-primary" type="button"><a class="text-white text-decoration-none" href="patient-list.php"> < Patient List </a></button>
 
-    <h1 class="pt-5 pb-3"><strong>Add Patient</strong></h5><!--Title-->
+    <h1 class="pt-3 pb-3"><strong>Add Patient</strong></h5><!--Title-->
     
 
     <div class=" container border rounded pt-1">
