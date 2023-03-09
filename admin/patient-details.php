@@ -20,10 +20,9 @@
     </div>
 </div>
 <div class="container">
-    <div class="col-12 col-lg-3 pt-3 pb-3">
+    <div class="col-12 col-lg-3 pt-3">
     <button class="btn btn-primary" type="edit">Edit</button>
     </div>
-    
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-2"><!--Big blue thing-->
     <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
@@ -61,8 +60,11 @@
     </div>
     </div>
 </div> <!--End of details of the patient-->
-
+    
     <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
+    <div class="col-12 col-lg-4 pb-2">
+    <button class="btn btn-primary" type="edit">Edit</button><!--Edit button-->
+    </div>
         <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
             <h5><strong>Appointment</strong></h5>
             <h6 class="bg-secondary text-white d-inline">5:00 PM - 6:00 PM</strong></h6>
@@ -76,11 +78,14 @@
 
 <!--Nurse-->
 <div class="col-12 col-lg-12 pt-3">
+    <div class="col-12 col-lg-2 pb-2">
+        <button class="btn btn-primary" type="edit">Edit</button><!--Edit button-->
+        </div>
     <div class="bg-primary text-wrap py-3 px-5 text-light rounded">
         <div class="d-grid justify-content-md-end">
         <button type="button" class="btn btn-outline-light text-primary"><a class="text-decoration-none text-light" href="nurse-list.php">Previous Nurse</a></button>
         </div>
-    <div class="row">
+    <div class="row pb-3">
         <div class="col-12 col-lg-4">
              <h6 class="text-center mt-4 pt-3 pb-3"><strong>Nurse Assign</strong></h6>
              <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid mx-auto d-block" alt="Mikaylah B. Chu" style="width: 30%; height: auto;">
@@ -180,6 +185,9 @@
 
 
     <div class="col-12 col-lg-4 pt-3">
+        <div class="col-12 col-lg-8 pb-2">
+        <button class="btn btn-primary" type="edit">Edit</button><!--Edit button-->
+        </div>
         <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
         <h4 class="pb-3"><strong>Reports</strong></h4>
             <div class="row">
@@ -273,6 +281,9 @@
 
 
     <div class="col-12 col-lg-4 pt-3">
+    <div class="col-12 col-lg-4 pb-2">
+    <button class="btn btn-primary" type="edit">Edit</button><!--Edit button-->
+    </div>
     <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
         <h4 class="pb-3"><strong>Photo Update</strong></h4>
         <div class="row">
@@ -348,7 +359,44 @@
 </div>
 </div>
 
+<div class="col-12 col-lg-8 pb-2">
+    <h4><strong>Relatives</strong></h4>
+</div>
 
-        
+<div class="col-12 col-lg-12">
+    <div class="p-3 mb-2 bg-primary rounded">
+    <table class="table table-borderless text-white">
+    <thead>
+    <tr>
+      <th scope="col">Profile</th>
+      <th scope="col">Name</th>
+      <th scope="col">Relationship</th>
+      <th scope="col">Contact #</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="pl-5"><img src="../images/download.jpg" class="gap-2" alt="Marites D. Karen" style="width: 50px; height: 50px; border: 2px solid white; border-radius: 50%;"></td>
+      <td>Marites D. Karen</td>
+      <td>Father</td>
+      <td>09812356</td>
+    </tr>
+    <tr>
+      <td class="p1-5"><img src="../images/download.jpg" class="gap-2" alt="Marites D. Karen" style="width: 50px; height: 50px; border: 2px solid white; border-radius: 50%;"></td>
+      <td>Marites D. Karen</td>
+      <td>Father</td>
+      <td>09812356</td>
+    </tr>
+    <tr>
+      <td class="p1-5"><img src="../images/download.jpg" class="gap-2" alt="Marites D. Karen" style="width: 50px; height: 50px; border: 2px solid white; border-radius: 50%;"></td>
+      <td>Marites D. Karen</td>
+      <td>Father</td>
+      <td>09812356</td> 
+    </tr>
+    </tbody>    
+    </table>
+    </div>
+    </div>
+    </div>
 
 </div><!--Don't touch-->
