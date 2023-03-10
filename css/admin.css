@@ -356,12 +356,12 @@ Admission
 -----------------------*/
 
 .btn-outline-secondary{
-border: 1px solid red;
+border: 1px solid #dc3545;
 color: #00ACB2;
 }
 
 .btn-outline-secondary:hover{
-background: red;
+background: #dc3545;
 }
 
 
@@ -465,3 +465,16 @@ color: #00ACB2
 margin-right: 5px;
 color: #fff;
 }
+
+/*---------------------
+Settings
+-----------------------*/
+.has-icon{
+color: #000;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+color: #fff;
+background: #00ACB2;
+}
+
