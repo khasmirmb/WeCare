@@ -4,7 +4,7 @@
   require_once '../includes/staff-header.php';
   session_start();
 
-  if(!isset($_SESSION['staff_logged'])){
+  if(!isset($_SESSION['staff_logged']) || $_SESSION['user_type'] != 'staff'){
   header('location: ../account/signin.php');
   }
 
@@ -36,7 +36,7 @@
             </ul>
           </div>
 
-          <?php
+        <?php
           require_once '../classes/admission.class.php';
 
           $staff_admission = new Admission;
@@ -51,6 +51,7 @@
 
           <thead>
             <tr class="tab-row">
+              <th scope="col" class="text-center">User</th>
               <th scope="col" class="text-center">Patient Name</th>
               <th scope="col" class="text-center">Relative Name</th>
               <th scope="col" class="text-center">Relationship</th>
@@ -64,9 +65,11 @@
           <?php foreach($staff_addmi_list as $row){ ?>
 
             <tr>
-              <td class="text-center"><?php echo $row['p_firstname'] . " " . $row['p_lastname'] ?></td>
+              <td class="text-center"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></td>
 
-              <td class="text-center"><?php echo $row['r_firstname'] . " " . $row['r_lastname'] ?></td>
+              <td class="text-center"><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></td>
+
+              <td class="text-center"><?php echo $row['r_firstname'] . " " . $row['r_middlename'][0] . ". " . $row['r_lastname'] ?></td>
 
               <td class="text-center"><?php echo $row['inquire'] ?></td>
 

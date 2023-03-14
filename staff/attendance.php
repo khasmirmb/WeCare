@@ -4,7 +4,7 @@
     require_once '../includes/staff-header.php';
     session_start();
 
-    if(!isset($_SESSION['staff_logged'])){
+    if(!isset($_SESSION['staff_logged']) || $_SESSION['user_type'] != 'staff'){
         header('location: ../account/signin.php');
     }
     
@@ -104,34 +104,32 @@
     </ul>
     </div><!--End of dropdown-->
 
-    <div class="container-fluid">
-    <div class="row align-items-start">
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <form action="/action_page.php">
-        <label for="appt">Time In:</label>
-        <input type="time" id="appt" name="appt" class="atten-time">
-        </form>
+    <div class="container-fluid mb-3">
+        <div class="row align-items-start">
+            <form action="attendance.php">
+                <label for="time_in">Time:</label>
+                <input type="time" id="time_in" name="time" class="atten-time">
+
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="attendance_status" id="present">
+                    <label class="form-check-label" for="present">Present</label>
+                </div>
+                
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="attendance_status" id="absent">
+                    <label class="form-check-label" for="absent">Absent</label>
+                </div>
+
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="attendance_status" id="leave">
+                    <label class="form-check-label" for="leave">Leave</label>
+                </div>
+
+                    <button class="btn btn-primary" name="time-in">Time In</button>
+                    <button class="btn btn-primary" name="time-out">Time Out</button>
+            </form>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <form action="/action_page.php">
-        <label for="appt">Time Out:</label>
-        <input type="time" id="appt" name="appt" class="atten-time">
-        </form>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Present</button>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Absent</button>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Leave</button>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Sick Leave</button>
-        </div>
-        </div>
-        </div>
+    </div>
        
 
 <div class="table-responsive">

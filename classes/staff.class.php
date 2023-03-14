@@ -80,6 +80,14 @@ class Staff{
         return $data;
     }
 
+    function show_staff_on_admin(){
+        $sql = "SELECT * FROM staff INNER JOIN users ON staff.user_id = users.id;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 
 }
 

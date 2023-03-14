@@ -8,6 +8,11 @@ class Appointment{
 
     // Class attributes
     public $id;
+    public $firstname;
+    public $lastname;
+    public $middlename;
+    public $email;
+    public $phone;
     public $staff_id;
     public $user_id;
     public $staff_schedule_id;
@@ -97,7 +102,7 @@ class Appointment{
     }
 
     function show_assigned_staff_appointment($user_id, $staff_id){
-        $sql = "SELECT appointment.id, staff_id, appointment_purpose.purpose, other_purpose, appointment_date, appointment_time, appointment.status, client_came, users.fname, users.lname FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON appointment.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
+        $sql = "SELECT appointment.id, staff_id, appointment_purpose.purpose, other_purpose, appointment_date, appointment_time, appointment.status, client_came, users.fname, users.mname, users.lname FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON appointment.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':staff_id', $staff_id);
@@ -121,6 +126,26 @@ class Appointment{
             return false;
         }
     }
+
+    function show_appointment_admin(){
+        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id ORDER BY appointment_date DESC;;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function fetch_appointment($record_id){
+        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, users.email, users.phone, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id WHERE appointment.id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
 
 }
 

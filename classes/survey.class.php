@@ -62,6 +62,26 @@ class Survey{
         }
     }
 
+    function fetch_admission_survey_info($record_id){
+        $sql = "SELECT admission.id, survey_info.inquire, survey_info.services FROM admission INNER JOIN survey_info ON admission.survey_info = survey_info.id WHERE admission.id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function fetch_admission_survey_answers($record_id){
+        $sql = "SELECT survey_answer.answers, survey_question.question FROM admission INNER JOIN survey_answer ON admission.admission_no = survey_answer.survey_no INNER JOIN survey_question ON survey_answer.survey_question = survey_question.id WHERE admission.id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 
 }
 

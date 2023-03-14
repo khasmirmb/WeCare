@@ -6,9 +6,10 @@
     session_start();
 
     if(isset($_POST['send'])){
+
         $mailto = "alamnaerz23@gmail.com"; // Owner Email
         $from = htmlentities($_POST['email']); // Sender Email
-        $name = htmlentities(ucfirst($_POST['firstname'])) ." ". htmlentities(ucfirst($_POST['lastname']));
+        $name = htmlentities(ucfirst($_POST['firstname'])) ." " . htmlentities(ucfirst($_POST['middlename'])) . " ". htmlentities(ucfirst($_POST['lastname']));
         $phone = htmlentities($_POST['phone']); // Sender Phone Number
         $subject = "WeCare Nursing Home Contact Mail"; // Subject send to owner
         $subject2 = "Your Message is Submitted Successfully │ WeCare Nursing Home"; // Subject for sender
@@ -55,12 +56,34 @@
                             echo '<div><p class="error">'.$error.'</p></div>';
                         }else{
                             echo '<div><p class="sucess">'.$sucess.'</p></div>';
-                        }             
+                        }
+
+                    ?>
+
+                    <?php
+
+                        require_once '../classes/users.class.php';
+                
+                        $user_info = new Users;
+                
+                        if($user_info->fetch_user_information(isset($_SESSION['logged_id']))){
+
+                            $user_data = $user_info->fetch_user_information(isset($_SESSION['logged_id']));
+
+                            $user_info->firstname = $user_data['fname'];
+                            $user_info->middlename = $user_data['mname'];
+                            $user_info->lastname = $user_data['lname'];
+                            $user_info->email = $user_data['email'];
+                            $user_info->phone = $user_data['phone'];
+
+                        }
+                        
+                            
                     ?>
                     
                     <div class="mb-3">
                         <label for="firstname" class="form-label">FirstName</label>
-                        <input type="text" id="firstname" class="form-control" placeholder="Firstname" required name="firstname" value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } ?>">
+                        <input type="text" id="firstname" class="form-control" placeholder="Firstname" required name="firstname" value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } else if(isset($_SESSION['logged_id'])){ echo $user_info->firstname; } ?>">
                     </div>
                     <?php
                         if(isset($_POST['send']) && !validate_first_name($_POST)){
@@ -69,9 +92,22 @@
                     <?php
                         }
                     ?>
+
+                    <div class="mb-3">
+                        <label for="middlename" class="form-label">Middle Name</label>
+                        <input type="text" id="middlename" class="form-control" placeholder="Middlename" required name="middlename" value="<?php if(isset($_POST['middlename'])) { echo $_POST['middlename']; } else if(isset($_SESSION['logged_id'])){ echo $user_info->middlename; } ?>">
+                    </div>
+                    <?php
+                        if(isset($_POST['send']) && !validate_last_name($_POST)){
+                    ?>
+                                <p class="error">Middle name is invalid.</p>
+                    <?php
+                        }
+                    ?>
+
                     <div class="mb-3">
                         <label for="lastname" class="form-label">Last Name</label>
-                        <input type="text" id="lastname" class="form-control" placeholder="Lastname" required name="lastname" value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } ?>">
+                        <input type="text" id="lastname" class="form-control" placeholder="Lastname" required name="lastname" value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } else if(isset($_SESSION['logged_id'])){ echo $user_info->lastname; } ?>">
                     </div>
                     <?php
                         if(isset($_POST['send']) && !validate_last_name($_POST)){
@@ -82,7 +118,7 @@
                     ?>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" class="form-control" placeholder="Email" required name="email" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
+                        <input type="email" id="email" class="form-control" placeholder="Email" required name="email" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } else if(isset($_SESSION['logged_id'])){ echo $user_info->email; } ?>">
                     </div>
                     <?php
                         if(isset($_POST['send']) && !validate_email($_POST)){
@@ -93,7 +129,7 @@
                     ?>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required name="phone" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>">
+                        <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required name="phone" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')" value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } else if(isset($_SESSION['logged_id'])){ echo $user_info->phone; }?>">
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Messsage</label>
@@ -107,17 +143,17 @@
             </div>
             <div class="map-area col-md-6 col-sm-12 col-xs-12 text-center">
             <h2 class="h1-responsive font-weight-bold text-center my-3">Google Map</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6920639767577!2d122.0685292148573!3d6.927363220258151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32504192be79c72d%3A0x16f9d93319ea27f8!2sWeCare%20Nursing%20Home%2C%20Inc.!5e0!3m2!1sen!2sph!4v1675539411670!5m2!1sen!2sph" class="h-40 w-100 border" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6920639767577!2d122.0685292148573!3d6.927363220258151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32504192be79c72d%3A0x16f9d93319ea27f8!2sWeCare%20Nursing%20Home%2C%20Inc.!5e0!3m2!1sen!2sph!4v1675539411670!5m2!1sen!2sph" class="h-50 w-100 border" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="icon-map-area">
 
-            <i class="fa-solid fa-location-dot mt-4"></i>     
-            <p class="text-center w-responsive mx-auto mb-4">Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road</p>
+            <i class="fa-solid fa-location-dot"></i>     
+            <p class="text-center w-responsive mx-auto">Bernardo Drive, 143 S. De Leon Street, Sta. Maria Road</p>
             
             <i class="fa-solid fa-phone"></i>
-            <p class="text-center w-responsive mx-auto mb-4">(062) 991 3236</p>
-
+            <p class="text-center w-responsive mx-auto">(062) 991 3236</p>
+            
             <i class="fa-solid fa-envelope"></i>
-            <p class="text-center w-responsive mx-auto mb-4">W.C@yahoo.com</p>
+            <p class="text-center">W.C@yahoo.com</p>
         
             </div>
             

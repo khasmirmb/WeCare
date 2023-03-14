@@ -4,7 +4,7 @@
   require_once '../includes/admin-header.php';
   session_start();
 
-  if(!isset($_SESSION['logged_id'])){
+  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
   header('location: ../account/signin.php');
   }
 
@@ -67,10 +67,17 @@
        
       <div class="pt-3"><!--Start of table-->
     <div class="table-responsive">
+    <?php
+          require_once '../classes/users.class.php';
+
+          $user = new Users;
+
+          $user_list = $user->show_users_admin();
+
+    ?>
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
-        <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Username</th>
         <th cope="col" class="text-left" style="background: #00ACB2; color: #fff;">Name</th>
         <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Contact Num.</th>
         <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Email</th>
@@ -80,33 +87,19 @@
         </tr>
     </thead>
     <tbody>
+
+    <?php foreach($user_list as $row){ ?>
+
         <tr>
-        <td><a href="#" class="text-decoration-none text-dark text-left">James869</a></td>
-        <td class="text-left">James Brown</td>
-        <td class="text-center">095656565</td>
-        <td class="text-center">jamesbrown@gmail.com</td>
-        <td class="text-center">Active</td>
+        <td class="text-left"><?php echo $row['fname'] . " " . $row['lname']?></td>
+        <td class="text-center"><?php echo $row['phone'] ?></td>
+        <td class="text-center"><?php echo $row['email'] ?></td>
+        <td class="text-center"><?php echo $row['verification_status'] ?></td>
         <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
         <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
        </tr>
-        <tr>
-        <td><a href="#" class="text-decoration-none text-dark text-left">James869</a></td>
-        <td class="text-left">James Brown</td>
-        <td class="text-center">095656565</td>
-        <td class="text-center">jamesbrown@gmail.com</td>
-        <td class="text-center">Inactive</td>
-        <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
-        <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
-        </tr>
-        <tr>
-        <td><a href="#" class="text-decoration-none text-dark text-left">James869</a></td>
-        <td class="text-left">James Brown</td>
-        <td class="text-center">095656565</td>
-        <td class="text-center">jamesbrown@gmail.com</td>
-        <td class="text-center">Inactive</td>
-        <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
-        <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
-        </tr>
+
+    <?php } ?>
     </tbody>
 </table>
 </div>

@@ -12,6 +12,19 @@ function validate_first_name($POST){
     return true;
 }
 
+function validate_middlename_name($POST){
+    if(!isset($POST['middlename'])){
+        return false;
+    }else if(strlen(trim($POST['middlename']))<1){
+        return false;
+    }
+    else if(strlen(trim($POST['middlename'])) > 1  && strlen(trim($$POST['middlename'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['middlename'])){
+        return false;
+    }
+    return true;
+}
+
+
 function validate_last_name($POST){
     if(!isset($POST['lastname'])){
         return false;

@@ -4,7 +4,7 @@
   require_once '../includes/admin-header.php';
   session_start();
 
-  if(!isset($_SESSION['logged_id'])){
+  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
   header('location: ../account/signin.php');
   }
 
@@ -34,137 +34,69 @@
     <h4 class="mb-4">Admission</h4>
   </div><!--End of name of appointment-->
 
-  <div class="col-4 col-lg-2"><!--Start of date-->
-    <h6>Tomorrow</h6>
-  </div><!--End of date-->
 
   <div class="col-12 col-lg-12"> <!--Start of 1st table-->
     <div class="container table-responsive table-rounded">
+
+      <?php
+          require_once '../classes/admission.class.php';
+
+          $admin_admission = new Admission;
+
+          $admission_list = $admin_admission->show_admission_admin();
+
+      ?>
+
   <table class="table table-hover table-sm">
     <thead>
       <tr class="table-primary">
-        <th scope="col" style="background: #00ACB2; color: #fff;">TIME</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">USER</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">CREATED</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">ADMISSION NO.</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ASSIGNED TO</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">STATUS</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">ACTION</th>
       </tr>
     </thead>
     <tbody>
+
+    <?php foreach($admission_list as $row){ ?>
+
       <tr>
-        <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
-        <td class="pt-4">
-          <div class="input-group" >
-          <select name="assigned" id="assigned" class="form-control">
-          <option value="adhyne">Adhyne Greanne Pogoy</option>
-          <option value="jorylle">Jorylle Reyes</option>
-          </select>
-          </div>
-      </td>
-        <td>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Decline</button>
+        <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . " " . $row['lname'] ?></a></td>
+
+        <td scope="row" class="pt-4"><?php echo $row['created_at'] ?></td>
+
+        <td scope="row" class="pt-4"><?php echo $row['admission_no']?></td>
+
+      <td class="pt-4">
+        <div class="input-group" >
+        <select name="assigned" id="assigned" class="form-control">
+        <option value="adhyne">Adhyne Greanne Pogoy</option>
+        <option value="jorylle">Jorylle Reyes</option>
+        </select>
         <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
         </div>
       </td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
-        <td class="pt-4">
-          <div class="input-group" >
-          <select name="assigned" id="assigned" class="form-control">
-          <option value="adhyne">Adhyne Greanne Pogoy</option>
-          <option value="jorylle">Jorylle Reyes</option>
-          </select>
-          </div>
-      </td>
-        <td>
+
+      <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
+
+      <td>
         <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Decline</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
+        <button type="button" class="btn btn-outline-secondary">Delete</button>
+        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
         </div>
       </td>
+
       </tr>
+
+    <?php } ?>
+
     </tbody>
   </table>
 </div>
 </div><!--End of 1st Table-->
 
-  <div class="col-6 col-lg-2 pt-3"> <!--Start of Date-->
-      <h6>March 25, 2023</h6>
-    </div><!--End of Date-->
-
-<div class="col-12 col-lg-12"><!--Start of 2nd Table-->
-    <div class="container table-responsive table-rounded">
-  <table class="table table-hover table-sm">
-    <thead>
-      <tr class="table-primary">
-        <th scope="col" style="background: #00ACB2; color: #fff;">TIME</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;">USER</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;">ASSIGNED TO</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;">STATUS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
-        <td class="pt-4">
-          <div class="input-group" >
-          <select name="assigned" id="assigned" class="form-control">
-          <option value="adhyne">Adhyne Greanne Pogoy</option>
-          <option value="jorylle">Jorylle Reyes</option>
-          </select>
-          </div>
-      </td>
-        <td>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Decline</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
-        </div>
-      </td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="admission-details.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
-        <td class="pt-4">
-          <div class="input-group" >
-          <select name="assigned" id="assigned" class="form-control">
-          <option value="adhyne">Adhyne Greanne Pogoy</option>
-          <option value="jorylle">Jorylle Reyes</option>
-          </select>
-          </div>
-      </td>
-        <td>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Decline</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
-        </div>
-      </td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">10:30 AM</th>
-        <td class="pt-4"><a href="../admin/admission-detail.php" class="text-decoration-none text-dark text-left">Clinton Squidward</a></td>
-        <td class="pt-4">
-          <div class="input-group" >
-          <select name="assigned" id="assigned" class="form-control">
-          <option value="adhyne">Adhyne Greanne Pogoy</option>
-          <option value="jorylle">Jorylle Reyes</option>
-          </select>
-          </div>
-      </td>
-        <td>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Decline</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
-        </div>
-      </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div><!--End of 2nd Table-->
 
 </div>
 </div>

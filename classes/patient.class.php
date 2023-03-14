@@ -39,8 +39,8 @@ class Patient{
      //Methods
      function add_patient_info(){
         // SQL statement to add patient
-        $sql = "INSERT INTO patient_info (user_id, firstname, middlename, lastname, suffix, date_of_birth, place_of_birth, gender, province, barangay, city, postal, background_history, doctors_diagnosis, allergies, picture, patient_info_no) VALUES 
-        (:user_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :patient_info_no);";
+        $sql = "INSERT INTO patient_info (user_id, firstname, middlename, lastname, suffix, date_of_birth, place_of_birth, gender, province, street, barangay, city, postal, background_history, doctors_diagnosis, allergies, picture, patient_info_no) VALUES 
+        (:user_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :street, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :patient_info_no);";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $this->user_id);
@@ -52,6 +52,7 @@ class Patient{
         $query->bindParam(':place_of_birth', $this->place_of_birth);
         $query->bindParam(':gender', $this->gender);
         $query->bindParam(':province', $this->province);
+        $query->bindParam(':street', $this->street);
         $query->bindParam(':barangay', $this->barangay);
         $query->bindParam(':city', $this->city);
         $query->bindParam(':postal', $this->postal);
@@ -67,6 +68,16 @@ class Patient{
         else{
             return false;
         }	
+    }
+
+    function fetch_admission_patient_info($record_id){
+        $sql = "SELECT admission.admission_no, admission.id, patient_info.firstname AS p_firstname, patient_info.lastname AS p_lastname, patient_info.middlename AS p_middlename, patient_info.suffix AS p_suffix, patient_info.date_of_birth AS p_date_of_birth, patient_info.place_of_birth AS p_place_of_birth, patient_info.gender AS p_gender, patient_info.province AS p_province, patient_info.street AS p_street, patient_info.barangay AS p_barangay, patient_info.city AS p_city, patient_info.background_history, patient_info.doctors_diagnosis, patient_info.allergies, patient_info.picture AS p_picture FROM admission INNER JOIN patient_info ON patient_info = patient_info.id WHERE admission.id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
     }
 
 

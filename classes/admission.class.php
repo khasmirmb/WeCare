@@ -92,7 +92,7 @@ class Admission{
     }
 
     function show_assigned_staff_admission($user_id, $staff_id){
-        $sql = "SELECT admission.id, admission.status, admission.admission_no, survey_info.inquire, patient_info.firstname AS p_firstname, patient_info.lastname AS p_lastname, relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.lname FROM admission INNER JOIN survey_info ON survey_info = survey_info.id  INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON admission.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
+        $sql = "SELECT admission.id, admission.status, admission.admission_no, survey_info.inquire, patient_info.firstname AS p_firstname, patient_info.lastname AS p_lastname, patient_info.middlename AS p_middlename, relative_info.middlename AS r_middlename, relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.mname, users.lname FROM admission INNER JOIN survey_info ON survey_info = survey_info.id  INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON admission.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':staff_id', $staff_id);
@@ -116,6 +116,16 @@ class Admission{
         }
     }
 
+    
+    function show_admission_admin(){
+        $sql = "SELECT admission.created_at , admission.id, admission.status, admission.admission_no, survey_info.inquire, patient_info.firstname AS p_firstname, patient_info.lastname AS p_lastname, relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.lname, users.mname FROM admission INNER JOIN survey_info ON survey_info = survey_info.id INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN users ON admission.user_id = users.id;";
+
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 
 }
 ?>

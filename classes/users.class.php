@@ -7,6 +7,9 @@ class Users{
 
     // Class attributes
     public $id;
+    public $firstname;
+    public $middlename;
+    public $lastname;
     public $email;
     public $phone;
     public $password;
@@ -77,6 +80,25 @@ class Users{
             $data = $query->fetchAll();
         }
         // Return the data
+        return $data;
+    }
+
+    function show_users_admin(){
+        $sql = "SELECT * FROM users WHERE type != 'staff' AND type != 'admin';";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function fetch_user_information($user_id){
+        $sql = "SELECT * FROM users WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $user_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
         return $data;
     }
 

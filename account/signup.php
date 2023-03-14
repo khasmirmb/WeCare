@@ -36,6 +36,11 @@
               </div>
 
               <div class="form-floating mb-3">
+                <input type="text" name="mname" class="form-control" id="mname" placeholder="Middle Name" required pattern="[a-zA-Z'-'\s]*">
+                <label for="mname">Middlename</label>
+              </div>
+
+              <div class="form-floating mb-3">
                 <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name" required pattern="[a-zA-Z'-'\s]*">
                 <label for="lname">Lastname</label>
               </div>

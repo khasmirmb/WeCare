@@ -5,6 +5,7 @@ session_start();
 include_once '../classes/basic.database.php';
 
 $fname = htmlentities(ucfirst($_POST['fname']));
+$mname = htmlentities(ucfirst($_POST['mname']));
 $lname = htmlentities(ucfirst($_POST['lname']));
 $email = htmlentities($_POST['email']);
 $phone = htmlentities($_POST['phone']);
@@ -30,6 +31,9 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
             echo "Invalid Last Name";
         }else if(strlen(trim($fname)) > 1  && strlen(trim($fname)) < 255 && !preg_match("/^[a-zA-z]*$/", $fname)){
             echo "Invalid First Name";
+        }
+        else if(strlen(trim($mname)) > 1  && strlen(trim($mname)) < 255 && !preg_match("/^[a-zA-z]*$/", $mname)){
+            echo "Invalid Middle Name";
         }
         else{
             // Checking for password and confirm password
@@ -65,8 +69,8 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                             $otp = mt_rand(1111,9999); // creating 4 random digits for otp
 
                             // Inserting Data to SQL
-                            $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, phone, password, image, otp, verification_status, type) VALUES ({$random_id}, 
-                            '{$fname}', '{$lname}', '{$email}', '{$phone}', '{$password}',
+                            $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, mname, lname, email, phone, password, image, otp, verification_status, type) VALUES ({$random_id}, 
+                            '{$fname}', '{$mname}', '{$lname}', '{$email}', '{$phone}', '{$password}',
                             '{$newimagename}' , '{$otp}', '{$verification_status}', '{$type}')");
 
                             if($sql2){

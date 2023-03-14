@@ -23,7 +23,7 @@
         $users = $users_account->get_user_info();
         foreach($users as $row){
             $_SESSION['logged_id'] = $row['id'];
-            $_SESSION['fullname'] = $row['fname'] . ' ' . $row['lname'];
+            $_SESSION['fullname'] = $row['fname'] . ' ' . $row['mname'][0] . '. ' . $row['lname'];
             $_SESSION['user_firstname'] = $row['fname'];
             $_SESSION['user_lastname'] = $row['lname'];
             $_SESSION['user_email'] = $row['email'];

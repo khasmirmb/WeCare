@@ -4,7 +4,7 @@
   require_once '../includes/admin-header.php';
   session_start();
 
-  if(!isset($_SESSION['logged_id'])){
+  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
   header('location: ../account/signin.php');
   }
 
@@ -22,7 +22,7 @@
     <div class="container-fluid">
    
 
-  <form><!--Starting of the form-->
+  <form action="add-staff.php" enctype="multipart/form-data"><!--Starting of the form-->
   <div class="pt-3">
 
   <div class="row"><!--First row-->
@@ -51,36 +51,51 @@
     <input class="form-control" type="date" value="dateofbirth"><br>
     </div>
     <div class="col-sm">
-    <label for="gender"><strong>Gender:</strong></label><br>
-    <select name="gender" id="gender" class="form-control">
-          <option value="male">Male</option>
-          <option value="Female">Female</option>
-        </select>
+    <label for="address"><strong>Address:</strong></label><br>
+    <input class="form-control" type="text" name="address" id="address"><br>
     </div>
     <div class="col-sm">
-    <label for="email"><strong>Email:</strong></label><br>
-    <input class="form-control" type="text" name="email" id="email"><br>
+    <label for="phone"><strong>Phone Number:</strong></label><br>
+    <input class="form-control" type="tel" name="phone" id="phone" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')"><br>
     </div>
     <div class="col-sm">
-    <label for="phone-number"><strong>Phone Number:</strong></label><br>
-    <input class="form-control" type="number" name="phone-number" id="phone-number"><br>
+    <label for="degree"><strong>Degree:</strong></label><br>
+    <input class="form-control" type="text" name="degree" id="degree"><br>
     </div>
 </div><!--End of Second row-->
-
     <div class="row"> <!--Third row-->
     <div class="col-sm">
-    <label for="street"><strong>Street:</strong></label><br>
-    <input class="form-control" type="street" name="street" id="street"><br>
-    </div>
-    <div class="col-sm">
-    <label for="city"><strong>City:</strong></label><br>
-    <input class="form-control" type="text" name="city" id="city"><br>
+    <label for="image"><strong>Profile Image:</strong></label><br>
+    <input class="form-control" type="file" name="image" id="image" required oninvalid="this.setCustomValidity('Select a Profile Image')" oninput="this.setCustomValidity('')" accept="image/*"><br>
     </div>
     <div class="col-sm">
     <label for="position"><strong>Position:</strong></label><br>
     <input class="form-control" type="text" name="position" id="position"><br>
     </div>
+    <div class="col-sm">
+    <label for="status"><strong>Status:</strong></label><br>
+    <select name="status" id="status" class="form-control">
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+    </div>
     </div><!--End of Third row-->
+
+    <div class="row"> <!--Fourth row-->
+    <div class="col-sm">
+    <label for="email"><strong>Email:</strong></label><br>
+    <input class="form-control" type="email" name="email" id="email"><br>
+    </div>
+    <div class="col-sm">
+    <label for="password"><strong>Password:</strong></label><br>
+    <input class="form-control" type="password" name="password" id="password"><br>
+    </div>
+    <div class="col-sm">
+    <label for="cpass"><strong>Confirm Password:</strong></label><br>
+    <input class="form-control" type="password" name="cpass" id="cpass"><br>
+    </div>
+    </div><!--End of Fourth row-->
+
     </div><!--Last of the div inside of the form-->
     </form><!--Last of the form-->
     </div><!--Last of the container fluid-->
@@ -90,7 +105,7 @@
   <button class="btn btn-danger me-md-2" type="button">Clear Data</button> <!--Should have modal-->
   <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Add Staff</button> <!--Should have modal-->
 </div><!--End of buttons-->
-    </div><!--End of first container-->
+</div><!--End of first container-->
 
 </div>
 

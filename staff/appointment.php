@@ -4,7 +4,7 @@
   require_once '../includes/staff-header.php';
   session_start();
 
-  if(!isset($_SESSION['staff_logged'])){
+  if(!isset($_SESSION['staff_logged']) || $_SESSION['user_type'] != 'staff'){
       header('location: ../account/signin.php');
   }
 
@@ -64,14 +64,10 @@
           <tbody>
             <?php foreach($staff_app_list as $row){ ?>
             <tr>
-              <td class="text-center"><?php echo $row['fname'] . " " . $row['lname']?></td>
+              <td class="text-center"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></td>
 
               <td class="text-center">
-              <?php if($row['purpose'] != "Others"){
-                echo $row['purpose'];
-              }else{
-                echo $row['other_purpose'];
-              }?></td>
+              <?php echo $row['purpose']; ?></td>
 
               <td class="text-center"><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></td>
 
