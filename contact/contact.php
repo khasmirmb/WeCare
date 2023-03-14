@@ -98,7 +98,7 @@
                         <input type="text" id="middlename" class="form-control" placeholder="Middlename" required name="middlename" value="<?php if(isset($_POST['middlename'])) { echo $_POST['middlename']; } else if(isset($_SESSION['logged_id'])){ echo $user_info->middlename; } ?>">
                     </div>
                     <?php
-                        if(isset($_POST['send']) && !validate_last_name($_POST)){
+                        if(isset($_POST['send']) && !validate_middlename_name($_POST)){
                     ?>
                                 <p class="error">Middle name is invalid.</p>
                     <?php
