@@ -48,7 +48,7 @@ function validate_email($POST){
     }
 }
 function validate_contact_us($POST){
-    if(!validate_first_name($POST) || !validate_last_name($POST) || !validate_email($POST)){
+    if(!validate_first_name($POST) || !validate_middlename_name($POST) || !validate_last_name($POST) || !validate_email($POST)){
         return false;
      }
     return true;
