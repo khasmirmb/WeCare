@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2023 at 05:22 PM
+-- Generation Time: Mar 14, 2023 at 12:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -46,8 +46,8 @@ CREATE TABLE `admission` (
 --
 
 INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relative_info`, `staff_id`, `admission_no`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1, 1, 544812025, 'Completed', '2023-02-23 15:33:45', '2023-03-03 13:00:02'),
-(2, 1, 2, 2, 2, 0, 1227301484, 'Pending', '2023-03-02 18:30:40', '2023-03-02 18:30:40');
+(1, 1, 1, 1, 1, 1, 544812025, 'Canceled', '2023-02-23 15:33:45', '2023-03-14 10:49:52'),
+(2, 1, 2, 2, 2, 0, 445098353, 'Pending', '2023-03-12 12:38:14', '2023-03-12 12:38:14');
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,8 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `staff_id`, `user_id`, `staff_schedule_id`, `appointment_number`, `purpose_for_appointment`, `other_purpose`, `appointment_date`, `appointment_time`, `status`, `client_came`) VALUES
-(3, 1, 1, 1, 1, 1, '', '2023-03-06', '14:22:00', 'Completed', 'Yes');
+(3, 1, 1, 1, 1, 1, '', '2023-03-06', '14:22:00', 'No-Show', 'No'),
+(5, 1, 1, 6, 2, 6, 'Visiting Grandma', '2023-03-17', '14:22:00', 'Completed', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -100,6 +101,22 @@ INSERT INTO `appointment_purpose` (`id`, `purpose`) VALUES
 (4, 'Rehabilitation'),
 (5, 'Consultation'),
 (6, 'Others');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance`
+--
+
+DROP TABLE IF EXISTS `attendance`;
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `log_type` varchar(255) NOT NULL,
+  `datetime_log` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -165,8 +182,8 @@ CREATE TABLE `patient_info` (
 --
 
 INSERT INTO `patient_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `gender`, `province`, `street`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `picture`, `patient_info_no`) VALUES
-(1, 1, 'Khasmir', 'Mahadali', 'Basaluddin', '', '2023-02-26', 'Zamboanga', 'Male', 'ZAMBOANGA DEL SUR', '', 'Sta Catalina', 'ZAMBOANGA CITY', 7000, 'asdfsdfsdf', '', '', 'Patient_1677166424Vanitas-19.jpg', 544812025),
-(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-10', 'TEST', 'Female', 'ABRA', '', 'TEST', 'ABORLAN', 7000, 'TEST', 'TEST', 'TEST', 'Patient_1677781839Vanitas-19.jpg', 1227301484);
+(1, 1, 'Khasmir', 'Mahadali', 'Basaluddin', '', '2023-02-26', 'Zamboanga', 'Male', 'ZAMBOANGA DEL SUR', 'CDCP', 'Sta Catalina', 'ZAMBOANGA CITY', 7000, 'asdfsdfsdf', '', '', 'Patient_1677166424Vanitas-19.jpg', 544812025),
+(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-02', 'TEST', 'Male', 'AKLAN', 'TEST', 'TEST', 'ABORLAN', 7000, 'TEST', 'TEST', 'TEST', 'Patient_1678624694Vanitas-19.jpg', 445098353);
 
 -- --------------------------------------------------------
 
@@ -2019,7 +2036,7 @@ CREATE TABLE `relative_info` (
   `barangay` varchar(100) NOT NULL,
   `city` varchar(100) NOT NULL,
   `postal` int(11) NOT NULL,
-  `relationship` int(11) NOT NULL,
+  `relationship` varchar(50) NOT NULL,
   `phone` varchar(100) NOT NULL,
   `telephone` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -2032,8 +2049,8 @@ CREATE TABLE `relative_info` (
 --
 
 INSERT INTO `relative_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `province`, `gender`, `street`, `barangay`, `city`, `postal`, `relationship`, `phone`, `telephone`, `email`, `picture`, `relative_info_no`) VALUES
-(1, 1, 'John', 'Kent', 'Adlawan', '', '2023-02-06', 'Zamboanga', 'ZAMBOANGA DEL NORTE', 'Male', '', 'Ewan', 'ZAMBOANGA CITY', 7000, 0, '01234567890', '', 'khasmirbasaluddin@yahoo.com', 'Relative_16771664248.png', 544812025),
-(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-30', 'TEST', 'BILIRAN', 'Female', '', 'TEST', 'ABORLAN', 7000, 0, '01234567890', '', 'test@gmail.com', 'Relative_1677781839Vanitas-19.jpg', 1227301484);
+(1, 1, 'John', 'Kent', 'Adlawan', '', '2023-02-06', 'Zamboanga', 'ZAMBOANGA DEL NORTE', 'Male', 'CDCP', 'Ewan', 'ZAMBOANGA CITY', 7000, 'Parents', '01234567890', '', 'khasmirbasaluddin@yahoo.com', 'Relative_16771664248.png', 544812025),
+(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-15', 'TEST', 'BULACAN', 'Male', 'TEST', 'TEST', 'ABORLAN', 7000, 'Mother', '01234567890', '', 'test@gmail.com', 'Relative_1678624694Vanitas-19.jpg', 445098353);
 
 -- --------------------------------------------------------
 
@@ -2122,14 +2139,14 @@ INSERT INTO `survey_answer` (`id`, `user_id`, `survey_question`, `answers`, `sur
 (6, 1, 6, 'Yes', 544812025),
 (7, 1, 7, 'Yes', 544812025),
 (8, 1, 8, 'Yes', 544812025),
-(9, 1, 1, 'Yes', 1227301484),
-(10, 1, 2, 'Yes', 1227301484),
-(11, 1, 3, 'Yes', 1227301484),
-(12, 1, 4, 'Yes', 1227301484),
-(13, 1, 5, 'Yes', 1227301484),
-(14, 1, 6, 'Yes', 1227301484),
-(15, 1, 7, 'Yes', 1227301484),
-(16, 1, 8, 'Yes', 1227301484);
+(9, 1, 1, 'No', 445098353),
+(10, 1, 2, 'No', 445098353),
+(11, 1, 3, 'No', 445098353),
+(12, 1, 4, 'No', 445098353),
+(13, 1, 5, 'No', 445098353),
+(14, 1, 6, 'No', 445098353),
+(15, 1, 7, 'No', 445098353),
+(16, 1, 8, 'No', 445098353);
 
 -- --------------------------------------------------------
 
@@ -2152,7 +2169,7 @@ CREATE TABLE `survey_info` (
 
 INSERT INTO `survey_info` (`id`, `user_id`, `survey_no`, `inquire`, `services`) VALUES
 (1, 1, 544812025, 'Parents', 'Caregiving, Rehabilitation'),
-(2, 1, 1227301484, 'Grandparents', 'Caregiving, Rehabilitation, Consultation, Rooms, Bundle, All');
+(2, 1, 445098353, 'Father In Law', 'Caregiving');
 
 -- --------------------------------------------------------
 
@@ -2191,6 +2208,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `unique_id` int(50) NOT NULL,
   `fname` varchar(255) NOT NULL,
+  `mname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(25) NOT NULL,
@@ -2207,9 +2225,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `unique_id`, `fname`, `lname`, `email`, `phone`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
-(1, 1039537853, 'Khasmir', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', '', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-02-20 06:23:07'),
-(2, 42139240, 'Staff', 'Staff', 'staff@gmail.com', '09152354148', '', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-02-20 06:28:22');
+INSERT INTO `users` (`id`, `unique_id`, `fname`, `mname`, `lname`, `email`, `phone`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
+(1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', '', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-03-14 06:54:47'),
+(2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', '', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-03-14 06:54:51'),
+(3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', 'asf', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-03-14 06:54:56');
 
 --
 -- Indexes for dumped tables
@@ -2239,6 +2258,12 @@ ALTER TABLE `appointment`
 -- Indexes for table `appointment_purpose`
 --
 ALTER TABLE `appointment_purpose`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2335,13 +2360,19 @@ ALTER TABLE `admission`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `appointment_purpose`
 --
 ALTER TABLE `appointment_purpose`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `attendance`
+--
+ALTER TABLE `attendance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -2419,7 +2450,7 @@ ALTER TABLE `survey_question`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
