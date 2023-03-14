@@ -92,7 +92,7 @@
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3 pb-3"><!--Starting of buttons-->
   <button class="btn btn-danger me-md-2" type="button">Reset Data</button> <!--Should have modal-->
-  <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Add Staff</button> <!--Should have modal-->
+  <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Add Patient</button> <!--Should have modal-->
 </div><!--End of buttons-->
     </div><!--End of first container-->
 
