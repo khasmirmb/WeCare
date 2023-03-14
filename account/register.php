@@ -35,6 +35,9 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
         else if(strlen(trim($mname)) > 1  && strlen(trim($mname)) < 255 && !preg_match("/^[a-zA-z]*$/", $mname)){
             echo "Invalid Middle Name";
         }
+        else if(strlen(trim($phone)) < 11){
+            echo "Phone Number must be 11 digits";
+        }
         else{
             // Checking for password and confirm password
             if(strlen($password) < 8 ) {
