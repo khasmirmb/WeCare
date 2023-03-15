@@ -66,16 +66,19 @@
                 
                         $user_info = new Users;
                 
-                        if($user_info->fetch_user_information(isset($_SESSION['logged_id']))){
+                        if(isset($_SESSION['logged_id'])){
 
-                            $user_data = $user_info->fetch_user_information(isset($_SESSION['logged_id']));
+                            if($user_info->fetch_user_information($_SESSION['logged_id'])){
 
-                            $user_info->firstname = $user_data['fname'];
-                            $user_info->middlename = $user_data['mname'];
-                            $user_info->lastname = $user_data['lname'];
-                            $user_info->email = $user_data['email'];
-                            $user_info->phone = $user_data['phone'];
+                                $user_data = $user_info->fetch_user_information($_SESSION['logged_id']);
 
+                                $user_info->firstname = $user_data['fname'];
+                                $user_info->middlename = $user_data['mname'];
+                                $user_info->lastname = $user_data['lname'];
+                                $user_info->email = $user_data['email'];
+                                $user_info->phone = $user_data['phone'];
+
+                            }
                         }
                         
                             
