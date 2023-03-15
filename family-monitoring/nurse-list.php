@@ -4,11 +4,10 @@
     require_once '../includes/header.php';
     require_once '../classes/account.class.php';
     session_start();
-
     require_once '../includes/navbar.php';
 ?>
 <div class="container align-items-center pt-3">
-<button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="family-patient.php"> <i class="fa-solid fa-arrow-left"></i> Back</a></button>
+<button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../family-monitoring/patient-family.php"> <i class="fa-solid fa-arrow-left"></i> Back</a></button>
 
 <!--Data of Previous Nurse-->
 <div class="col-12 col-lg-12">
@@ -17,10 +16,10 @@
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
-        <th scope="col">Name</th>
-        <th cope="col" class="text-center">Date Started</th>
-        <th scope="col" class="text-center">Date Ended</th>
-        <th scope="col" class="text-center">Contact Number</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">Name</th>
+        <th cope="col" class="text-center" style="background: #00ACB2; color: #fff;">Date Started</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Date Ended</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Contact Number</th>
         </tr>
     </thead>
     <tbody>

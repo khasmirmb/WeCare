@@ -4,7 +4,6 @@
     require_once '../includes/header.php';
     require_once '../classes/account.class.php';
     session_start();
-
     require_once '../includes/navbar.php';
 ?>
 <div class="container align-items-center pt-3">
@@ -14,8 +13,8 @@
 <div class="container">
     <div class="row">
     <div class="col pt-3 text-center">
-    <div class="badge rounded-pill bg-primary text-wrap py-4 px-4">
-        <h4 class="">Health Status: <strong>Very Good</strong></h4>
+    <div class="badge rounded-pill text-wrap py-4 px-4" style="background: #00ACB2; color: #fff;">
+        <h4 class="" style="background: #00ACB2; color: #fff;">Health Status: <strong>Very Good</strong></h4>
     </div>
     </div>
     </div>
@@ -23,7 +22,7 @@
 <div class="container">
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-3"><!--Big blue thing-->
-    <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
+    <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2; color: #fff;">
     <div class="row">
         <div class="col-12 col-lg-4 pb-3">
         <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
@@ -60,7 +59,7 @@
 </div> <!--End of details of the patient-->
 
     <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
-        <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
+        <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2; color: #fff;">
             <h5><strong>Appointment</strong></h5>
             <h6 class="bg-secondary text-white d-inline">5:00 PM - 6:00 PM</strong></h6>
             <p class="text-black-50 pb-5">January 3, 2023</p> 
@@ -81,11 +80,11 @@
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
-        <th scope="col">Name</th>
-        <th cope="col" class="text-center">Dose</th>
-        <th scope="col" class="text-center">Started at</th>
-        <th scope="col" class="text-center">Status</th>
-        <th scope="col" class="text-center">Note</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">Name</th>
+        <th cope="col" class="text-center" style="background: #00ACB2; color: #fff;">Dose</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Started at</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Note</th>
         </tr>
     </thead>
     <tbody>
@@ -131,7 +130,7 @@
 
 
     <div class="col-12 col-lg-4 pt-3">
-        <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
+        <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2; color: #fff;">
         <h4 class="pb-3"><strong>Reports</strong></h4>
             <div class="row">
                 <div class="col-8 col-lg-8">
@@ -174,11 +173,11 @@
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
-        <th scope="col">Name</th>
-        <th cope="col" class="text-center">Type</th>
-        <th scope="col" class="text-center">Time</th>
-        <th scope="col" class="text-center">Status</th>
-        <th scope="col" class="text-center">Note</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">Name</th>
+        <th cope="col" class="text-center" style="background: #00ACB2; color: #fff;">Type</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Time</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Note</th>
         </tr>
     </thead>
     <tbody>
@@ -224,7 +223,7 @@
 
 
     <div class="col-12 col-lg-4 pt-3">
-    <div class="bg-primary text-wrap py-3 px-3 text-light rounded float-start">
+    <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2; color: #fff;">
         <h4 class="pb-3"><strong>Photo Update</strong></h4>
         <div class="row">
                 <div class="col-8">
@@ -256,10 +255,10 @@
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
-        <th scope="col">Name</th>
-        <th cope="col" class="text-center">Time</th>
-        <th scope="col" class="text-center">Status</th>
-        <th scope="col" class="text-center">Note</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">Name</th>
+        <th cope="col" class="text-center" style="background: #00ACB2; color: #fff;">Time</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Note</th>
         </tr>
     </thead>
     <tbody>
@@ -301,9 +300,9 @@
 
 <!--Nurse-->
 <div class="col-12 col-lg-12">
-    <div class="bg-primary text-wrap py-3 px-5 text-light rounded">
+    <div class="text-wrap py-3 px-5 text-light rounded" style="background: #00ACB2; color: #fff;">
         <div class="d-grid justify-content-md-end">
-        <button type="button" class="btn btn-outline-light text-primary"><a class="text-decoration-none text-light" href="nurse-list.php">Previous Nurse</a></button>
+        <button type="button" class="btn btn-outline-light text-primary" style="background: #00ACB2; color:#fff; font-weight: bold;"><a class="text-decoration-none text-light" href="../family-monitoring/nurse-list.php">Previous Nurse</a></button>
         </div>
         
     <div class="row">
