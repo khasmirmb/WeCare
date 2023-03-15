@@ -89,6 +89,15 @@ class Staff{
         return $data;
     }
 
+    function show_staff_random(){
+        $sql = "SELECT * FROM staff ORDER BY RAND() LIMIT 1;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 }
 
 

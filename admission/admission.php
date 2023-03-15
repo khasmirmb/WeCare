@@ -4,6 +4,7 @@
     require_once '../includes/header.php';
     require_once '../tools/functions.php';
     require_once '../classes/survey.class.php';
+    require_once '../classes/staff.class.php';
     require_once '../classes/patient.class.php';
     require_once '../classes/relative.class.php';
     require_once '../classes/admission.class.php';
@@ -21,6 +22,7 @@
         $patient_info = new Patient;
         $relative_info = new Relative;
         $admission = new Admission;
+        $staff = new Staff;
 
         $admission_no = rand(time(), 100000);
         $user_id = $_SESSION['logged_id'];
@@ -213,7 +215,11 @@
                                 $admission->relative_info = $relative_information['id'];
                             }
 
-                            $admission->staff_id = 0;
+                            $staff_random = $staff->show_staff_random();
+
+                            foreach($staff_random as $staff){
+                                $admission->staff_id = $staff['id'];
+                            }
                             $admission->status = "Pending";
 
                             if($admission->add_admission()){

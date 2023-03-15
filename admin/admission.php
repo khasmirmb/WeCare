@@ -63,20 +63,36 @@
     <?php foreach($admission_list as $row){ ?>
 
       <tr>
-        <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . " " . $row['lname'] ?></a></td>
+        <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
 
-        <td scope="row" class="pt-4"><?php echo $row['created_at'] ?></td>
+        <td scope="row" class="pt-4"><?php echo date("m/d/y g:i A", strtotime($row['created_at'])) ?></td>
 
         <td scope="row" class="pt-4"><?php echo $row['admission_no']?></td>
 
       <td class="pt-4">
-        <div class="input-group" >
-        <select name="assigned" id="assigned" class="form-control">
-        <option value="adhyne">Adhyne Greanne Pogoy</option>
-        <option value="jorylle">Jorylle Reyes</option>
-        </select>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
-        </div>
+      <form action="assign.admission.php" method="GET">
+          <div class="input-group">
+          <?php
+           require_once '../classes/staff.class.php';
+
+           $show_staff = new Staff;
+
+           $staff_list = $show_staff->show_staff_data();
+          ?>
+          <select name="assigned" id="assigned" class="form-control text-center">
+            
+          <option value="<?php echo $row['staff_iden'] ?>">-<?php echo $row['s_fname'] ." ". $row['s_mname'][0] . ". " . $row['s_lname'] ?>-</option>
+
+          <?php foreach($staff_list as $data){ ?>
+          <option value="<?php echo $data['id'] ?>"><?php echo $data['firstname'] ." ". $data['middlename'][0] . ". " . $data['lastname'] ?></option>
+          <?php } ?>
+
+          <input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
+
+          </select>
+          <button class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
+          </div>
+        </form>
       </td>
 
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>

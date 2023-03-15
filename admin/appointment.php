@@ -64,7 +64,7 @@
     <?php foreach($appointment_list as $row){ ?>
 
       <tr>
-        <td class="pt-4"><a href="../admin/appointment-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . " " . $row['lname'] ?></a></td>
+        <td class="pt-4"><a href="../admin/appointment-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
         <td scope="row" class="pt-4"><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></td>
         <td scope="row" class="pt-4"><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></td>
         <td scope="row" class="pt-4">
@@ -73,13 +73,29 @@
         </div>
         </td>
       <td class="pt-4">
+        <form action="assign.appointment.php" method="GET">
           <div class="input-group">
-          <select name="assigned" id="assigned" class="form-control">
-          <option value="adhyne">Adhyne Greanne Pogoy</option>
-          <option value="jorylle">Jorylle Reyes</option>
+          <?php
+           require_once '../classes/staff.class.php';
+
+           $show_staff = new Staff;
+
+           $staff_list = $show_staff->show_staff_data();
+          ?>
+          <select name="assigned" id="assigned" class="form-control text-center">
+
+          <option value="<?php echo $row['staff_iden'] ?>">-<?php echo $row['s_fname'] ." ". $row['s_mname'][0] . ". " . $row['s_lname'] ?>-</option>
+
+          <?php foreach($staff_list as $data){ ?>
+          <option value="<?php echo $data['id'] ?>"><?php echo $data['firstname'] ." ". $data['middlename'][0] . ". " . $data['lastname'] ?></option>
+          <?php } ?>
+
+          <input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
+
           </select>
-          <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
+          <button class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
           </div>
+        </form>
       </td>
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
