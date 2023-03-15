@@ -128,7 +128,7 @@ class Appointment{
     }
 
     function show_appointment_admin(){
-        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id ORDER BY appointment_date DESC;;";
+        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id INNER JOIN staff ON appointment.staff_id = staff.id ORDER BY appointment_date DESC;;";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();
@@ -144,6 +144,19 @@ class Appointment{
             $data = $query->fetch();
         }
         return $data;
+    }
+
+    function staff_assign_appointment($record_id){
+        $sql = "UPDATE appointment SET staff_id = :staff_id WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        $query->bindParam(':staff_id', $this->staff_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 

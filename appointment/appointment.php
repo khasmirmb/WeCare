@@ -3,6 +3,7 @@
     $page_title = 'WeCare - Appointment';
     require_once '../includes/header.php';
     require_once '../classes/staff.class.php';
+    require_once '../tools/functions.php';
     require_once '../classes/appointment.class.php';
     session_start();
 
@@ -58,9 +59,11 @@
         $appointment->appointment_time = $time;
         $appointment->status = $status;
         $appointment->client_came = $client_came;
-        if($appointment->add_appointment()){
-            //redirect user to appointment list page
-            header('location: appointment.list.php');
+        if(validate_appointment_date($_POST) && validate_appointment_time($_POST) && validate_appointment_others($_POST)){
+            if($appointment->add_appointment()){
+                //redirect user to appointment list page
+                header('location: appointment.list.php');
+            }
         }
         
     }
@@ -83,19 +86,35 @@
                     <div class="form-group">
                         <div class="input-group">
                             <label for="phone">Appointment Date</label>
-                            <input class="appointment-form-control" type="date" name="date">
+                            <input class="appointment-form-control" type="date" name="date" value="<?php if(isset($_POST['date'])) { echo $_POST['date']; } ?>">
                         </div>
                     </div>
                 </div>
+
+                    <?php
+                        if(isset($_POST['confirm']) && !validate_appointment_date($_POST)){
+                    ?>
+                        <p class="text-danger text-center mt-2 mb-1">Appointment Date Should Be Advanced.</p>
+                    <?php
+                        }
+                    ?>
 
                 <div class="col-sm-12 mt-3">
                     <div class="form-group">
                         <div class="input-group">
                             <label for="phone">Appointment Time</label>
-                            <input class="appointment-form-control" type="time" name="time">
+                            <input class="appointment-form-control" type="time" name="time" value="<?php if(isset($_POST['time'])) { echo $_POST['time']; } ?>">
                         </div>
                     </div>
                 </div>
+
+                <?php
+                        if(isset($_POST['confirm']) && !validate_appointment_time($_POST)){
+                    ?>
+                        <p class="text-danger text-center mt-2 mb-1">Appointment Time Should Be In Our Schedule.</p>
+                    <?php
+                        }
+                ?>
                 
                 <?php
                 require_once '../classes/reference.class.php';
@@ -113,20 +132,28 @@
                         <select class="appointment-form-control" id="purpose" name="purpose">
                         <?php foreach($purpose as $row){ ?>
 
-                        <option value="<?php echo $row['id'] ?>"><?php echo $row['purpose'] ?></option>
+                        <option value="<?php echo $row['id'] ?>" <?php if(isset($_POST['purpose'])) { if ($_POST['purpose'] == $row['id']) echo ' selected="selected"'; } ?>><?php echo $row['purpose'] ?></option>
                         <?php } ?>
                         </select>
                     </div>
                 </div>
 
-                <div class="col-sm-12">
+                <div class="col-sm-12" id="other-purpose">
                     <div class="form-group">
                         <div class="input-group">
                         <label for="others" class="appointment-label">Others</label>
                         </div>
-                        <textarea class="appointment-form-control" id="others" rows="3" name="others" placeholder="Leave Empty if Choice is Selected"></textarea>
+                        <textarea class="appointment-form-control" id="others" rows="3" name="others" placeholder="Other Purpose" value="<?php if(isset($_POST['others'])) { echo $_POST['others']; } ?>"></textarea>
                     </div>
                 </div>
+
+                <?php
+                        if(isset($_POST['confirm']) && !validate_appointment_others($_POST)){
+                    ?>
+                        <p class="text-danger text-center mt-2 mb-1">Invalid Characters</p>
+                    <?php
+                        }
+                ?>
 
                 <div class=" d-flex flex-column text-center px-5 mt-3 mb-3">
                     <small class="appointment-agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a>
@@ -137,7 +164,20 @@
             </form>
         </div>
     </div>
-</div>     
+</div>
+
+<script>
+
+    $('#other-purpose').hide();
+
+    $('#purpose').on('change', function() {
+        if($(this).val() === '6') {
+            $('#other-purpose').show();
+        } else {
+            $('#other-purpose').hide();
+        }
+ });
+</script>
 
 <?php
 

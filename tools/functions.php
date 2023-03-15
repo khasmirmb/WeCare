@@ -280,4 +280,40 @@ function validate_add_relative_info($POST){
     return true;
 }
 
+function validate_appointment_date($POST){
+    if(!isset($POST['date'])){
+        return false;
+    }else if($POST['date'] == date("Y-m-d")){
+        return false;
+    }
+    else if($POST['date'] < date("Y-m-d")){
+        return false;
+    }
+    else if(date('l', strtotime($_POST['date'])) == "Sunday"){
+        return false;
+    }
+    return true;
+}
+
+function validate_appointment_time($POST){
+    $start_time = strtotime('9am');
+    $end_time = strtotime('9pm');
+    if(!isset($POST['time'])){
+        return false;
+    }else if($POST['time'] > date("H:i:s", $end_time)){
+        return false;
+    }
+    else if($POST['time'] < date("H:i:s", $start_time)){
+        return false;
+    }
+    return true;
+}
+
+function validate_appointment_others($POST){
+    if(!preg_match('/^\s*$/', $POST['others'])){
+        return false;
+    }
+    return true;
+}
+
 ?>
