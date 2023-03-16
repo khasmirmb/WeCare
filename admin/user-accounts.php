@@ -80,7 +80,7 @@
         <td class="text-center">095656565</td>
         <td class="text-center">jamesbrown@gmail.com</td>
         <td class="text-center">Active</td>
-        <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="../admin/edit_user-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
         <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
        </tr>
         <tr>
@@ -89,7 +89,7 @@
         <td class="text-center">095656565</td>
         <td class="text-center">jamesbrown@gmail.com</td>
         <td class="text-center">Inactive</td>
-        <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="../admin/edit_user-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
         <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
         </tr>
         <tr>

@@ -79,7 +79,7 @@
         <td class="text-center">095656565</td>
         <td class="text-center">jamesbrown@gmail.com</td>
         <td class="text-center">Active</td>
-        <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="../admin/edit_staff-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
         <td class="text-center">CEO</td>
        </tr>
         <tr>
