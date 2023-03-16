@@ -14,7 +14,7 @@
 
 <div class="staff-account" style="padding-top: 1rem;">
 		<div class="container">
-			<h1 class="pb-3">User Account Settings</h1>
+			<h1 class="pb-3">User Account Profile</h1>
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
