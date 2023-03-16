@@ -82,6 +82,16 @@ class Relative{
         return $data;
     }
 
+    function relative_user_info($user_id){
+        $sql = "SELECT relative.id, relative.user_id FROM relative INNER JOIN users ON relative.user_id = users.id WHERE user_id = :user_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 
 
 }

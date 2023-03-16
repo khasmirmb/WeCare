@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 12:00 PM
+-- Generation Time: Mar 16, 2023 at 02:24 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `admission`
 --
 
-DROP TABLE IF EXISTS `admission`;
 CREATE TABLE `admission` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -46,8 +45,8 @@ CREATE TABLE `admission` (
 --
 
 INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relative_info`, `staff_id`, `admission_no`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1, 1, 544812025, 'Canceled', '2023-02-23 15:33:45', '2023-03-14 10:49:52'),
-(2, 1, 2, 2, 2, 0, 445098353, 'Pending', '2023-03-12 12:38:14', '2023-03-12 12:38:14');
+(1, 1, 1, 1, 1, 2, 544812025, 'Canceled', '2023-02-23 15:33:45', '2023-03-15 13:43:40'),
+(2, 1, 2, 2, 2, 1, 1619188859, 'Pending', '2023-03-15 13:39:36', '2023-03-15 13:50:46');
 
 -- --------------------------------------------------------
 
@@ -55,7 +54,6 @@ INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relati
 -- Table structure for table `appointment`
 --
 
-DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE `appointment` (
   `id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
@@ -75,8 +73,7 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `staff_id`, `user_id`, `staff_schedule_id`, `appointment_number`, `purpose_for_appointment`, `other_purpose`, `appointment_date`, `appointment_time`, `status`, `client_came`) VALUES
-(3, 1, 1, 1, 1, 1, '', '2023-03-06', '14:22:00', 'No-Show', 'No'),
-(5, 1, 1, 6, 2, 6, 'Visiting Grandma', '2023-03-17', '14:22:00', 'Completed', 'Yes');
+(3, 1, 1, 1, 1, 3, '', '2023-03-20', '13:05:00', 'In Process', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -84,7 +81,6 @@ INSERT INTO `appointment` (`id`, `staff_id`, `user_id`, `staff_schedule_id`, `ap
 -- Table structure for table `appointment_purpose`
 --
 
-DROP TABLE IF EXISTS `appointment_purpose`;
 CREATE TABLE `appointment_purpose` (
   `id` int(11) NOT NULL,
   `purpose` varchar(255) NOT NULL
@@ -108,7 +104,6 @@ INSERT INTO `appointment_purpose` (`id`, `purpose`) VALUES
 -- Table structure for table `attendance`
 --
 
-DROP TABLE IF EXISTS `attendance`;
 CREATE TABLE `attendance` (
   `id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
@@ -121,10 +116,220 @@ CREATE TABLE `attendance` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `monitoring`
+--
+
+CREATE TABLE `monitoring` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `relative_id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `input_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring`
+--
+
+INSERT INTO `monitoring` (`id`, `patient_id`, `relative_id`, `staff_id`, `input_id`) VALUES
+(1, 1, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_app_detail`
+--
+
+CREATE TABLE `monitoring_app_detail` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `time_start` time NOT NULL,
+  `time_end` time NOT NULL,
+  `date` date NOT NULL,
+  `current_problem` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_app_detail`
+--
+
+INSERT INTO `monitoring_app_detail` (`id`, `patient_id`, `time_start`, `time_end`, `date`, `current_problem`) VALUES
+(1, 1, '20:13:28', '29:13:28', '2023-03-22', 'There was something wrong with his hearing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_detail`
+--
+
+CREATE TABLE `monitoring_detail` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `blood_pressure` varchar(50) NOT NULL,
+  `condition_1` varchar(50) NOT NULL,
+  `condition_2` varchar(50) NOT NULL,
+  `condition_3` varchar(50) NOT NULL,
+  `last_checked` varchar(255) NOT NULL,
+  `checked_date` date NOT NULL,
+  `observation` varchar(255) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_detail`
+--
+
+INSERT INTO `monitoring_detail` (`id`, `patient_id`, `blood_pressure`, `condition_1`, `condition_2`, `condition_3`, `last_checked`, `checked_date`, `observation`, `updated_at`) VALUES
+(1, 1, 'Low BP', 'Energetic', 'Wheelchair', 'Hyper', 'Dr. Analyn C. Gonzales', '2020-03-11', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '2023-03-16 09:00:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_hyiegne`
+--
+
+CREATE TABLE `monitoring_hyiegne` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `time` time NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `note` varchar(255) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_hyiegne`
+--
+
+INSERT INTO `monitoring_hyiegne` (`id`, `patient_id`, `name`, `time`, `status`, `note`, `updated_at`) VALUES
+(1, 1, 'Take a Bath', '06:22:53', 'Done', 'None', '2023-03-16 08:23:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_input`
+--
+
+CREATE TABLE `monitoring_input` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `health_status` varchar(100) NOT NULL,
+  `detail_id` int(11) NOT NULL,
+  `app_detail_id` int(11) NOT NULL,
+  `report_id` int(11) NOT NULL,
+  `medecine_id` int(11) NOT NULL,
+  `nutrition_id` int(11) NOT NULL,
+  `hyiegne_id` int(11) NOT NULL,
+  `photo_update_id` int(11) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_input`
+--
+
+INSERT INTO `monitoring_input` (`id`, `patient_id`, `health_status`, `detail_id`, `app_detail_id`, `report_id`, `medecine_id`, `nutrition_id`, `hyiegne_id`, `photo_update_id`, `updated_at`) VALUES
+(1, 1, 'Good', 1, 1, 1, 1, 1, 1, 1, '2023-03-16 09:17:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_medecine`
+--
+
+CREATE TABLE `monitoring_medecine` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `dose` varchar(100) NOT NULL,
+  `started_at` date NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `note` varchar(255) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_medecine`
+--
+
+INSERT INTO `monitoring_medecine` (`id`, `patient_id`, `name`, `dose`, `started_at`, `status`, `note`, `updated_at`) VALUES
+(1, 1, 'Paracetamol', '1-0-1', '2023-03-01', 'On', 'Works Fine', '2023-03-16 08:18:48'),
+(2, 1, 'Biogesic', '1-1-1', '2023-03-01', 'On', 'Works Fine', '2023-03-16 10:23:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_nutrition`
+--
+
+CREATE TABLE `monitoring_nutrition` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `time` time NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `note` varchar(255) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_nutrition`
+--
+
+INSERT INTO `monitoring_nutrition` (`id`, `patient_id`, `name`, `type`, `time`, `status`, `note`, `updated_at`) VALUES
+(1, 1, 'Breakfast', 'Light', '00:21:10', 'Done', 'No Left Overs', '2023-03-16 08:22:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_photo_update`
+--
+
+CREATE TABLE `monitoring_photo_update` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `detail` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_photo_update`
+--
+
+INSERT INTO `monitoring_photo_update` (`id`, `patient_id`, `image`, `title`, `detail`) VALUES
+(1, 1, 'homed.jpg', 'Bebe Time', 'Test');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monitoring_report`
+--
+
+CREATE TABLE `monitoring_report` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `report_type` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `details` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_report`
+--
+
+INSERT INTO `monitoring_report` (`id`, `patient_id`, `report_type`, `date`, `details`) VALUES
+(1, 1, 'Completed X-Ray', '2023-03-29', 'Completed X-Ray at Brent Hospital'),
+(2, 1, 'Completed Diagnosis', '2023-03-01', 'At General Hospital');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `patient`
 --
 
-DROP TABLE IF EXISTS `patient`;
 CREATE TABLE `patient` (
   `id` int(11) NOT NULL,
   `relative_id` int(11) NOT NULL,
@@ -145,8 +350,15 @@ CREATE TABLE `patient` (
   `allergies` longtext NOT NULL,
   `status` varchar(50) NOT NULL,
   `room` varchar(50) NOT NULL,
-  `relationship` varchar(50) NOT NULL
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `patient`
+--
+
+INSERT INTO `patient` (`id`, `relative_id`, `staff_id`, `fname`, `mname`, `lname`, `suffix`, `date_birth`, `place_birth`, `gender`, `province`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `status`, `room`, `image`) VALUES
+(1, 1, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-08', 'TEST', 'Male', 'TEST', 'TEST', 'TEST', 7000, 'TEST', 'TEST', 'TEST', 'Active', 'Room 1', 'homed.jpg');
 
 -- --------------------------------------------------------
 
@@ -154,7 +366,6 @@ CREATE TABLE `patient` (
 -- Table structure for table `patient_info`
 --
 
-DROP TABLE IF EXISTS `patient_info`;
 CREATE TABLE `patient_info` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -183,7 +394,7 @@ CREATE TABLE `patient_info` (
 
 INSERT INTO `patient_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `gender`, `province`, `street`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `picture`, `patient_info_no`) VALUES
 (1, 1, 'Khasmir', 'Mahadali', 'Basaluddin', '', '2023-02-26', 'Zamboanga', 'Male', 'ZAMBOANGA DEL SUR', 'CDCP', 'Sta Catalina', 'ZAMBOANGA CITY', 7000, 'asdfsdfsdf', '', '', 'Patient_1677166424Vanitas-19.jpg', 544812025),
-(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-02', 'TEST', 'Male', 'AKLAN', 'TEST', 'TEST', 'ABORLAN', 7000, 'TEST', 'TEST', 'TEST', 'Patient_1678624694Vanitas-19.jpg', 445098353);
+(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-22', 'TEST', 'Male', 'BUKIDNON', 'TEST', 'Sta Catalina', 'AKBAR', 7000, 'TEST', 'TEST', 'TEST', 'Patient_1678887576Vanitas-19.jpg', 1619188859);
 
 -- --------------------------------------------------------
 
@@ -191,7 +402,6 @@ INSERT INTO `patient_info` (`id`, `user_id`, `firstname`, `middlename`, `lastnam
 -- Table structure for table `refcitymun`
 --
 
-DROP TABLE IF EXISTS `refcitymun`;
 CREATE TABLE `refcitymun` (
   `id` int(255) NOT NULL,
   `psgcCode` varchar(255) DEFAULT NULL,
@@ -1861,7 +2071,6 @@ INSERT INTO `refcitymun` (`id`, `psgcCode`, `citymunDesc`, `regDesc`, `provCode`
 -- Table structure for table `refprovince`
 --
 
-DROP TABLE IF EXISTS `refprovince`;
 CREATE TABLE `refprovince` (
   `id` int(11) NOT NULL,
   `psgcCode` varchar(255) DEFAULT NULL,
@@ -1970,7 +2179,6 @@ INSERT INTO `refprovince` (`id`, `psgcCode`, `provDesc`, `regCode`, `provCode`) 
 -- Table structure for table `relationship`
 --
 
-DROP TABLE IF EXISTS `relationship`;
 CREATE TABLE `relationship` (
   `id` int(11) NOT NULL,
   `relationship` varchar(50) NOT NULL
@@ -2000,19 +2208,21 @@ INSERT INTO `relationship` (`id`, `relationship`) VALUES
 -- Table structure for table `relative`
 --
 
-DROP TABLE IF EXISTS `relative`;
 CREATE TABLE `relative` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
   `relationship` varchar(80) NOT NULL,
-  `image` varchar(255) NOT NULL,
   `proof` varchar(255) NOT NULL,
-  `patient_name` varchar(255) NOT NULL
+  `patient_name` varchar(255) NOT NULL,
+  `patient_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `relative`
+--
+
+INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_name`, `patient_id`) VALUES
+(1, 1, 'Mother', 'TEST', 'TEST', 1);
 
 -- --------------------------------------------------------
 
@@ -2020,7 +2230,6 @@ CREATE TABLE `relative` (
 -- Table structure for table `relative_info`
 --
 
-DROP TABLE IF EXISTS `relative_info`;
 CREATE TABLE `relative_info` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -2050,7 +2259,7 @@ CREATE TABLE `relative_info` (
 
 INSERT INTO `relative_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `province`, `gender`, `street`, `barangay`, `city`, `postal`, `relationship`, `phone`, `telephone`, `email`, `picture`, `relative_info_no`) VALUES
 (1, 1, 'John', 'Kent', 'Adlawan', '', '2023-02-06', 'Zamboanga', 'ZAMBOANGA DEL NORTE', 'Male', 'CDCP', 'Ewan', 'ZAMBOANGA CITY', 7000, 'Parents', '01234567890', '', 'khasmirbasaluddin@yahoo.com', 'Relative_16771664248.png', 544812025),
-(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-15', 'TEST', 'BULACAN', 'Male', 'TEST', 'TEST', 'ABORLAN', 7000, 'Mother', '01234567890', '', 'test@gmail.com', 'Relative_1678624694Vanitas-19.jpg', 445098353);
+(2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-15', 'TEST', 'BOHOL', 'Male', 'TEST', 'TEST', 'ABORLAN', 700, 'Mother', '09152354148', '', 'test@gmail.com', 'Relative_1678887576Vanitas-19.jpg', 1619188859);
 
 -- --------------------------------------------------------
 
@@ -2058,7 +2267,6 @@ INSERT INTO `relative_info` (`id`, `user_id`, `firstname`, `middlename`, `lastna
 -- Table structure for table `staff`
 --
 
-DROP TABLE IF EXISTS `staff`;
 CREATE TABLE `staff` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -2080,7 +2288,8 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `address`, `date_of_birth`, `degree`, `position`, `status`, `added_on`, `retired_on`) VALUES
-(1, 2, 'Staff', 'Staff', 'Staff', 'Jr', 'Sta Catalina', '2023-02-16', 'Graduate', 'Nurse', 'Active', '2023-02-20 07:25:37', NULL);
+(1, 2, 'Alice', 'Johnson', 'Yue', 'Jr', 'Sta Catalina', '2023-02-16', 'Graduate', 'Nurse', 'Active', '2023-02-20 07:25:37', NULL),
+(2, 4, 'Jessica', 'Bottom', 'Apple', 'Sr', 'Staff2', '2012-04-13', 'Staff2', 'Staff2', 'Active', '2023-03-15 11:54:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -2088,7 +2297,6 @@ INSERT INTO `staff` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `su
 -- Table structure for table `staff_schedule`
 --
 
-DROP TABLE IF EXISTS `staff_schedule`;
 CREATE TABLE `staff_schedule` (
   `id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
@@ -2117,7 +2325,6 @@ INSERT INTO `staff_schedule` (`id`, `staff_id`, `day`, `start_time`, `end_time`,
 -- Table structure for table `survey_answer`
 --
 
-DROP TABLE IF EXISTS `survey_answer`;
 CREATE TABLE `survey_answer` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -2139,14 +2346,14 @@ INSERT INTO `survey_answer` (`id`, `user_id`, `survey_question`, `answers`, `sur
 (6, 1, 6, 'Yes', 544812025),
 (7, 1, 7, 'Yes', 544812025),
 (8, 1, 8, 'Yes', 544812025),
-(9, 1, 1, 'No', 445098353),
-(10, 1, 2, 'No', 445098353),
-(11, 1, 3, 'No', 445098353),
-(12, 1, 4, 'No', 445098353),
-(13, 1, 5, 'No', 445098353),
-(14, 1, 6, 'No', 445098353),
-(15, 1, 7, 'No', 445098353),
-(16, 1, 8, 'No', 445098353);
+(9, 1, 1, 'Yes', 1619188859),
+(10, 1, 2, 'Yes', 1619188859),
+(11, 1, 3, 'Yes', 1619188859),
+(12, 1, 4, 'Yes', 1619188859),
+(13, 1, 5, 'Yes', 1619188859),
+(14, 1, 6, 'Yes', 1619188859),
+(15, 1, 7, 'Yes', 1619188859),
+(16, 1, 8, 'Yes', 1619188859);
 
 -- --------------------------------------------------------
 
@@ -2154,7 +2361,6 @@ INSERT INTO `survey_answer` (`id`, `user_id`, `survey_question`, `answers`, `sur
 -- Table structure for table `survey_info`
 --
 
-DROP TABLE IF EXISTS `survey_info`;
 CREATE TABLE `survey_info` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -2169,7 +2375,7 @@ CREATE TABLE `survey_info` (
 
 INSERT INTO `survey_info` (`id`, `user_id`, `survey_no`, `inquire`, `services`) VALUES
 (1, 1, 544812025, 'Parents', 'Caregiving, Rehabilitation'),
-(2, 1, 445098353, 'Father In Law', 'Caregiving');
+(2, 1, 1619188859, 'Aunt', 'Caregiving');
 
 -- --------------------------------------------------------
 
@@ -2177,7 +2383,6 @@ INSERT INTO `survey_info` (`id`, `user_id`, `survey_no`, `inquire`, `services`) 
 -- Table structure for table `survey_question`
 --
 
-DROP TABLE IF EXISTS `survey_question`;
 CREATE TABLE `survey_question` (
   `id` int(11) NOT NULL,
   `question` varchar(255) NOT NULL
@@ -2203,7 +2408,6 @@ INSERT INTO `survey_question` (`id`, `question`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `unique_id` int(50) NOT NULL,
@@ -2227,8 +2431,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `unique_id`, `fname`, `mname`, `lname`, `email`, `phone`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
 (1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', '', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-03-14 06:54:47'),
-(2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', '', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-03-14 06:54:51'),
-(3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', 'asf', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-03-14 06:54:56');
+(2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', 'homed.jpg', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-03-16 12:37:40'),
+(3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', 'asf', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-03-14 06:54:56'),
+(4, 1039537821, 'Staff2', 'Staff2', 'Staff2', 'staff2@gmail.com', '09152354148', '', '123', 0, 'Verified', 'staff', '2023-03-15 10:54:37', '2023-03-15 10:54:37');
 
 --
 -- Indexes for dumped tables
@@ -2264,6 +2469,60 @@ ALTER TABLE `appointment_purpose`
 -- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring`
+--
+ALTER TABLE `monitoring`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_app_detail`
+--
+ALTER TABLE `monitoring_app_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_detail`
+--
+ALTER TABLE `monitoring_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_hyiegne`
+--
+ALTER TABLE `monitoring_hyiegne`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_input`
+--
+ALTER TABLE `monitoring_input`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_medecine`
+--
+ALTER TABLE `monitoring_medecine`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_nutrition`
+--
+ALTER TABLE `monitoring_nutrition`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_photo_update`
+--
+ALTER TABLE `monitoring_photo_update`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `monitoring_report`
+--
+ALTER TABLE `monitoring_report`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2360,7 +2619,7 @@ ALTER TABLE `admission`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `appointment_purpose`
@@ -2375,10 +2634,64 @@ ALTER TABLE `attendance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `monitoring`
+--
+ALTER TABLE `monitoring`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `monitoring_app_detail`
+--
+ALTER TABLE `monitoring_app_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `monitoring_detail`
+--
+ALTER TABLE `monitoring_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `monitoring_hyiegne`
+--
+ALTER TABLE `monitoring_hyiegne`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `monitoring_input`
+--
+ALTER TABLE `monitoring_input`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `monitoring_medecine`
+--
+ALTER TABLE `monitoring_medecine`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `monitoring_nutrition`
+--
+ALTER TABLE `monitoring_nutrition`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `monitoring_photo_update`
+--
+ALTER TABLE `monitoring_photo_update`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `monitoring_report`
+--
+ALTER TABLE `monitoring_report`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patient_info`
@@ -2408,7 +2721,7 @@ ALTER TABLE `relationship`
 -- AUTO_INCREMENT for table `relative`
 --
 ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `relative_info`
@@ -2420,7 +2733,7 @@ ALTER TABLE `relative_info`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `staff_schedule`
@@ -2450,7 +2763,7 @@ ALTER TABLE `survey_question`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

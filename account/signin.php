@@ -6,6 +6,7 @@
     require_once '../includes/header.php';
     require_once '../classes/users.class.php';
     require_once '../classes/staff.class.php';
+    require_once '../classes/relative.class.php';
 
     // If user is already logged in go to homepage
     if(isset($_SESSION['logged_id'])){
@@ -14,6 +15,7 @@
 
     $users_account = new Users();
     $staff_user = new Staff();
+    $relative_user = new Relative();
     
     if(isset($_POST['email']) && isset($_POST['password'])){
     //Sanitizing the inputs of the users. Mandatory to prevent injections!
@@ -46,6 +48,10 @@
               }
               header('location: ../staff/patient-list.php');
             }else if($row['type'] == 'client'){
+              $relative =  $relative_user->relative_user_info($row['id']);
+              foreach($relative as $r_data){
+                $_SESSION['relative_id'] = $r_data['id'];
+              }
              header('location: ../homepage/home.php');
             }
           }

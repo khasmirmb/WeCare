@@ -780,4 +780,80 @@ form .error-text{
   border: 1px solid #00ACB2;  
   color: #FFFFFF;  
   font-weight: bold;  
-} 
+}
+/*---------------------
+Delete Modal
+-----------------------*/
+
+.modal-content .del-modal-header .icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 6px auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+
+.modal-content .del-modal-header .icon-box i {
+  color: #f15e5e;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+.del-modal-body{
+  margin-top: 20px;
+  color: #999;
+  text-align: center;
+}
+
+.del-btn{
+  padding: 10px 45px 10px;
+  background: #f15e5e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.cancel-btn{
+  padding: 10px 45px 10px;
+  background: #00ACB2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.del-modal-title{
+  text-align: center;
+font-size: 26px;
+margin: 30px 0 -10px;
+}
+
+.del-modal-footer{
+  border: none;
+text-align: center;		
+border-radius: 5px;
+font-size: 13px;
+padding: 10px 15px 25px;
+}
+
+/*---------------------
+Success Modal
+-----------------------*/
+
+.success-modal-header .icons-box {
+  width: 80px;
+  height: 80px;
+  margin: 6px auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #47c9a2;
+}
+.success-modal-header .icons-box i {
+  color: #47c9a2;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}

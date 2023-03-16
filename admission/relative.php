@@ -6,7 +6,7 @@
                 <div class="row">
 
                 <div class="mb-3">
-                    <label for="r_image" class="form-label">Upload Patient Image</label>
+                    <label for="r_image" class="form-label">Upload Relative Image</label>
                     <input class="form-control" name="r_image" type="file" id="r_image" required oninvalid="this.setCustomValidity('Select an Image')" oninput="this.setCustomValidity('')" accept="image/*">
                 </div>
 

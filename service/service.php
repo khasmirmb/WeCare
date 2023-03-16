@@ -58,8 +58,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Apply Now</h3>
-                            <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
-                                odio data center for managing database.</p>
+                            <p>Our current openings offer the chance to work on cutting-edge projects and make a meaningful impact in your field. Before you apply, please check whether you have fulfilled all the requirements and got all the required Documents to be submitted.</p>
                         </div>
                     </div>
                 </div>
@@ -70,8 +69,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Rooms</h3>
-                            <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
-                                odio data center for managing database.</p>
+                            <p>Our friendly and comfortable rooms are for each of our new occupants. We have care beds, cabinets, tables, chairs, flat-screen TVs, and nurse call systems in each of our air-conditioned rooms.</p>
                         </div>
                     </div>
                 </div>
@@ -82,8 +80,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Bundle</h3>
-                            <p>At vero eos et accusamus etiusto odio praesentium accusamus etiusto 
-                                odio data center for managing database.</p>
+                            <p>Our bundles offer affordable and convenient options for individuals looking for quality services.</p>
                         </div>
                     </div>
                 </div>

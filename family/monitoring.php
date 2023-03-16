@@ -16,36 +16,46 @@
 </div>
 
 <div class="new-admission d-flex me-5 justify-content-end">
-    <a type="button" class="btn btn-primary" id="action-cancel" href="request.php">Request Monitoring</a>
+    <a type="button" class="btn btn-secondary" id="action-cancel" href="request.php" style="background: #00ACB2; border: #00ACB2; color: #fff;">Request Monitoring</a>
 </div>
 
 <div class="p-3 table-responsive">
+        <?php
+          require_once '../classes/monitoring.class.php';
+
+          $monitoring = new Monitoring;
+
+          $monitoring_list = $monitoring->get_relative_monitoring($_SESSION['logged_id'], $_SESSION['relative_id']);
+
+        ?>
 <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
-        <th scope="col">Patient Name</th>
-        <th cope="col" class="text-center">Relationship</th>
-        <th scope="col" class="text-center">Room</th>
-        <th scope="col" class="text-center">Status</th>
-        <th scope="col" class="text-center">Nurse</th>
-        <th scope="col" class="text-center">View</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">Patient Name</th>
+        <th cope="col" class="text-center" style="background: #00ACB2; color: #fff;">Relationship</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Room</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Nurse</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">View</th>
         </tr>
     </thead>
     <tbody>
+    <?php foreach($monitoring_list as $row){ ?>
         <tr>
-        <td>Al-khasmir Basaluddin</td>
+        <td><?php echo $row['fname'] . " " . $row['mname'][0] . ". ". $row['lname'] ?></td>
 
-        <td class="text-center">Father</td>
+        <td class="text-center"><?php echo $row['relationship'] ?></td>
 
-        <td class="text-center">Room 1</td>
+        <td class="text-center"><?php echo $row['room'] ?></td>
 
-        <td class="text-center">Active</td>
+        <td class="text-center"><?php echo $row['status'] ?></td>
 
-        <td class="text-center">Mikaylah Chu</td>
+        <td class="text-center"><?php echo $row['firstname'] . " " . $row['middlename'][0] . ". ". $row['lastname']?></td>
 
         <td class="text-center">
-            <a href="patient.monitoring.php"><i class="fa-regular fa-eye"></i></a>
+            <a href="patient.monitoring.php?id=<?php echo $row['id'] ?>"><i class="fa-regular fa-eye"></i></a>
         </td>
+    <?php } ?>
         </tr>
     </tbody>
 </table>
