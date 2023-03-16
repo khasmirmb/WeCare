@@ -1,17 +1,16 @@
 <?php
 
-  $page_title = 'WeCare Admin - Dashboard';
-  require_once '../includes/admin-header.php';
-  session_start();
-
-  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-  header('location: ../account/signin.php');
-  }
-
-  require_once '../includes/admin-sidebar.php';
-
-?>
-
+    $page_title = 'Admin - Dashboard';
+    require_once '../includes/admin-header.php';
+    session_start();
+  
+    if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+    header('location: ../account/signin.php');
+    }
+  
+    require_once '../includes/admin-sidebar.php';
+  
+  ?>
 
 <div class="content">
 
@@ -222,7 +221,7 @@
         <div class="card border shadow">
             <div class="card-body p-0">
                 <div class="row">
-                <div class="card-body text-white rounded" style="width: 40%; background: #ff8507;">
+                <div class="card-body text-white rounded" style="width; 40%; background: #ff8507;">
                 <h3 class="card-title">New User</h3>
                 <p style="color: #000; font-weight: bold;">List of New User</p>
                 </div>
@@ -370,12 +369,16 @@
        
         </div><!--End of row-->
 
+
+
+
+
+
 </div><!--End of container alignment-->
 
+
+
+
+
+
 </div>
-
-<?php
-
-require_once '../includes/admin-footer.php';
-
-?>

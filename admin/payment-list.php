@@ -1,18 +1,21 @@
 <?php
 
-  $page_title = 'WeCare Admin - Payment List';
-  require_once '../includes/admin-header.php';
-  session_start();
+    $page_title = 'Admin - Payment list';
+    require_once '../includes/admin-header.php';
+    session_start();
+  
+    if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+    header('location: ../account/signin.php');
+    }
+  
+    require_once '../includes/admin-sidebar.php';
+  
+  ?>
 
-  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-  header('location: ../account/signin.php');
-  }
+<div class="content">
 
-  require_once '../includes/admin-sidebar.php';
-
-?>
 <div class="container align-items-center pt-3">
-    <button class="btn btn-primary" type="button"><a class="text-white text-decoration-none" href="patient-list.php"> < Patient List </a></button>
+<button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/patient-list.php"><i class="fa-solid fa-arrow-left"></i> Back </a></button>
 
     <div class="col-12 col-lg-5 pt-4">
         <h2><strong>Payment History</strong></h2>
@@ -45,11 +48,11 @@
     <table class="table table-striped table-hover table-bordered">
   <thead class="table-info">
     <tr>
-      <th scope="col" class="text-center">Month</th>
-      <th scope="col">Patient Name</th>
-      <th scope="col" class="text-center">Recommended Pay Date</th>
-      <th scope="col" class="text-center">Amount Due</th>
-      <th scope="col" class="text-center">Status</th>
+      <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Month</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;">Patient Name</th>
+      <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Recommended Pay Date</th>
+      <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Amount Due</th>
+      <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -94,8 +97,11 @@
     </div><!--End of table-->
 </div><!--End of container-->
 
-<?php
 
-require_once '../includes/admin-footer.php';
 
-?>
+
+
+
+
+
+</div>

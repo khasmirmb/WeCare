@@ -1,16 +1,16 @@
 <?php
 
-  $page_title = 'WeCare Admin - Visitor Log';
-  require_once '../includes/admin-header.php';
-  session_start();
-
-  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-  header('location: ../account/signin.php');
-  }
-
-  require_once '../includes/admin-sidebar.php';
-
-?>
+    $page_title = 'Admin - Visitor log';
+    require_once '../includes/admin-header.php';
+    session_start();
+  
+    if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+    header('location: ../account/signin.php');
+    }
+  
+    require_once '../includes/admin-sidebar.php';
+  
+  ?>
 
 <div class="content">
 
@@ -116,10 +116,8 @@
   </div><!--End of Card text center-->
 </div><!--End of container-->
 
+
+
+
+
 </div>
-
-<?php
-
-require_once '../includes/admin-footer.php';
-
-?>

@@ -1,39 +1,16 @@
 <?php
 
-  $page_title = 'WeCare Admin - Appointment Details';
-  require_once '../includes/admin-header.php';
-  require_once '../classes/appointment.class.php';
-  session_start();
-
-  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-  header('location: ../account/signin.php');
-  }
-
-  $appointment = new Appointment;
-
-
-  if($appointment->fetch_appointment($_GET['id'])){
-
-    $data = $appointment->fetch_appointment($_GET['id']);
-
-    $appointment->firstname = $data['fname'];
-    $appointment->middlename = $data['mname'];
-    $appointment->lastname = $data['lname'];
-    $appointment->email = $data['email'];
-    $appointment->phone = $data['phone'];
-    $appointment->purpose_for_appointment = $data['purpose'];
-    $appointment->other_purpose = $data['other_purpose'];
-    $appointment->appointment_time = $data['appointment_time'];
-    $appointment->appointment_date = $data['appointment_date'];
-    $appointment->status = $data['status'];
-    $appointment->client_came = $data['client_came'];
-
-  }
-
-
-  require_once '../includes/admin-sidebar.php';
-
-?>
+    $page_title = 'Admin - Appointment detail';
+    require_once '../includes/admin-header.php';
+    session_start();
+  
+    if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+    header('location: ../account/signin.php');
+    }
+  
+    require_once '../includes/admin-sidebar.php';
+  
+  ?>
 
 <div class="content">
 
@@ -50,7 +27,7 @@
                 <h8>First Name:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo $appointment->firstname ?></h8>
+                <h8>Clinton</h8>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -58,7 +35,7 @@
                 <h8>Middle Name:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo $appointment->middlename ?></h8>
+                <h8>Santiago</h8>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -66,7 +43,23 @@
                 <h8>Last Name:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo $appointment->lastname ?></h8>
+                <h8>Pablo</h8>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-6 col-lg-4 pt-3">
+                <h8>Suffix:</h8>
+            </div>
+            <div class="col-6 col-lg-4 pt-3">
+                <h8>Jr</h8>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-6 col-lg-4 pt-3">
+                <h8>Username:</h8>
+            </div>
+            <div class="col-6 col-lg-4 pt-3">
+                <h8>Dubibi</h8>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -74,7 +67,7 @@
                 <h8>Phone Number:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo $appointment->phone ?></h8>
+                <h8>09565645455</h8>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -82,7 +75,7 @@
                 <h8>Email:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo $appointment->email ?></h8>
+                <h8>javajava@gmail.com</h8>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -90,7 +83,7 @@
                 <h8>Purpose of Appointment:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo $appointment->purpose_for_appointment; if($appointment->purpose_for_appointment == 'Others'){ echo ": " . $appointment->other_purpose; }?></h8>
+                <h8>Visit Grandma</h8>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -98,7 +91,7 @@
                 <h8>Date:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo date("M jS, Y", strtotime($appointment->appointment_date)) ?></h8>
+                <h8>March 26, 2023</h8>
             </div>
         </div>
         <div class="row justify-content-md-center">
@@ -106,7 +99,7 @@
                 <h8>Time:</h8>
             </div>
             <div class="col-6 col-lg-4 pt-3 pb-3">
-                <h8><?php echo date("g:i a", strtotime($appointment->appointment_time)); ?></h8>
+                <h8>01:30 PM</h8>
             </div>
         </div>
     </div>
@@ -114,10 +107,11 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
 </div>
-
-<?php
-
-require_once '../includes/admin-footer.php';
-
-?>

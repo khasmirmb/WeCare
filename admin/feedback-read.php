@@ -1,15 +1,14 @@
 <?php
 
-  $page_title = 'WeCare Admin - Feedback Read';
-  require_once '../includes/admin-header.php';
-  session_start();
-
-  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-  header('location: ../account/signin.php');
-  }
-
-  require_once '../includes/admin-sidebar.php';
-
+    $page_title = 'Admin - Feedback Read';
+    require_once '../includes/admin-header.php';
+    session_start();
+  
+    if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+    header('location: ../account/signin.php');
+    }
+  
+    require_once '../includes/admin-sidebar.php';
 ?>
 
 <div class="content">
@@ -150,9 +149,3 @@
 </div>
 
 </div>
-
-<?php
-
-require_once '../includes/admin-footer.php';
-
-?>
