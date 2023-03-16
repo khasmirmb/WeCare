@@ -25,7 +25,9 @@
 
           $monitoring = new Monitoring;
 
-          $monitoring_list = $monitoring->get_relative_monitoring($_SESSION['logged_id'], $_SESSION['relative_id']);
+          $relative_id = isset($_SESSION['relative_id']);
+
+          $monitoring_list = $monitoring->get_relative_monitoring($_SESSION['logged_id'], $relative_id);
 
         ?>
 <table class="table table-hover table-striped table-bordered">
