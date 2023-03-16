@@ -1,7 +1,8 @@
 <?php
 
     $page_title = 'Admin - Previous nurse';
-
+    session_start();
+    require_once '../classes/account.class.php';
     require_once '../includes/admin-sidebar.php';
 ?>
 
