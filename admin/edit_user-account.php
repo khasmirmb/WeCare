@@ -151,7 +151,7 @@
 							</div>
 						</div>
 						<div>
-							<button class="btn btn-primary" style="background: #dc3545; border: #dc3545;">Delete Account</button>
+							<button class="btn btn-primary" style="background: #dc3545; border: #dc3545;" data-bs-toggle="modal" data-bs-target="#deleteAccModal">Delete Account</button>
 							<button class="btn btn-light" style="border: 1px solid #00ACB2; color: #00ACB2; background: #fff;" >Ban Account</button>
 						</div>
 					</div>
@@ -167,6 +167,26 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteAccModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="del-modal-header">
+      <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      </div>
+      <div class="del-modal-body">
+				<p>Do you really want to delete this account? This process cannot be undone.</p>
+			</div>
+      <div class="del-modal-footer">
+        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="del-btn">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

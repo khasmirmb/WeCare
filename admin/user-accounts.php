@@ -80,7 +80,7 @@
         <td class="text-center">095656565</td>
         <td class="text-center">jamesbrown@gmail.com</td>
         <td class="text-center">Active</td>
-        <td class="text-center"><a href="../admin/edit_user-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="../admin/edit_user-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><a href="#" class="edit-a" data-bs-toggle="modal" data-bs-target="#deleteAccModal"><i class="fa-solid fa-trash"></i></a></td><!--Edit and Delete Icons-->
         <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
        </tr>
         <tr>
@@ -89,7 +89,7 @@
         <td class="text-center">095656565</td>
         <td class="text-center">jamesbrown@gmail.com</td>
         <td class="text-center">Inactive</td>
-        <td class="text-center"><a href="../admin/edit_user-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="../admin/edit_user-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><a href="#" class="edit-a" data-bs-toggle="modal" data-bs-target="#deleteAccModal"><i class="fa-solid fa-trash"></i></a></td><!--Edit and Delete Icons-->
         <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
         </tr>
         <tr>
@@ -98,7 +98,7 @@
         <td class="text-center">095656565</td>
         <td class="text-center">jamesbrown@gmail.com</td>
         <td class="text-center">Inactive</td>
-        <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="../admin/edit_user-account.php" class="edit-a"><i class="fa-solid fa-pen"></i></a><a href="#" class="edit-a" data-bs-toggle="modal" data-bs-target="#deleteAccModal"><i class="fa-solid fa-trash"></i></a></td><!--Edit and Delete Icons-->
         <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
         </tr>
     </tbody>
@@ -122,5 +122,25 @@
   </div><!--End of Card text center-->
 </div><!--End of container-->
 
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteAccModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="del-modal-header">
+      <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      </div>
+      <div class="del-modal-body">
+				<p>Do you really want to delete this account? This process cannot be undone.</p>
+			</div>
+      <div class="del-modal-footer">
+        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="del-btn">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
