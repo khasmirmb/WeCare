@@ -91,7 +91,7 @@
     <?php foreach($staff_list as $row){ ?>
 
         <tr>
-        <td class="text-left"><?php echo $row['firstname'] . " " . $row['lastname']?></td>
+        <td class="text-left"><?php echo $row['firstname'] . " ". $row['middlename'][0] . ". " . $row['lastname']?></td>
 
         <td class="text-center"><?php echo $row['phone'] ?></td>
 

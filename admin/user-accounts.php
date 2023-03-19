@@ -91,7 +91,7 @@
     <?php foreach($user_list as $row){ ?>
 
         <tr>
-        <td class="text-left"><?php echo $row['fname'] . " " . $row['lname']?></td>
+        <td class="text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></td>
         <td class="text-center"><?php echo $row['phone'] ?></td>
         <td class="text-center"><?php echo $row['email'] ?></td>
         <td class="text-center"><?php echo $row['verification_status'] ?></td>
