@@ -23,7 +23,7 @@
         <a class="nav-link"  href="../admin/user-accounts.php">Users</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/add-staff.php">Staff</a>
+        <a class="nav-link active" aria-current="true" href="../admin/staff-accounts.php">Staff</a>
       </li>
     </ul>
   </div><!--End of Card-->
