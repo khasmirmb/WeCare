@@ -12,6 +12,8 @@
 
 ?>
 
+<div class="content">
+
 <div class="container align-items-center pt-3">
 
 <div class="row">
@@ -19,11 +21,11 @@
     <h3>Patient List</h3>
     </div><!--End of Name-->
     <div class="col-4 col-lg-1 pb-3"><!--Request button-->
-        <a class="btn btn-primary" href="request.php" role="button">Request</a>
+        <a class="btn btn-secondary" href="request.php" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Request</a>
     </div>
     <div class="col-4 col-lg-1"><!--Button Filter-->
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: #00ACB2; border: #00ACB2; color: #fff;">
             Filter
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -33,159 +35,55 @@
         </div>
         </div><!--End of Button Filter-->
     <div class="col-6 col-lg-2 pb-3"><!--Add Patient button-->
-        <a class="btn btn-primary" href="add-patient.php" role="button">Add Patient</a>
+        <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Add Patient</a>
     </div><!--End of Add Patient button-->
     <div class="col-12 col-lg-4"><!--Start of Search bar-->
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary" type="submit">Search</button>
+            <button class="btn btn-secondary" type="submit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Search</button>
         </form>
     </div><!--End of search bar-->
     </div><!--End of row-->
+
+    <?php 
+        require_once '../classes/patient.class.php';
+
+        $patient = new Patient;
+
+        $patient_list = $patient->show_patient_data();
+
+    ?>
     <div class="row">
+    
+    <?php foreach($patient_list as $row){ ?>
         <div class="col-12 col-lg-4 pt-3">
         <div class="card" style="width: 18rem;">
         <div class="card-body rounded shadow">
             <div class="d-grid justify-content-md-end pb-2">
-            <a class="btn btn-primary" href="payment-list.php" role="button">Payment</a>
+            <a class="btn btn-secondary" href="payment-list.php" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Payment</a>
             </div>
             <div class="pb-2">
-            <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid" alt="Mikaylah B. Chu" style="width: 45%; height: auto; border-color: blue;">
+            <img src="../images/<?php echo $row['image'] ?>" class="rounded-circle img-thumbnail img-fluid" alt="Patient Image" style="width: 45%; height: auto; border-color: #00ACB2; object-fit: cover;">
             </div>
-            <h5 class="card-title">Datu Batumbakal</h5>
-            <h6 class="card-subtitle mb-2 text-muted pb-3">#0001</h6>
+            <h5 class="card-title"><?php echo ucfirst($row['fname']) . " " . ucfirst($row['mname'][0]) . ". " . ucfirst($row['lname'])  ?></h5>
+            <h6 class="card-subtitle mb-2 text-muted pb-3">No. <?php echo $row['id'] ?></h6>
             <h6 class="card-subtitle mb-2 text-muted">Age</h6>
-            <p class="card-text">69 years old</p>
+            <p class="card-text"><?php echo date_diff(date_create($row['date_birth']), date_create('today'))->y; ?></p>
             <h6 class="card-subtitle mb-2 text-muted">Date of Birth</h6>
-            <p class="card-text">Dec 10, 1888</p>
-            <h6 class="card-subtitle mb-2 text-muted">Service</h6>
-            <p class="card-text">Caregiving</p>
+            <p class="card-text"><?php echo date("M j, Y", strtotime($row['date_birth'])) ?></p>
+            <h6 class="card-subtitle mb-2 text-muted">Status</h6>
+            <p class="card-text"><?php echo $row['status'] ?></p>
             <div class="d-grid mx-auto">
-            <a class="btn btn-primary" href="patient-details.php" role="button">Patient Details</a>
+            <a class="btn btn-secondary" href="patient-details.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Patient Details</a>
             </div>
         </div>
         </div>
         </div><!--End of col-->
-        <div class="col-12 col-lg-4 pt-3">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body rounded shadow">
-            <div class="d-grid justify-content-md-end pb-2">
-            <a class="btn btn-primary" href="payment-list.php" role="button">Payment</a>
-            </div>
-            <div class="pb-2">
-            <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid" alt="Mikaylah B. Chu" style="width: 45%; height: auto; border-color: blue;">
-            </div>
-            <h5 class="card-title">Datu Batumbakal</h5>
-            <h6 class="card-subtitle mb-2 text-muted pb-3">#0001</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Age</h6>
-            <p class="card-text">69 years old</p>
-            <h6 class="card-subtitle mb-2 text-muted">Date of Birth</h6>
-            <p class="card-text">Dec 10, 1888</p>
-            <h6 class="card-subtitle mb-2 text-muted">Service</h6>
-            <p class="card-text">Caregiving</p>
-            <div class="d-grid mx-auto">
-            <a class="btn btn-primary" href="patient-details.php" role="button">Patient Details</a>
-            </div>
-        </div>
-        </div>
-        </div><!--End of col-->
-        <div class="col-12 col-lg-4 pt-3">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body rounded shadow">
-            <div class="d-grid justify-content-md-end pb-2">
-            <a class="btn btn-primary" href="payment-list.php" role="button">Payment</a>
-            </div>
-            <div class="pb-2">
-            <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid" alt="Mikaylah B. Chu" style="width: 45%; height: auto; border-color: blue;">
-            </div>
-            <h5 class="card-title">Datu Batumbakal</h5>
-            <h6 class="card-subtitle mb-2 text-muted pb-3">#0001</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Age</h6>
-            <p class="card-text">69 years old</p>
-            <h6 class="card-subtitle mb-2 text-muted">Date of Birth</h6>
-            <p class="card-text">Dec 10, 1888</p>
-            <h6 class="card-subtitle mb-2 text-muted">Service</h6>
-            <p class="card-text">Caregiving</p>
-            <div class="d-grid mx-auto">
-            <a class="btn btn-primary" href="patient-details.php" role="button">Patient Details</a>
-            </div>
-        </div>
-        </div>
-        </div><!--End of col-->
-    </div> <!--End of row-->
-    <div class="row">
-        <div class="col-12 col-lg-4 pt-3">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body rounded shadow">
-            <div class="d-grid justify-content-md-end pb-2">
-            <a class="btn btn-primary" href="payment-list.php" role="button">Payment</a>
-            </div>
-            <div class="pb-2">
-            <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid" alt="Mikaylah B. Chu" style="width: 45%; height: auto; border-color: blue;">
-            </div>
-            <h5 class="card-title">Datu Batumbakal</h5>
-            <h6 class="card-subtitle mb-2 text-muted pb-3">#0001</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Age</h6>
-            <p class="card-text">69 years old</p>
-            <h6 class="card-subtitle mb-2 text-muted">Date of Birth</h6>
-            <p class="card-text">Dec 10, 1888</p>
-            <h6 class="card-subtitle mb-2 text-muted">Service</h6>
-            <p class="card-text">Caregiving</p>
-            <div class="d-grid mx-auto">
-            <a class="btn btn-primary" href="patient-details.php" role="button">Patient Details</a>
-            </div>
-        </div>
-        </div>
-        </div><!--End of col-->
-        <div class="col-12 col-lg-4 pt-3">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body rounded shadow">
-            <div class="d-grid justify-content-md-end pb-2">
-            <a class="btn btn-primary" href="payment-list.php" role="button">Payment</a>
-            </div>
-            <div class="pb-2">
-            <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid" alt="Mikaylah B. Chu" style="width: 45%; height: auto; border-color: blue;">
-            </div>
-            <h5 class="card-title">Datu Batumbakal</h5>
-            <h6 class="card-subtitle mb-2 text-muted pb-3">#0001</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Age</h6>
-            <p class="card-text">69 years old</p>
-            <h6 class="card-subtitle mb-2 text-muted">Date of Birth</h6>
-            <p class="card-text">Dec 10, 1888</p>
-            <h6 class="card-subtitle mb-2 text-muted">Service</h6>
-            <p class="card-text">Caregiving</p>
-            <div class="d-grid mx-auto">
-            <a class="btn btn-primary" href="patient-details.php" role="button">Patient Details</a>
-            </div>
-        </div>
-        </div>
-        </div><!--End of col-->
-        <div class="col-12 col-lg-4 pt-3">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body rounded shadow">
-            <div class="d-grid justify-content-md-end pb-2">
-            <a class="btn btn-primary" href="payment-list.php" role="button">Payment</a>
-            </div>
-            <div class="pb-2">
-            <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid" alt="Mikaylah B. Chu" style="width: 45%; height: auto; border-color: blue;">
-            </div>
-            <h5 class="card-title">Datu Batumbakal</h5>
-            <h6 class="card-subtitle mb-2 text-muted pb-3">#0001</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Age</h6>
-            <p class="card-text">69 years old</p>
-            <h6 class="card-subtitle mb-2 text-muted">Date of Birth</h6>
-            <p class="card-text">Dec 10, 1888</p>
-            <h6 class="card-subtitle mb-2 text-muted">Service</h6>
-            <p class="card-text">Caregiving</p>
-            <div class="d-grid mx-auto">
-            <a class="btn btn-primary" href="patient-details.php" role="button">Patient Details</a>
-            </div>
-        </div>
-        </div>
-        </div><!--End of col-->
+    <?php }?>
     </div> <!--End of row-->
 
 </div><!--End of container-->
+</div>
 
 <?php
 

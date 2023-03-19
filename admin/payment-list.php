@@ -11,21 +11,28 @@
   require_once '../includes/admin-sidebar.php';
 
 ?>
+<div class="content">
+
 <div class="container align-items-center pt-3">
-    <button class="btn btn-primary" type="button"><a class="text-white text-decoration-none" href="patient-list.php"> < Patient List </a></button>
+    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php" > < Patient List </a></button>
 
     <div class="col-12 col-lg-5 pt-4">
         <h2><strong>Payment History</strong></h2>
     </div>
 
     <div class="row pt-3">
-    <div class="col-12 col-lg-3 pb-3"><!--First of payment amount-->
+    <div class="col-12 col-lg-3 pb-3"><!--Patient Name-->
+    <label for="amount-payment">Patient</label>
+    <input class="form-control" type="text" name="amount-payment" id="amount-payment">
+    </div><!--End Patient Name-->
+
+    <div class="col-12 col-lg-2 pb-3"><!--First of payment amount-->
     <label for="amount-payment">Payment Amount</label>
-    <input class="form-control" type="number" name="amount-payment" id="amount-payment" placeholder="Input desired amount">
+    <input class="form-control" type="number" name="amount-payment" id="amount-payment" placeholder="Input Amount">
     </div><!--Last of payment amount-->
     
-    <div class="col-12 col-lg-3 pb-3"><!--First of Start date-->
-    <label for="due-date">Recommended Pay Date</label>
+    <div class="col-12 col-lg-2 pb-3"><!--First of Start date-->
+    <label for="due-date">Rec. Pay Date</label>
     <input class="form-control" type="date" value="due-date">
     </div><!--Last of Start date-->
 
@@ -36,7 +43,7 @@
     
     <div class="col-12 col-lg-3"><!--First of button-->
       <div class="pt-4">
-      <button type="button" class="btn btn-success">Submit</button> <!--Should put here the modal-->
+      <button type="button" class="btn btn-secondary" style="background: #00ACB2; border: #00ACB2; color: #fff;">Submit</button> <!--Should put here the modal-->
       </div>
     </div><!--End of button-->
     </div><!--End of row-->
@@ -45,11 +52,11 @@
     <table class="table table-striped table-hover table-bordered">
   <thead class="table-info">
     <tr>
-      <th scope="col" class="text-center">Month</th>
-      <th scope="col">Patient Name</th>
-      <th scope="col" class="text-center">Recommended Pay Date</th>
-      <th scope="col" class="text-center">Amount Due</th>
-      <th scope="col" class="text-center">Status</th>
+      <th style="background: #00ACB2; color: #fff;" scope="col" class="text-center">Month</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;" >Patient Name</th>
+      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Recommended Pay Date</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Amount Due</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -93,6 +100,7 @@
     </table>
     </div><!--End of table-->
 </div><!--End of container-->
+</div>
 
 <?php
 

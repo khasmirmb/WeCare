@@ -147,10 +147,12 @@ class Appointment{
     }
 
     function staff_assign_appointment($record_id){
-        $sql = "UPDATE appointment SET staff_id = :staff_id WHERE id = :id;";
+        $sql = "UPDATE appointment SET status = :status, staff_id = :staff_id, client_came = :client_came WHERE id = :id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $record_id);
         $query->bindParam(':staff_id', $this->staff_id);
+        $query->bindParam(':status', $this->status);
+        $query->bindParam(':client_came', $this->client_came);
         if($query->execute()){
             return true;
         }

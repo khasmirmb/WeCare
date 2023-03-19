@@ -15,6 +15,7 @@
     //if the above code is false then code and html below will be executed
     $admission = new Admission;
     $admission->staff_id = $_GET['assigned'];
+    $admission->status = "Accepted";
 
     if(isset($_GET['id'])){
         

@@ -127,10 +127,11 @@ class Admission{
     }
 
     function staff_assign_admission($record_id){
-        $sql = "UPDATE admission SET staff_id = :staff_id WHERE id = :id;";
+        $sql = "UPDATE admission SET status = :status, staff_id = :staff_id WHERE id = :id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $record_id);
         $query->bindParam(':staff_id', $this->staff_id);
+        $query->bindParam(':status', $this->status);
         if($query->execute()){
             return true;
         }

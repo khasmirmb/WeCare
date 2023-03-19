@@ -43,7 +43,7 @@
             $survey->inquire = $_POST['inquire'];
 
             // Check if the user uploaded Image
-            if(isset($_FILES['p_image']) && isset($_FILES['r_image'])){
+            if(isset($_FILES['p_image']) && isset($_FILES['r_image']) && validate_add_patient_info($_POST) && validate_add_relative_info($_POST) && validate_add_survey($_POST)){
                 // Create name for patient image and check file type
                 $p_img_name = $_FILES['p_image']['name'];
                 $p_img_type = $_FILES['p_image']['type'];

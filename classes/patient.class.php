@@ -26,6 +26,9 @@ class Patient{
     public $allergies;
     public $picture;
     public $patient_info_no;
+    public $status;
+    public $room;
+    public $staff_id;
 
      // protected property to store the database connection
      protected $db;
@@ -76,6 +79,49 @@ class Patient{
         $query->bindParam(':id', $record_id);
         if($query->execute()){
             $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function add_patient(){
+        // SQL statement to add patient
+        $sql = "INSERT INTO patient (staff_id, fname, mname, lname, suffix, date_birth, place_birth, gender, province, street, barangay, city, postal, background_history, doctors_diagnosis, allergies, image, status, room) VALUES 
+        (:staff_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :street, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :status, :room);";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':staff_id', $this->staff_id);
+        $query->bindParam(':firstname', $this->firstname);
+        $query->bindParam(':middlename', $this->middlename);
+        $query->bindParam(':lastname', $this->lastname);
+        $query->bindParam(':suffix', $this->suffix);
+        $query->bindParam(':date_of_birth', $this->date_of_birth);
+        $query->bindParam(':place_of_birth', $this->place_of_birth);
+        $query->bindParam(':gender', $this->gender);
+        $query->bindParam(':province', $this->province);
+        $query->bindParam(':street', $this->street);
+        $query->bindParam(':barangay', $this->barangay);
+        $query->bindParam(':city', $this->city);
+        $query->bindParam(':postal', $this->postal);
+        $query->bindParam(':background_history', $this->background_history);
+        $query->bindParam(':doctors_diagnosis', $this->doctors_diagnosis);
+        $query->bindParam(':allergies', $this->allergies);
+        $query->bindParam(':picture', $this->picture);
+        $query->bindParam(':status', $this->status);
+        $query->bindParam(':room', $this->room);
+        
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }	
+    }
+
+    function show_patient_data(){
+        $sql = "SELECT * FROM patient;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
         }
         return $data;
     }

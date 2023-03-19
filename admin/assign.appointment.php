@@ -15,6 +15,8 @@
     //if the above code is false then code and html below will be executed
     $appointment = new Appointment;
     $appointment->staff_id = $_GET['assigned'];
+    $appointment->status = "Accepted";
+    $appointment->client_came = "Pending";
 
     if(isset($_GET['id'])){
         
