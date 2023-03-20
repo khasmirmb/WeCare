@@ -143,7 +143,7 @@ class Monitoring{
     }
 
     function fetch_monitoring_medecine_patient($patient_id){
-        $sql = "SELECT monitoring_medecine.name AS medecine_name,
+        $sql = "SELECT monitoring_medecine.id, monitoring_medecine.name AS medecine_name,
         monitoring_medecine.dose AS medecine_dose,
         monitoring_medecine.status AS medecine_status,
         monitoring_medecine.note AS medecine_note,
@@ -158,7 +158,7 @@ class Monitoring{
     }
 
     function fetch_monitoring_nutrition_patient($patient_id){
-        $sql = "SELECT monitoring_nutrition.name AS nutrition_name,
+        $sql = "SELECT monitoring_nutrition.id, monitoring_nutrition.name AS nutrition_name,
         monitoring_nutrition.type AS nutrition_type,
         monitoring_nutrition.time AS nutrition_time,
         monitoring_nutrition.status AS nutrition_status,
@@ -186,7 +186,7 @@ class Monitoring{
     }
 
     function fetch_monitoring_hygiene_patient($patient_id){
-        $sql = "SELECT monitoring_hyiegne.name AS hyiegne_name,
+        $sql = "SELECT monitoring_hyiegne.id, monitoring_hyiegne.name AS hyiegne_name,
         monitoring_hyiegne.time AS hyiegne_time,
         monitoring_hyiegne.status AS hyiegne_status,
         monitoring_hyiegne.note AS hyiegne_note FROM monitoring_hyiegne

@@ -126,6 +126,27 @@ class Patient{
         return $data;
     }
 
+    function show_patient_staff($id){
+        $sql = "SELECT * FROM patient WHERE staff_id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function fetch_patient_info($record_id, $staff_id){
+        $sql = "SELECT * FROM patient WHERE id = :id AND staff_id = :staff_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        $query->bindParam(':staff_id', $staff_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
 
 }
 

@@ -2,11 +2,16 @@
 
     $page_title = 'WeCare Staff - Patient List';
     require_once '../includes/staff-header.php';
+    require_once '../classes/patient.class.php';
     session_start();
 
     if(!isset($_SESSION['staff_logged']) || $_SESSION['user_type'] != 'staff'){
       header('location: ../account/signin.php');
     }
+
+    $patient = new Patient;
+
+    $patient_list = $patient->show_patient_staff($_SESSION['staff_logged']);
 
     require_once '../includes/staff-sidebar.php';
 
@@ -52,10 +57,14 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?php foreach($patient_list as $row) {?>
                   <tr>
-                    <th scope="row" style="color: #666666;"><a href="../staff/patient-profile.php" class="patient-prof">Carl Bonifacio Sr</a></th>
-                    <td class="text-center">Room 2</td>
-                    <td class="text-center"><span class="label label-success">Discharged</span>
+                    <th scope="row" style="color: #666666;"><a href="../staff/patient-profile.php?id=<?php echo $row['id'] ?>" class="patient-prof"><?php echo ucfirst($row['fname']) . " " . ucfirst($row['mname'][0]) . ". " . ucfirst($row['lname']) ?></a></th>
+
+                    <td class="text-center"><?php echo $row['room'] ?></td>
+
+                    <td class="text-center"><span class="label label-success" style="border-color: #00ACB2;"><?php echo $row['status'] ?></span>
+
                     <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                     </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -63,33 +72,9 @@
                     <li><a class="dropdown-item" href="#">Reassigned Patient</a></li>
                     <li><a class="dropdown-item" href="#">Deceased</a></li>
                   </ul>
-                </div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row" style="color: #666666;"><a href="../staff/patient-profile.php" class="patient-prof">Sonya Frost</a></th>
-                    <td class="text-center">Room 1</td>
-                    <td class="text-center"><span class="label label-success">Discharged</span>
-                    <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                    </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Discharged</a></li>
-                    <li><a class="dropdown-item" href="#">Reassigned Patient</a></li>
-                    <li><a class="dropdown-item" href="#">Deceased</a></li>
-                  </ul>
-                </div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row" style="color: #666666;"><a href="../staff/patient-profile.php" class="patient-prof">Jena Gaines</a></th>
-                    <td class="text-center">Room 3</td>
-                    <td class="text-center"><span class="label label-success">Discharged</span>
-                    <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                    </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Discharged</a></li>
-                    <li><a class="dropdown-item" href="#">Reassigned Patient</a></li>
-                    <li><a class="dropdown-item" href="#">Deceased</a></li>
-                  </ul>
-                </div></td>
+                </td>
+                </tr>
+                <?php } ?>
                 </tbody>
               </table>
             </div>
@@ -99,6 +84,7 @@
     </div>
   </div>
 </section>
+</div>
 </div>
 
 <?php

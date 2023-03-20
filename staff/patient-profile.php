@@ -2,6 +2,11 @@
 
     $page_title = 'WeCare Staff - Patient Profile';
     require_once '../includes/staff-header.php';
+    require_once '../classes/monitoring.class.php';
+    require_once '../classes/patient.class.php';
+    require_once '../classes/medicine.class.php';
+    require_once '../classes/hyiegne.class.php';
+    require_once '../classes/nutrition.class.php';
     session_start();
 
     if(!isset($_SESSION['staff_logged']) || $_SESSION['user_type'] != 'staff'){
@@ -9,6 +14,72 @@
     }
     
     require_once '../includes/staff-sidebar.php';
+
+    $monitoring = new Monitoring;
+    $patient = new Patient;
+
+    if($patient->fetch_patient_info($_GET['id'], $_SESSION['staff_logged'])){
+
+        $p_data = $patient->fetch_patient_info($_GET['id'], $_SESSION['staff_logged']);
+
+        $patient->id = $p_data['id'];
+        $patient->firstname = $p_data['fname'];
+        $patient->lastname = $p_data['lname'];
+        $patient->middlename = $p_data['mname'];
+        $patient->suffix = $p_data['suffix'];
+        $patient->gender = $p_data['gender'];
+        $patient->date_of_birth = date_diff(date_create($p_data['date_birth']), date_create('today'))->y;
+        $patient->picture = $p_data['image'];
+        $patient->allergies = $p_data['allergies'];
+
+    }
+
+    if(isset($_POST['submit-med'])){
+
+        $medicine = new Medicine;
+
+        $medicine->patient_id = $patient->id;
+        $medicine->name = htmlentities($_POST['med-name']);
+        $medicine->dose = htmlentities($_POST['med-dose']);
+        $medicine->started_at = htmlentities($_POST['med-start']);
+        $medicine->status = htmlentities($_POST['med-status']);
+        $medicine->note = htmlentities($_POST['med-note']);
+
+        $medicine->add_medicine();
+
+
+    }
+
+    if(isset($_POST['submit-hy'])){
+
+        $hyiegne = new Hyiegne;
+
+        $hyiegne->patient_id = $patient->id;
+        $hyiegne->name = htmlentities($_POST['hy-name']);
+        $hyiegne->time = htmlentities($_POST['hy-time']);
+        $hyiegne->status = htmlentities($_POST['hy-status']);
+        $hyiegne->note = htmlentities($_POST['hy-note']);
+
+        $hyiegne->add_hyiegne();
+
+
+    }
+
+    if(isset($_POST['submit-nut'])){
+
+        $nutrition = new Nutrition;
+
+        $nutrition->patient_id = $patient->id;
+        $nutrition->name = htmlentities($_POST['nut-name']);
+        $nutrition->type = htmlentities($_POST['nut-type']);
+        $nutrition->time = htmlentities($_POST['nut-time']);
+        $nutrition->status = htmlentities($_POST['nut-status']);
+        $nutrition->note = htmlentities($_POST['nut-note']);
+
+        $nutrition->add_nutrition();
+
+
+    }
 
 ?>
 
@@ -21,13 +92,13 @@
     <div class=" container p-3 container-fluid" style="background: #00ACB2">
     <div class="row">
         <div class="col-4 pt-3">
-        <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka"><!--Image of the patient-->
+        <img src="../images/<?php echo $patient->picture ?>" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka"><!--Image of the patient-->
         </div>
         <div class="col-8 col-md-6 text-light">
-            <h1><strong>Carl Bonifacio Sr</strong></h1>
-            <h5>MALE - 75 years old</h5>
-            <h5 class="pt-3">Diseases:</h5>
-            <p>Pneumonia, High Blood, Diabetic</p>
+            <h1><strong><?php echo ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " " . ucfirst($patient->suffix) ?></strong></h1>
+            <h5><?php echo $patient->gender ?> - <?php echo $patient->date_of_birth ?> years old</h5>
+            <h5 class="pt-3">Allergies:</h5>
+            <p><?php echo $patient->allergies ?></p>
     </div>
     </div>    
     </div>
@@ -62,415 +133,13 @@
             </div>
     </div> <!--Done for the date, time, and health status-->
     
-    <div class="pt-3"><!--Starting of Medicine-->
-    <div class="container form-control p-0">
-        <h2 class="py-3 px-3 text-white" style="background: #00ACB2">Medicine</h2>
-        <div class="p-3 pt-0">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
-                <h6>Check</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
-                <h6 class="text-center">Time</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                <h6 class="text-center">Measurement</h6>
-            </div>
-            <hr class="divider">
-        </div>
-        <div class="row pt-2">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="medicine" name="medicine">
-            <label for="medicine">Biogesic</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-2">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="medicine" name="medicine">
-            <label for="medicine">Lasartan</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-            
-        </div>
-        <div class="d-grid gap-2 pt-3">
-        <button class="btn btn-primary" type="button" style="background: #00ACB2; border: none;"><i class="fa-solid fa-circle-plus"></i>Add more</button>
-        </div>
-    </div>
-    </div>
-    </div><!--Last of Medicine-->
+    <?php include_once 'patient-medicine.php' ?> <!-- Medicine For Patient --> 
 
-    <div class="pt-3"><!--Starting of Health-->
-    <div class="container form-control p-0">
-        <h2 class="py-3 px-3 text-white" style="background: #00ACB2;">Health</h2>
-        <div class="p-3 pt-0">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
-                <h6>Check</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
-                <h6 class="text-center">Time</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                <h6 class="text-center">Measurement</h6>
-            </div>
-            <hr class="divider">
-        </div>
-        <div class="row pt-2">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="medicine" name="medicine">
-            <label for="medicine">Check Blood Pressure</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="sugar" name="sugar">
-            <label for="sugar">Check Blood Sugar</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-            
-        </div>
-        <div class="d-grid gap-2 pt-3">
-        <button class="btn btn-primary" type="button" style="background: #00ACB2; border: none;"><i class="fa-solid fa-circle-plus"></i>Add more</button>
-        </div>
-    </div>
-    </div>
-    </div><!--Last of Health-->
-   
-    <div class="pt-3"><!--Starting of Nutrition-->
-    <div class="container form-control p-0">
-        <h2 class="py-3 px-3 text-white" style="background: #00ACB2;">Nutrition</h2>
-        <div class="p-3 pt-0">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
-                <h6>Check</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
-                <h6 class="text-center">Time</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-3">
-                <h6 class="text-center">Measurement</h6>
-            </div>
-            <hr class="divider">
-        </div>
-        <div class="row pt-2">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="breakfast" name="breakfast">
-            <label for="breakfast">Breakfast</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="am-snack" name="am-snack">
-            <label for="am-snack">A.M Snack</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="lunch" name="lunch">
-            <label for="lunch">Lunch</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="pm-snack" name="pm-snack">
-            <label for="pm-snack">P.M Snack</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="dinner" name="dinner">
-            <label for="dinner">Dinner</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="d-grid gap-2 pt-3">
-        <button class="btn btn-primary" type="button" style="background: #00ACB2; border: none;"><i class="fa-solid fa-circle-plus"></i>Add more</button>
-        </div>
-    </div>
-    </div>
-    </div><!--Last of Nutrition-->
 
-     <div class="pt-3"> <!--Starting of Hygiene-->
-     <div class="container form-control p-0">
-        <h2 class="py-3 px-3 text-white" style="background: #00ACB2;">Hygiene</h2>
-        <div class="p-3 pt-0">
-        <div class="row pt-2">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
-                <h6>Check</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-2">
-                <h6 class="text-center">Time</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                <h6 class="text-center">Measurement</h5>
-            </div>
-            <hr class="divider">
-        </div>
-        <div class="row pt-2">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="bath" name="bath">
-            <label for="bath">Take a bath</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="diapers" name="diapers">
-            <label for="diapers">Change Diapers</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="clothes" name="clothes">
-            <label for="clothes">Change Clothes</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="hair" name="hair">
-            <label for="hair">Combed Hair</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="teeth" name="teeth">
-            <label for="teeth">Brushed Teeth</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="d-grid gap-2 pt-3">
-        <button class="btn btn-primary" type="button" style="background: #00ACB2; border: none;"><i class="fa-solid fa-circle-plus"></i>Add more</button>
-        </div>
-    </div>
-    </div>
-    </div><!--Last of hygiene-->
+    <?php include_once 'patient-hyiegne.php' ?> <!-- Hyiegne For Patient --> 
 
-    <div class="pt-3"> <!--Starting of room cleaning-->
-     <div class="container form-control p-0">
-        <h2 class="py-3 px-3 text-white" style="background: #00ACB2;">Room Cleaning</h2>
-        <div class="p-3 pt-0">
-        <div class="row pt-2">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-3">
-                <h6>Check</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-2">
-                <h6 class="text-center">Time</h6>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
-                <h6 class="text-center">Measurement</h6>
-            </div>
-            <hr class="divider">
-        </div>
-        <div class="row pt-2">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="bedsheets" name="bedsheets">
-            <label for="bedsheets">Change bedsheets</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3">
-        <div class="col-lg-3 col-md-3 col-sm-4 pb-3">
-            <input type="checkbox" id="floors" name="floors">
-            <label for="floors">Clean Floors</label>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="time" class="form-control" id="time-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <input type="text" class="form-control" id="text-input">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-                <div class="btn-group" role="group">
-                <button type="button" class="patient-edit d-flex"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                <button type="button" class="patient-delete mx-2 d-flex"><i class="fa-solid fa-trash"></i><a class="text-white text-decoration-none" href="#">Delete</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="d-grid gap-2 pt-3">
-        <button class="btn btn-primary" type="button" style="background: #00ACB2; border: none;"><i class="fa-solid fa-circle-plus"></i>Add more</button> <!--This should be a pop out-->
-        </div>
-    </div>
-    </div>
-    </div><!--Last of room cleaning-->
 
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3 pb-5">
-    <button class="patient-reset-btn" type="button">Reset</button>
-    <button class="patient-save-btn" type="button">Save</button>
-    </div>
+    <?php include_once 'patient-nutrition.php' ?> <!-- Nutrition For Patient --> 
 
    
 </div> <!--Don't touch-->
@@ -487,10 +156,79 @@
     </div>
 </div>
 -->
-
-
+<div id="delete-dialog" class="dialog" title="Delete">
+    <p><span>Are you sure you want to delete the selected record?</span></p>
+</div>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("#delete-dialog").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $("#delete-hy").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#delete-dialog").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#delete-dialog").dialog("open");
+        });
+
+        $("#delete-med").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#delete-dialog").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#delete-dialog").dialog("open");
+        });
+
+        $("#delete-nut").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#delete-dialog").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#delete-dialog").dialog("open");
+        });
+    });
+</script>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+
 
 <?php
 
