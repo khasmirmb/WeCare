@@ -2,6 +2,11 @@
 
   $page_title = 'WeCare Admin - Payment Details';
   require_once '../includes/admin-header.php';
+  require_once '../classes/patient.class.php';
+  require_once '../classes/monitoring.class.php';
+  require_once '../classes/hyiegne.class.php';
+  require_once '../classes/medicine.class.php';
+  require_once '../classes/nutrition.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
@@ -9,6 +14,112 @@
   }
 
   require_once '../includes/admin-sidebar.php';
+
+  $patient = new Patient;
+  $monitoring = new Monitoring;
+
+  if($patient->fetch_patient_data($_GET['id'])){
+    // Data for the Patient
+    $p_data = $patient->fetch_patient_data($_GET['id']);
+    $patient->staff_id = $p_data['staff_id'];
+    $patient->id = $p_data['id'];
+    $patient->firstname = $p_data['fname'];
+    $patient->middlename = $p_data['mname'];
+    $patient->lastname = $p_data['lname'];
+    $patient->suffix = $p_data['suffix'];
+    $patient->picture = $p_data['image'];
+    $patient->date_of_birth = date_diff(date_create($p_data['date_birth']), date_create('today'))->y;
+    $patient->gender = $p_data['gender'];
+
+
+    // Data for Staff Assigned
+    if($monitoring->fetch_monitoring_staff_info($patient->staff_id)){
+        $staff = $monitoring->fetch_monitoring_staff_info($patient->staff_id);
+        $monitoring->s_fname = $staff['s_fname'];
+        $monitoring->s_mname = $staff['s_mname'];
+        $monitoring->s_lname = $staff['s_lname'];
+        $monitoring->s_email = $staff['s_email'];
+        $monitoring->s_phone = $staff['s_phone'];
+        $monitoring->s_image = $staff['s_image'];
+    }
+
+    // Data for Report List
+    $report_list = $monitoring->fetch_monitoring_records_patient($patient->id);
+
+    // Data for Medecine List
+    $medecine_list = $monitoring->fetch_monitoring_medecine_patient($patient->id);
+
+    // Data for Nutrition List
+    $nutrition_list = $monitoring->fetch_monitoring_nutrition_patient($patient->id);
+
+    // Data for Photo Update List
+    $photo_update_list = $monitoring->fetch_monitoring_photo_update_patient($patient->id);
+
+    // Data for Hyiegne List
+    $hyiegne_list = $monitoring->fetch_monitoring_hygiene_patient($patient->id);
+
+    // Data for Patient Details and Appointment
+    if($monitoring->fetch_monitoring_input_details_patient($patient->id)){
+        $input = $monitoring->fetch_monitoring_input_details_patient($patient->id);
+        $monitoring->health_status = $input['health_status'];
+        $monitoring->detail_bp = $input['detail_bp'];
+        $monitoring->detail_con1 = $input['detail_con1'];
+        $monitoring->detail_con2 = $input['detail_con2'];
+        $monitoring->detail_con3 = $input['detail_con3'];
+        $monitoring->detail_lastchecked = $input['detail_lastchecked'];
+        $monitoring->detail_datechecked = $input['detail_datechecked'];
+        $monitoring->detail_observation = $input['detail_observation'];
+        $monitoring->app_detail_time_start = $input['app_detail_time_start'];
+        $monitoring->app_detail_time_end = $input['app_detail_time_end'];
+        $monitoring->app_detail_date = $input['app_detail_date'];
+        $monitoring->app_detail_problem = $input['app_detail_problem'];
+
+    }
+
+    if(isset($_POST['submit-med'])){
+
+        $medicine = new Medicine;
+    
+        $medicine->patient_id = $patient->id;
+        $medicine->name = htmlentities($_POST['med-name']);
+        $medicine->dose = htmlentities($_POST['med-dose']);
+        $medicine->started_at = htmlentities($_POST['med-start']);
+        $medicine->status = htmlentities($_POST['med-status']);
+        $medicine->note = htmlentities($_POST['med-note']);
+    
+        $medicine->add_medicine();
+    }
+
+    if(isset($_POST['submit-hy'])){
+    
+        $hyiegne = new Hyiegne;
+    
+        $hyiegne->patient_id = $patient->id;
+        $hyiegne->name = htmlentities($_POST['hy-name']);
+        $hyiegne->time = htmlentities($_POST['hy-time']);
+        $hyiegne->status = htmlentities($_POST['hy-status']);
+        $hyiegne->note = htmlentities($_POST['hy-note']);
+    
+        $hyiegne->add_hyiegne();
+    }
+    
+    if(isset($_POST['submit-nut'])){
+    
+        $nutrition = new Nutrition;
+    
+        $nutrition->patient_id = $patient->id;
+        $nutrition->name = htmlentities($_POST['nut-name']);
+        $nutrition->type = htmlentities($_POST['nut-type']);
+        $nutrition->time = htmlentities($_POST['nut-time']);
+        $nutrition->status = htmlentities($_POST['nut-status']);
+        $nutrition->note = htmlentities($_POST['nut-note']);
+    
+        $nutrition->add_nutrition();
+    }
+
+
+  }
+
 
 ?>
 <div class="content">
@@ -19,7 +130,7 @@
     <div class="row">
     <div class="col pt-3 text-center">
     <div class="badge rounded-pill text-wrap py-4 px-4" style="background: #00ACB2;">
-        <h4 class="">Health Status: <strong>Very Good</strong></h4>
+        <h4 class="">Health Status: <strong><?php echo $monitoring->health_status ?></strong></h4>
     </div>
     </div>
     </div>
@@ -33,29 +144,29 @@
     <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
     <div class="row">
         <div class="col-12 col-lg-4 pb-3">
-        <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
+        <img src="../images/<?php echo $patient->picture ?>" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
         </div>
         <div class="col-12 col-lg-8">
         <div class="row">
-        <h4><strong>Datu J. Batumbakal</strong></h4>
-        <p class="pb-3">Male - 57 Years Old</p>
+        <h4><strong><?php echo $patient->firstname . " " . $patient->middlename[0] . ". " . $patient->lastname . " " . $patient->suffix ?></strong></h4>
+        <p class="pb-3"><?php echo $patient->gender ?> - <?php echo $patient->date_of_birth ?> Years Old</p>
         </div>
         <div class="row row-cols-2">
-            <div class="col">High BP</div>
-            <div class="col">Bedridden</div>
-            <div class="col pt-3">Fracture</div>
-            <div class="col pt-3 pb-3">Low Hearing</div>
+            <div class="col"><?php echo $monitoring->detail_bp ?></div>
+            <div class="col"><?php echo $monitoring->detail_con1 ?></div>
+            <div class="col pt-3"><?php echo $monitoring->detail_con2 ?></div>
+            <div class="col pt-3 pb-3"><?php echo $monitoring->detail_con3 ?></div>
         </div>
         <hr class="divider">
         </div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-4"><h5><strong>Last Check</strong></h4></div>
-            <div class="col-12 col-lg-8"><p>Dr. Eljen Mae Augusto on 23rd Dec 2020</p></div>
+            <div class="col-12 col-lg-8"><p><?php echo $monitoring->detail_lastchecked ?> on <?php echo date("M j, Y", strtotime($monitoring->detail_datechecked)) ?></p></div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-4"><h5><strong>Observation</strong></h5></div>
-            <div class="col-12 col-lg-8"><p>Complexities due to age. Remain tensed about his younger daughter who is addicted and does not have any stable job. Allergic to peanuts.</p></div>
+            <div class="col-12 col-lg-8"><p><?php echo $monitoring->detail_observation ?></p></div>
         </div>
         
 </div>
@@ -72,10 +183,13 @@
     </div>
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
             <h5><strong>Appointment</strong></h5>
-            <h6 class="bg-secondary text-white d-inline">5:00 PM - 6:00 PM</strong></h6>
-            <p class="text-black-50 pb-5">January 3, 2023</p> 
+            
+            <h6 class="bg-secondary text-white d-inline"><?php echo date("g:i A", strtotime($monitoring->app_detail_time_start)) ?> - <?php echo date("g:i A", strtotime($monitoring->app_detail_time_end)) ?></strong></h6>
+            
+            <p class="text-black-50 pb-5"><?php echo date("M j, Y", strtotime($monitoring->app_detail_date)) ?></p> 
+
             <h6><strong>Current Problem:</strong></h6>
-            <p class="bd-lead">Feeling pain in chest occasionally in the morning after waking up. No coughing but runny nose. no fever in last 3 weeks. Diarrhea for todays last week.</p>
+            <p class="bd-lead"><?php echo $monitoring->app_detail_problem ?></p>
         </div>
 </div>
 </div>
@@ -93,15 +207,15 @@
     <div class="row pb-3">
         <div class="col-12 col-lg-4">
              <h6 class="text-center mt-4 pt-3 pb-3"><strong>Nurse Assign</strong></h6>
-             <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid mx-auto d-block" alt="Mikaylah B. Chu" style="width: 30%; height: auto;">
-            <p class="text-center pt-3">Mikaylah B. Chu</p>
+             <img src="../images/<?php echo $monitoring->s_image ?>" class="rounded-circle img-thumbnail img-fluid mx-auto d-block" alt="Mikaylah B. Chu" style="width: 30%; height: auto;">
+             <p class="text-center pt-3"><?php echo $monitoring->s_fname . " " . $monitoring->s_mname[0] . ". " . $monitoring->s_lname ?></p>
             </div>
         <div class="col-12 col-lg-2">
             <div class="row pt-5">
                 <h7><strong>Contact Number</strong></h7>
             </div>
             <div class="row pt-2">
-                <p>0956342354</p>
+                <p><?php echo $monitoring->s_phone ?></p>
             </div>
         </div>
         <div class="col-12 col-lg-3">
@@ -109,7 +223,7 @@
                 <h7><strong>Email Address</strong></h7>
             </div>
             <div class="row pt-2">
-                <p>mikaylahchu@gmail.com</p>
+                <p><?php echo $monitoring->s_email ?></p>
             </div>
         </div>
         <div class="col-12 col-lg-2">
@@ -130,63 +244,9 @@
         </div>    
         </div>
         </div>
+    
 
-
-<!--Table medicine-->
-<div class="row">
-<div class="col-12 col-lg-8 p-3">
-    <h4 class="pb-3"><strong>Medicine</strong></h4>
-    <div class="table-responsive">
-    <table class="table table-hover table-striped table-bordered">
-    <thead class="table-info ">
-        <tr>
-        <th scope="col" style="background: #00ACB2; border: #00ACB2; color: #fff;">Name</th>
-        <th cope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Dose</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Started at</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Status</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Note</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td>Ethatin x 40mg</td>
-        <td class="text-center">1-0-1</td>
-        <td class="text-center">12 Dec 2022</td>
-        <td class="text-center">On</td>
-        <td class="text-center">Works Fine</td>
-       </tr>
-        <tr>
-        <td>Ethatin x 40mg</td>
-        <td class="text-center">1-0-1</td>
-        <td class="text-center">12 Dec 2022</td>
-        <td class="text-center">On</td>
-        <td class="text-center">Works Fine</td>
-        </tr>
-        <tr>
-        <td>Ethatin x 40mg</td>
-        <td class="text-center">1-0-1</td>
-        <td class="text-center">12 Dec 2022</td>
-        <td class="text-center">On</td>
-        <td class="text-center">Works Fine</td>
-        </tr>
-        <tr>
-        <td>Ethatin x 40mg</td>
-        <td class="text-center">1-0-1</td>
-        <td class="text-center">12 Dec 2022</td>
-        <td class="text-center">On</td>
-        <td class="text-center">Works Fine</td>
-        </tr>
-        <tr>
-        <td>Ethatin x 40mg</td>
-        <td class="text-center">1-0-1</td>
-        <td class="text-center">12 Dec 2022</td>
-        <td class="text-center">On</td>
-        <td class="text-center">Works Fine</td>
-        </tr>
-    </tbody>
-</table>
-</div>
-</div>
+    <?php include_once 'patient-medicine.php' ?> <!-- Medicine For Patient --> 
 
 
     <div class="col-12 col-lg-4 pt-3">
@@ -195,94 +255,28 @@
         </div>
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
         <h4 class="pb-3"><strong>Reports</strong></h4>
+        <?php foreach($report_list as $report){ ?>
             <div class="row">
+
                 <div class="col-8 col-lg-8">
                     <!--Blood Image-->
-                    <h6><strong>Complete blood count</strong></h6>
-                    <p class="text-black-50">Dec 19, 2022</p>
+                    <h6><strong><?php echo $report['report_type'] ?></strong></h6>
+                    <p class="text-black-50"><?php echo date("M j, Y", strtotime($report['report_date'])) ?></p>
                 </div>
+    
                 <div class="col-4 col-lg-4">
                     <!--Eye image-->
                 </div>
             </div>
-            <div class="row">
-                <div class="col-8 col-lg-8">
-                    <!--Electrict image-->
-                    <h6><strong>Electrocardiography</strong></h6>
-                    <p class="text-black-50">Dec 19, 2022</p>
-                </div>
-                <div class="col-4 col-lg-4">
-                    <!--Eye image-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 col-lg-8">
-                    <!--x-ray image-->
-                    <h6><strong>X-Ray</strong></h6>
-                    <p class="text-black-50">Dec 19, 2022</p>
-                </div>
-                <div class="col-4 col-lg-4">
-                    <!--Eye image-->
-                </div>
-            </div>
+
+        <?php } ?>
             
     </div>
     </div>
     
-<!--Table Nutrition-->
-<div class="col-12 col-lg-8 p-3">
-    <h4 class="pb-3"><strong>Nutrition</strong></h4>
-    <div class="table-responsive">
-    <table class="table table-hover table-striped table-bordered">
-    <thead class="table-info ">
-        <tr>
-        <th scope="col" style="background: #00ACB2; border: #00ACB2; color: #fff;">Name</th>
-        <th cope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Type</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Time</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Status</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Note</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td>Breakfast</td>
-        <td class="text-center">Light</td>
-        <td class="text-center">07:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">Left Overs</td>
-       </tr>
-        <tr>
-        <td>A.M Snack</td>
-        <td class="text-center">Light</td>
-        <td class="text-center">10:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">No Left Overs</td>
-        </tr>
-        <tr>
-        <td>Lunch</td>
-        <td class="text-center">Light</td>
-        <td class="text-center">12:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">Left Overs</td>
-       </tr>
-        <tr>
-        <td>P.M Snack</td>
-        <td class="text-center">Light</td>
-        <td class="text-center">4:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">Left Overs</td>
-        </tr>
-        <tr>
-        <td>Dinner</td>
-        <td class="text-center">Light</td>
-        <td class="text-center">8:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">Left Overs</td>
-       </tr>
-    </tbody>
-</table>
-</div>
-</div>
+
+    <?php include_once 'patient-nutrition.php' ?> <!-- Nutrition For Patient --> 
+
 
 
     <div class="col-12 col-lg-4 pt-3">
@@ -291,78 +285,25 @@
     </div>
     <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
         <h4 class="pb-3"><strong>Photo Update</strong></h4>
+        <?php foreach($photo_update_list as $photo){ ?>
         <div class="row">
                 <div class="col-8">
-                <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
+                <img src="../images/<?php echo $photo['photo_image'] ?>" class="rounded float-start img-thumbnail img-fluid" alt="Patient Image">
                     <!--Image-->
                 </div>
                 <div class="col-4">
+                <p><strong><?php echo $photo['photo_title'] ?></strong></p>
                     <!--Eye Image-->
                 </div>
-         </div>
-         <div class="row">
-                <div class="col-8 pt-3">
-                <img src="../images/download.jpg" class="rounded float-start img-thumbnail img-fluid" alt="Datu J. Batumbaka">
-                    <!--Image-->
-                </div>
-                <div class="col-4">
-                    <!--Eye Image-->
-                </div>
-         </div>
+        </div>
+        <?php } ?>
     </div>
     </div>
     </div>
 
-<!--Table Hygiene-->
-<div class="col-12 col-lg-8 p-3">
-<div class="row">
-    <h4 class="pb-3"><strong>Hygiene</strong></h4>
-    <div class="table-responsive">
-    <table class="table table-hover table-striped table-bordered">
-    <thead class="table-info ">
-        <tr>
-        <th scope="col" style="background: #00ACB2; border: #00ACB2; color: #fff;">Name</th>
-        <th cope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Time</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Status</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Note</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <td>Take a Bath</td>
-        <td class="text-center">07:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">None</td>
-       </tr>
-        <tr>
-        <td>Brush Teeth</td>
-        <td class="text-center">10:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">None</td>
-        </tr>
-        <tr>
-        <td>Change Diaper</td>
-        <td class="text-center">12:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">None</td>
-       </tr>
-        <tr>
-        <td>Brush Teeth</td>
-        <td class="text-center">4:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">None</td>
-        </tr>
-        <tr>
-        <td>Take a Bath</td>
-        <td class="text-center">8:30 AM</td>
-        <td class="text-center">Done</td>
-        <td class="text-center">None</td>
-       </tr>
-    </tbody>
-</table>
-</div>
-</div>
-</div>
+
+    <?php include_once 'patient-hyiegne.php' ?> <!-- Hyiegne For Patient --> 
+
 
 <div class="col-12 col-lg-8 pb-2">
     <h4><strong>Relatives</strong></h4>
@@ -405,6 +346,12 @@
     </div>
 
 </div><!--Don't touch-->
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 
 <?php
 

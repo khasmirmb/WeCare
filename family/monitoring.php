@@ -16,6 +16,7 @@
 </div>
 
 <div class="new-admission d-flex me-5 justify-content-end">
+    <a type="button" class="btn btn-secondary me-3" id="action-cancel" href="request-list.php" style="background: #00ACB2; border: #00ACB2; color: #fff;">Request List</a>
     <a type="button" class="btn btn-secondary" id="action-cancel" href="request.php" style="background: #00ACB2; border: #00ACB2; color: #fff;">Request Monitoring</a>
 </div>
 
@@ -25,9 +26,7 @@
 
           $monitoring = new Monitoring;
 
-          $relative_id = isset($_SESSION['relative_id']);
-
-          $monitoring_list = $monitoring->get_relative_monitoring($_SESSION['logged_id'], $relative_id);
+          $monitoring_list = $monitoring->get_relative_monitoring($_SESSION['logged_id']);
 
         ?>
 <table class="table table-hover table-striped table-bordered">
@@ -44,7 +43,7 @@
     <tbody>
     <?php foreach($monitoring_list as $row){ ?>
         <tr>
-        <td><?php echo $row['fname'] . " " . $row['mname'][0] . ". ". $row['lname'] ?></td>
+        <td><?php echo ucfirst($row['fname']) . " " . ucfirst($row['mname'][0]) . ". ". ucfirst($row['lname']) ?></td>
 
         <td class="text-center"><?php echo $row['relationship'] ?></td>
 

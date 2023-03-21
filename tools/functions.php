@@ -6,7 +6,7 @@ function validate_first_name($POST){
     }else if(strlen(trim($POST['firstname']))<1){
         return false;
     }
-    else if(strlen(trim($POST['firstname'])) > 1  && strlen(trim($$POST['firstname'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['firstname'])){
+    else if(!preg_match("/^[a-zA-z]*$/", $POST['firstname'])){
         return false;
     }
     return true;
@@ -18,7 +18,7 @@ function validate_middlename_name($POST){
     }else if(strlen(trim($POST['middlename']))<1){
         return false;
     }
-    else if(strlen(trim($POST['middlename'])) > 1  && strlen(trim($$POST['middlename'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['middlename'])){
+    else if(!preg_match("/^[a-zA-z]*$/", $POST['middlename'])){
         return false;
     }
     return true;
@@ -31,7 +31,7 @@ function validate_last_name($POST){
     }else if(strlen(trim($POST['lastname']))<1){
         return false;
     }
-    if(strlen(trim($POST['lastname'])) > 1  && strlen(trim($$POST['lastname'])) < 255 && !preg_match("/^[a-zA-z]*$/", $POST['lastname'])){
+    if(!preg_match("/^[a-zA-z]*$/", $POST['lastname'])){
         return false;
     }
     return true;

@@ -32,6 +32,7 @@ class Monitoring{
     public $room;
     public $relationship;
     public $image;
+    public $input_id;
     // Moitoring Inputs
     public $health_status;
     public $detail_bp;
@@ -62,14 +63,13 @@ class Monitoring{
         $this->db = new Database();
     }
 
-    function get_relative_monitoring($relative_id, $user_id){
+    function get_relative_monitoring($user_id){
         $sql = "SELECT monitoring.id, patient.fname, patient.mname, patient.lname, relative.relationship, staff.firstname, staff.middlename, staff.lastname, patient.status, patient.room FROM monitoring
         INNER JOIN patient ON monitoring.patient_id = patient.id
         INNER JOIN relative ON monitoring.relative_id = relative.id
         INNER JOIN staff ON monitoring.staff_id = staff.id 
-        WHERE relative.id = :id AND relative.user_id = :user_id;";
+        WHERE relative.user_id = :user_id;";
         $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':id', $relative_id);
         $query->bindParam(':user_id', $user_id);
         if($query->execute()){
             $data = $query->fetchAll();
@@ -213,6 +213,25 @@ class Monitoring{
             $data = $query->fetch();
         }
         return $data;
+    }
+
+    function add_monitoring(){
+
+        $sql = "INSERT INTO monitoring (patient_id, relative_id, staff_id, input_id) VALUES 
+        (:patient_id, :relative_id, :staff_id, :input_id);";
+    
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $this->patient_id);
+        $query->bindParam(':relative_id', $this->relative_id);
+        $query->bindParam(':staff_id', $this->staff_id);
+        $query->bindParam(':input_id', $this->input_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+            
     }
 
 }

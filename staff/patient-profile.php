@@ -172,7 +172,7 @@
             modal: true,
             autoOpen: false
         });
-        $("#delete-hy").on('click', function(e) {
+        $(".patient-delete").on('click', function(e) {
             e.preventDefault();
             var theHREF = $(this).attr("href");
 
@@ -188,37 +188,6 @@
             $("#delete-dialog").dialog("open");
         });
 
-        $("#delete-med").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#delete-dialog").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#delete-dialog").dialog("open");
-        });
-
-        $("#delete-nut").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#delete-dialog").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#delete-dialog").dialog("open");
-        });
     });
 </script>
 

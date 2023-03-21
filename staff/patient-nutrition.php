@@ -30,7 +30,7 @@
         <td class="text-center">
                 <div class="btn-group" role="group">
                     <button type="button" class="patient-edit d-flex justify-content-center"><i class="fa-solid fa-pen"></i><a class="text-decoration-none" style="color: #00ACB2;" href="#">Edit</a></button>
-                    <a type="button" id="delete-nut" class="patient-delete mx-2 d-flex justify-content-center text-white text-decoration-none" href="../staff/delete-nutrition.php?id=<?php echo $nut['id'] ?>&patient_id=<?php echo $patient->id ?>"><i class="fa-solid fa-trash"></i>Delete</a>
+                    <a type="button" class="patient-delete mx-2 d-flex justify-content-center text-white text-decoration-none" href="../staff/delete-nutrition.php?id=<?php echo $nut['id'] ?>&patient_id=<?php echo $patient->id ?>"><i class="fa-solid fa-trash"></i>Delete</a>
                 </div>
         </td>
         </tr>

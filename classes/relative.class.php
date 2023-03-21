@@ -27,6 +27,8 @@ class Relative{
     public $email;
     public $picture;
     public $relative_info_no;
+    public $patient_id;
+    public $proof;
 
      // protected property to store the database connection
      protected $db;
@@ -91,6 +93,97 @@ class Relative{
         }
         return $data;
     }
+
+    function show_relative_request(){
+        $sql = "SELECT relative.id,
+        relative.user_id,
+        relative.relationship,
+        relative.proof,
+        relative.patient_fname,
+        relative.patient_mname,
+        relative.patient_lname,
+        relative.patient_suffix,
+        relative.patient_id,
+        users.fname,
+        users.mname,
+        users.lname
+        FROM relative INNER JOIN users ON relative.user_id = users.id WHERE relative.patient_id = 0;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function show_relative_request_by_user($user_id){
+        $sql = "SELECT relative.id,
+        relative.user_id,
+        relative.relationship,
+        relative.proof,
+        relative.patient_fname,
+        relative.patient_mname,
+        relative.patient_lname,
+        relative.patient_suffix,
+        relative.patient_id,
+        users.fname,
+        users.mname,
+        users.lname
+        FROM relative INNER JOIN users ON relative.user_id = users.id WHERE relative.patient_id = 0 AND user_id = :user_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function delete_relative_request($record_id){
+        $sql = "DELETE FROM relative WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function add_relative_request(){
+
+        $sql = "INSERT INTO relative (user_id, relationship, proof, patient_fname, patient_mname, patient_lname, patient_suffix, patient_id) VALUES 
+        (:user_id, :relationship, :proof, :patient_fname, :patient_mname, :patient_lname, :patient_suffix, :patient_id);";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $this->user_id);
+        $query->bindParam(':relationship', $this->relationship);
+        $query->bindParam(':proof', $this->proof);
+        $query->bindParam(':patient_fname', $this->firstname);
+        $query->bindParam(':patient_lname', $this->lastname);
+        $query->bindParam(':patient_mname', $this->middlename);
+        $query->bindParam(':patient_suffix', $this->suffix);
+        $query->bindParam(':patient_id', $this->patient_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }	
+    }
+
+    function admin_accept_request($record_id){
+        $sql = "UPDATE relative SET patient_id = :patient_id WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        $query->bindParam(':patient_id', $this->patient_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
 
