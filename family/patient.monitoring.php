@@ -53,8 +53,8 @@
 
 
         // Data for Patient Details and Appointment
-        if($monitoring->fetch_monitoring_input_details_patient($monitoring->patient_id)){
-            $input = $monitoring->fetch_monitoring_input_details_patient($monitoring->patient_id);
+        if($monitoring->fetch_monitoring_details($monitoring->patient_id) && $monitoring->fetch_monitoring_app_details($monitoring->patient_id)){
+            $input = $monitoring->fetch_monitoring_details($monitoring->patient_id);
             $monitoring->health_status = $input['health_status'];
             $monitoring->detail_bp = $input['detail_bp'];
             $monitoring->detail_con1 = $input['detail_con1'];
@@ -63,11 +63,13 @@
             $monitoring->detail_lastchecked = $input['detail_lastchecked'];
             $monitoring->detail_datechecked = $input['detail_datechecked'];
             $monitoring->detail_observation = $input['detail_observation'];
-            $monitoring->app_detail_time_start = $input['app_detail_time_start'];
-            $monitoring->app_detail_time_end = $input['app_detail_time_end'];
-            $monitoring->app_detail_date = $input['app_detail_date'];
-            $monitoring->app_detail_problem = $input['app_detail_problem'];
 
+            $input2 = $monitoring->fetch_monitoring_app_details($monitoring->patient_id);
+            $monitoring->app_detail_time_start = $input2['app_detail_time_start'];
+            $monitoring->app_detail_time_end = $input2['app_detail_time_end'];
+            $monitoring->app_detail_date = $input2['app_detail_date'];
+            $monitoring->app_detail_problem = $input2['app_detail_problem'];
+    
         }
     }
 
@@ -82,7 +84,7 @@
     <div class="row">
     <div class="col pt-3 text-center">
     <div class="badge rounded-pill text-wrap py-4 px-4" style="background: #00ACB2;">
-        <h4 class="">Health Status: <strong><?php echo $monitoring->health_status ?></strong></h4>
+        <h4 class="">Health Status: <strong><?php if(!empty($monitoring->health_status)){ echo $monitoring->health_status; } else{ echo "No Data"; } ?></strong></h4>
     </div>
     </div>
     </div>
@@ -101,21 +103,23 @@
         <p class="pb-3"><?php echo $monitoring->gender ?> - <?php echo $monitoring->date_of_birth ?> Years Old</p>
         </div>
         <div class="row row-cols-2">
-            <div class="col"><?php echo $monitoring->detail_bp ?></div>
-            <div class="col"><?php echo $monitoring->detail_con1 ?></div>
-            <div class="col pt-3"><?php echo $monitoring->detail_con2 ?></div>
-            <div class="col pt-3 pb-3"><?php echo $monitoring->detail_con3 ?></div>
+            <div class="col"><?php if(!empty($monitoring->detail_bp)){ echo $monitoring->detail_bp; } else{ echo "Currently No Data"; } ?></div>
+            <div class="col"><?php if(!empty($monitoring->detail_con1)){ echo $monitoring->detail_con1; } else{ echo "Currently No Data"; } ?></div>
+            <div class="col pt-3"><?php if(!empty($monitoring->detail_con2)){ echo $monitoring->detail_con2; } else{ echo "Currently No Data"; } ?></div>
+            <div class="col pt-3 pb-3"><?php if(!empty($monitoring->detail_con3)){ echo $monitoring->detail_con3; } else{ echo "Currently No Data"; } ?></div>
         </div>
         <hr class="divider">
         </div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-4"><h5><strong>Last Check</strong></h4></div>
-            <div class="col-12 col-lg-8"><p><?php echo $monitoring->detail_lastchecked ?> on <?php echo date("M j, Y", strtotime($monitoring->detail_datechecked)) ?></p></div>
+            <div class="col-12 col-lg-8"><p>
+            <?php if(!empty($monitoring->detail_lastchecked) && !empty($monitoring->detail_datechecked)){ echo $monitoring->detail_lastchecked;  ?>
+             on <?php echo date("M j, Y", strtotime($monitoring->detail_datechecked)); } else{ echo "Currently No Data"; } ?></p></div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-4"><h5><strong>Observation</strong></h5></div>
-            <div class="col-12 col-lg-8"><p><?php echo $monitoring->detail_observation ?></p></div>
+            <div class="col-12 col-lg-8"><p><?php if(!empty($monitoring->detail_observation)){ echo $monitoring->detail_observation; } else{ echo "Currently No Data"; } ?></p></div>
         </div>
         
 </div>
@@ -130,12 +134,13 @@
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
             <h5><strong>Appointment</strong></h5>
 
-            <h6 class="bg-secondary text-white d-inline"><?php echo date("g:i A", strtotime($monitoring->app_detail_time_start)) ?> - <?php echo date("g:i A", strtotime($monitoring->app_detail_time_end)) ?></strong></h6>
+            <h6 class="bg-secondary text-white d-inline">
+            <?php if(!empty($monitoring->app_detail_time_start) && !empty($monitoring->app_detail_time_end)){ echo date("g:i A", strtotime($monitoring->app_detail_time_start)); ?> - <?php echo date("g:i A", strtotime($monitoring->app_detail_time_end)); } else{ echo "Currently No Data"; }?></strong></h6>
 
-            <p class="text-black-50 pb-5"><?php echo date("M j, Y", strtotime($monitoring->app_detail_date)) ?></p> 
+            <p class="text-black-50 pb-5"><?php if(!empty($monitoring->app_detail_date)){ echo date("M j, Y", strtotime($monitoring->app_detail_date)); } else{ echo "Currently No Data"; } ?></p> 
 
             <h6><strong>Current Problem:</strong></h6>
-            <p class="bd-lead"><?php echo $monitoring->app_detail_problem ?></p>
+            <p class="bd-lead"><?php if(!empty($monitoring->app_detail_problem)){ echo $monitoring->app_detail_problem; } else{ echo "Currently No Data"; } ?></p>
         </div>
       
         

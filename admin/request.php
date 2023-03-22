@@ -79,9 +79,9 @@
         <td>
         <div class="d-flex gap-2 justify-content-center">
 
-          <a class="btn btn-outline-danger">Reject</a> <!--Should put here the modal-->
+          <a class="req-reject btn btn-outline-danger" href="reject-request.php?id=<?php echo $row['id'] ?>">Reject</a> <!--Should put here the modal-->
 
-          <button class="btn btn-success">Approve</button><!--Should put here the modal-->
+          <button class="req-approve btn btn-success">Approve</button><!--Should put here the modal-->
 
         </div>
         </td>
@@ -93,6 +93,70 @@
     </div><!--End of table-->
 </div>
 </div>
+
+<div id="reject-req" class="dialog" title="Reject Request">
+    <p><span>Are you sure you want to reject this request?</span></p>
+</div>
+
+<div id="accept-req" class="dialog" title="Approve Request">
+    <p><span>Are you sure you want to approve this request?</span></p>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#accept-req").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".req-approve").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#accept-req").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#accept-req").dialog("open");
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#reject-req").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".req-reject").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#reject-req").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#reject-req").dialog("open");
+        });
+    });
+</script>
 
 <?php
 

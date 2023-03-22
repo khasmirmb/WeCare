@@ -32,9 +32,9 @@ class Monitoring{
     public $room;
     public $relationship;
     public $image;
-    public $input_id;
-    // Moitoring Inputs
+    // Details Data
     public $health_status;
+    public $detail_id;
     public $detail_bp;
     public $detail_con1;
     public $detail_con2;
@@ -42,6 +42,8 @@ class Monitoring{
     public $detail_lastchecked;
     public $detail_datechecked;
     public $detail_observation;
+    // App Details Data
+    public $app_detail_id;
     public $app_detail_time_start;
     public $app_detail_time_end;
     public $app_detail_date;
@@ -91,7 +93,6 @@ class Monitoring{
         staff.id AS s_id,
         patient.status, 
         patient.room FROM monitoring
-        INNER JOIN monitoring_input ON monitoring.input_id = monitoring_input.id
         INNER JOIN patient ON monitoring.patient_id = patient.id
         INNER JOIN relative ON monitoring.relative_id = relative.id
         INNER JOIN staff ON monitoring.staff_id = staff.id 
@@ -104,23 +105,32 @@ class Monitoring{
         return $data;
     }
 
-    function fetch_monitoring_input_details_patient($patient_id){
-        $sql = "SELECT monitoring_input.id,
-        monitoring_input.health_status,
+    function fetch_monitoring_details($patient_id){
+        $sql = "SELECT monitoring_detail.id AS detail_id,
+        monitoring_detail.health_status,
         monitoring_detail.blood_pressure AS detail_bp,
         monitoring_detail.condition_1 AS detail_con1,
         monitoring_detail.condition_2 AS detail_con2,
         monitoring_detail.condition_3 AS detail_con3,
         monitoring_detail.last_checked AS detail_lastchecked,
         monitoring_detail.checked_date AS detail_datechecked,
-        monitoring_detail.observation AS detail_observation,
+        monitoring_detail.observation AS detail_observation FROM monitoring_detail
+        WHERE monitoring_detail.patient_id = :id ;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $patient_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function fetch_monitoring_app_details($patient_id){
+        $sql = "SELECT monitoring_app_detail.id AS app_detail_id,
         monitoring_app_detail.time_start AS app_detail_time_start,
         monitoring_app_detail.time_end AS app_detail_time_end,
         monitoring_app_detail.date AS app_detail_date,
-        monitoring_app_detail.current_problem AS app_detail_problem FROM monitoring_input
-        INNER JOIN monitoring_detail ON monitoring_input.detail_id = monitoring_detail.id
-        INNER JOIN monitoring_app_detail ON monitoring_input.app_detail_id = monitoring_app_detail.id
-        WHERE monitoring_input.patient_id = :id AND monitoring_detail.patient_id = :id AND monitoring_app_detail.patient_id = :id;";
+        monitoring_app_detail.current_problem AS app_detail_problem FROM monitoring_app_detail
+        WHERE monitoring_app_detail.patient_id = :id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $patient_id);
         if($query->execute()){
@@ -215,16 +225,21 @@ class Monitoring{
         return $data;
     }
 
-    function add_monitoring(){
+    function add_monitoring_details(){
 
-        $sql = "INSERT INTO monitoring (patient_id, relative_id, staff_id, input_id) VALUES 
-        (:patient_id, :relative_id, :staff_id, :input_id);";
+        $sql = "INSERT INTO monitoring_detail (patient_id, health_status, blood_pressure, condition_1, condition_2, condition_3, last_checked, checked_date, observation) VALUES 
+        (:patient_id, :health_status, :blood_pressure, :condition_1, :condition_2, :condition_3, :last_checked, :checked_date, :observation);";
     
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':patient_id', $this->patient_id);
-        $query->bindParam(':relative_id', $this->relative_id);
-        $query->bindParam(':staff_id', $this->staff_id);
-        $query->bindParam(':input_id', $this->input_id);
+        $query->bindParam(':health_status', $this->health_status);
+        $query->bindParam(':blood_pressure', $this->detail_bp);
+        $query->bindParam(':condition_1', $this->detail_con1);
+        $query->bindParam(':condition_2', $this->detail_con2);
+        $query->bindParam(':condition_3', $this->detail_con3);
+        $query->bindParam(':last_checked', $this->detail_lastchecked);
+        $query->bindParam(':checked_date', $this->detail_datechecked);
+        $query->bindParam(':observation', $this->detail_observation);
         if($query->execute()){
             return true;
         }
@@ -233,6 +248,46 @@ class Monitoring{
         }
             
     }
+
+    function add_monitoring_appointment_details(){
+
+        $sql = "INSERT INTO monitoring_app_detail (patient_id, time_start, time_end, date, current_problem) VALUES 
+        (:patient_id, :time_start, :time_end, :date, :current_problem);";
+    
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $this->patient_id);
+        $query->bindParam(':time_start', $this->app_detail_time_start);
+        $query->bindParam(':time_end', $this->app_detail_time_end);
+        $query->bindParam(':date', $this->app_detail_date);
+        $query->bindParam(':current_problem', $this->app_detail_problem);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+            
+    }
+
+
+    function add_monitoring(){
+
+        $sql = "INSERT INTO monitoring (patient_id, relative_id, staff_id) VALUES 
+        (:patient_id, :relative_id, :staff_id);";
+    
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $this->patient_id);
+        $query->bindParam(':relative_id', $this->relative_id);
+        $query->bindParam(':staff_id', $this->staff_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+            
+    }
+
 
 }
 

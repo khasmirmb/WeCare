@@ -32,7 +32,6 @@
             $monitoring->patient_id = $_GET['patient'];
             $monitoring->relative_id = $_GET['id'];
             $monitoring->staff_id = $patient->staff_id;
-            $monitoring->input_id = 0;
 
             if($relative->admin_accept_request($_GET['id']) && $monitoring->add_monitoring()){
                 //redirect user to program page after saving
