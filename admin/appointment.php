@@ -101,7 +101,7 @@
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
         <td>
         <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Delete</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
         <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
         </div>
       </td>
@@ -116,6 +116,27 @@
 
 </div><!--End of Card-->
 </div><!--End of Container-->
+
+ <!-- Delete Modal -->
+ <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="del-modal-header">
+      <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      </div>
+      <div class="del-modal-body">
+				<p>Do you really want to delete? This process cannot be undone.</p>
+			</div>
+      <div class="del-modal-footer">
+        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="del-btn">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 
