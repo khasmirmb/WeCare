@@ -92,12 +92,31 @@
     </div><!--Last of the container form-control-->
     </div> <!--Last of the div-->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3 pb-3"><!--Starting of buttons-->
-  <button class="btn btn-danger me-md-2" type="button">Clear Data</button> <!--Should have modal-->
+  <button class="btn btn-danger me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#clearModal">Clear Data</button> <!--Should have modal-->
   <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Add User</button> <!--Should have modal-->
 </div><!--End of buttons-->
     </div><!--End of first container-->
 
-
+  <!-- Clear Modal -->
+  <div class="modal fade" id="clearModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="del-modal-header">
+      <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      </div>
+      <div class="del-modal-body">
+				<p>Do you really want to clear the data? This process cannot be undone.</p>
+			</div>
+      <div class="del-modal-footer">
+        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="del-btn">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
