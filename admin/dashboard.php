@@ -15,6 +15,9 @@
 
 <div class="content">
 
+<!-- <h1>test</h1> -->
+
+
 <div class="container align-items-center pt-3">
 
     <div class="row"><!--Start of first row-->
@@ -22,7 +25,11 @@
         <div class="card p-3 mb-2 border shadow">
             <div class="card-body">
                 <!--Need to put graph in javascript here-->
+                
                 <h5 class="card-title">Weekly Appointment</h5>
+                <div class="chart chart-one flex-center">
+                    <canvas id="myChart"></canvas>
+                </div>
                 <p class="card-text h9" style="opacity:0.8;"><i class="fa-solid fa-arrow-up"></i><!-- Up/down Icon needeed to put here-->10% increase</p> <!--Icons needeed to put here-->
                 <hr class="bg-secondary">
                 <p class="card-text h9" style="opacity:0.5;"><img src="../images/update-icon.png" class="udpate-icon"><!-- Time Icon needeed to put here-->Updated 1 day ago</p><!--Icons needeed to put here-->
@@ -34,6 +41,9 @@
             <div class="card-body">
                 <!--Need to put graph in javascript here-->
                 <h5 class="card-title">Weekly Admissions</h5>
+                <div class="chart chart-one flex-center">
+                    <canvas id="adCharts"></canvas>
+                </div>
                 <p class="card-text h9" style="opacity:0.8;">Last Campaign Performance</p>
                 <hr class="bg-secondary">
                 <p class="card-text h9" style="opacity:0.5;"><img src="../images/update-icon.png" class="udpate-icon"><!-- Time Icon needeed to put here-->Updated 1 day ago</p><!--Icons needeed to put here-->
@@ -45,6 +55,9 @@
             <div class="card-body">
                 <!--Need to put graph in javascript here-->
                 <h5 class="card-title">Completed Tasks</h5>
+                <div class="chart chart-one flex-center">
+                    <canvas id="taskCharts"></canvas>
+                </div>
                 <p class="card-text h9" style="opacity:0.8;">Last Campaign Performance</p>
                 <hr class="bg-secondary">
                 <p class="card-text h9" style="opacity:0.5;"><img src="../images/update-icon.png" class="udpate-icon"><!-- Time Icon needeed to put here-->Updated 1 day ago</p><!--Icons needeed to put here-->
@@ -60,7 +73,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><i class="fas fa-users"></i></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fas fa-users"></i></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -80,7 +93,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><i class="fa-solid fa-person-cane"></i></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fa-solid fa-person-cane"></i></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -100,7 +113,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><i class="fa-solid fa-bug"></i></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fa-solid fa-bug"></i></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -120,7 +133,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><i class="fa-brands fa-facebook"></i></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fa-brands fa-facebook"></i></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -142,7 +155,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><i class="fa-solid fa-person-walking"></i></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fa-solid fa-person-walking"></i></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -162,7 +175,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><i class="fa-solid fa-user-nurse"></i></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fa-solid fa-user-nurse"></i></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -182,7 +195,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><i class="fa-solid fa-bed"></i></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fa-solid fa-bed"></i></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -202,7 +215,7 @@
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p><img src="../images/room.png" class="room-icon"></p> <!--Here should be icon-->
+                    <p class="icon_background"><img src="../images/room.png" class="room-icon"></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -222,7 +235,7 @@
         <div class="card border shadow">
             <div class="card-body p-0">
                 <div class="row">
-                <div class="card-body text-white rounded" style="width: 40%; background: #ff8507;">
+                <div class="card-body text-white rounded" style="width; 40%; background: #00ACB2;">
                 <h3 class="card-title">New User</h3>
                 <p style="color: #000; font-weight: bold;">List of New User</p>
                 </div>
@@ -294,7 +307,7 @@
             <div class="card border shadow">
                 <div class="card-body p-0">
                     <div class="row">
-                        <div class="card-body text-white rounded" style="background: #198754;">
+                        <div class="card-body text-white rounded" style="background: #00ACB2;">
                             <div class="col-12 col-lg-8">
                             <h5 class="card-title">Tasks:</h5>
                             </div>
@@ -325,7 +338,7 @@
                             <div class="col-12 col-lg-4 pt-3">
                             <div class="d-grid gap-2 p-0">
                             <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;">Edit</button> 
-                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccModal">Delete</button>
                             </div>
                             </div>
                         </div>
@@ -341,7 +354,7 @@
                             <div class="col-12 col-lg-4 pt-3">
                             <div class="d-grid gap-2 p-0">
                             <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;">Edit</button> 
-                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccModal">Delete</button>
                             </div>
                             </div>
                         </div>
@@ -357,7 +370,7 @@
                             <div class="col-12 col-lg-4 pt-3">
                             <div class="d-grid gap-2 p-0">
                             <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;">Edit</button> 
-                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccModal">Delete</button>
                             </div>
                             </div>
                         </div>
@@ -370,7 +383,37 @@
        
         </div><!--End of row-->
 
+
+
+
+
+
 </div><!--End of container alignment-->
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteAccModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="del-modal-header">
+      <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      </div>
+      <div class="del-modal-body">
+				<p>Do you really want to delete this task? This process cannot be undone.</p>
+			</div>
+      <div class="del-modal-footer">
+        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="del-btn">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 </div>
 

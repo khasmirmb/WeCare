@@ -36,4 +36,9 @@
     <!--Script-->
     <script src="../js/sidebar-offcanvas.js"></script>
 
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.umd.js" defer></script>
+    <script type="module" src="../js/dashboard.js" defer></script>
+    <script type="module" src="../js/admission-chart.js" defer></script>
+    <script type="module" src="../js/task-chart.js" defer></script>
+
 </head>
