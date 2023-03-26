@@ -10,7 +10,7 @@
   
     require_once '../includes/admin-sidebar.php';
   
-  ?>
+?>
 
   <!--Container Main start-->
   <div class="content">

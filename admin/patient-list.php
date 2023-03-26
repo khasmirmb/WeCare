@@ -10,8 +10,7 @@
   
     require_once '../includes/admin-sidebar.php';
   
-  ?>
-
+?>
 <div class="content">
 
 <div class="container align-items-center pt-3">
@@ -21,7 +20,7 @@
     <h3>Patient List</h3>
     </div><!--End of Name-->
     <div class="col-4 col-lg-1 pb-3"><!--Request button-->
-        <a class="btn btn-primary" href="#" role="button" style="background: #00ACB2; border: #00ACB2;">Request</a>
+        <a class="btn btn-primary" href="request-monitor.php" role="button" style="background: #00ACB2; border: #00ACB2;">Request</a>
     </div>
     <div class="col-4 col-lg-1"><!--Button Filter-->
         <div class="dropdown">

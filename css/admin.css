@@ -14,7 +14,7 @@ header{
 
 .left_area h3{
   color: #fff;
-  margin: -2.3rem 0rem 0rem 0rem;
+  margin: -1.3rem 0rem 0rem 1rem;
   text-transform: uppercase;
   font-size: 22px;
   font-weight: 900;
@@ -28,12 +28,12 @@ header{
   z-index: 13;
   top: 0;
   background: #00ACB2;
-  margin-top: 70px;
+  margin-top: 0;
   padding-top: 30px;
   position: fixed;
   left: 0;
   width: 250px;
-  height: calc(100% - 9%);
+  height: calc(100% - 0%);
   transition: 0.5s;
   transition-property: left;
   overflow-y: auto;
@@ -52,19 +52,21 @@ header{
 }
 
 .sidebar a:hover{
-  background: #19B3D3;
+  background: #fcf5f5;
+  color: #00ACB2;
 }
 
 .sidebar i{
   padding-right: 10px;
 }
 
-label #sidebar_btn{
+.sidebar label #sidebar_btn{
   z-index: 1;
   color: #fff;
   position: fixed;
   cursor: pointer;
-  left: 300px;
+  left: 200px;
+  top: 20px;
   font-size: 20px;
   margin: 5px 0;
   transition: 0.5s;
@@ -91,7 +93,7 @@ label #sidebar_btn:hover{
 
 .content{
   width: (100% - 250px);
-  margin-top: 60px;
+  margin-top: 0;
   padding: 20px;
   margin-left: 250px;
   background: url(background.png) no-repeat;
@@ -154,7 +156,6 @@ label #sidebar_btn:hover{
   .nav_bar{
       background: #ccc;
     width: (100% - 0px);
-    margin-top: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -192,7 +193,8 @@ label #sidebar_btn:hover{
   }
 
   .mobile_nav_items a:hover{
-    background: #19B3D3;
+    background: #fff;
+    color: #00ACB2;
   }
 
   .mobile_nav_items i{
@@ -371,15 +373,24 @@ background: #dc3545;
 /*---------------------
 Dashboard
 -----------------------*/
+.content .card .icon_background{
+background: #00ACB2;
+}
+
+.bg-success {
+background-color: #00ACB2!important;
+}
 
 .fa-bed {
 font-size: 2.5rem;
 align-items: center;
+color: #fff;
 }
 
 .fa-person-walking{
 font-size: 2.5rem;
 align-items: center;
+color: #fff;
 }
 
 .udpate-icon {
@@ -390,28 +401,31 @@ margin-right: 10px;
 .fa-bug{
 font-size: 2.5rem;
 align-items: center;
+color: #fff;
 }
 
 .fa-user-nurse{
 font-size: 2.5rem;
 align-items: center;
+color: #fff;
 }
 
 .fa-facebook{
 font-size: 2.5rem;
 align-items: center;
-color: #4267B2;
+color: #fff;
 }
 
 .fa-users{
 font-size: 2.5rem;
 align-items: center;
-color: #00ACB2;
+color: #fff;
 }
 
 .fa-person-cane{
 font-size: 2.5rem;
 align-items: center;
+color: #fff;
 }
 
 .btn-outline-light{

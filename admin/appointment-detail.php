@@ -10,9 +10,7 @@
   
     require_once '../includes/admin-sidebar.php';
   
-  ?>
-
-<div class="content">
+?>
 
 
 <div class="container align-items-center pt-3">

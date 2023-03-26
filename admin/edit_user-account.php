@@ -1,21 +1,22 @@
 <?php
 
     $page_title = 'Admin - Edit Account';
-	require_once '../includes/admin-header.php';
-	session_start();
+    require_once '../includes/admin-header.php';
+    session_start();
   
-	if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-	header('location: ../account/signin.php');
-	}
+    if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+    header('location: ../account/signin.php');
+    }
   
-	require_once '../includes/admin-sidebar.php';
+    require_once '../includes/admin-sidebar.php';
   
-  ?>
+?>
+
 
 <div class="content">
 
 <div class="container align-items-center pt-3">
-<button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/staff-accounts.php"><i class="fa-solid fa-arrow-left"></i> Back </a></button>
+<button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/user-accounts.php"><i class="fa-solid fa-arrow-left"></i> Back </a></button>
 
 <div class="staff-account" style="padding-top: 1rem;">
 		<div class="container">

@@ -10,8 +10,7 @@
   
     require_once '../includes/admin-sidebar.php';
   
-  ?>
-
+?>
 <div class="content">
 
 <div class="container align-items-center pt-3">
@@ -39,7 +38,7 @@
     
     <div class="col-12 col-lg-3"><!--First of button-->
       <div class="pt-4">
-      <button type="button" class="btn btn-success">Submit</button> <!--Should put here the modal-->
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#alertModal">Submit</button> <!--Should put here the modal-->
       </div>
     </div><!--End of button-->
     </div><!--End of row-->
@@ -97,7 +96,17 @@
     </div><!--End of table-->
 </div><!--End of container-->
 
-
+  <!-- Success Modal -->
+<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+      <div class="alert alert-success shadow" role="alert" style="border-left:#155724 5px solid; border-radius: 0px">
+		<div class="row">
+        <img src="../images/checked.gif" style="background: transparent; width: 30%; margin-left: 10rem;">
+		  	<p style="font-size:18px;" class="mb-0 font-weight-light text-center"><b class="mr-1">Success!</b> The submission was success.</p>
+		</div>
+    </div>
+  </div>
+</div>
 
 
 

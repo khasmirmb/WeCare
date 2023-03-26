@@ -1,16 +1,17 @@
 <?php
 
     $page_title = 'Admin - Edit Account';
-	require_once '../includes/admin-header.php';
-	session_start();
+    require_once '../includes/admin-header.php';
+    session_start();
   
-	if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-	header('location: ../account/signin.php');
-	}
+    if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+    header('location: ../account/signin.php');
+    }
   
-	require_once '../includes/admin-sidebar.php';
+    require_once '../includes/admin-sidebar.php';
   
-  ?>
+?>
+
 
 <div class="content">
 

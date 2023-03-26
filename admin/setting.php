@@ -10,8 +10,7 @@
   
     require_once '../includes/admin-sidebar.php';
   
-  ?>
-
+?>
 
 <div class="content">
 
@@ -79,8 +78,8 @@
                   <div class="form-group small text-muted">
                     All of the fields on this page are optional and can be deleted at any time, and by filling them out, you're giving us consent to share this data wherever your user profile appears.
                   </div>
-                  <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;">Update Profile</button>
-                  <button type="reset" class="btn btn-light" style="background: #dc3545; color: #fff;">Reset Changes</button>
+                  <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#alertModal">Update Profile</button>
+                  <button type="reset" class="btn btn-light" style="background: #dc3545; color: #fff;" data-bs-toggle="modal" data-bs-target="#resetModal">Reset Changes</button>
                 </form>
               </div>
               <div class="tab-pane" id="account">
@@ -229,6 +228,42 @@
     </div>
   </div>
 </div>
+
+
+<!-- Reset Modal -->
+<div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="del-modal-header">
+      <div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>	
+        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      </div>
+      <div class="del-modal-body">
+				<p>Do you really want to reset this information? This process cannot be undone.</p>
+			</div>
+      <div class="del-modal-footer">
+        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="del-btn">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Success Modal -->
+  <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+      <div class="alert alert-success shadow" role="alert" style="border-left:#155724 5px solid; border-radius: 0px">
+		<div class="row">
+        <img src="../images/checked.gif" style="background: transparent; width: 30%; margin-left: 10rem;">
+		  	<p style="font-size:18px;" class="mb-0 font-weight-light text-center"><b class="mr-1">Success!</b> The information was updated.</p>
+		</div>
+    </div>
+  </div>
+</div>
+
+
 
 
 
