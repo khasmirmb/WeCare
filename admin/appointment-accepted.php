@@ -17,16 +17,16 @@
 <div class="container align-items-center pt-3">
 <div class="card text-center">
 
-  <div class="card-header"><!--Start of Card-->
+<div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
         <a class="nav-link"  href="../admin/admission.php">Admission Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/appointment.php">Appointment Pending</a>
+        <a class="nav-link" aria-current="true" href="../admin/appointment.php">Appointment Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
+        <a class="nav-link active" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" aria-current="true" href="../admin/admission-accepted.php">Admission Accepted</a>
@@ -49,7 +49,7 @@
 
           $admin_appointment = new Appointment;
 
-          $appointment_list = $admin_appointment->show_appointment_admin();
+          $appointment_list = $admin_appointment->accepted_appointment_admin();
 
       ?>
   <table class="table table-hover table-sm">
@@ -70,42 +70,21 @@
     <?php foreach($appointment_list as $row){ ?>
 
       <tr>
-        <td class="pt-4"><a href="../admin/appointment-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
+      <td class="pt-4"><a href="../admin/appointment-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
         <td scope="row" class="pt-4"><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></td>
-        <td scope="row" class="pt-4"><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></td>
-        <td scope="row" class="pt-4">
+      <td scope="row" class="pt-4"><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></td>
+      <td scope="row" class="pt-4">
         <div class="d-grid gap-2">
             <h8><?php echo $row['purpose'] ?></h8>
         </div>
-        </td>
-      <td class="pt-3">
-        <form action="assign.appointment.php" method="GET">
-          <div class="input-group">
-          <?php
-           require_once '../classes/staff.class.php';
-
-           $show_staff = new Staff;
-
-           $staff_list = $show_staff->show_staff_data();
-          ?>
-          <select name="assigned" id="assigned" class="form-select text-center">
-
-          <?php foreach($staff_list as $data){ ?>
-          <option value="<?php echo $data['id'] ?>"><?php echo $data['firstname'] ." ". $data['middlename'][0] . ". " . $data['lastname'] ?></option>
-          <?php } ?>
-
-          <input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
-
-          </select>
-          </div>
       </td>
+      <td scope="row" class="pt-4"><?php echo $row['s_fname'] ." ". $row['s_mname'][0] . ". " . $row['s_lname'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
-        <td class="pt-3">
+      <td>
         <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;" onclick="return confirm('Are you sure you want to do accept this appointment?');">Confirm</button>
-          </div>
-        </form>
+        <button type="button" class="btn btn-outline-secondary">Delete</button>
+        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
         </div>
       </td>
       </tr>
@@ -120,6 +99,7 @@
 </div><!--End of Card-->
 </div><!--End of Container-->
 
+</div>
 
 <?php
 

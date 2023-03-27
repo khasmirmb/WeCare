@@ -2,10 +2,28 @@
 
   $page_title = 'WeCare Admin - BackUp';
   require_once '../includes/admin-header.php';
+  require_once '../classes/patient.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
   header('location: ../account/signin.php');
+  }
+
+  $patient = new Patient;
+
+  if($patient->fetch_patient_data($_GET['id'])){
+    // Data for the Patient
+    $p_data = $patient->fetch_patient_data($_GET['id']);
+    $patient->staff_id = $p_data['staff_id'];
+    $patient->id = $p_data['id'];
+    $patient->firstname = $p_data['fname'];
+    $patient->middlename = $p_data['mname'];
+    $patient->lastname = $p_data['lname'];
+    $patient->suffix = $p_data['suffix'];
+    $patient->picture = $p_data['image'];
+    $patient->date_of_birth = $p_data['date_birth'];
+    $patient->gender = $p_data['gender'];
+    $patient->room = $p_data['room'];
   }
 
   require_once '../includes/admin-sidebar.php';
@@ -15,20 +33,20 @@
 <div class="content">
 
 <div class="container align-items-center pt-3">
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/patient-records.php"><i class="fa-solid fa-arrow-left"></i> Back </a></button><!--back button-->
+    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/patient-list.php"><i class="fa-solid fa-arrow-left"></i> Patient List </a></button><!--back button-->
 
     <div class="pt-3"><!--Start of card-->
     <div class="card text-white mb-3" style="background: #00ACB2;">
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-lg-4">
-            <img src="../images/download.jpg" class="rounded-circle img-thumbnail img-fluid mx-auto d-block" alt="Mikaylah B. Chu" style="width: 40%; height: auto;">
+            <img src="../images/<?php echo $patient->picture ?>" class="rounded-circle img-thumbnail img-fluid mx-auto d-block" alt="Patient Image" style="width: 70%; height: 100%;">
             </div>
             <div class="col-12 col-lg-8">
-                <h4><strong>Darla Jonhanson</strong></h4>
-                <p style="color: #fff; font-weight: bold; background: #00ACB2;">Age: 57 years old</p>
-                <p style="color: #fff; font-weight: bold; background: #00ACB2;">Date of Birth: Dec 20, 2020</p>
-                <p style="color: #fff; font-weight: bold; background: #00ACB2;">Services: Caregiving</p>
+                <h4><strong><?php echo ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " .  ucfirst($patient->lastname) ?></strong></h4>
+                <p style="color: #fff; font-weight: bold; background: #00ACB2;">Age: <?php echo date_diff(date_create($patient->date_of_birth), date_create('today'))->y; ?></p>
+                <p style="color: #fff; font-weight: bold; background: #00ACB2;">Date of Birth: <?php echo date("M j, Y", strtotime($patient->date_of_birth)) ?></p>
+                <p style="color: #fff; font-weight: bold; background: #00ACB2;">Room: <?php echo $patient->room ?></p>
             </div>
         </div>
     </div>

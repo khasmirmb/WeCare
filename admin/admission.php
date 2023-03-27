@@ -16,13 +16,19 @@
 
 <div class="container align-items-center pt-3">
 <div class="card text-center">
-  <div class="card-header"><!--Start of Card-->
+<div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/admission.php">Admission</a>
+        <a class="nav-link active"  href="../admin/admission.php">Admission Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../admin/appointment.php">Appointment</a>
+        <a class="nav-link" aria-current="true" href="../admin/appointment.php">Appointment Pending</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href="../admin/admission-accepted.php">Admission Accepted</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../admin/visitor-log.php">Visitor</a>
@@ -51,9 +57,10 @@
     <thead>
       <tr class="table-primary">
         <th scope="col" style="background: #00ACB2; color: #fff;">USER</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;">CREATED</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">PATIENT</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ADMISSION NO.</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ASSIGNED TO</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;" class="col-md-2">ROOM</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">STATUS</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ACTION</th>
       </tr>
@@ -63,14 +70,15 @@
     <?php foreach($admission_list as $row){ ?>
 
       <tr>
-        <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
+      <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
 
-        <td scope="row" class="pt-4"><?php echo date("m/d/y g:i A", strtotime($row['created_at'])) ?></td>
+      <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></a></td>
 
-        <td scope="row" class="pt-4"><?php echo $row['admission_no']?></td>
 
-      <td class="pt-4">
-      <form action="assign.admission.php" method="GET">
+      <td scope="row" class="pt-4"><?php echo $row['admission_no']?></td>
+
+      <td scope="row" class="pt-3">
+      <form action="assign.admission.php" method="GET" id="assignform">
           <div class="input-group">
           <?php
            require_once '../classes/staff.class.php';
@@ -79,29 +87,61 @@
 
            $staff_list = $show_staff->show_staff_data();
           ?>
-          <select name="assigned" id="assigned" class="form-control text-center">
+          <select name="assigned" id="assigned" class="form-select text-center">
             
-          <option value="<?php echo $row['staff_iden'] ?>">-<?php echo $row['s_fname'] ." ". $row['s_mname'][0] . ". " . $row['s_lname'] ?>-</option>
-
           <?php foreach($staff_list as $data){ ?>
           <option value="<?php echo $data['id'] ?>"><?php echo $data['firstname'] ." ". $data['middlename'][0] . ". " . $data['lastname'] ?></option>
           <?php } ?>
 
+          </select>
+
           <input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
 
-          </select>
-          <button class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Confirm</button>
-          </div>
-        </form>
+          <input type="hidden" id="p_firstname" name="p_firstname" value="<?php echo $row['p_firstname'] ?>">
+
+          <input type="hidden" id="p_lastname" name="p_lastname" value="<?php echo $row['p_lastname'] ?>">
+
+          <input type="hidden" id="p_middlename" name="p_middlename" value="<?php echo $row['p_middlename'] ?>">
+
+          <input type="hidden" id="p_suffix" name="p_suffix" value="<?php echo $row['p_suffix'] ?>">
+
+          <input type="hidden" id="p_date_of_birth" name="p_date_of_birth" value="<?php echo $row['p_date_of_birth'] ?>">
+
+          <input type="hidden" id="p_place_of_birth" name="p_place_of_birth" value="<?php echo $row['p_place_of_birth'] ?>">
+
+          <input type="hidden" id="p_gender" name="p_gender" value="<?php echo $row['p_gender'] ?>">
+
+          <input type="hidden" id="p_province" name="p_province" value="<?php echo $row['p_province'] ?>">
+
+          <input type="hidden" id="p_street" name="p_street" value="<?php echo $row['p_street'] ?>">
+
+          <input type="hidden" id="p_city" name="p_city" value="<?php echo $row['p_city'] ?>">
+
+          <input type="hidden" id="p_barangay" name="p_barangay" value="<?php echo $row['p_barangay'] ?>">
+
+          <input type="hidden" id="p_postal" name="p_postal" value="<?php echo $row['p_postal'] ?>">
+
+          <input type="hidden" id="p_background_history" name="p_background_history" value="<?php echo $row['p_background_history'] ?>">
+
+          <input type="hidden" id="p_doctors_diagnosis" name="p_doctors_diagnosis" value="<?php echo $row['p_doctors_diagnosis'] ?>">
+
+          <input type="hidden" id="p_allergies" name="p_allergies" value="<?php echo $row['p_allergies'] ?>">
+
+          <input type="hidden" id="p_picture" name="p_picture" value="<?php echo $row['p_picture'] ?>">
+
+      </td>
+
+      <td scope="row" class="pt-3">
+          <input type="text" class="form-control" name="room"  required placeholder="Room for Patient">
       </td>
 
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
 
-      <td>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
-        </div>
+      <td scope="row" class="pt-3">
+
+      <button type="submit" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;" onclick="return confirm('Are you sure you to accept this admission?');">Confirm</button>
+      
+      </form>
       </td>
 
       </tr>
@@ -113,32 +153,12 @@
 </div>
 </div><!--End of 1st Table-->
 
-
 </div>
 </div>
-
-    <!-- Delete Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="del-modal-header">
-      <div class="icon-box">
-					<i class="material-icons">&#xE5CD;</i>
-				</div>	
-        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
-      </div>
-      <div class="del-modal-body">
-				<p>Do you really want to delete? This process cannot be undone.</p>
-			</div>
-      <div class="del-modal-footer">
-        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="del-btn">Delete</button></a>
-      </div>
-    </div>
-  </div>
 </div>
 
-</div>
+
+
 
 <?php
 

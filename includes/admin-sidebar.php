@@ -24,7 +24,6 @@
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="../admin/patient-list.php"><i class="fas fa-list-check"></i><span>Patient List</span></a>
-      <a href="../admin/patient-records.php"><i class="fas fa-file-medical"></i><span>Patient records</span></a>
       <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span></a>
       <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="../admin/setting.php"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
@@ -40,7 +39,6 @@
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="../admin/patient-list.php"><i class="fas fa-list-check"></i><span>Patient List</span></a>
-      <a href="../admin/patient-records.php"><i class="fas fa-file-medical"></i><span>Patient records</span></a>
       <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span></a>
       <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="../admin/setting.php"><i class="fas fa-sliders-h"></i><span>Settings</span></a>

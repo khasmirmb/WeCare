@@ -59,14 +59,15 @@
         <div class="col-12 col-lg-4 pt-3">
         <div class="card" style="width: 18rem;">
         <div class="card-body rounded shadow">
-            <div class="d-grid justify-content-md-end pb-2">
-            <a class="btn btn-secondary" href="payment-list.php" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Payment</a>
+            <div class="d-flex justify-content-md-end pb-2">
+            <a class="btn btn-secondary me-2" href="payment-list.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Payment</a>
+            <a class="btn btn-secondary" href="patient-backup.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Records</a>
             </div>
             <div class="pb-2">
             <img src="../images/<?php echo $row['image'] ?>" class="rounded-circle img-thumbnail img-fluid" alt="Patient Image" style="width: 45%; height: auto; border-color: #00ACB2; object-fit: cover;">
             </div>
             <h5 class="card-title"><?php echo ucfirst($row['fname']) . " " . ucfirst($row['mname'][0]) . ". " . ucfirst($row['lname'])  ?></h5>
-            <h6 class="card-subtitle mb-2 text-muted pb-3">No. <?php echo $row['id'] ?></h6>
+            <h6 class="card-subtitle mb-2 text-muted pb-3"><?php echo $row['room'] ?></h6>
             <h6 class="card-subtitle mb-2 text-muted">Age</h6>
             <p class="card-text"><?php echo date_diff(date_create($row['date_birth']), date_create('today'))->y; ?></p>
             <h6 class="card-subtitle mb-2 text-muted">Date of Birth</h6>

@@ -16,16 +16,22 @@
 
 <div class="container align-items-center pt-3">
 <div class="card text-center">
-  <div class="card-header"><!--Start of Card-->
+<div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link"  href="../admin/admission.php">Admission</a>
+        <a class="nav-link"  href="../admin/admission.php">Admission Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../admin/appointment.php">Appointment</a>
+        <a class="nav-link" aria-current="true" href="../admin/appointment.php">Appointment Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/visitor-log.php">Visitor</a>
+        <a class="nav-link" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href="../admin/admission-accepted.php">Admission Accepted</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="../admin/visitor-log.php">Visitor</a>
       </li>
     </ul>
   </div><!--End of Card-->
