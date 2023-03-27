@@ -172,7 +172,6 @@
 
                     <div class="d-flex py-3 justify-content-end">
                         <a class="btn btn-primary me-2" id="next-patient" href="#">Next</a>
-                    </div>
-                    
+                    </div>    
         </div>
     </div>
