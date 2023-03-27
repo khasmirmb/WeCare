@@ -13,7 +13,7 @@
     <nav class="navbar bg-#fff">
       <div class="container-fluid ms-2">
         <a class="navbar-brand" href="../homepage/home.php">
-          <img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">
+          <!--<img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">--> <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2; margin-left: 5px; margin-top: 25px;"><i class="fa-solid fa-arrow-left"></i> Return to homepage </button></div>
         </a>
       </div>
     </nav>

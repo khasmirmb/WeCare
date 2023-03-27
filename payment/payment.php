@@ -13,7 +13,7 @@
 
 ?>
 
-<div class="p-5 text-white" style="background: #00ACB2; color: #fff;">
+<div class="p-5 text-white" style="background: #00ACB2">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -34,7 +34,7 @@
     <thead class="table-info">
         <tr>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Month</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;">Patient Name</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Patient Name</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Recommended Pay Date</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Amount Due</th>
         </tr>
@@ -45,34 +45,34 @@
         <td>Al-khasmir Basaluddin</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <tr>
         <th scope="row" class="text-center">2</th>
         <td>Al-khasmir Basaluddin</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <tr>
         <th scope="row" class="text-center">3</th>
         <td>Al-khasmir Basaluddin</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <th scope="row" class="text-center">4</th>
         <td>Al-khasmir Basaluddin</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <tr>
         <th scope="row" class="text-center">5</th>
         <td>Al-khasmir Basaluddin</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
     </tbody>
 </table>
