@@ -82,9 +82,9 @@
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
       <td>
-        <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary">Delete</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
+        <div class="d-grid gap-1">
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+        <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
         </div>
       </td>
       </tr>

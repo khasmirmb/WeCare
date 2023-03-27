@@ -139,7 +139,7 @@
 
       <td scope="row" class="pt-3">
 
-      <button type="submit" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;" onclick="return confirm('Are you sure you to accept this admission?');">Confirm</button>
+      <button type="submit" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" onclick="return confirm('Are you sure you to accept this admission?');">Confirm</button>
       
       </form>
       </td>

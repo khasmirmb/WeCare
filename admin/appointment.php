@@ -101,10 +101,10 @@
       </td>
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
-        <td class="pt-3">
-        <div class="d-grid gap-2">
-
-        </div>
+      <td class="pt-3">
+      <button type="submit" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" onclick="return confirm('Are you sure you to accept this appointment?');">Confirm</button>
+      
+      </form>
       </td>
       </tr>
 
@@ -114,11 +114,11 @@
 </div>
 </div><!--End of 1st Table-->
 
-</div>
+
 </div><!--End of Card-->
 </div><!--End of Container-->
+</div>
 
- 
 
 
 <?php
