@@ -22,7 +22,7 @@
         $purpose = $_POST['purpose'];
         $others = htmlentities($_POST['others']);
         $day = date('l', strtotime($_POST['date']));
-        $status = "In Process";
+        $status = "Pending";
         $client_came = "Pending";
 
 
@@ -159,7 +159,7 @@
                     <small class="appointment-agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a>
                 </div>
 
-                <button class="btn btn-primary btn-block confirm-button" name="confirm" data-bs-toggle="modal" data-bs-target="#alertModal">Confirm</button>
+                <button class="btn btn-primary btn-block confirm-button" name="confirm" data-bs-toggle="modal" data-bs-target="#alertModal" style="background: #00ACB2; border: #00ACB2; color: #fff;">Confirm</button>
 
             </form>
         </div>

@@ -76,7 +76,7 @@
 <div class="content">
 
 <div class="container align-items-center pt-3">
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/admission.php"> <i class="fa-solid fa-arrow-left"></i> Back </a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admin/admission.php"> <i class="fa-solid fa-arrow-left"></i> Back </a></button>
 
     <div class="pt-4 pb-4">
     <h2 class="mb-4"><strong>Admission Details</strong></h2>

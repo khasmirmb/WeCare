@@ -13,7 +13,7 @@
 
 ?>
 
-<div class="bg-primary p-5 text-white">
+<div class="p-5 text-white" style="background: #00ACB2; color: #fff;">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -33,10 +33,10 @@
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info">
         <tr>
-        <th scope="col" class="text-center">Month</th>
-        <th scope="col">Patient Name</th>
-        <th scope="col" class="text-center">Recommended Pay Date</th>
-        <th scope="col" class="text-center">Amount Due</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Month</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">Patient Name</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Recommended Pay Date</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Amount Due</th>
         </tr>
     </thead>
     <tbody>

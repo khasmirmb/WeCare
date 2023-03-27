@@ -213,10 +213,10 @@
                 </div>
 
                 <div class="d-flex py-3 justify-content-end">
-                    <a class="btn btn-outline-primary me-1" type="button" id="back-patient" href="#patient-details">Back</a>
-                    <a class="btn btn-primary" type="button" id="next-review" href="#">Next<a>
+                    <a class="btn btn-outline-info me-1" type="button" id="back-patient" href="#patient-details" style="background: #00ACB2; border: #00ACB2; color: #fff;">Back</a>
+                    <a class="btn btn-info" type="button" id="next-review" href="#" style="background: #00ACB2; border: #00ACB2; color: #fff;">Next<a>
         
-                    <button class="btn btn-primary" id="survey-submit" name="submit">Submit</button>
+                    <button class="btn btn-info" id="survey-submit" name="submit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Submit</button>
                 </div>
             </div>
         </div>

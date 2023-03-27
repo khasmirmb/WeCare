@@ -13,7 +13,7 @@
 
 ?>
 <div class="new-admission d-flex mt-5 me-5 justify-content-end">
-    <a type="button" class="btn btn-primary" id="action-cancel" href="admission.php">Add Admission</a>
+    <a type="button" class="btn btn-info" id="action-cancel" href="admission.php" style="background: #00ACB2; border: #00ACB2; color: #fff;">Add Admission</a>
 </div>
     <div class="table-responsive mt-5 mb-5">
         <table class="table align-middle mb-0 bg-white">

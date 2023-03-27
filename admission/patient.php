@@ -186,9 +186,9 @@
                 </div>
 
                 <div class="d-flex py-3 justify-content-end">
-                    <a class="btn btn-outline-primary me-1" type="button" id="back-survey" href="#">Back</a>
+                    <a class="btn btn-outline-info me-1" type="button" id="back-survey" href="#" style="background: #00ACB2; border: #00ACB2; color: #fff;">Back</a>
 
-                    <a class="btn btn-primary" type="button" id="next-relative" href="#">Next<a>
+                    <a class="btn btn-info" type="button" id="next-relative" href="#" style="background: #00ACB2; border: #00ACB2; color: #fff;">Next<a>
                 </div>
             </div>
         </div>

@@ -144,6 +144,15 @@
                                 $survey->add_survey_answer();
                             }
                         }
+
+                        if(isset($_POST['p_know'])){
+                            $survey->answers = htmlentities($_POST['p_know']);
+                            $survey->survey_question = 9;
+                            // Add to DB if the validation is complete
+                            if(validate_add_patient_info($_POST) && validate_add_survey($_POST) && validate_add_relative_info($_POST)){
+                                $survey->add_survey_answer();
+                            }
+                        }
                         
                         // Adding Patient Info to DB
                         $patient_info->user_id = $_SESSION['logged_id'];
@@ -248,10 +257,10 @@
 <div class="p-5">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb justify-content-center">
-        <li class="breadcrumb-item" aria-current="page"><a href="#" id="move-survey">Survey</a></li>
-        <li class="breadcrumb-item"><a href="#" id="move-patient">Patient Information</a></li>
-        <li class="breadcrumb-item"><a href="#" id="move-relative">Relative Information</a></li>
-        <li class="breadcrumb-item"><a href="#" id="move-review">Review</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="#" id="move-survey" style="color: #00ACB2;;">Survey</a></li>
+        <li class="breadcrumb-item"><a href="#" id="move-patient" style="color: #00ACB2;;">Patient Information</a></li>
+        <li class="breadcrumb-item"><a href="#" id="move-relative" style="color: #00ACB2;;">Relative Information</a></li>
+        <li class="breadcrumb-item"><a href="#" id="move-review" style="color: #00ACB2;;">Review</a></li>
     </ol>
     </nav>
 </div>
