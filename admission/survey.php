@@ -163,6 +163,10 @@
                                 <input type="radio" class="mb-3" id="no" name="feeding" value="No" <?php if(isset($_POST['feeding'])) { if ($_POST['feeding'] == 'No') echo ' checked'; } ?>><br>
                             </div>
                         </div>
+                        <div class="mb-3 pt-3">
+                            <label for="p_know" class="form-label"><strong>Is there is something we need to know?</strong></label><br>
+                            <textarea class="form-control" id="p_know" rows="3" placeholder="Proceed if None" name="p_know"><?php if(isset($_POST['p_know'])) { echo $_POST['p_know']; } ?></textarea>
+                        </div>
                     </ol>
 
 
