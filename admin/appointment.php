@@ -20,16 +20,16 @@
   <div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link"  href="../admin/admission.php">Admission Pending</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link active" aria-current="true" href="../admin/appointment.php">Appointment Pending</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="true" href="../admin/admission-accepted.php">Admission Accepted</a>
+        <a class="nav-link" aria-current="true" href="../admin/appointment-completed.php">Appointment Completed</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href="../admin/appointment-noshow.php">Appointment No-Show</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../admin/visitor-log.php">Visitor</a>

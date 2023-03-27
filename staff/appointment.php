@@ -93,6 +93,77 @@
   </div>
 </div>
 
+<div id="complete-app" class="dialog" title="Complete Appointment">
+    <p><span>Are you sure you want to complete the selected record?</span></p>
+</div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#complete-app").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".action-completed").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#complete-app").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#complete-app").dialog("open");
+        });
+
+    });
+</script>
+
+<div id="no-show" class="dialog" title="Client No-Show">
+    <p><span>Are you sure you want to declare no-show the selected record?</span></p>
+</div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#no-show").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".action-noshow").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#no-show").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#no-show").dialog("open");
+        });
+
+    });
+</script>
+
+
 <?php
 
   require_once '../includes/staff-footer.php';

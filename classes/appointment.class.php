@@ -102,7 +102,7 @@ class Appointment{
     }
 
     function show_assigned_staff_appointment($user_id, $staff_id){
-        $sql = "SELECT appointment.id, staff_id, appointment_purpose.purpose, other_purpose, appointment_date, appointment_time, appointment.status, client_came, users.fname, users.mname, users.lname FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON appointment.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
+        $sql = "SELECT appointment.id, staff_id, appointment_purpose.purpose, other_purpose, appointment_date, appointment_time, appointment.status, client_came, users.fname, users.mname, users.lname FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON appointment.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id AND appointment.status = 'Accepted';";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':staff_id', $staff_id);
@@ -137,7 +137,25 @@ class Appointment{
     }
 
     function accepted_appointment_admin(){
-        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id INNER JOIN staff ON appointment.staff_id = staff.id WHERE appointment.status != 'Pending' ORDER BY appointment_date DESC;";
+        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id INNER JOIN staff ON appointment.staff_id = staff.id WHERE appointment.status = 'Accepted' ORDER BY appointment_date DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function noshow_appointment_admin(){
+        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id INNER JOIN staff ON appointment.staff_id = staff.id WHERE appointment.status = 'No-Show' ORDER BY appointment_date DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function completed_appointment_admin(){
+        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id INNER JOIN staff ON appointment.staff_id = staff.id WHERE appointment.status = 'Completed' ORDER BY appointment_date DESC;";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();

@@ -90,7 +90,7 @@ class Staff{
     }
 
     function show_staff_random(){
-        $sql = "SELECT * FROM staff ORDER BY RAND() LIMIT 1;";
+        $sql = "SELECT * FROM staff WHERE status = 'Active' ORDER BY RAND() LIMIT 1;";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();

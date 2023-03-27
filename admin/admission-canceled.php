@@ -22,10 +22,10 @@
         <a class="nav-link"  href="../admin/admission.php">Admission Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/admission-accepted.php">Admission Accepted</a>
+        <a class="nav-link" aria-current="true" href="../admin/admission-accepted.php">Admission Accepted</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="true" href="../admin/admission-canceled.php">Admission Canceled</a>
+        <a class="nav-link active" aria-current="true" href="../admin/admission-canceled.php">Admission Canceled</a>
       </li>
     </ul>
   </div><!--End of Card-->
@@ -43,13 +43,14 @@
 
           $admin_admission = new Admission;
 
-          $admission_list = $admin_admission->accepted_admission_admin();
+          $admission_list = $admin_admission->canceled_admission_admin();
 
       ?>
 
   <table class="table table-hover table-sm">
     <thead>
       <tr class="table-primary">
+        <th scope="col" style="background: #00ACB2; color: #fff;">USER</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">PATIENT</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">CREATED DATE</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ADMISSION NO.</th>
@@ -63,7 +64,9 @@
     <?php foreach($admission_list as $row){ ?>
 
       <tr>
-        <th class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></a></th>
+        <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
+
+        <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></a></td>
 
         <td scope="row" class="pt-4"><?php echo date("m/d/y g:i A", strtotime($row['created_at'])) ?></td>
 

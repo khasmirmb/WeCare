@@ -22,16 +22,10 @@
         <a class="nav-link active"  href="../admin/admission.php">Admission Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="true" href="../admin/appointment.php">Appointment Pending</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" aria-current="true" href="../admin/admission-accepted.php">Admission Accepted</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../admin/visitor-log.php">Visitor</a>
+        <a class="nav-link" aria-current="true" href="../admin/admission-canceled.php">Admission Canceled</a>
       </li>
     </ul>
   </div><!--End of Card-->
@@ -88,6 +82,8 @@
            $staff_list = $show_staff->show_staff_data();
           ?>
           <select name="assigned" id="assigned" class="form-select text-center">
+
+          <option value="<?php echo $row['staff_iden'] ?>">--<?php echo $row['s_fname'] ." ". $row['s_mname'][0] . ". " . $row['s_lname'] ?>--</option>
             
           <?php foreach($staff_list as $data){ ?>
           <option value="<?php echo $data['id'] ?>"><?php echo $data['firstname'] ." ". $data['middlename'][0] . ". " . $data['lastname'] ?></option>

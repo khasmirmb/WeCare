@@ -23,20 +23,19 @@
         <a class="nav-link" aria-current="true" href="../admin/appointment.php">Appointment Pending</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
+        <a class="nav-link" aria-current="true" href="../admin/appointment-accepted.php">Appointment Accepted</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" aria-current="true" href="../admin/appointment-completed.php">Appointment Completed</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="true" href="../admin/appointment-noshow.php">Appointment No-Show</a>
+        <a class="nav-link active" aria-current="true" href="../admin/appointment-noshow.php">Appointment No-Show</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../admin/visitor-log.php">Visitor</a>
       </li>
     </ul>
   </div><!--End of Card-->
-  
   
   <div class="col-7 col-lg-2 pt-4"> <!--Start of name of appointment-->
     <h4 class="mb-4">Appointment</h4>
@@ -50,7 +49,7 @@
 
           $admin_appointment = new Appointment;
 
-          $appointment_list = $admin_appointment->accepted_appointment_admin();
+          $appointment_list = $admin_appointment->noshow_appointment_admin();
 
       ?>
   <table class="table table-hover table-sm">

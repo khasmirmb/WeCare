@@ -92,7 +92,7 @@ class Admission{
     }
 
     function show_assigned_staff_admission($user_id, $staff_id){
-        $sql = "SELECT admission.id, admission.status, admission.admission_no, survey_info.inquire, patient_info.firstname AS p_firstname, patient_info.lastname AS p_lastname, patient_info.middlename AS p_middlename, relative_info.middlename AS r_middlename, relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.mname, users.lname FROM admission INNER JOIN survey_info ON survey_info = survey_info.id  INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON admission.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id;";
+        $sql = "SELECT admission.id, admission.status, admission.admission_no, survey_info.inquire, patient_info.firstname AS p_firstname, patient_info.lastname AS p_lastname, patient_info.middlename AS p_middlename, relative_info.middlename AS r_middlename, relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.mname, users.lname FROM admission INNER JOIN survey_info ON survey_info = survey_info.id  INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN staff ON staff_id = staff.id INNER JOIN users ON admission.user_id = users.id WHERE staff_id = :staff_id AND staff.user_id = :user_id AND admission.status = 'Pending';";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':staff_id', $staff_id);
@@ -138,7 +138,7 @@ class Admission{
         patient_info.doctors_diagnosis AS p_doctors_diagnosis,
         patient_info.allergies AS p_allergies,
         patient_info.picture AS p_picture,
-        relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.lname, users.mname, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM admission INNER JOIN survey_info ON survey_info = survey_info.id INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN users ON admission.user_id = users.id INNER JOIN staff ON admission.staff_id = staff.id WHERE admission.status != 'Accepted' ORDER BY created_at DESC;";
+        relative_info.firstname AS r_firstname, relative_info.lastname AS r_lastname, users.fname, users.lname, users.mname, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM admission INNER JOIN survey_info ON survey_info = survey_info.id INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN users ON admission.user_id = users.id INNER JOIN staff ON admission.staff_id = staff.id WHERE admission.status != 'Accepted' AND admission.status != 'Canceled' ORDER BY created_at DESC;";
 
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
@@ -163,6 +163,30 @@ class Admission{
         staff.middlename AS s_mname,
         staff.lastname AS s_lname,
         staff.id AS staff_iden FROM admission INNER JOIN survey_info ON survey_info = survey_info.id INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN users ON admission.user_id = users.id INNER JOIN staff ON admission.staff_id = staff.id WHERE admission.status = 'Accepted' ORDER BY created_at DESC;";
+
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function canceled_admission_admin(){
+        $sql = "SELECT admission.created_at,
+        admission.id,
+        admission.status,
+        admission.admission_no,
+        survey_info.inquire,
+        patient_info.firstname AS p_firstname,
+        patient_info.lastname AS p_lastname,
+        patient_info.middlename AS p_middlename,
+        users.fname,
+        users.lname,
+        users.mname,
+        staff.firstname AS s_fname,
+        staff.middlename AS s_mname,
+        staff.lastname AS s_lname,
+        staff.id AS staff_iden FROM admission INNER JOIN survey_info ON survey_info = survey_info.id INNER JOIN patient_info ON patient_info = patient_info.id INNER JOIN relative_info ON relative_info = relative_info.id INNER JOIN users ON admission.user_id = users.id INNER JOIN staff ON admission.staff_id = staff.id WHERE admission.status = 'Canceled' ORDER BY created_at DESC;";
 
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
