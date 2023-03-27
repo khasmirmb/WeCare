@@ -159,11 +159,26 @@
                     <small class="appointment-agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a>
                 </div>
 
-                <button class="btn btn-primary btn-block confirm-button" name="confirm">Confirm</button>
+                <button class="btn btn-primary btn-block confirm-button" name="confirm" data-bs-toggle="modal" data-bs-target="#alertModal">Confirm</button>
 
             </form>
         </div>
     </div>
+
+
+<!-- Confirm Modal -->
+<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+      <div class="alert alert-success shadow" role="alert" style="border-left:#155724 5px solid; border-radius: 0px">
+		<div class="row">
+        <img src="../images/checked.gif" style="background: transparent; width: 30%; margin-left: 10rem;">
+		  	<p style="font-size:18px;" class="mb-0 font-weight-light text-center"><b class="mr-1">Success!</b> The appointment confirmation was success.</p>
+		</div>
+    </div>
+  </div>
+</div>
+
+
 </div>
 
 <script>
