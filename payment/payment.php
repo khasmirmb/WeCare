@@ -35,6 +35,7 @@
         <tr>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Month</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Patient Name</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Services</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Recommended Pay Date</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Amount Due</th>
         </tr>
@@ -43,6 +44,7 @@
         <tr>
         <th scope="row" class="text-center">1</th>
         <td>Al-khasmir Basaluddin</td>
+        <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
         <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
@@ -50,6 +52,7 @@
         <tr>
         <th scope="row" class="text-center">2</th>
         <td>Al-khasmir Basaluddin</td>
+        <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
         <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
@@ -57,12 +60,14 @@
         <tr>
         <th scope="row" class="text-center">3</th>
         <td>Al-khasmir Basaluddin</td>
+        <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
         <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <th scope="row" class="text-center">4</th>
         <td>Al-khasmir Basaluddin</td>
+        <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
         <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
@@ -70,6 +75,7 @@
         <tr>
         <th scope="row" class="text-center">5</th>
         <td>Al-khasmir Basaluddin</td>
+        <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
         <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
