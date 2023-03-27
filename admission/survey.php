@@ -171,7 +171,7 @@
 
 
                     <div class="d-flex py-3 justify-content-end">
-                        <a class="btn btn-info me-2" id="next-patient" href="#" style="background: #00ACB2; border: #00ACB2; color: #fff;">Next</a>
+                    <a class="btn btn-info me-2" id="next-patient" href="#" style="background: #00ACB2; border: #00ACB2; color: #fff;">Next</a>
                     </div>
                     
         </div>
