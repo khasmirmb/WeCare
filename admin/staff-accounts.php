@@ -42,19 +42,19 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search for...">
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Search</button>
+          <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;">Search</button>
         </div>
       </div>
     </div><!--End of search bar-->
 
     <div class="col-6 col-lg-2"><!--Start of add user-->
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="add-staff.php">Add Staff</a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="add-staff.php">Add Staff</a></button>
     </div><!--end of add user-->
 
 
       <div class="col-2 col-lg-1"><!--Start of filter-->
       <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: #00ACB2; border: #00ACB2;">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: #00ACB2; border: #00ACB2; color:#fff;">
           Filter
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

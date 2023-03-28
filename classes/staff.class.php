@@ -8,6 +8,7 @@ class Staff{
 
     // Class attributes
     public $id;
+    public $user_id;
     public $firstname;
     public $lastname;
     public $middlename;
@@ -30,10 +31,11 @@ class Staff{
      //Methods
      function add_staff(){
         // SQL statement to add staff
-        $sql = "INSERT INTO staff (firstname, lastname, suffix, date_of_birth, middlename, address, degree, position, status) VALUES 
-        (:firstname, :lastname, :suffix, :date_of_birth, :middlename, :address, :degree, :position, :status);";
+        $sql = "INSERT INTO staff (user_id, firstname, lastname, suffix, date_of_birth, middlename, address, degree, position, status) VALUES 
+        (:user_id, :firstname, :lastname, :suffix, :date_of_birth, :middlename, :address, :degree, :position, :status);";
 
         $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $this->user_id);
         $query->bindParam(':firstname', $this->firstname);
         $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':suffix', $this->suffix);

@@ -7,6 +7,7 @@ class Users{
 
     // Class attributes
     public $id;
+    public $unique_id;
     public $firstname;
     public $middlename;
     public $lastname;
@@ -14,7 +15,9 @@ class Users{
     public $phone;
     public $password;
     public $verification_status;
+    public $otp;
     public $type;
+    public $image;
     
 
      // protected property to store the database connection
@@ -101,6 +104,53 @@ class Users{
         }
         return $data;
     }
+
+    function check_for_duplicate_email($email){
+        $sql = "SELECT email FROM users WHERE email = :email;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':email', $email);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function add_user(){
+        // SQL statement to add user
+        $sql = "INSERT INTO users (unique_id, fname, lname, mname, email, phone, image, password, otp, verification_status, type) VALUES 
+        (:unique_id, :firstname, :lastname, :middlename, :email, :phone, :image, :password, :otp, :verification_status, :type);";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':unique_id', $this->unique_id);
+        $query->bindParam(':firstname', $this->firstname);
+        $query->bindParam(':lastname', $this->lastname);
+        $query->bindParam(':middlename', $this->middlename);
+        $query->bindParam(':phone', $this->phone);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':image', $this->image);
+        $query->bindParam(':password', $this->password);
+        $query->bindParam(':otp', $this->otp);
+        $query->bindParam(':verification_status', $this->verification_status);
+        $query->bindParam(':type', $this->type);
+        
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }	
+    }
+
+    function fetch_user_email($email){
+        $sql = "SELECT * FROM users WHERE email = :email;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':email', $email);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
 
 }
 

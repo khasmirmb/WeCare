@@ -47,6 +47,7 @@ function validate_email($POST){
         return false;
     }
 }
+
 function validate_contact_us($POST){
     if(!validate_first_name($POST) || !validate_middlename_name($POST) || !validate_last_name($POST) || !validate_email($POST)){
         return false;
@@ -313,6 +314,90 @@ function validate_appointment_others($POST){
     if(!preg_match('/^\s*$/', $POST['others'])){
         return false;
     }
+    return true;
+}
+
+function validate_email_fully($POST){
+    // Remove all illegal characters from email
+    $email = filter_var($POST['email'], FILTER_SANITIZE_EMAIL);
+    $users = new Users();
+
+    // Validate e-mail
+    if(!isset($email)){
+        return false;
+    } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    } else if($users->check_for_duplicate_email($email)){
+        return false;
+    }
+    return true;
+    
+}
+
+function validate_password($POST){
+    if(!isset($POST['password'])){
+        return false;
+    }else if(strlen($POST['password']) < 8 ){
+        return false;
+    }
+    else if(!preg_match("#[0-9]+#", $POST['password'])){
+        return false;
+    }
+    else if(!preg_match("#[A-Z]+#", $POST['password'])){
+        return false;
+    }
+    else if(!preg_match("#[a-z]+#", $POST['password'])){
+        return false;
+    }
+    return true;
+}
+
+function validate_phone($POST){
+    if(!isset($POST['phone'])){
+        return false;
+    }else if(strlen(trim($POST['phone'])) < 11){
+        return false;
+    }
+    else if(!preg_match("/^[0-9]+$/", $POST['phone'])){
+        return false;
+    }
+    return true;
+}
+
+function validate_address($POST){
+    if(!isset($POST['address'])){
+        return false;
+    }
+    else if(!preg_match('/^[0-9a-zA-Z\xe0-\xef\x80-\xbf._-]+\s*/', $POST['address'])){
+        return false;
+    }
+    return true;
+}
+
+function validate_degree($POST){
+    if(!isset($POST['degree'])){
+        return false;
+    }
+    else if(!preg_match('/^[0-9a-zA-Z\xe0-\xef\x80-\xbf._-]+\s*/', $POST['degree'])){
+        return false;
+    }
+    return true;
+}
+
+function validate_position($POST){
+    if(!isset($POST['position'])){
+        return false;
+    }
+    else if(!preg_match('/^[0-9a-zA-Z\xe0-\xef\x80-\xbf._-]+\s*/', $POST['position'])){
+        return false;
+    }
+    return true;
+}
+
+function validate_add_staff($POST){
+    if(!validate_first_name($POST) || !validate_last_name($POST) || !validate_middlename_name($POST) || !validate_address($POST) || !validate_phone($POST) || !validate_degree($POST) || !validate_position($POST) || !validate_email_fully($POST) || !validate_password($POST)){
+        return false;
+     }
     return true;
 }
 
