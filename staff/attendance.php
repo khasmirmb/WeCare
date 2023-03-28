@@ -2,10 +2,95 @@
 
     $page_title = 'WeCare Staff - Admission';
     require_once '../includes/staff-header.php';
+    require_once '../classes/staff.class.php';
+    require_once '../classes/attendance.class.php';
     session_start();
 
     if(!isset($_SESSION['staff_logged']) || $_SESSION['user_type'] != 'staff'){
         header('location: ../account/signin.php');
+    }
+
+    if(isset($_POST['present'])){
+
+        $attendance = new Attendance();
+
+        if(isset($_POST['time_in']) && isset($_POST['staff_id']) && isset($_POST['date']) && isset($_POST['shift_type']) && isset($_POST['status'])){
+        
+            $attendance->staff_id = $_POST['staff_id'];
+            $attendance->date = $_POST['date'];
+            $attendance->time_in = $_POST['time_in'];
+            $attendance->status = "Present";
+            $attendance->shift_type = $_POST['shift_type'];
+    
+
+            if(!$attendance->check_duplicate_date($_POST['date'])){
+                $attendance->add_attendance();
+            }else{
+                $done_att = "You already have attendance this date.";
+            }
+        
+        }
+
+    } else if(isset($_POST['absent'])){
+
+        $attendance = new Attendance();
+    
+        if(isset($_POST['time_in']) && isset($_POST['staff_id']) && isset($_POST['date']) && isset($_POST['shift_type']) && isset($_POST['status'])){
+
+            $attendance->staff_id = $_POST['staff_id'];
+            $attendance->date = $_POST['date'];
+            $attendance->status = "Absent";
+            $attendance->shift_type = $_POST['shift_type'];
+    
+
+            if(!$attendance->check_duplicate_date($_POST['date'])){
+                $attendance->add_not_present();
+            }else{
+                $done_att = "You already have attendance this date.";
+            }
+
+        }
+
+    } else if(isset($_POST['leave'])){
+
+        $attendance = new Attendance();
+    
+        if(isset($_POST['time_in']) && isset($_POST['staff_id']) && isset($_POST['date']) && isset($_POST['shift_type']) && isset($_POST['status'])){
+
+            $attendance->staff_id = $_POST['staff_id'];
+            $attendance->date = $_POST['date'];
+            $attendance->status = "Leave";
+            $attendance->shift_type = $_POST['shift_type'];
+    
+
+            if(!$attendance->check_duplicate_date($_POST['date'])){
+                $attendance->add_not_present();
+            }else{
+                $done_att = "You already have attendance this date.";
+            }
+
+        }
+
+    }else if(isset($_POST['sick-leave'])){
+
+        $attendance = new Attendance();
+    
+        if(isset($_POST['time_in']) && isset($_POST['staff_id']) && isset($_POST['date']) && isset($_POST['shift_type']) && isset($_POST['status'])){
+
+            $attendance->staff_id = $_POST['staff_id'];
+            $attendance->date = $_POST['date'];
+            $attendance->status = "Sick Leave";
+            $attendance->shift_type = $_POST['shift_type'];
+    
+
+            if(!$attendance->check_duplicate_date($_POST['date'])){
+                $attendance->add_not_present();
+            }else{
+                $done_att = "You already have attendance this date.";
+            }
+
+        }
+
     }
     
     require_once '../includes/staff-sidebar.php';
@@ -17,8 +102,18 @@
 
 
 <h2 class="pb-3" style="color: #00ACB2;"><strong>Daily Attendance</strong></h2>
-<p><strong>Type:</strong> Day Shift 7:00 AM - 7:00 PM</p>
-<p><strong>Date:</strong> December 20, 2022</p>
+    <?php
+
+    $staff = new Staff;
+    
+    if($staff->fetch_staff_by_staff_id($_SESSION['staff_logged'])){
+        $value = $staff->fetch_staff_by_staff_id($_SESSION['staff_logged']);
+        $staff->staff_id = $value['id'];
+        $staff->shift_type = $value['shift_type'];
+    }
+    ?>
+<p><strong>Type:</strong> <?php echo $staff->shift_type ?></p>
+<p><strong>Date:</strong> <?php  date_default_timezone_set('Asia/Manila'); echo date("M d, Y"); ?></p>
 
 
     <div class="dropdown d-grid gap-2 d-md-flex justify-content-md-end pb-3">
@@ -103,38 +198,54 @@
             </div></a></li>
     </ul>
     </div><!--End of dropdown-->
+    
 
     <div class="container-fluid">
-    <div class="row align-items-start">
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <form action="/action_page.php">
-        <label for="appt">Time In:</label>
-        <input type="time" id="appt" name="appt" class="atten-time">
-        </form>
+        <div class="row align-items-start">
+            <form action="attendance.php" method="POST">
+            <div class="d-flex col-12 col-lg-6 pt-3 mb-3">
+
+            <input type="hidden" id="time_in" name="time_in" value="<?php date_default_timezone_set('Asia/Manila'); echo date("h:i:sa");
+ ?>">
+
+            <input type="hidden" id="staff_id" name="staff_id" value="<?php echo $_SESSION['staff_logged'] ?>">
+
+            <input type="hidden" id="date" name="date" value="<?php echo date("Y/m/d") ?>">
+
+            <input type="hidden" id="shift_type" name="shift_type" value="<?php echo $staff->shift_type ?>">
+
+            <input type="hidden" id="status" name="status" value="Present">
+
+            <button name="present" class="btn btn-outline-info text-light" style="background: #00ACB2;" onclick="return confirm('Mark Present Your Attendance Today?');">Present</button>
+
+            <button name="absent" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2;" onclick="return confirm('Mark Absent Your Attendance Today?');">Absent</button>
+
+            <button name="leave" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2;" onclick="return confirm('Mark Leave Your Attendance Today?');">Leave</button>
+
+            <button name="sick-leave" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2;" onclick="return confirm('Mark Sick Leave Your Attendance Today?');">Sick Leave</button>
+
+            </form>
+
+            </div>
+
+            <?php
+                //Display the error message if there is any.
+                if(isset($done_att)){
+                    echo '<div><p class="text-danger">'.$done_att.'</p></div>';
+                }
+             ?>
         </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <form action="/action_page.php">
-        <label for="appt">Time Out:</label>
-        <input type="time" id="appt" name="appt" class="atten-time">
-        </form>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Present</button>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Absent</button>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Leave</button>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 pb-3">
-        <button type="button" class="atten-button"><input class="form-check-input" type="checkbox">Sick Leave</button>
-        </div>
-        </div>
-        </div>
+
        
 
 <div class="table-responsive">
+    <?php
+
+    $attendance = new Attendance();
+
+    $attendance_list = $attendance->staff_attendance($_SESSION['staff_logged']);
+
+    ?>
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
@@ -143,37 +254,26 @@
         <th scope="col" class="text-center" style="background: #00ACB2;">Time Out</th>
         <th scope="col" class="text-center" style="background: #00ACB2;">Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2;">Shift</th>
+        <th scope="col" class="text-center" style="background: #00ACB2;">Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <td>December 15, 2022</td>
-        <td class="text-center">7:00 AM</td>
-        <td class="text-center">7:00 PM</td>
-        <td class="text-center">Present</td>
-        <td class="text-center">Day Shift</td>
-        </tr>
-        <tr>
-        <td>December 15, 2022</td>
-        <td class="text-center">7:00 AM</td>
-        <td class="text-center">7:00 PM</td>
-        <td class="text-center">Present</td>
-        <td class="text-center">Day Shift</td>
-        </tr>
-        <tr>
-        <td>December 15, 2022</td>
-        <td class="text-center">7:00 AM</td>
-        <td class="text-center">7:00 PM</td>
-        <td class="text-center">Present</td>
-        <td class="text-center">Day Shift</td>
-        </tr>
-        <tr>
-        <td>December 15, 2022</td>
-        <td class="text-center">7:00 AM</td>
-        <td class="text-center">7:00 PM</td>
-        <td class="text-center">Present</td>
-        <td class="text-center">Day Shift</td>
-        </tr>
+    <?php foreach($attendance_list as $row){ ?>
+    <tr>
+        <td><?php echo date("M j, Y", strtotime($row['date'])) ?></td>
+        <td class="text-center"><?php if($row['time_in'] == "00:00:00"){ echo "";} else {echo date("g:i a", strtotime($row['time_in'])); } ?></td>
+        <td class="text-center"><?php if($row['time_out'] == "00:00:00"){ echo "";} else {echo date("g:i a", strtotime($row['time_out'])); } ?></td>
+        <td class="text-center"><?php echo $row['status'] ?></td>
+        <td class="text-center"><?php echo $row['shift_type'] ?></td>
+        <td class="text-center">
+            <?php if($row['status'] == "Present" && $row['time_out'] == "00:00:00"){ ?>
+            <a class="btn btn-info" href="time-out.php?id=<?php echo $row['id'] ?>" style="background: #00ACB2; color: #fff;" onclick="return confirm('Are you sure to Time-Out?');">Time-Out</a>
+            <?php } else { ?>
+                None
+            <?php } ?>
+        </td>
+    </tr>
+    <?php } ?>
     </tbody>
 </table>
 </div>

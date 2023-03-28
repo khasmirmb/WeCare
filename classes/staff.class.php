@@ -18,6 +18,10 @@ class Staff{
     public $degree;
     public $position;
     public $status;
+    public $day;
+    public $staff_id;
+    
+    public $shift_type;
 
      // protected property to store the database connection
      protected $db;
@@ -63,11 +67,12 @@ class Staff{
         return $data;
     }
 
-    function show_staff_schedule(){
-        $sql = "SELECT * FROM staff_schedule;";
+    function show_staff_schedule($day){
+        $sql = "SELECT * FROM staff_schedule WHERE day = :day;";
         $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':day', $day);
         if($query->execute()){
-            $data = $query->fetchAll();
+            $data = $query->fetch();
         }
         return $data;
     }
@@ -101,13 +106,24 @@ class Staff{
     }
 
     function staff_schedule(){
-        $sql = "SELECT staff.firstname, staff.lastname, staff.middlename, staff_schedule.day, staff_schedule.start_time, staff_schedule.end_time, staff_schedule.status FROM staff_schedule INNER JOIN staff ON staff_schedule.staff_id = staff.id;";
+        $sql = "SELECT staff.firstname, staff.lastname, staff.middlename, staff_schedule.day, staff_schedule.shift_type, staff_schedule.status FROM staff_schedule INNER JOIN staff ON staff_schedule.staff_id = staff.id;";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();
         }
         return $data;
     }
+
+    function fetch_staff_by_staff_id($staff_id){
+        $sql = "SELECT * FROM staff_schedule WHERE staff_id = :staff_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':staff_id', $staff_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
 
 }
 

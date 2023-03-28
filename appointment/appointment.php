@@ -27,43 +27,44 @@
 
 
         // Check for available staff for the day
-        $staff_s = $staffs->show_staff_schedule();
-    
-        foreach($staff_s as $row){
-            if($day == $row['day']){
-                $staff_avail = $row['staff_id'];
-                $staff_sched = $row['id'];
+        if($staffs->show_staff_schedule($day)){
+            $data = $staffs->show_staff_schedule($day);
+            $staffs->day = $data['day'];
+            $staffs->id = $data['id'];
+            
+            // Get the max appointment_number and add one
+            $appointment_max_num = $appointment->show_max_app_number();
+                                    
+            $appointment_number = 0;
+
+            foreach($appointment_max_num as $row)
+            {
+                $appointment_number = $row["appointment_number"];
             }
+
+            $app_max_number = $appointment_number + 1;
+
+            // Insert the appointment
+            $appointment->staff_id = $staffs->day;
+            $appointment->user_id = $_SESSION['logged_id'];
+            $appointment->staff_schedule_id = $staffs->id;
+            $appointment->appointment_number = $app_max_number;
+            $appointment->purpose_for_appointment = $purpose;
+            $appointment->other_purpose = $others;
+            $appointment->appointment_date = $date;
+            $appointment->appointment_time = $time;
+            $appointment->status = $status;
+            $appointment->client_came = $client_came;
+            if(validate_appointment_date($_POST) && validate_appointment_time($_POST) && validate_appointment_others($_POST)){
+                if($appointment->add_appointment()){
+                    //redirect user to appointment list page
+                    header('location: appointment.list.php');
+                }
+            }
+
         }
-
-        // Get the max appointment_number and add one
-        $appointment_max_num = $appointment->show_max_app_number();
-                                
-        $appointment_number = 0;
-
-		foreach($appointment_max_num as $row)
-		{
-			$appointment_number = $row["appointment_number"];
-		}
-
-        $app_max_number = $appointment_number + 1;
-
-        // Insert the appointment
-        $appointment->staff_id = $staff_avail;
-        $appointment->user_id = $_SESSION['logged_id'];
-        $appointment->staff_schedule_id = $staff_sched;
-        $appointment->appointment_number = $app_max_number;
-        $appointment->purpose_for_appointment = $purpose;
-        $appointment->other_purpose = $others;
-        $appointment->appointment_date = $date;
-        $appointment->appointment_time = $time;
-        $appointment->status = $status;
-        $appointment->client_came = $client_came;
-        if(validate_appointment_date($_POST) && validate_appointment_time($_POST) && validate_appointment_others($_POST)){
-            if($appointment->add_appointment()){
-                //redirect user to appointment list page
-                header('location: appointment.list.php');
-            }
+        else {
+            $no_avail = "No Staff Available for that Day";
         }
         
     }
@@ -153,6 +154,9 @@
                         <p class="text-danger text-center mt-2 mb-1">Invalid Characters</p>
                     <?php
                         }
+                        if(isset($no_avail)){
+                            echo '<div><p class="text-danger text-center mt-2 mb-1">'.$no_avail.'</p></div>';
+                        } 
                 ?>
 
                 <div class=" d-flex flex-column text-center px-5 mt-3 mb-3">

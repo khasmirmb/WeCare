@@ -81,10 +81,9 @@
     <thead class="table-info ">
         <tr>
         <th cope="col" class="text-left" style="background: #00ACB2; color: #fff;">Name</th>
-        <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Day.</th>
-        <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Start Time</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">End Time</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Shedule Status</th>
+        <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Day</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Shift Type</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Schedule Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Action</th>
         </tr>
     </thead>
@@ -98,9 +97,7 @@
 
         <td class="text-center"><?php echo $row['day'] ?></td>
 
-        <td class="text-center"><?php echo date("g:i a", strtotime($row['start_time'])) ?></td>
-
-        <td class="text-center"><?php echo date("g:i a", strtotime($row['end_time'])) ?></td>
+        <td class="text-center"><?php echo $row['shift_type'] ?></td>
 
         <td class="text-center"><?php echo $row['status'] ?></td>
 
