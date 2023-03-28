@@ -571,3 +571,20 @@ Dropdown-item CSS
   color: #fff;
   background: #00ACB2;
 }
+
+/*---------------------
+  Jquery Modal
+-----------------------*/
+
+.ui-dialog .ui-dialog-titlebar {
+  padding: 0.4em 1em;
+  position: relative;
+  color: #fff;
+  background: #00ACB2;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+  margin: 0.5em 0.4em 0.5em 0;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
+}

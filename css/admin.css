@@ -12,9 +12,9 @@ header{
   height: 70px;
 }
 
-.left_area h3{
+.left_area h3 {
   color: #fff;
-  margin: -2.3rem 0rem 0rem 0rem;
+  margin: -1.3rem 0rem 0rem 1rem;
   text-transform: uppercase;
   font-size: 22px;
   font-weight: 900;
@@ -28,12 +28,11 @@ header{
   z-index: 13;
   top: 0;
   background: #00ACB2;
-  margin-top: 70px;
   padding-top: 30px;
   position: fixed;
   left: 0;
   width: 250px;
-  height: calc(100% - 9%);
+  height: calc(100% - 0%);
   transition: 0.5s;
   transition-property: left;
   overflow-y: auto;
@@ -91,7 +90,7 @@ label #sidebar_btn:hover{
 
 .content{
   width: (100% - 250px);
-  margin-top: 60px;
+  /*--margin-top: 60px;--*/
   padding: 20px;
   margin-left: 250px;
   background: url(background.png) no-repeat;
@@ -155,7 +154,7 @@ label #sidebar_btn:hover{
   .nav_bar{
       background: #ccc;
     width: (100% - 0px);
-    margin-top: 70px;
+    /*--margin-top: 70px;--*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -193,7 +192,8 @@ label #sidebar_btn:hover{
   }
 
   .mobile_nav_items a:hover{
-    background: #19B3D3;
+    background: #fff;
+    color: #00ACB2;
   }
 
   .mobile_nav_items i{
@@ -230,6 +230,7 @@ Modal
 .close-btn:hover{
   color:#fff;
   background: #dc3545;
+  border: #dc3545;
 }  
 .yes-btn:hover{
   background: #0d6efd;
@@ -387,81 +388,86 @@ Dashboard
 -----------------------*/
 
 .fa-bed {
-font-size: 2.5rem;
-align-items: center;
-}
-
-.fa-person-walking{
-font-size: 2.5rem;
-align-items: center;
-}
-
-.udpate-icon{
-width: 10%;
-margin-right: 10px;
-}
-
-.fa-bug{
-font-size: 2.5rem;
-align-items: center;
-}
-
-.fa-user-nurse{
-font-size: 2.5rem;
-align-items: center;
-}
-
-.fa-facebook{
-font-size: 2.5rem;
-align-items: center;
-color: #4267B2;
-}
-
-.fa-users{
-font-size: 2.5rem;
-align-items: center;
-color: #00ACB2;
-}
-
-.fa-person-cane{
-font-size: 2.5rem;
-align-items: center;
-}
-
-.btn-outline-light{
-color: #fff;
-border-color: #fff;
-font-weight: bold;
-}
-
-.fa-cloud{
-margin-right: 5px;
-}
-
-.fa-globe{
-margin-right: 5px;
-}
-
-.fa-bug-slash{
-margin-right: 5px;
-}
-
-.room-icon{
-width: 40%;
-}
-
-.fa-arrow-up{
-color: green;
-margin-right: 5px;
-}
-
-.bg-success {
-  background-color: #00ACB2!important;
-}
-
-.content .card .icon_background {
-  background: #00ACB2;
-}
+  font-size: 2.5rem;
+  align-items: center;
+  color: #fff;
+  }
+  
+  .fa-person-walking{
+  font-size: 2.5rem;
+  align-items: center;
+  color: #fff;
+  }
+  
+  .udpate-icon{
+  width: 10%;
+  margin-right: 10px;
+  }
+  
+  .fa-bug{
+  font-size: 2.5rem;
+  align-items: center;
+  color: #fff;
+  }
+  
+  .fa-user-nurse{
+  font-size: 2.5rem;
+  align-items: center;
+  color: #fff;
+  }
+  
+  .fa-facebook{
+  font-size: 2.5rem;
+  align-items: center;
+  color: #fff;
+  }
+  
+  .fa-users{
+  font-size: 2.5rem;
+  align-items: center;
+  color: #fff;
+  }
+  
+  .fa-person-cane{
+  font-size: 2.5rem;
+  align-items: center;
+  color: #fff;
+  }
+  
+  .btn-outline-light{
+  color: #fff;
+  border-color: #fff;
+  font-weight: bold;
+  }
+  
+  .fa-cloud{
+  margin-right: 5px;
+  }
+  
+  .fa-globe{
+  margin-right: 5px;
+  }
+  
+  .fa-bug-slash{
+  margin-right: 5px;
+  }
+  
+  .room-icon{
+  width: 40%;
+  }
+  
+  .fa-arrow-up{
+  color: green;
+  margin-right: 5px;
+  }
+  
+  .bg-success {
+    background-color: #00ACB2!important;
+  }
+  
+  .content .card .icon_background {
+    background: #00ACB2;
+  }
 
 /*---------------------
 Patient backup
@@ -497,5 +503,22 @@ color: #000;
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
 color: #fff;
 background: #00ACB2;
+}
+
+/*---------------------
+ Jquery Delete Modal
+-----------------------*/
+
+.ui-dialog .ui-dialog-titlebar {
+  padding: 0.4em 1em;
+  position: relative;
+  background: #df4759;
+  color: #fff;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+  margin: 0.5em 0.4em 0.5em 0;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
 }
 
