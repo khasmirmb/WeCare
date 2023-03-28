@@ -47,7 +47,7 @@
         <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px;" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <tr>
         <th scope="row" class="text-center">2</th>
@@ -55,7 +55,7 @@
         <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <tr>
         <th scope="row" class="text-center">3</th>
@@ -63,14 +63,14 @@
         <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <th scope="row" class="text-center">4</th>
         <td>Al-khasmir Basaluddin</td>
         <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
         <tr>
         <th scope="row" class="text-center">5</th>
@@ -78,7 +78,7 @@
         <td class="text-center">Caregiving</td>
         <td class="text-center">Jan 25, 2023</td>
         <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
         </tr>
     </tbody>
 </table>

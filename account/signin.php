@@ -68,7 +68,7 @@
     <nav class="navbar bg-#fff">
       <div class="container-fluid ms-2">
         <a class="navbar-brand" href="../homepage/home.php">
-          <!--<img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">--> <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2; margin-left: 5px; margin-top: 25px;"><i class="fa-solid fa-arrow-left"></i> Return to homepage </button></div>
+          <!--<img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">--> <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff; margin-left: 5px; margin-top: 25px;"><i class="fa-solid fa-arrow-left"></i> Back </button></div>
         </a>
       </div>
     </nav>
@@ -108,7 +108,7 @@
                   <a href="#!">Forgot password?</a>
                   </div> -->
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit" name="login">Login</button>
+                    <button class="btn btn-info btn-lg btn-block" type="submit" name="login" style="background: #00ACB2; border: #00ACB2; color: #fff;">Login</button>
 
                     <?php
                         //Display the error message if there is any.

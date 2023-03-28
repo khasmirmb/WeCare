@@ -15,7 +15,7 @@
 
 <div class="container pt-3 pb-3">
     <div class="pb-3">
-    <a class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" type="button" href="payment.php">Back<a><!--It should put back icon-->
+    <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color: #fff;" type="button" href="payment.php"><i class="fa-solid fa-arrow-left"></i> Back<a>
     </div>
 
 <div class="card">

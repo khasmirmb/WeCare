@@ -13,7 +13,7 @@
     <nav class="navbar bg-#fff">
       <div class="container-fluid ms-2">
         <a class="navbar-brand" href="../homepage/home.php">
-          <!--<img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">--> <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2; margin-left: 5px; margin-top: 25px;"><i class="fa-solid fa-arrow-left"></i> Back </button></div>
+          <!--<img src="../images/logo.png" alt="" width="45" class="d-inline-block align-text-top">--> <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff; margin-left: 5px; margin-top: 25px;"><i class="fa-solid fa-arrow-left"></i> Back </button></div>
         </a>
       </div>
     </nav>
@@ -74,7 +74,7 @@
 
 
               <div class="submit d-grid mb-2">
-                <input class="btn btn-lg btn-primary btn-login fw-bold" type="submit" name="submit" value="Register">
+                <input class="btn btn-lg btn-info btn-login fw-bold" type="submit" name="submit" value="Register" style="background: #00ACB2; border: #00ACB2; color: #fff;">
               </div>
 
               <a class="d-block text-center mt-2 small" href="../account/signin.php">Have an account? Sign In</a>
