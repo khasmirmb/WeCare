@@ -21,7 +21,7 @@
 ?>
 <div class="content">
 <div class="container align-items-center pt-3">
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php"> < Patient List </a></button>
+    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php"> <i class="fa-solid fa-arrow-left"></i> Patient List </a></button>
 
     <h1 class="pt-3"><strong>Family Monitoring Request</strong></h1>
 

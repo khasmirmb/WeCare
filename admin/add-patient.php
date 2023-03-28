@@ -71,7 +71,7 @@
 ?>
 <div class="content">
 <div class="container align-items-center pt-3">
-    <button class="btn btn-secondary" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php"> < Patient List </a></button>
+    <button class="btn btn-secondary" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php"> <i class="fa-solid fa-arrow-left"></i> Patient List </a></button>
 
     <h1 class="pt-3 pb-3"><strong>Add Patient</strong></h5><!--Title-->
 <form action="add-patient.php" method="POST" class="form pt-3 mb-5" enctype="multipart/form-data">
