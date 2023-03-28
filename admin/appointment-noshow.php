@@ -84,7 +84,7 @@
       <td>
         <div class="d-grid gap-1">
         <button type="button" class="btn btn-outline-danger">Delete</button>
-        <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
+        <a href="appointment-edit.php?id=<?php echo $row['id'] ?>" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</a>
         </div>
       </td>
       </tr>

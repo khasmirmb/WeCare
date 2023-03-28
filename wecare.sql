@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2023 at 11:43 AM
+-- Generation Time: Mar 28, 2023 at 09:22 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,8 +45,7 @@ CREATE TABLE `admission` (
 --
 
 INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relative_info`, `staff_id`, `admission_no`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1, 1, 544812025, 'Completed', '2023-02-23 15:33:45', '2023-03-27 17:10:15'),
-(2, 1, 2, 2, 2, 1, 1619188859, 'Pending', '2023-03-15 13:39:36', '2023-03-27 17:09:48');
+(2, 1, 2, 2, 2, 1, 1619188859, 'Completed', '2023-03-15 13:39:36', '2023-03-28 14:55:00');
 
 -- --------------------------------------------------------
 
@@ -73,8 +72,9 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `staff_id`, `user_id`, `staff_schedule_id`, `appointment_number`, `purpose_for_appointment`, `other_purpose`, `appointment_date`, `appointment_time`, `status`, `client_came`) VALUES
-(3, 1, 1, 1, 1, 3, '', '2023-03-20', '13:05:00', 'Pending', 'No'),
-(4, 1, 1, 4, 2, 2, '', '2023-03-29', '14:50:00', 'Completed', 'Yes');
+(3, 1, 1, 1, 1, 3, '', '2023-03-20', '13:05:00', 'No-Show', 'No'),
+(4, 1, 1, 4, 2, 2, '', '2023-03-29', '14:50:00', 'Completed', 'Yes'),
+(5, 0, 1, 1, 3, 1, '', '2023-04-03', '16:58:00', 'Pending', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -108,11 +108,20 @@ INSERT INTO `appointment_purpose` (`id`, `purpose`) VALUES
 CREATE TABLE `attendance` (
   `id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `log_type` varchar(255) NOT NULL,
-  `datetime_log` timestamp NOT NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `time_in` time NOT NULL,
+  `time_out` time NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `shift_type` varchar(100) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`id`, `staff_id`, `date`, `time_in`, `time_out`, `status`, `shift_type`, `updated_at`) VALUES
+(37, 1, '2023-03-29', '02:24:35', '02:25:00', 'Present', 'Day Shift', '2023-03-28 18:25:00');
 
 -- --------------------------------------------------------
 
@@ -184,7 +193,8 @@ CREATE TABLE `monitoring_detail` (
 
 INSERT INTO `monitoring_detail` (`id`, `patient_id`, `health_status`, `blood_pressure`, `condition_1`, `condition_2`, `condition_3`, `last_checked`, `checked_date`, `observation`, `updated_at`) VALUES
 (1, 1, 'Good', 'Low BP', 'Energetic', 'Wheelchair', 'Hyper', 'Dr. Analyn C. Gonzales', '2020-03-11', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '2023-03-22 20:13:33'),
-(6, 2, 'Very Good', 'High Bp', 'Bedridden', 'Bedridden', 'Bedridden', 'Datu J Batumbakal', '2023-03-28', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '2023-03-22 20:36:19');
+(6, 2, 'Very Good', 'High Bp', 'Bedridden', 'Bedridden', 'Bedridden', 'Datu J Batumbakal', '2023-03-28', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '2023-03-22 20:36:19'),
+(7, 8, 'Good', 'Low BP', 'Masayahin', 'Tanga', 'Bobo', 'Denise Gerzon', '2023-03-26', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', '2023-03-28 14:53:58');
 
 -- --------------------------------------------------------
 
@@ -373,7 +383,6 @@ CREATE TABLE `patient_info` (
 --
 
 INSERT INTO `patient_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `gender`, `province`, `street`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `picture`, `patient_info_no`) VALUES
-(1, 1, 'Khasmir', 'Mahadali', 'Basaluddin', '', '2023-02-26', 'Zamboanga', 'Male', 'ZAMBOANGA DEL SUR', 'CDCP', 'Sta Catalina', 'ZAMBOANGA CITY', 7000, 'asdfsdfsdf', '', '', 'Patient_1677166424Vanitas-19.jpg', 544812025),
 (2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-22', 'TEST', 'Male', 'BUKIDNON', 'TEST', 'Sta Catalina', 'AKBAR', 7000, 'TEST', 'TEST', 'TEST', 'Patient_1678887576Vanitas-19.jpg', 1619188859);
 
 -- --------------------------------------------------------
@@ -2206,7 +2215,8 @@ CREATE TABLE `relative` (
 
 INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_fname`, `patient_mname`, `patient_lname`, `patient_suffix`, `patient_id`) VALUES
 (1, 1, 'Mother', 'TEST', 'TEST', 'TEST', 'TEST', 'TEST', 1),
-(17, 1, 'Mother-in-law', 'Khasmir M. Basaluddin_Request_1679512048_Khasmir M. Basaluddin_Request_1679505430_Software-Engineering-Midterm-Defense-Guidelines.pdf', 'Khasmir', 'Mahadali', 'Basaluddin', '', 0);
+(17, 1, 'Mother-in-law', 'Khasmir M. Basaluddin_Request_1679512048_Khasmir M. Basaluddin_Request_1679505430_Software-Engineering-Midterm-Defense-Guidelines.pdf', 'Khasmir', 'Mahadali', 'Basaluddin', '', 0),
+(18, 1, 'Father', 'Khasmir M. Basaluddin_Request_1680015475_WebDev.pdf', 'Khasmir', 'Mahadali', 'Basaluddin', '', 0);
 
 -- --------------------------------------------------------
 
@@ -2242,7 +2252,6 @@ CREATE TABLE `relative_info` (
 --
 
 INSERT INTO `relative_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `province`, `gender`, `street`, `barangay`, `city`, `postal`, `relationship`, `phone`, `telephone`, `email`, `picture`, `relative_info_no`) VALUES
-(1, 1, 'John', 'Kent', 'Adlawan', '', '2023-02-06', 'Zamboanga', 'ZAMBOANGA DEL NORTE', 'Male', 'CDCP', 'Ewan', 'ZAMBOANGA CITY', 7000, 'Parents', '01234567890', '', 'khasmirbasaluddin@yahoo.com', 'Relative_16771664248.png', 544812025),
 (2, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-15', 'TEST', 'BOHOL', 'Male', 'TEST', 'TEST', 'ABORLAN', 700, 'Mother', '09152354148', '', 'test@gmail.com', 'Relative_1678887576Vanitas-19.jpg', 1619188859);
 
 -- --------------------------------------------------------
@@ -2285,8 +2294,7 @@ CREATE TABLE `staff_schedule` (
   `id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
   `day` enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') NOT NULL,
-  `start_time` time NOT NULL,
-  `end_time` time NOT NULL,
+  `shift_type` varchar(255) NOT NULL,
   `status` enum('Active','Inactive') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -2294,14 +2302,13 @@ CREATE TABLE `staff_schedule` (
 -- Dumping data for table `staff_schedule`
 --
 
-INSERT INTO `staff_schedule` (`id`, `staff_id`, `day`, `start_time`, `end_time`, `status`) VALUES
-(1, 1, 'Monday', '07:33:22', '04:33:22', 'Active'),
-(2, 1, 'Tuesday', '18:38:54', '31:38:54', 'Active'),
-(4, 1, 'Wednesday', '18:38:29', '20:30:21', 'Active'),
-(5, 1, 'Thursday', '32:34:21', '32:30:21', 'Active'),
-(6, 1, 'Friday', '15:00:00', '27:00:00', 'Active'),
-(7, 1, 'Saturday', '33:00:00', '10:00:00', 'Active'),
-(8, 1, 'Sunday', '33:32:30', '32:32:30', 'Active');
+INSERT INTO `staff_schedule` (`id`, `staff_id`, `day`, `shift_type`, `status`) VALUES
+(1, 1, 'Monday', 'Day Shift', 'Active'),
+(2, 1, 'Tuesday', 'Day Shift', 'Active'),
+(4, 1, 'Wednesday', 'Day Shift', 'Active'),
+(5, 1, 'Thursday', 'Day Shift', 'Active'),
+(7, 1, 'Saturday', 'Day Shift', 'Active'),
+(8, 1, 'Sunday', 'Day Shift', 'Active');
 
 -- --------------------------------------------------------
 
@@ -2322,14 +2329,6 @@ CREATE TABLE `survey_answer` (
 --
 
 INSERT INTO `survey_answer` (`id`, `user_id`, `survey_question`, `answers`, `survey_no`) VALUES
-(1, 1, 1, 'Yes', 544812025),
-(2, 1, 2, 'Yes', 544812025),
-(3, 1, 3, 'Yes', 544812025),
-(4, 1, 4, 'Yes', 544812025),
-(5, 1, 5, 'Yes', 544812025),
-(6, 1, 6, 'Yes', 544812025),
-(7, 1, 7, 'Yes', 544812025),
-(8, 1, 8, 'Yes', 544812025),
 (9, 1, 1, 'Yes', 1619188859),
 (10, 1, 2, 'Yes', 1619188859),
 (11, 1, 3, 'Yes', 1619188859),
@@ -2358,7 +2357,6 @@ CREATE TABLE `survey_info` (
 --
 
 INSERT INTO `survey_info` (`id`, `user_id`, `survey_no`, `inquire`, `services`) VALUES
-(1, 1, 544812025, 'Parents', 'Caregiving, Rehabilitation'),
 (2, 1, 1619188859, 'Aunt', 'Caregiving');
 
 -- --------------------------------------------------------
@@ -2598,7 +2596,7 @@ ALTER TABLE `admission`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `appointment_purpose`
@@ -2610,7 +2608,7 @@ ALTER TABLE `appointment_purpose`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `monitoring`
@@ -2628,7 +2626,7 @@ ALTER TABLE `monitoring_app_detail`
 -- AUTO_INCREMENT for table `monitoring_detail`
 --
 ALTER TABLE `monitoring_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `monitoring_hyiegne`
@@ -2664,7 +2662,7 @@ ALTER TABLE `monitoring_report`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `patient_info`
@@ -2694,7 +2692,7 @@ ALTER TABLE `relationship`
 -- AUTO_INCREMENT for table `relative`
 --
 ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `relative_info`
