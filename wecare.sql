@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2023 at 02:24 PM
+-- Generation Time: Mar 28, 2023 at 11:43 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -45,8 +45,8 @@ CREATE TABLE `admission` (
 --
 
 INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relative_info`, `staff_id`, `admission_no`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1, 2, 544812025, 'Canceled', '2023-02-23 15:33:45', '2023-03-15 13:43:40'),
-(2, 1, 2, 2, 2, 1, 1619188859, 'Pending', '2023-03-15 13:39:36', '2023-03-15 13:50:46');
+(1, 1, 1, 1, 1, 1, 544812025, 'Completed', '2023-02-23 15:33:45', '2023-03-27 17:10:15'),
+(2, 1, 2, 2, 2, 1, 1619188859, 'Pending', '2023-03-15 13:39:36', '2023-03-27 17:09:48');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,8 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `staff_id`, `user_id`, `staff_schedule_id`, `appointment_number`, `purpose_for_appointment`, `other_purpose`, `appointment_date`, `appointment_time`, `status`, `client_came`) VALUES
-(3, 1, 1, 1, 1, 3, '', '2023-03-20', '13:05:00', 'In Process', 'Pending');
+(3, 1, 1, 1, 1, 3, '', '2023-03-20', '13:05:00', 'Pending', 'No'),
+(4, 1, 1, 4, 2, 2, '', '2023-03-29', '14:50:00', 'Completed', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -124,15 +125,15 @@ CREATE TABLE `monitoring` (
   `patient_id` int(11) NOT NULL,
   `relative_id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
-  `input_id` int(11) NOT NULL
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `monitoring`
 --
 
-INSERT INTO `monitoring` (`id`, `patient_id`, `relative_id`, `staff_id`, `input_id`) VALUES
-(1, 1, 1, 1, 1);
+INSERT INTO `monitoring` (`id`, `patient_id`, `relative_id`, `staff_id`, `updated_at`) VALUES
+(1, 1, 1, 1, '2023-03-22 14:05:45');
 
 -- --------------------------------------------------------
 
@@ -154,7 +155,8 @@ CREATE TABLE `monitoring_app_detail` (
 --
 
 INSERT INTO `monitoring_app_detail` (`id`, `patient_id`, `time_start`, `time_end`, `date`, `current_problem`) VALUES
-(1, 1, '20:13:28', '29:13:28', '2023-03-22', 'There was something wrong with his hearing');
+(1, 1, '20:13:28', '29:13:28', '2023-03-22', 'There was something wrong with his hearing'),
+(2, 2, '04:43:00', '07:43:00', '2023-03-30', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
 
 -- --------------------------------------------------------
 
@@ -165,6 +167,7 @@ INSERT INTO `monitoring_app_detail` (`id`, `patient_id`, `time_start`, `time_end
 CREATE TABLE `monitoring_detail` (
   `id` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
+  `health_status` varchar(100) NOT NULL,
   `blood_pressure` varchar(50) NOT NULL,
   `condition_1` varchar(50) NOT NULL,
   `condition_2` varchar(50) NOT NULL,
@@ -179,8 +182,9 @@ CREATE TABLE `monitoring_detail` (
 -- Dumping data for table `monitoring_detail`
 --
 
-INSERT INTO `monitoring_detail` (`id`, `patient_id`, `blood_pressure`, `condition_1`, `condition_2`, `condition_3`, `last_checked`, `checked_date`, `observation`, `updated_at`) VALUES
-(1, 1, 'Low BP', 'Energetic', 'Wheelchair', 'Hyper', 'Dr. Analyn C. Gonzales', '2020-03-11', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '2023-03-16 09:00:44');
+INSERT INTO `monitoring_detail` (`id`, `patient_id`, `health_status`, `blood_pressure`, `condition_1`, `condition_2`, `condition_3`, `last_checked`, `checked_date`, `observation`, `updated_at`) VALUES
+(1, 1, 'Good', 'Low BP', 'Energetic', 'Wheelchair', 'Hyper', 'Dr. Analyn C. Gonzales', '2020-03-11', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '2023-03-22 20:13:33'),
+(6, 2, 'Very Good', 'High Bp', 'Bedridden', 'Bedridden', 'Bedridden', 'Datu J Batumbakal', '2023-03-28', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '2023-03-22 20:36:19');
 
 -- --------------------------------------------------------
 
@@ -203,34 +207,8 @@ CREATE TABLE `monitoring_hyiegne` (
 --
 
 INSERT INTO `monitoring_hyiegne` (`id`, `patient_id`, `name`, `time`, `status`, `note`, `updated_at`) VALUES
-(1, 1, 'Take a Bath', '06:22:53', 'Done', 'None', '2023-03-16 08:23:07');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `monitoring_input`
---
-
-CREATE TABLE `monitoring_input` (
-  `id` int(11) NOT NULL,
-  `patient_id` int(11) NOT NULL,
-  `health_status` varchar(100) NOT NULL,
-  `detail_id` int(11) NOT NULL,
-  `app_detail_id` int(11) NOT NULL,
-  `report_id` int(11) NOT NULL,
-  `medecine_id` int(11) NOT NULL,
-  `nutrition_id` int(11) NOT NULL,
-  `hyiegne_id` int(11) NOT NULL,
-  `photo_update_id` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `monitoring_input`
---
-
-INSERT INTO `monitoring_input` (`id`, `patient_id`, `health_status`, `detail_id`, `app_detail_id`, `report_id`, `medecine_id`, `nutrition_id`, `hyiegne_id`, `photo_update_id`, `updated_at`) VALUES
-(1, 1, 'Good', 1, 1, 1, 1, 1, 1, 1, '2023-03-16 09:17:07');
+(9, 1, 'Brush Teeth', '15:19:00', 'Done', 'None', '2023-03-21 15:19:05'),
+(14, 1, 'Take a Bath', '01:22:00', 'Done', 'None', '2023-03-22 17:19:00');
 
 -- --------------------------------------------------------
 
@@ -254,8 +232,8 @@ CREATE TABLE `monitoring_medecine` (
 --
 
 INSERT INTO `monitoring_medecine` (`id`, `patient_id`, `name`, `dose`, `started_at`, `status`, `note`, `updated_at`) VALUES
-(1, 1, 'Paracetamol', '1-0-1', '2023-03-01', 'On', 'Works Fine', '2023-03-16 08:18:48'),
-(2, 1, 'Biogesic', '1-1-1', '2023-03-01', 'On', 'Works Fine', '2023-03-16 10:23:52');
+(6, 1, 'Paracetamol', '1-1-1', '2023-03-22', 'On', 'Works Fine', '2023-03-20 16:14:17'),
+(14, 1, 'Rugby', '1-1-1', '2023-03-23', 'On', 'Works Fine', '2023-03-22 20:30:23');
 
 -- --------------------------------------------------------
 
@@ -279,7 +257,8 @@ CREATE TABLE `monitoring_nutrition` (
 --
 
 INSERT INTO `monitoring_nutrition` (`id`, `patient_id`, `name`, `type`, `time`, `status`, `note`, `updated_at`) VALUES
-(1, 1, 'Breakfast', 'Light', '00:21:10', 'Done', 'No Left Overs', '2023-03-16 08:22:00');
+(2, 1, 'Breakfast', 'Light', '06:34:00', 'Done', 'Left Overs', '2023-03-20 16:35:09'),
+(3, 1, 'Lunch', 'Light', '04:32:00', 'Done', 'Left Overs', '2023-03-22 20:26:18');
 
 -- --------------------------------------------------------
 
@@ -332,7 +311,6 @@ INSERT INTO `monitoring_report` (`id`, `patient_id`, `report_type`, `date`, `det
 
 CREATE TABLE `patient` (
   `id` int(11) NOT NULL,
-  `relative_id` int(11) NOT NULL,
   `staff_id` int(11) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `mname` varchar(255) NOT NULL,
@@ -341,6 +319,7 @@ CREATE TABLE `patient` (
   `date_birth` date NOT NULL,
   `place_birth` varchar(255) NOT NULL,
   `gender` varchar(50) NOT NULL,
+  `street` varchar(255) NOT NULL,
   `province` varchar(255) NOT NULL,
   `barangay` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
@@ -357,8 +336,9 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`id`, `relative_id`, `staff_id`, `fname`, `mname`, `lname`, `suffix`, `date_birth`, `place_birth`, `gender`, `province`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `status`, `room`, `image`) VALUES
-(1, 1, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-08', 'TEST', 'Male', 'TEST', 'TEST', 'TEST', 7000, 'TEST', 'TEST', 'TEST', 'Active', 'Room 1', 'homed.jpg');
+INSERT INTO `patient` (`id`, `staff_id`, `fname`, `mname`, `lname`, `suffix`, `date_birth`, `place_birth`, `gender`, `street`, `province`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `status`, `room`, `image`) VALUES
+(1, 1, 'TEST', 'TEST', 'TEST', 'TEST', '2023-03-08', 'TEST', 'Male', 'TEST', 'TEST', 'TEST', 'TEST', 7000, 'TEST', 'TEST', 'TEST', 'Active', 'Room 1', 'homed.jpg'),
+(2, 1, 'patient', 'patient', 'patient', 'patient', '2023-05-10', 'patient', 'Female', 'patient', 'ABRA', 'patient', 'ABORLAN', 7000, 'patient', 'patient', 'patient', 'Active', 'Room 2', 'home1.jpg');
 
 -- --------------------------------------------------------
 
@@ -2213,7 +2193,10 @@ CREATE TABLE `relative` (
   `user_id` int(11) NOT NULL,
   `relationship` varchar(80) NOT NULL,
   `proof` varchar(255) NOT NULL,
-  `patient_name` varchar(255) NOT NULL,
+  `patient_fname` varchar(255) NOT NULL,
+  `patient_mname` varchar(255) NOT NULL,
+  `patient_lname` varchar(255) NOT NULL,
+  `patient_suffix` varchar(255) NOT NULL,
   `patient_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -2221,8 +2204,9 @@ CREATE TABLE `relative` (
 -- Dumping data for table `relative`
 --
 
-INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_name`, `patient_id`) VALUES
-(1, 1, 'Mother', 'TEST', 'TEST', 1);
+INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_fname`, `patient_mname`, `patient_lname`, `patient_suffix`, `patient_id`) VALUES
+(1, 1, 'Mother', 'TEST', 'TEST', 'TEST', 'TEST', 'TEST', 1),
+(17, 1, 'Mother-in-law', 'Khasmir M. Basaluddin_Request_1679512048_Khasmir M. Basaluddin_Request_1679505430_Software-Engineering-Midterm-Defense-Guidelines.pdf', 'Khasmir', 'Mahadali', 'Basaluddin', '', 0);
 
 -- --------------------------------------------------------
 
@@ -2400,7 +2384,8 @@ INSERT INTO `survey_question` (`id`, `question`) VALUES
 (5, 'Does the resident need assistance when taking a bath?'),
 (6, 'Does the resident need assistance when eating?'),
 (7, 'Does the resident feel restless and walk around?'),
-(8, 'Does the resident have a peg/feeding tube/contraption?');
+(8, 'Does the resident have a peg/feeding tube/contraption?'),
+(9, 'Is there is something we need to know?');
 
 -- --------------------------------------------------------
 
@@ -2493,12 +2478,6 @@ ALTER TABLE `monitoring_detail`
 -- Indexes for table `monitoring_hyiegne`
 --
 ALTER TABLE `monitoring_hyiegne`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `monitoring_input`
---
-ALTER TABLE `monitoring_input`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2619,7 +2598,7 @@ ALTER TABLE `admission`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `appointment_purpose`
@@ -2637,43 +2616,37 @@ ALTER TABLE `attendance`
 -- AUTO_INCREMENT for table `monitoring`
 --
 ALTER TABLE `monitoring`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `monitoring_app_detail`
 --
 ALTER TABLE `monitoring_app_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `monitoring_detail`
 --
 ALTER TABLE `monitoring_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `monitoring_hyiegne`
 --
 ALTER TABLE `monitoring_hyiegne`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `monitoring_input`
---
-ALTER TABLE `monitoring_input`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `monitoring_medecine`
 --
 ALTER TABLE `monitoring_medecine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `monitoring_nutrition`
 --
 ALTER TABLE `monitoring_nutrition`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `monitoring_photo_update`
@@ -2691,7 +2664,7 @@ ALTER TABLE `monitoring_report`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `patient_info`
@@ -2721,7 +2694,7 @@ ALTER TABLE `relationship`
 -- AUTO_INCREMENT for table `relative`
 --
 ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `relative_info`
@@ -2733,7 +2706,7 @@ ALTER TABLE `relative_info`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `staff_schedule`
@@ -2757,13 +2730,13 @@ ALTER TABLE `survey_info`
 -- AUTO_INCREMENT for table `survey_question`
 --
 ALTER TABLE `survey_question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
