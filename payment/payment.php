@@ -1,6 +1,6 @@
 <?php
 
-    $page_title = 'WeCare - Appointment';
+    $page_title = 'WeCare - Payment';
     require_once '../includes/header.php';
     session_start();
 

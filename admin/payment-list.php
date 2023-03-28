@@ -14,7 +14,7 @@
 <div class="content">
 
 <div class="container align-items-center pt-3">
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php" > < Patient List </a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php" > < Patient List </a></button>
 
     <div class="col-12 col-lg-5 pt-4">
         <h2><strong>Payment History</strong></h2>

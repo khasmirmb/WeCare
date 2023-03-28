@@ -100,6 +100,15 @@ class Staff{
         return $data;
     }
 
+    function staff_schedule(){
+        $sql = "SELECT staff.firstname, staff.lastname, staff.middlename, staff_schedule.day, staff_schedule.start_time, staff_schedule.end_time, staff_schedule.status FROM staff_schedule INNER JOIN staff ON staff_schedule.staff_id = staff.id;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 }
 
 
