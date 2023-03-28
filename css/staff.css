@@ -415,7 +415,9 @@ thead {
 .patient-reset-btn:hover{
   color:#fff;
   background: #dc3545;
+  border: #dc3545;
 }  
+
 .patient-save-btn:hover{
   background: #0d6efd;
 }
@@ -542,4 +544,30 @@ margin: 20px 10px 10px 0px ;
 border-radius: 6px;
 padding: 10px 20px 10px;
 width: fit-content;
+}
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #00ACB2;
+  border-color: #00ACB2;
+}
+
+.list-group-item:hover{
+  background-color: #00ACB2;
+  color: #fff;
+} 
+
+/*---------------------
+Dropdown-item CSS
+-----------------------*/
+
+.dropdown-item:active{
+  color: #fff;
+  background: #00ACB2;
+}
+
+.dropdown-item:hover{
+  color: #fff;
+  background: #00ACB2;
 }

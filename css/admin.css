@@ -239,14 +239,27 @@ Modal
 Delete Modal
 -----------------------*/
 
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
 .modal-content .del-modal-header .icon-box {
-  width: 80px;
-  height: 80px;
-  margin: 6px auto;
-  border-radius: 50%;
-  z-index: 9;
-  text-align: center;
-  border: 3px solid #f15e5e;
+    width: 80px;
+    height: 80px;
+    margin: 15px auto;
+    border-radius: 50%;
+    z-index: 9;
+    text-align: center;
+    border: 3px solid #f15e5e;
 }
 
 .modal-content .del-modal-header .icon-box i {
@@ -440,6 +453,14 @@ width: 40%;
 .fa-arrow-up{
 color: green;
 margin-right: 5px;
+}
+
+.bg-success {
+  background-color: #00ACB2!important;
+}
+
+.content .card .icon_background {
+  background: #00ACB2;
 }
 
 /*---------------------

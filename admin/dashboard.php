@@ -384,13 +384,6 @@
         </div><!--End of row-->
 
 
-
-
-
-
-</div><!--End of container alignment-->
-
-
 <!-- Delete Modal -->
 <div class="modal fade" id="deleteAccModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
