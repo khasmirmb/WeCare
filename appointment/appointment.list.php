@@ -17,12 +17,12 @@
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light">
                 <tr>
-                <th>Name</th>
-                <th>Appointment Purpose</th>
-                <th>Appointment Time</th>
-                <th>Appointment Date</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th style="background: #00ACB2; color: #fff;">Name</th>
+                <th style="background: #00ACB2; color: #fff;">Appointment Purpose</th>
+                <th style="background: #00ACB2; color: #fff;">Appointment Time</th>
+                <th style="background: #00ACB2; color: #fff;">Appointment Date</th>
+                <th style="background: #00ACB2; color: #fff;">Status</th>
+                <th style="background: #00ACB2; color: #fff;">Actions</th>
                 </tr>
             </thead>
             <tbody>

@@ -882,3 +882,9 @@ Dropdown CSS
 .dropdown-item:active{
   background: #fff;
 }
+
+
+.fa-trash{
+  margin-top: 4px;
+  margin-right: 5px;
+}

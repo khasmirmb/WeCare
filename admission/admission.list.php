@@ -19,11 +19,11 @@
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light">
                 <tr>
-                <th>Patient Name</th>
-                <th>Relative Name</th>
-                <th>Relationship</th>
-                <th>Admission Number</th>
-                <th>Status</th>
+                <th style="background: #00ACB2; color: #fff;">Patient Name</th>
+                <th style="background: #00ACB2; color: #fff;">Relative Name</th>
+                <th style="background: #00ACB2; color: #fff;">Relationship</th>
+                <th style="background: #00ACB2; color: #fff;">Admission Number</th>
+                <th style="background: #00ACB2; color: #fff;">Status</th>
                 </tr>
             </thead>
             <tbody>
