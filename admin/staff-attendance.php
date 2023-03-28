@@ -1,6 +1,6 @@
 <?php
 
-  $page_title = 'WeCare Admin - Staff Schedule';
+  $page_title = 'WeCare Admin - Staff Attendance';
   require_once '../includes/admin-header.php';
   session_start();
 
@@ -17,7 +17,7 @@
   <div class="container align-items-center pt-3">
 <div class="card text-center">
 
-<div class="card-header"><!--Start of Card-->
+  <div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
         <a class="nav-link"  href="../admin/user-accounts.php">Users</a>
@@ -26,10 +26,10 @@
         <a class="nav-link" aria-current="true" href="../admin/staff-accounts.php">Staff</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="../admin/staff-schedule.php">Staff Schedule</a>
+        <a class="nav-link" aria-current="true" href="../admin/staff-schedule.php">Staff Schedule</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" aria-current="true" href="../admin/staff-attendance.php">Staff Attendance</a>
+        <a class="nav-link active" aria-current="true" href="../admin/staff-attendance.php">Staff Attendance</a>
       </li>
     </ul>
   </div><!--End of Card-->
@@ -54,7 +54,7 @@
     </div><!--End of search bar-->
 
     <div class="col-6 col-lg-2"><!--Start of add user-->
-    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#">Add Schedule</a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#">Add Attendance</a></button>
     </div><!--end of add user-->
 
 
@@ -73,36 +73,42 @@
       <div class="pt-3"><!--Start of table-->
     <div class="table-responsive">
     <?php
-          require_once '../classes/staff.class.php';
+          require_once '../classes/attendance.class.php';
 
-          $staff = new Staff;
+          $attendance = new Attendance;
 
-          $staff_list = $staff->staff_schedule();
+          $attendance_list = $attendance->attendance_admin();
 
     ?>
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info ">
         <tr>
         <th cope="col" class="text-left" style="background: #00ACB2; color: #fff;">Name</th>
-        <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Day</th>
+        <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Date</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Time In</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Time Out</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Shift Type</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Schedule Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Action</th>
         </tr>
     </thead>
     <tbody>
 
 
-    <?php foreach($staff_list as $row){ ?>
+    <?php foreach($attendance_list as $row){ ?>
 
         <tr>
         <td class="text-left"><?php echo $row['firstname'] . " ". $row['middlename'][0] . ". " . $row['lastname']?></td>
 
-        <td class="text-center"><?php echo $row['day'] ?></td>
+        <td class="text-center"><?php echo date("M j, Y", strtotime($row['date'])) ?></td>
 
-        <td class="text-center"><?php echo $row['shift_type'] ?></td>
+        <td class="text-center"><?php echo date("g:i a", strtotime($row['time_in'])) ?></td>
+
+        <td class="text-center"><?php echo date("g:i a", strtotime($row['time_out'])) ?></td>
 
         <td class="text-center"><?php echo $row['status'] ?></td>
+
+        <td class="text-center"><?php echo $row['shift_type'] ?></td>
 
         <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
        </tr>
@@ -115,10 +121,10 @@
 
   <div class="row"><!--Start of counting-->
   <div class="col pt-2">
-    <h7>Total Schedule: <strong>40</strong></h7>
+    <h7>Total Attendance: <strong>40</strong></h7>
     </div>
     <div class="col pt-2">
-    <h7>Active Schedule: <strong>20</strong></h7>
+    <h7>Total Present: <strong>20</strong></h7>
     </div>
     </div>
   </div><!--End of counting-->

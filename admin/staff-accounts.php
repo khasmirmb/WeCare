@@ -17,16 +17,19 @@
   <div class="container align-items-center pt-3">
 <div class="card text-center">
 
-  <div class="card-header"><!--Start of Card-->
+<div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link"  href="../admin/user-accounts.php">Users</a>
+        <a class="nav-link" href="../admin/user-accounts.php">Users</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" aria-current="true" href="../admin/staff-accounts.php">Staff</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" aria-current="true" href="../admin/staff-schedule.php">Staff Schedule</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href="../admin/staff-attendance.php">Staff Attendance</a>
       </li>
     </ul>
   </div><!--End of Card-->

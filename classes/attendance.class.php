@@ -97,6 +97,15 @@ class Attendance{
         return $data;
     }
 
+    function attendance_admin(){
+        $sql = "SELECT attendance.date, attendance.time_in, attendance.time_out, attendance.status, attendance.shift_type, staff.firstname, staff.middlename, staff.lastname FROM attendance INNER JOIN staff ON attendance.staff_id = staff.id;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 }
 
 
