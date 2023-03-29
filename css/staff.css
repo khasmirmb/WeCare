@@ -156,7 +156,7 @@ label #sidebar_btn:hover{
 
 .content{
   width: (100% - 250px);
-  /*--margin-top: 60px;--*/
+  margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
   background: url(background.png) no-repeat;
@@ -218,9 +218,9 @@ label #sidebar_btn:hover{
   }
 
   .nav_bar{
-      background: #ccc;
+    background: #ccc;
     width: (100% - 0px);
-    /*--margin-top: 70px;--*/
+    margin-top: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
