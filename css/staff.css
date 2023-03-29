@@ -61,11 +61,12 @@ header{
   z-index: 13;
   top: 0;
   background: #00ACB2;
+  /*--margin-top: 70px;--*/
   padding-top: 30px;
   position: fixed;
   left: 0;
   width: 250px;
-  height: calc(100% - 9%);
+  height: calc(100% - 0%);
   transition: 0.5s;
   transition-property: left;
   overflow-y: auto;
@@ -155,7 +156,7 @@ label #sidebar_btn:hover{
 
 .content{
   width: (100% - 250px);
-  margin-top: 60px;
+  /*--margin-top: 60px;--*/
   padding: 20px;
   margin-left: 250px;
   background: url(background.png) no-repeat;
