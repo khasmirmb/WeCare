@@ -348,8 +348,6 @@
     </table>
     </div>
     </div>
-    </div>
-
 </div><!--Don't touch-->
 
 <script>

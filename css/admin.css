@@ -14,7 +14,7 @@ header{
 
 .left_area h3 {
   color: #fff;
-  margin: -1.3rem 0rem 0rem 1rem;
+  margin: -2.3rem 0rem 0rem 0rem;
   text-transform: uppercase;
   font-size: 22px;
   font-weight: 900;
@@ -28,11 +28,12 @@ header{
   z-index: 13;
   top: 0;
   background: #00ACB2;
+  margin-top: 70px;
   padding-top: 30px;
   position: fixed;
   left: 0;
   width: 250px;
-  height: calc(100% - 0%);
+  height: calc(100% - 9%);
   transition: 0.5s;
   transition-property: left;
   overflow-y: auto;
@@ -90,7 +91,7 @@ label #sidebar_btn:hover{
 
 .content{
   width: (100% - 250px);
-  /*--margin-top: 60px;--*/
+  margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
   background: url(background.png) no-repeat;
@@ -154,7 +155,7 @@ label #sidebar_btn:hover{
   .nav_bar{
       background: #ccc;
     width: (100% - 0px);
-    /*--margin-top: 70px;--*/
+    margin-top: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
