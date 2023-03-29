@@ -87,10 +87,12 @@ class Attendance{
         }
     }
 
-    function check_duplicate_date($date){
-        $sql = "SELECT * FROM attendance WHERE date = :date;";
+    function check_duplicate_date($date, $staff_id){
+        $sql = "SELECT * FROM attendance WHERE date = :date AND staff_id = :staff_id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':date', $date);
+        $query->bindParam(':staff_id', $staff_id);
+
         if($query->execute()){
             $data = $query->fetch();
         }

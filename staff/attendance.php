@@ -23,7 +23,7 @@
             $attendance->shift_type = $_POST['shift_type'];
     
 
-            if(!$attendance->check_duplicate_date($_POST['date'])){
+            if(!$attendance->check_duplicate_date($_POST['date'], $_SESSION['staff_logged'])){
                 $attendance->add_attendance();
             }else{
                 $done_att = "You already have attendance this date.";
@@ -43,7 +43,7 @@
             $attendance->shift_type = $_POST['shift_type'];
     
 
-            if(!$attendance->check_duplicate_date($_POST['date'])){
+            if(!$attendance->check_duplicate_date($_POST['date'], $_SESSION['staff_logged'])){
                 $attendance->add_not_present();
             }else{
                 $done_att = "You already have attendance this date.";
@@ -63,7 +63,7 @@
             $attendance->shift_type = $_POST['shift_type'];
     
 
-            if(!$attendance->check_duplicate_date($_POST['date'])){
+            if(!$attendance->check_duplicate_date($_POST['date'], $_SESSION['staff_logged'])){
                 $attendance->add_not_present();
             }else{
                 $done_att = "You already have attendance this date.";
@@ -83,7 +83,7 @@
             $attendance->shift_type = $_POST['shift_type'];
     
 
-            if(!$attendance->check_duplicate_date($_POST['date'])){
+            if(!$attendance->check_duplicate_date($_POST['date'], $_SESSION['staff_logged'])){
                 $attendance->add_not_present();
             }else{
                 $done_att = "You already have attendance this date.";
