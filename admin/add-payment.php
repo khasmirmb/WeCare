@@ -37,36 +37,23 @@
   <div class="card-header">
     Add Payment
   </div>
-
   <div class="card-body">
-    <form action="" class="insert-form" id="insert_form" method="POST">
+  <form action="" class="insert-form" id="insert_form" method="POST">
       <h3 class="card-title">Payment Details</h3>
       <div class="row pt-3">
-      <div class="col-12 col-lg-3"><!--services-->
-      <label for="services">Services:</label>
-      <input class="form-control" type="text" name="services" id="services" required>
-      </div><!--End Patient Name-->
-      <div class="col-12 col-lg-3"><!--services-->
-      <label for="services-amount">Amount:</label>
-      <input class="form-control" type="number" name="services-amount" id="services-amount" required>
-      </div><!--End services-->
-      <div class="col-12 col-lg-3 pt-4"><!--confirm button-->
-      <input type="button" name="add_service" id="add_service" class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color: #fff;" value="Add Service">
+        <div class="col-12 col-lg-3"><!--services-->
+        <label for="services">Services:</label>
+        <input class="form-control" type="text" name="services" id="services" required>
+        </div><!--End Patient Name-->
+        <div class="col-12 col-lg-3"><!--services-->
+        <label for="services-amount">Amount:</label>
+        <input class="form-control" type="number" name="services-amount" id="services-amount" required>
+        </div><!--End services-->
+        <div class="col-12 col-lg-3 pt-4"><!--confirm button-->
+        <input type="button" name="add_service" id="add_service" class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color: #fff;" value="Add Service">
+        </div>
       </div><!--End row-->
     
-    <div class="row pt-3">
-    <div class="col-12 col-lg-3"><!--services-->
-    <label for="services">Other Fees:</label>
-    <input class="form-control" type="text" name="services" id="services">
-    </div><!--End Patient Name-->
-    <div class="col-12 col-lg-3"><!--services-->
-    <label for="services-amount">Amount:</label>
-    <input class="form-control" type="number" name="services-amount" id="services-amount">
-    </div><!--End services-->
-    <div class="col-12 col-lg-3 pt-4"><!--confirm button-->
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none"> Add </a></button>
-    </div><!--end confirm button-->
-    </div><!--End row-->
 
     <div class="row pt-3">
     <div class="col-12 col-lg-3"><!--services-->
@@ -78,10 +65,11 @@
     <input class="form-control" type="number" name="services-amount" id="services-amount">
     </div><!--End services-->
     <div class="col-12 col-lg-3 pt-4"><!--confirm button-->
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none"> Add </a></button>
-    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none"> Total Other Fees</a></button>
+    <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none"> Add Fees </a></button>
     </div><!--end confirm button-->
     </div><!--End row-->
+
+
     <div class="row pt-3">
     <div class="col-12 col-lg-3"><!--services-->
     <label for="other-fees" class="h5">Total Services Amount:</label>
