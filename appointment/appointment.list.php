@@ -13,7 +13,10 @@
     
 
 ?>
-    <div class="table-responsive mt-5 mb-5">
+<div class="header-monitoring d-flex">
+    <h2 class="ms-3 mt-5"><strong>Appointment List</strong></h2>
+</div>
+    <div class="table-responsive pt-3 mb-5">
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light">
                 <tr>
