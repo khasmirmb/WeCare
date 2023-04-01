@@ -71,11 +71,11 @@
 
                     <li><a href="../admission/admission.list.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-ticket"></i><span>Admission</span></button></a></li>
 
-                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-gear"></i><span>Account Settings</span></button></a></li>
+                    <li><a href="../settings/account-settings.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-gear"></i><span>Account Settings</span></button></a></li>
 
-                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-circle-info"></i><span>Help & Support</span></button></a></li>
+                    <li><a href="../help&support/help&support.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-circle-info"></i><span>Help & Support</span></button></a></li>
 
-                    <li><a href="#"><button class="dropdown-item" type="button"><i class="fa-solid fa-comment"></i><span>Give Feedback</span></button></a></li>
+                    <li><a href="../feedback/feedback.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-comment"></i><span>Give Feedback</span></button></a></li>
 
                     <hr>
                     <li><a href="../account/logout.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></button></a></li>

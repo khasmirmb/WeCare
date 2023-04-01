@@ -18,6 +18,9 @@
 ?>
 
     <div class="content">
+    <div class="header-monitoring">
+    <h2 class="ms-3"><strong>Patient List</strong></h2>
+    </div>
         <div class="container">
            <div class="row height d-flex justify-content-center align-items-center">
             <div class="cont-search d-flex justify-content-center align-items-center">
