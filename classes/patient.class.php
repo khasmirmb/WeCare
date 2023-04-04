@@ -29,6 +29,7 @@ class Patient{
     public $status;
     public $room;
     public $staff_id;
+    public $services;
 
      // protected property to store the database connection
      protected $db;
@@ -85,8 +86,8 @@ class Patient{
 
     function add_patient(){
         // SQL statement to add patient
-        $sql = "INSERT INTO patient (staff_id, fname, mname, lname, suffix, date_birth, place_birth, gender, province, street, barangay, city, postal, background_history, doctors_diagnosis, allergies, image, status, room) VALUES 
-        (:staff_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :street, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :status, :room);";
+        $sql = "INSERT INTO patient (staff_id, fname, mname, lname, suffix, date_birth, place_birth, gender, province, street, barangay, city, postal, background_history, doctors_diagnosis, allergies, image, status, room, services) VALUES 
+        (:staff_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :street, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :status, :room, :services);";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':staff_id', $this->staff_id);
@@ -108,6 +109,7 @@ class Patient{
         $query->bindParam(':picture', $this->picture);
         $query->bindParam(':status', $this->status);
         $query->bindParam(':room', $this->room);
+        $query->bindParam(':services', $this->services);
         
         if($query->execute()){
             return true;

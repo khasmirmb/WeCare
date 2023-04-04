@@ -30,8 +30,9 @@
         if($staffs->show_staff_schedule($day)){
             $data = $staffs->show_staff_schedule($day);
             $staffs->day = $data['day'];
-            $staffs->id = $data['id'];
-            
+            $staffs->id = $data['staff_id'];
+            $staffs->schedule_id = $data['id'];
+    
             // Get the max appointment_number and add one
             $appointment_max_num = $appointment->show_max_app_number();
                                     
@@ -45,9 +46,9 @@
             $app_max_number = $appointment_number + 1;
 
             // Insert the appointment
-            $appointment->staff_id = $staffs->day;
+            $appointment->staff_id = $staffs->id;
             $appointment->user_id = $_SESSION['logged_id'];
-            $appointment->staff_schedule_id = $staffs->id;
+            $appointment->staff_schedule_id = $staffs->schedule_id;
             $appointment->appointment_number = $app_max_number;
             $appointment->purpose_for_appointment = $purpose;
             $appointment->other_purpose = $others;

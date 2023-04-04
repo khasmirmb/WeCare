@@ -78,7 +78,7 @@
               <td class="text-center"><?php echo $row['client_came']?></td>
 
               <td class="text-center">
-                <a type="button" class="action-completed btn btn-success" href="app.completed.php?id=<?php echo $row['id'] ?>">Completed</a>
+                <a type="button" class="action-completed btn btn-success" href="app.completed.php?id=<?php echo $row['id'] ?>">Done</a>
 
                 <a type="button" class="action-noshow btn btn-danger" href="app.noshow.php?id=<?php echo $row['id'] ?>">No-Show</a>
               </td>

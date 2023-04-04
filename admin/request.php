@@ -57,7 +57,7 @@
 
         </td>
 
-        <form action="accept-request.php" method="GET">
+        <form id="request-form" action="accept-request.php" method="GET">
         <td class="text-center">
         <?php
             require_once '../classes/patient.class.php';
@@ -72,8 +72,8 @@
             <option value="<?php echo $data['id'] ?>"><?php echo ucfirst($data['fname']) ." ". ucfirst($data['mname'][0]) . ". " . ucfirst($data['lname']) . " " . ucfirst($data['suffix']) ?></option>
             <?php } ?>
 
-
             <input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
+
         </td>
 
         <td>
@@ -81,7 +81,7 @@
 
           <a class="req-reject btn btn-outline-danger" href="reject-request.php?id=<?php echo $row['id'] ?>">Reject</a> <!--Should put here the modal-->
 
-          <button class="req-approve btn btn-success">Approve</button><!--Should put here the modal-->
+          <input type="submit" class="req-approve btn btn-success" value="Approve"><!--Should put here the modal-->
 
         </div>
         </td>
@@ -118,7 +118,7 @@
 
             $("#accept-req").dialog('option', 'buttons', {
                 "Yes" : function() {
-                    window.location.href = theHREF;
+                    $('form').submit();
                 },
                 "Cancel" : function() {
                     $(this).dialog("close");

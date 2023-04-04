@@ -78,9 +78,9 @@
               <td class="text-center"><?php echo $row['status'] ?></td>
 
               <td class="text-center">
-                <a class="action-completed btn btn-success" href="add.completed.php?id=<?php echo $row['id'] ?>">Completed</a>
+                <a class="action-completed btn btn-success" href="add.completed.php?id=<?php echo $row['id'] ?>">Done</a>
 
-                <a class="action-noshow btn btn-danger" href="add.canceled.php?id=<?php echo $row['id'] ?>">Canceled</a>
+                <a class="action-noshow btn btn-danger" href="add.canceled.php?id=<?php echo $row['id'] ?>">Cancel</a>
               </td>
 
             </tr>

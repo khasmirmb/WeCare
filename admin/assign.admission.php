@@ -16,7 +16,7 @@
     //if the above code is false then code and html below will be executed
     $admission = new Admission;
 
-    if(isset($_GET['id']) && isset($_GET['assigned']) && isset($_GET['room']) && isset($_GET['p_firstname']) && isset($_GET['p_lastname']) && isset($_GET['p_middlename']) && isset($_GET['p_suffix']) && isset($_GET['p_date_of_birth']) && isset($_GET['p_place_of_birth']) && isset($_GET['p_gender']) && isset($_GET['p_province']) && isset($_GET['p_street']) && isset($_GET['p_barangay']) && isset($_GET['p_city']) && isset($_GET['p_postal']) && isset($_GET['p_background_history']) && isset($_GET['p_doctors_diagnosis']) && isset($_GET['p_allergies']) && isset($_GET['p_picture'])){
+    if(isset($_GET['id']) && isset($_GET['assigned']) && isset($_GET['room']) && isset($_GET['p_firstname']) && isset($_GET['p_lastname']) && isset($_GET['p_middlename']) && isset($_GET['p_suffix']) && isset($_GET['p_date_of_birth']) && isset($_GET['p_place_of_birth']) && isset($_GET['p_gender']) && isset($_GET['p_province']) && isset($_GET['p_street']) && isset($_GET['p_barangay']) && isset($_GET['p_city']) && isset($_GET['p_postal']) && isset($_GET['p_background_history']) && isset($_GET['p_doctors_diagnosis']) && isset($_GET['p_allergies']) && isset($_GET['p_picture']) && isset($_GET['p_services'])){
 
         $admission->staff_id = $_GET['assigned'];
         $admission->status = "Accepted";
@@ -45,6 +45,7 @@
                 $patient->staff_id = $_GET['assigned'];
                 $patient->status = "Active";
                 $patient->room = $_GET['p_street'];
+                $patient->services = $_GET['p_services'];
 
                 if($patient->add_patient()){
                     //redirect user to program page after saving

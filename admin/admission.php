@@ -125,6 +125,8 @@
 
           <input type="hidden" id="p_picture" name="p_picture" value="<?php echo $row['p_picture'] ?>">
 
+          <input type="hidden" id="p_services" name="p_services" value="<?php echo $row['p_services'] ?>">
+
       </td>
 
       <td scope="row" class="pt-3">

@@ -20,7 +20,7 @@ class Staff{
     public $status;
     public $day;
     public $staff_id;
-    
+    public $schedule_id;
     public $shift_type;
 
      // protected property to store the database connection
