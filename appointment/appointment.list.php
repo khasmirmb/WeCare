@@ -71,7 +71,7 @@
                         <?php } else if($row['status'] == "No-Show"){ ?>
                         <p class="fw-bold mb-1 color text-danger">No-Show</p>
                     <?php } else { ?>
-                    <a type="button" class="action-cancel btn btn-danger" href="appointment.cancel.php?id=<?php echo $row['id'] ?>">Cancel</a>
+                    <a type="button" class="action-cancel btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-appointment">Cancel</a>
                     <?php }?>
                 </td>
                 </tr>
@@ -82,9 +82,24 @@
         </table>
     </div>
 
-    <div id="cancel-dialog" class="dialog" title="Cancel Appointment">
-        <p><span>Are you sure you want to cancel the selected appointment?</span></p>
+    <!-- Modal -->
+<div class="modal fade" id="cancel-appointment" tabindex="-1" aria-labelledby="cancel-appointmentLabel" aria-hidden="true">
+  <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="cancel-appointmentLabel">Cancel Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure you want to cancel your appointment?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
     </div>
+  </div>
+</div>
 
     <script>
     $(document).ready(function() {

@@ -216,8 +216,9 @@
                     <a class="btn btn-outline-info me-1" type="button" id="back-patient" href="#patient-details" style="background: #00ACB2; border: #00ACB2; color: #fff;">Back</a>
                     <a class="btn btn-info" type="button" id="next-review" href="#" style="background: #00ACB2; border: #00ACB2; color: #fff;">Next<a>
         
-                    <button class="btn btn-info" id="survey-submit" name="submit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Submit</button>
+                    <button class="btn btn-info" id="survey-submit" name="submit" style="background: #00ACB2; border: #00ACB2; color: #fff;" >Submit</button>
                 </div>
             </div>
         </div>
     </div>
+

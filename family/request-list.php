@@ -56,7 +56,7 @@
 
         <td class="text-center">
             <div class="btn-group" role="group">
-                <a type="button" class="delete-req mx-2 d-flex justify-content-center text-decoration-none text-danger" href="delete-request.php?id=<?php echo $row['id'] ?>"><i class="fa-solid fa-trash"></i>Delete</a>
+                <a type="button" class="delete-req mx-2 d-flex justify-content-center text-decoration-none text-danger" data-bs-toggle="modal" data-bs-target="#monitoring-request"><i class="fa-solid fa-trash"></i>Delete</a>
             </div>
         </td>
 
@@ -66,8 +66,24 @@
 </table>
 </div>
 
-<div id="delete-request" class="dialog" title="Delete Request">
-    <p><span>Are you sure you want to delete the selected request?</span></p>
+
+<!-- Modal -->
+<div class="modal fade" id="monitoring-request" tabindex="-1" aria-labelledby="monitoring-requestLabel" aria-hidden="true">
+  <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="monitoring-requestLabel">Confirm Request Deletion</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure you want to delete this Family Monitoring Request for <strong>[Patient Name]</strong>? This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>

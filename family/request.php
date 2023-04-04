@@ -175,9 +175,28 @@
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
 
-    <button class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" name="submit">Submit</button>
+    <button class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" name="submit" data-bs-toggle="modal" data-bs-target="#monitoring-request">Submit</button>
 </div>
 
 </form>
 </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="monitoring-request" tabindex="-1" aria-labelledby="monitoring-requestLabel" aria-hidden="true">
+  <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="monitoring-requestLabel">Monitoring Request</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Thank you for submitting your request. Just to confirm, you would like to request monitoring to <strong>[name of the patient]</strong>. Is that correct?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, I need to make changes</button>
+        <button type="button" class="btn btn-primary">Yes, that's correct</button>
+      </div>
+    </div>
+  </div>
 </div>
