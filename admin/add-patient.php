@@ -288,7 +288,21 @@
 
     <div class="col-12 col-lg-3">
         <label for="room"><strong>Patient Room:</strong></label><br>
-        <input class="form-control" type="text" name="room" id="room" required value="<?php if(isset($_POST['room'])) { echo $_POST['room']; } ?>"><br>
+        <?php
+        require_once '../classes/reference.class.php';
+
+        $room = new Reference();
+
+        $room_list = $room->get_rooms();
+
+      ?>
+          <select class="form-select" name="room" id="room">
+          <?php foreach($room_list as $data){ ?>
+
+            <option value="<?php echo $data['name'] ?>"><?php echo $data['name'] ?></option>
+
+          <?php } ?>
+          </select>
     </div>
     </div>
     <div class="pt-3 pb-3"><!--Buttons-->

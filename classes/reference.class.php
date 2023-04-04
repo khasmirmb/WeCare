@@ -46,4 +46,13 @@ class Reference{
         }
         return $data;
     }
+
+    function get_rooms(){
+        $sql = "SELECT * FROM rooms;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 }

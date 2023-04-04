@@ -175,11 +175,7 @@
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
 
-    <button class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" name="submit" data-bs-toggle="modal" data-bs-target="#monitoring-request">Submit</button>
-</div>
-
-</form>
-</div>
+    <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#monitoring-request" onclick="getUserInput()">Submit</button>
 </div>
 
 <!-- Modal -->
@@ -191,12 +187,28 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      Thank you for submitting your request. Just to confirm, you would like to request monitoring to <strong>[name of the patient]</strong>. Is that correct?
+      Thank you for submitting your request. Just to confirm, you would like to request monitoring to <strong><span id="fullname"></span></strong>. Is that correct?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, I need to make changes</button>
-        <button type="button" class="btn btn-primary">Yes, that's correct</button>
+        <button type="submit" name="submit" class="btn btn-primary">Yes, that's correct</button>
       </div>
     </div>
   </div>
 </div>
+
+</form>
+</div>
+</div>
+
+<script>
+
+  function getUserInput() {
+    var firstname = document.getElementById('firstname').value;
+    var lastname = document.getElementById('lastname').value;
+    var middlename = document.getElementById('middlename').value;
+
+    document.getElementById('fullname').innerHTML = firstname + " " + middlename + " " + lastname;
+  }
+
+</script>

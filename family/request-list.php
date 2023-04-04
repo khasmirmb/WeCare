@@ -60,13 +60,6 @@
             </div>
         </td>
 
-    <?php } ?>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-
 <!-- Modal -->
 <div class="modal fade" id="monitoring-request" tabindex="-1" aria-labelledby="monitoring-requestLabel" aria-hidden="true">
   <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
@@ -76,40 +69,19 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      Are you sure you want to delete this Family Monitoring Request for <strong>[Patient Name]</strong>? This action cannot be undone.
+      Are you sure you want to delete this Family Monitoring Request for <strong><?php echo $row['patient_fname'] . " " . $row['patient_mname'][0] . ". ". $row['patient_lname'] . " " . $row['patient_suffix'] ?></strong>? This action cannot be undone.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <a type="button" class="btn btn-danger" href="delete-request.php?id=<?php echo $row['id'] ?>">Delete</a>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $("#delete-request").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".delete-req").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
+    <?php } ?>
+        </tr>
+    </tbody>
+</table>
+</div>
 
-            $("#delete-request").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#delete-request").dialog("open");
-        });
-    });
-</script>

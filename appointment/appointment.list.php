@@ -75,14 +75,8 @@
                     <?php }?>
                 </td>
                 </tr>
-            <?php
-                }
-            ?>
-            </tbody>
-        </table>
-    </div>
 
-    <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="cancel-appointment" tabindex="-1" aria-labelledby="cancel-appointmentLabel" aria-hidden="true">
   <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
     <div class="modal-content">
@@ -95,37 +89,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
+        <a type="button" class="btn btn-primary" href="appointment.cancel.php?id=<?php echo $row['id'] ?>">Yes</a>
       </div>
     </div>
   </div>
 </div>
-
-    <script>
-    $(document).ready(function() {
-        $("#cancel-dialog").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-
-        });
-        $(".action-cancel").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#cancel-dialog").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#cancel-dialog").dialog("open");
-        });
-    });
-</script>
+        <?php
+            }
+        ?>
+            </tbody>
+        </table>
+    </div>

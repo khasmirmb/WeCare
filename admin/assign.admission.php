@@ -44,7 +44,7 @@
                 $patient->allergies = $_GET['p_allergies'];
                 $patient->staff_id = $_GET['assigned'];
                 $patient->status = "Active";
-                $patient->room = $_GET['p_street'];
+                $patient->room = $_GET['room'];
                 $patient->services = $_GET['p_services'];
 
                 if($patient->add_patient()){

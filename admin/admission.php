@@ -130,7 +130,21 @@
       </td>
 
       <td scope="row" class="pt-3">
-          <input type="text" class="form-control" name="room"  required placeholder="Room for Patient">
+      <?php
+        require_once '../classes/reference.class.php';
+
+        $room = new Reference();
+
+        $room_list = $room->get_rooms();
+
+      ?>
+          <select class="form-select" name="room" id="room">
+          <?php foreach($room_list as $data){ ?>
+
+            <option value="<?php echo $data['name'] ?>"><?php echo $data['name'] ?></option>
+
+          <?php } ?>
+          </select>
       </td>
 
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
