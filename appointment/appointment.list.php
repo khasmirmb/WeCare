@@ -78,18 +78,18 @@
 
 <!-- Modal -->
 <div class="modal fade" id="cancel-appointment" tabindex="-1" aria-labelledby="cancel-appointmentLabel" aria-hidden="true">
-  <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
+  <div class="modal-md modal-dialog modal-dialog-centered d-flex align-items-center">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="cancel-appointmentLabel">Cancel Confirmation</h1>
+        <h1 class="modal-title fs-5 text-danger" id="cancel-appointmentLabel">Cancel Confirmation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      Are you sure you want to cancel your appointment?
+      <h6 class="text-center">Are you sure you want to cancel your appointment?</h6>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <a type="button" class="btn btn-primary" href="appointment.cancel.php?id=<?php echo $row['id'] ?>">Yes</a>
+        <a type="button" class="btn btn-danger" href="appointment.cancel.php?id=<?php echo $row['id'] ?>">Yes</a>
       </div>
     </div>
   </div>

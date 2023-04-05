@@ -79,12 +79,58 @@
         <td>
         <div class="d-flex gap-2 justify-content-center">
 
-          <a class="req-reject btn btn-outline-danger" href="reject-request.php?id=<?php echo $row['id'] ?>">Reject</a> <!--Should put here the modal-->
+          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#reject-monitoring">Reject</button>
 
-          <input type="submit" class="req-approve btn btn-success" value="Approve"><!--Should put here the modal-->
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accept-monitoring" onclick="getUserInput()">Approve</button>
 
         </div>
         </td>
+
+    <!-- Reject Modal -->
+    <div class="modal fade" id="reject-monitoring" tabindex="-1" aria-labelledby="reject-monitoringLabel" aria-hidden="true">
+      <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-danger" id="reject-monitoringLabel">Reject Request</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <h6 class="text-center">Are you sure to reject the request of <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". ". $row['lname'] ?></strong> for the requested patient <strong>        <?php echo $row['patient_fname'] . " " . $row['patient_mname'][0] . ". ". $row['patient_lname'] . " " . $row['patient_suffix'] ?></strong>?</h6>
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+
+            <a type="submit" name="submit" class="btn btn-danger" href="reject-request.php?id=<?php echo $row['id'] ?>">Yes</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Approve Modal -->
+    <div class="modal fade" id="accept-monitoring" tabindex="-1" aria-labelledby="accept-monitoringLabel" aria-hidden="true">
+      <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-success" id="accept-monitoringLabel">Approve Request</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <h6 class="text-center">Just to confirm, are you sure that the requested patient <strong><?php echo $row['patient_fname'] . " " . $row['patient_mname'][0] . ". ". $row['patient_lname'] . " " . $row['patient_suffix'] ?></strong> is the same as <strong class="text-primary"><span id="patient_name"></span></strong>?</h6>
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+
+            <button type="submit" name="submit" class="btn btn-success">Yes</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
         </form>
     </tr>
   <?php } ?>
@@ -94,69 +140,19 @@
 </div>
 </div>
 
-<div id="reject-req" class="dialog" title="Reject Request">
-    <p><span>Are you sure you want to reject this request?</span></p>
-</div>
-
-<div id="accept-req" class="dialog" title="Approve Request">
-    <p><span>Are you sure you want to approve this request?</span></p>
-</div>
-
 <script>
-    $(document).ready(function() {
-        $("#accept-req").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".req-approve").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
 
-            $("#accept-req").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    $('form').submit();
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
+  function getUserInput() {
+    var patient = document.getElementById('patient'); 
+    var text = patient.options[patient.selectedIndex].text;
 
-            $("#accept-req").dialog("open");
-        });
-    });
+    document.getElementById('patient_name').innerHTML = text;
+
+  }
+
 </script>
 
-<script>
-    $(document).ready(function() {
-        $("#reject-req").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".req-reject").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
 
-            $("#reject-req").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#reject-req").dialog("open");
-        });
-    });
-</script>
 
 <?php
 

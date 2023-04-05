@@ -307,45 +307,13 @@
     </div>
     <div class="pt-3 pb-3"><!--Buttons-->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelModal">Cancel</button><!--Should put a modal-->
-    <button class="btn btn-secondary" style="background: #00ACB2; border: #00ACB2; color: #fff;" name= "submit" data-bs-toggle="modal" data-bs-target="#alertModal">Save</button> <!--Should put a modal-->
+    <button class="btn btn-secondary" style="background: #00ACB2; border: #00ACB2; color: #fff;" name= "submit">Add Patient</button> <!--Should put a modal-->
     </div>
     </div><!--Buttons-->
+
 </form>
 </div><!--End of container-->
 
- <!-- Cancel Modal -->
- <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="del-modal-header">
-      <div class="icon-box">
-					<i class="material-icons">&#xE5CD;</i>
-				</div>	
-        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
-      </div>
-      <div class="del-modal-body">
-				<p>Do you really want to cancel? This process cannot be undone.</p>
-			</div>
-      <div class="del-modal-footer">
-        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="del-btn">Delete</button></a>
-      </div>
-    </div>
-  </div>
-</div>
-
- <!-- Save Modal -->
- <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-      <div class="alert alert-success shadow" role="alert" style="border-left:#155724 5px solid; border-radius: 0px">
-		<div class="row">
-        <img src="../images/checked.gif" style="background: transparent; width: 30%; margin-left: 10rem;">
-		  	<p style="font-size:18px;" class="mb-0 font-weight-light text-center"><b class="mr-1">Success!</b> The save was a success.</p>
-		</div>
-    </div>
-  </div>
-</div>
 
 </div>
 

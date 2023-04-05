@@ -102,7 +102,27 @@
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
       <td class="pt-3">
-      <button type="submit" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" onclick="return confirm('Are you sure you to accept this appointment?');">Confirm</button>
+      <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#appointment-admin">Confirm</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="appointment-admin" tabindex="-1" aria-labelledby="appointment-adminLabel" aria-hidden="true">
+  <div class="modal-md modal-dialog modal-dialog-centered d-flex align-items-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="appointment-adminLabel">Accept Appointment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            Are you sure to accept this appointment?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" name="submit" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
       
       </form>
       </td>

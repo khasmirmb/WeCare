@@ -204,11 +204,12 @@
 <script>
 
   function getUserInput() {
-    var firstname = document.getElementById('firstname').value;
+    var firstname = document.getElementById('firstname').value; 
     var lastname = document.getElementById('lastname').value;
     var middlename = document.getElementById('middlename').value;
+    var suffix = document.getElementById('suffix').value;
 
-    document.getElementById('fullname').innerHTML = firstname + " " + middlename + " " + lastname;
+    document.getElementById('fullname').innerHTML = firstname + " " + middlename + " " + lastname + " " + suffix;
   }
 
 </script>

@@ -151,8 +151,27 @@
 
       <td scope="row" class="pt-3">
 
-      <button type="submit" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" onclick="return confirm('Are you sure you to accept this admission?');">Confirm</button>
-      
+      <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#admission-admin" onclick="getUserInput()">Confirm</button>
+
+<!-- Modal -->
+<div class="modal fade" id="admission-admin" tabindex="-1" aria-labelledby="admission-adminLabel" aria-hidden="true">
+  <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="admission-adminLabel">Accept Admission</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            Are you sure to assign <strong><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></strong> to <strong><span id="nurse_assign"></span></strong> in <strong class="text-primary"><span id="room_assign"></span></strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" name="submit" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       </form>
       </td>
 
@@ -169,6 +188,20 @@
 </div>
 </div>
 
+<script>
+
+  function getUserInput() {
+    var assign = document.getElementById('assigned'); 
+    var text = assign.options[assign.selectedIndex].text;
+
+    var room = document.getElementById('room'); 
+    var text2 = room.options[room.selectedIndex].text;
+
+    document.getElementById('nurse_assign').innerHTML = text;
+    document.getElementById('room_assign').innerHTML = text2;
+  }
+
+</script>
 
 
 
