@@ -35,7 +35,7 @@
         </div>
         </div><!--End of Button Filter-->
     <div class="col-6 col-lg-2 pb-3"><!--Add Patient button-->
-        <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Add Patient</a>
+        <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #198754;; border: #198754;; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Patient</a>
     </div><!--End of Add Patient button-->
     <div class="col-12 col-lg-4"><!--Start of Search bar-->
         <form class="d-flex" role="search">
@@ -60,8 +60,8 @@
         <div class="card" style="width: 18rem;">
         <div class="card-body rounded shadow">
             <div class="d-flex justify-content-md-end pb-2">
-            <a class="btn btn-secondary me-2" href="payment-list.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Payment</a>
-            <a class="btn btn-secondary" href="patient-backup.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Records</a>
+            <a class="btn btn-secondary me-2" href="payment-list.php?id=<?php echo $row['id'] ?>" role="button" style="background: #28a745; border: #28a745; color: #fff;"><i class="fa-solid fa-receipt"></i>Payment</a>
+            <a class="btn btn-secondary" href="patient-backup.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fa-solid fa-folder-open"></i>Records</a>
             </div>
             <div class="pb-2">
             <img src="../images/<?php echo $row['image'] ?>" class="rounded-circle img-thumbnail img-fluid" alt="Patient Image" style="width: 45%; height: auto; border-color: #00ACB2; object-fit: cover;">
@@ -75,7 +75,7 @@
             <h6 class="card-subtitle mb-2 text-muted">Status</h6>
             <p class="card-text"><?php echo $row['status'] ?></p>
             <div class="d-grid mx-auto">
-            <a class="btn btn-secondary" href="patient-details.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Patient Details</a>
+            <a class="btn btn-secondary" href="patient-details.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fa-solid fa-circle-info"></i>Patient Details</a>
             </div>
         </div>
         </div>

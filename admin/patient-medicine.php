@@ -4,7 +4,7 @@
     <div class="header d-flex">
         <h4 class="pb-3"><strong>Medicine</strong></h4>
     <div class="button justify-content-right ms-4">
-        <button class="btn btn-primary" type="button" style="background: #00ACB2; border: none;" data-bs-toggle="modal" data-bs-target="#med-modal"><i class="fa-solid fa-circle-plus"></i>Add more</button>
+        <button class="btn btn-primary" type="button" style="background: #198754; border: none;" data-bs-toggle="modal" data-bs-target="#med-modal"><i class="fa-solid fa-circle-plus"></i>Add more</button>
     </div>
     </div>
     <div class="table-responsive">
@@ -52,7 +52,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="med-modalLabel">Add Medecine</h5>
+        <h5 class="modal-title" id="med-modalLabel">Add Medicine</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

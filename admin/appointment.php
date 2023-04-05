@@ -102,7 +102,7 @@
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
       <td class="pt-3">
-      <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#appointment-admin">Confirm</button>
+      <button type="button" class="btn btn-info" style="background: #198754; color: #fff; border: #198754;" data-bs-toggle="modal" data-bs-target="#appointment-admin">Confirm</button>
 
 
 <!-- Modal -->

@@ -151,7 +151,7 @@
 
       <td scope="row" class="pt-3">
 
-      <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#admission-admin" onclick="getUserInput()">Confirm</button>
+      <button type="button" class="btn btn-info" style="background: #198754; color: #fff; border: #198754;" data-bs-toggle="modal" data-bs-target="#admission-admin" onclick="getUserInput()">Confirm</button>
 
 <!-- Modal -->
 <div class="modal fade" id="admission-admin" tabindex="-1" aria-labelledby="admission-adminLabel" aria-hidden="true">

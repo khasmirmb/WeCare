@@ -31,7 +31,7 @@
 <div class="content">
 
 <div class="container align-items-center pt-3">
-    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php" > < Patient List </a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php" ><i class="fa-solid fa-arrow-left"></i>Patient List </a></button>
 
     <div class="col-12 col-lg-5 pt-4">
         <h2><strong>Payment History</strong></h2>
@@ -48,7 +48,7 @@
       
       <div class="col-12 col-lg-3"><!--First of button-->
         <div class="pt-4">
-        <button type="submit" class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color: #fff;">Add Payment</button> <!--Should put here the modal-->
+        <button type="submit" class="btn btn-info" style="background: #198754; border: #198754; color: #fff;"><i class="fa-solid fa-credit-card"></i>Add Payment</button> <!--Should put here the modal-->
         </div>
       </div><!--End of button-->
       </div><!--End of row-->

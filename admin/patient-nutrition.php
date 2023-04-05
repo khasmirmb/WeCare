@@ -3,7 +3,7 @@
     <div class="header d-flex">
         <h4 class="pb-3"><strong>Nutrition</strong></h4>
     <div class="button justify-content-right ms-4">
-        <button class="btn btn-primary" type="button" style="background: #00ACB2; border: none;" data-bs-toggle="modal" data-bs-target="#nut-modal"><i class="fa-solid fa-circle-plus"></i>Add more</button>
+        <button class="btn btn-primary" type="button" style="background: #198754; border: none;" data-bs-toggle="modal" data-bs-target="#nut-modal"><i class="fa-solid fa-circle-plus"></i>Add more</button>
     </div>
     </div>
     <div class="table-responsive">

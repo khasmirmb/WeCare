@@ -139,7 +139,8 @@
 </div>
 <div class="container">
     <div class="col-12 col-lg-3 pt-3">
-    <button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button>
+    <button class="btn btn-secondary" type="edit" style="background: #28a745; border: #28a745; color: #fff;"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+    <button class="btn btn-secondary" type="edit" style="background: #dc3545; border: #dc3545; color: #fff;"><i class="fa-solid fa-eraser"></i>Delete</button>
     </div>
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-2"><!--Big blue thing-->
@@ -183,7 +184,7 @@
     
     <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
     <div class="col-12 col-lg-4 pb-2">
-    <button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button><!--Edit button-->
+    <!--<button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button> --> <!--Edit button-->
     </div>
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
             <h5><strong>Appointment</strong></h5>
@@ -203,7 +204,7 @@
 <!--Nurse-->
 <div class="col-12 col-lg-12 pt-3">
     <div class="col-12 col-lg-2 pb-2">
-        <button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button><!--Edit button-->
+        <!--<button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button>--> <!--Edit button-->
         </div>
     <div class="text-wrap py-3 px-5 text-light rounded" style="background: #00ACB2; border: #00ACB2; color: #fff;">
         <div class="d-grid justify-content-md-end">
@@ -256,7 +257,7 @@
 
     <div class="col-12 col-lg-4 pt-3">
         <div class="col-12 col-lg-8 pb-2">
-        <button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button><!--Edit button-->
+        <!--<button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button> --> <!--Edit button-->
         </div>
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
         <h4 class="pb-3"><strong>Reports</strong></h4>
@@ -286,7 +287,7 @@
 
     <div class="col-12 col-lg-4 pt-3">
     <div class="col-12 col-lg-4 pb-2">
-    <button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button><!--Edit button-->
+    <!-- <button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button> --> <!--Edit button-->
     </div>
     <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
         <h4 class="pb-3"><strong>Photo Update</strong></h4>
