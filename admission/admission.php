@@ -31,15 +31,8 @@
         $survey->user_id = $_SESSION['logged_id'];
         $survey->survey_no = $admission_no;
 
-        if(isset($_POST['service'])){
+        if(isset($_POST['services'])){
 
-            // Get the services that being checked by user
-            $checkBox = implode(', ', $_POST['service']);
-            for ($i=0; $i < strlen($checkBox); $i++){
-                $checkBox[$i];
-            }
-            $services = $checkBox;
-            $survey->services = $services;
             $survey->inquire = $_POST['inquire'];
 
             // Check if the user uploaded Image
@@ -198,6 +191,14 @@
 
                         // Add info to DB if the validation is complete
                         if(validate_add_patient_info($_POST) && validate_add_survey($_POST) && validate_add_relative_info($_POST)){
+
+                            foreach($_POST['services'] as $key => $value){
+
+                                $survey->services = $_POST['services'][$key];
+                                $survey->survey_no = $admission_no;
+
+                                $survey->add_survey_services();
+                            }
 
                             $relative_info->add_relative_info();
                             $patient_info->add_patient_info();

@@ -3,33 +3,26 @@
         <div class="survey-container form-control">
             <h2 class="text-center">Survey & Services</h2>
             <h6 class="text-center">Just fill out this form, and we will know the initial care level recommendation </h6>
+                    <label for="service"><strong>Services Needed:</strong></label><br>
                     <div class="row align-items-start">
-                        <label for="service"><strong>Services Needed:</strong></label><br>
-                        <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Caregiving" <?php if(isset($_POST['service'])) { if (preg_match('/(Caregiving)/', $services)) echo ' checked'; } ?>>
-                            <label for="service[]">Caregiving</label><br>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Rehabilitation" <?php if(isset($_POST['service'])) { if (preg_match('/(Rehabilitation)/', $services)) echo ' checked'; } ?>>
-                            <label for="service[]">Rehabilitation</label><br>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Consultation" <?php if(isset($_POST['service'])) { if (preg_match('/(Consultation)/', $services)) echo ' checked'; } ?>>
-                            <label for="service[]">Consultation</label><br>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="Rooms" <?php if(isset($_POST['service'])) { if (preg_match('/(Rooms)/', $services)) echo ' checked'; } ?>>
-                            <label for="service[]">Rooms</label><br>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]"  value="Bundle" <?php if(isset($_POST['service'])) { if (preg_match('/(Bundle)/', $services)) echo ' checked'; } ?>>
-                            <label for="service[]">Bundle</label><br>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-4">
-                            <input class="form-check-input" type="checkbox" id="service[]" name="service[]" value="All" <?php if(isset($_POST['service'])) { if (preg_match('/(All)/', $services)) echo ' checked'; } ?>>
-                            <label for="service[]" class="mb-3">Applied All</label><br>
+                        <div class="col-lg col-md-4 col-sm-5 mb-2">
+                            <?php
+                                require_once '../classes/reference.class.php';
+                                $services = new Reference();
+
+                                $service_list = $services->get_services();
+                            ?>
+                            <select name="services[]" id="services" multiple>
+                            <?php foreach($service_list as $data){ ?>
+                                <option value="<?php echo $data['services'] ?>"><?php echo $data['services'] ?></option>
+                            <?php } ?>
+                            </select>
                         </div>
                     </div>
+
+                    <script>
+                        new MultiSelectTag('services')
+                    </script>
 
                         <?php
                             //Display the error message if there is any.

@@ -55,4 +55,13 @@ class Reference{
         }
         return $data;
     }
+
+    function get_services(){
+        $sql = "SELECT * FROM services;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 }

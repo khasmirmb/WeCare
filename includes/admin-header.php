@@ -21,6 +21,7 @@
 
     <!--JQuery CSS-->
     <link href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
 
 
     <!--CSS-->
@@ -35,7 +36,7 @@
 
     <!--Script-->
     <script src="../js/sidebar-offcanvas.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
     <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.umd.js" defer></script>
     <script type="module" src="../js/dashboard.js" defer></script>
     <script type="module" src="../js/admission-chart.js" defer></script>

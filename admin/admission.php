@@ -125,9 +125,25 @@
 
           <input type="hidden" id="p_picture" name="p_picture" value="<?php echo $row['p_picture'] ?>">
 
-          <input type="hidden" id="p_services" name="p_services" value="<?php echo $row['p_services'] ?>">
+          <input type="hidden" id="admission_no" name="admission_no" value="<?php echo $row['admission_no'] ?>">
+
+          <?php
+           require_once '../classes/survey.class.php';
+
+           $services = new Survey;
+
+           $service_list = $services->fetch_survey_services($row['admission_no']);
+          
+          ?>
+
+          <select name="services[]" multiple hidden>
+          <?php foreach($service_list as $service){ ?>
+            <option value="<?php echo $service['services'] ?>" selected><?php echo $service['services'] ?></option>
+          <?php } ?>
+          </select>    
 
       </td>
+
 
       <td scope="row" class="pt-3">
       <?php

@@ -15,8 +15,9 @@
     }
     //if the above code is false then code and html below will be executed
     $admission = new Admission;
+    $patient_info = new Patient;
 
-    if(isset($_GET['id']) && isset($_GET['assigned']) && isset($_GET['room']) && isset($_GET['p_firstname']) && isset($_GET['p_lastname']) && isset($_GET['p_middlename']) && isset($_GET['p_suffix']) && isset($_GET['p_date_of_birth']) && isset($_GET['p_place_of_birth']) && isset($_GET['p_gender']) && isset($_GET['p_province']) && isset($_GET['p_street']) && isset($_GET['p_barangay']) && isset($_GET['p_city']) && isset($_GET['p_postal']) && isset($_GET['p_background_history']) && isset($_GET['p_doctors_diagnosis']) && isset($_GET['p_allergies']) && isset($_GET['p_picture']) && isset($_GET['p_services'])){
+    if(isset($_GET['id']) && isset($_GET['assigned']) && isset($_GET['room']) && isset($_GET['p_firstname']) && isset($_GET['p_lastname']) && isset($_GET['p_middlename']) && isset($_GET['p_suffix']) && isset($_GET['p_date_of_birth']) && isset($_GET['p_place_of_birth']) && isset($_GET['p_gender']) && isset($_GET['p_province']) && isset($_GET['p_street']) && isset($_GET['p_barangay']) && isset($_GET['p_city']) && isset($_GET['p_postal']) && isset($_GET['p_background_history']) && isset($_GET['p_doctors_diagnosis']) && isset($_GET['p_allergies']) && isset($_GET['p_picture']) && isset($_GET['admission_no']) && isset($_GET['services'])){
 
         $admission->staff_id = $_GET['assigned'];
         $admission->status = "Accepted";
@@ -45,16 +46,30 @@
                 $patient->staff_id = $_GET['assigned'];
                 $patient->status = "Active";
                 $patient->room = $_GET['room'];
-                $patient->services = $_GET['p_services'];
+                $patient->patient_info_no = $_GET['admission_no'];
 
-                if($patient->add_patient()){
+                $patient->add_patient();
+
+                if($patient_info->fetch_patient_by_name($_GET['admission_no'])){
+
+                    $added_patient = $patient_info->fetch_patient_by_name($_GET['admission_no']);
+
+                    foreach($added_patient as $patient_fetch){
+
+                        foreach($_GET['services'] as $key => $value){
+
+                            $patient->services = $_GET['services'][$key];
+                            $patient->p_id = $patient_fetch['id'];
+
+                            $patient->add_patient_services();
+                        }
+                    }
+
                     //redirect user to program page after saving
                     header('location: admission-accepted.php');
                 }
-                
         
-            
-            
+
         }
     }
 ?>

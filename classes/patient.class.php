@@ -30,6 +30,7 @@ class Patient{
     public $room;
     public $staff_id;
     public $services;
+    public $p_id;
 
      // protected property to store the database connection
      protected $db;
@@ -86,8 +87,8 @@ class Patient{
 
     function add_patient(){
         // SQL statement to add patient
-        $sql = "INSERT INTO patient (staff_id, fname, mname, lname, suffix, date_birth, place_birth, gender, province, street, barangay, city, postal, background_history, doctors_diagnosis, allergies, image, status, room, services) VALUES 
-        (:staff_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :street, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :status, :room, :services);";
+        $sql = "INSERT INTO patient (staff_id, fname, mname, lname, suffix, date_birth, place_birth, gender, province, street, barangay, city, postal, background_history, doctors_diagnosis, allergies, image, status, room, admission_no) VALUES 
+        (:staff_id, :firstname, :middlename, :lastname, :suffix, :date_of_birth, :place_of_birth, :gender, :province, :street, :barangay, :city, :postal, :background_history, :doctors_diagnosis, :allergies, :picture, :status, :room, :patient_info_no);";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':staff_id', $this->staff_id);
@@ -109,7 +110,7 @@ class Patient{
         $query->bindParam(':picture', $this->picture);
         $query->bindParam(':status', $this->status);
         $query->bindParam(':room', $this->room);
-        $query->bindParam(':services', $this->services);
+        $query->bindParam(':patient_info_no', $this->patient_info_no);
         
         if($query->execute()){
             return true;
@@ -157,6 +158,32 @@ class Patient{
             $data = $query->fetch();
         }
         return $data;
+    }   
+
+
+    function fetch_patient_by_name($admission_no){
+        $sql = "SELECT * FROM patient WHERE admission_no = :admission_no;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':admission_no', $admission_no);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function add_patient_services(){
+        $sql = "INSERT INTO patient_services (patient_id, services) VALUES 
+        (:patient_id, :services);";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $this->p_id);
+        $query->bindParam(':services', $this->services);
+
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

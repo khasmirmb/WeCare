@@ -84,12 +84,23 @@
     <div class="container-fluid">
         <div class="row justify-content-md-center">
         <h4 class="pt-3 pb-3"><strong>Admission Number:</strong> <?php echo $patient->patient_info_no ?></h4>
-            <h2 class="pt-3 pb-3"><strong>Survery & Services</strong></h2>
+        </div>
+        <div class="row justify-content-md-center">
             <div class="col-6 col-lg-4 pt-3">
-                <h8>Care Services Needed:</h8>
+                <h8>Services:</h8>
             </div>
+            <?php
+                require_once '../classes/survey.class.php';
+
+                $services = new Survey;
+
+                $service_list = $services->fetch_survey_services($patient->patient_info_no);
+            
+            ?>
             <div class="col-6 col-lg-4 pt-3">
-                <h8><?php echo $survey->services ?></h8>
+            <?php foreach($service_list as $service){ ?>
+                <h8><?php echo $service['services'] ?></h8>
+            <?php } ?>
             </div>
         </div>
         <div class="row justify-content-md-center">

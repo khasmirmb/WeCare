@@ -111,7 +111,7 @@ function validate_survey_questions($POST){
     return true;
 }
 function validate_services($POST){
-    if(!isset($POST['service'])){
+    if(!isset($POST['services'])){
         return false;
     }
     return true;
