@@ -13,6 +13,7 @@
   if(isset($_POST['submit'])){
 
     $patient = new Patient;
+    $patient_info = new Patient;
 
     if(isset($_FILES['p_image']) && validate_add_patient_info($_POST)){
         $p_img_name = $_FILES['p_image']['name'];
@@ -48,11 +49,31 @@
                 $patient->staff_id = htmlentities($_POST['assign-nurse']);
                 $patient->status = htmlentities($_POST['status']);
                 $patient->room = htmlentities($_POST['room']);
+                $patient->patient_info_no = rand(time(), 100000);
         
                 if(validate_add_patient_info($_POST)){
 
                     if($patient->add_patient()){
-                        header('location: patient-list.php');
+
+                        if($patient_info->fetch_patient_by_name($patient->patient_info_no)){
+
+                            $added_patient = $patient_info->fetch_patient_by_name($patient->patient_info_no);
+
+                            foreach($added_patient as $patient_fetch){
+
+                                foreach($_GET['services'] as $key => $value){
+
+                                    $patient->services = $_GET['services'][$key];
+                                    $patient->p_id = $patient_fetch['id'];
+
+                                    $patient->add_patient_services();
+                                }
+                            }
+
+                            //redirect user to program page after saving
+                            header('location: patient-list.php');
+                        }
+
                     }
                 }
 
@@ -258,7 +279,24 @@
                     <textarea class="form-control" id="p_allergies" rows="3" placeholder="Proceed if None" name="p_allergies"><?php if(isset($_POST['p_allergies'])) { echo $_POST['p_allergies']; } ?></textarea>
                 </div>
     </div><!--End of container border-->
-    <h3 class="pt-3 pb-2"><strong>Nurse Assign</strong></h3> <!--Title-->
+
+    <div class="row mb-2">
+        <div class="col-12 col-lg-6">
+        <label for="services"><strong>Services:</strong></label><br>
+        <?php
+            require_once '../classes/reference.class.php';
+            $services = new Reference();
+
+            $service_list = $services->get_services();
+        ?>
+        <select name="services[]" id="services" multiple>
+        <?php foreach($service_list as $data){ ?>
+            <option value="<?php echo $data['id'] ?>"><?php echo $data['services'] ?></option>
+        <?php } ?>
+        </select>
+        </div>
+    </div>
+
     <div class="row">
     <div class="col-12 col-lg-3"><!--Start of nurse-->
     <?php 
@@ -269,7 +307,7 @@
         $staff_list = $staff->show_staff_data();
 
     ?>
-    <label for="assign-nurse">Assign Nurse To:</label>
+    <label for="assign-nurse"><strong>Assign Nurse To:</strong></label>
             <select name="assign-nurse" id="assign-nurse"class="form-select">
             <?php foreach($staff_list as $row){ ?>
                 <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['middlename'][0] . ". " . $row['lastname']  ?></option>
@@ -316,6 +354,10 @@
 
 
 </div>
+
+<script>
+    new MultiSelectTag('services')
+</script>
 
 <?php
 

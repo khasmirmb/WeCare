@@ -64,4 +64,13 @@ class Reference{
         }
         return $data;
     }
+
+    function fetch_services_not_owned(){
+        $sql = "SELECT * FROM services WHERE NOT EXISTS(SELECT * FROM patient_services WHERE services.id = patient_services.services);";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 }

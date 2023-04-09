@@ -31,6 +31,7 @@ class Patient{
     public $staff_id;
     public $services;
     public $p_id;
+    public $total;
 
      // protected property to store the database connection
      protected $db;
@@ -161,7 +162,7 @@ class Patient{
     } 
     
     function fetch_patient_services($record_id){
-        $sql = "SELECT services.services, services.price FROM patient_services INNER JOIN services ON patient_services.services = services.id WHERE patient_id = :id;";
+        $sql = "SELECT patient_services.id, services.services, services.price FROM patient_services INNER JOIN services ON patient_services.services = services.id WHERE patient_id = :id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $record_id);
         if($query->execute()){
@@ -169,7 +170,6 @@ class Patient{
         }
         return $data;
     }
-
 
     function fetch_patient_by_name($admission_no){
         $sql = "SELECT * FROM patient WHERE admission_no = :admission_no;";
@@ -188,6 +188,38 @@ class Patient{
         $query->bindParam(':patient_id', $this->p_id);
         $query->bindParam(':services', $this->services);
 
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function patient_service_total($record_id){
+        $sql = "SELECT SUM(services.price) AS total_price FROM patient_services INNER JOIN services ON patient_services.services = services.id WHERE patient_id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
+
+    function fetch_patient_by_id($id){
+        $sql = "SELECT * FROM patient WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function delete_patient_service($id){
+        $sql = "DELETE FROM patient_services WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $id);
         if($query->execute()){
             return true;
         }
