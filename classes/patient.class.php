@@ -158,7 +158,17 @@ class Patient{
             $data = $query->fetch();
         }
         return $data;
-    }   
+    } 
+    
+    function fetch_patient_services($record_id){
+        $sql = "SELECT services.services, services.price FROM patient_services INNER JOIN services ON patient_services.services = services.id WHERE patient_id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 
 
     function fetch_patient_by_name($admission_no){

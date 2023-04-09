@@ -36,7 +36,7 @@
     <div class="col-12 col-lg-5 pt-4">
         <h2><strong>Payment History</strong></h2>
     </div>
-  <form action="add-payment.php" method="POST">
+  <form action="add-payment.php" method="GET">
       <div class="row pt-3">
       <div class="col-12 col-lg-3"><!--Patient Name-->
       <label for="amount-payment"><strong>Patient</strong></label>
