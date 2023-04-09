@@ -883,8 +883,16 @@ Dropdown CSS
   background: #fff;
 }
 
-
 .fa-trash{
   margin-top: 4px;
   margin-right: 5px;
+}
+
+#count{
+  border-radius: 50px;
+  padding: 5px;
+  font-size: 10px;
+  top: -5px;
+  right: 16px;
+  position: relative;
 }

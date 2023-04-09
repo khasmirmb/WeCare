@@ -53,11 +53,22 @@
             <?php
                 if(isset($_SESSION['logged_id'])){
             ?>
-            <div class="user-bell">
-                <i class="fa-solid fa-bell"></i>
+            <div class="user-bell dropdown">
+                <i class="fa-solid fa-bell position-relative" id="notification-dropdown" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <span class="translate-middle badge rounded-circle bg-danger" id="count">99</span>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification-dropdown">
+                    <li><a class="dropdown-item" href="#"><strong>Payment is Near!</strong> You need to pay so we can continue our services</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#"><strong>Family Monitoring</strong> We would like to announce you</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#"><strong>Payment is Near!</strong> You need to pay so we can continue our services</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#"><strong>Payment is Near!</strong> You need to pay so we can continue our services</a></li>
+                </ul>   
             </div>
 
-            <div class="user-profile">
+            <div class="user-profile dropdown">
                 <img src="../images/<?php echo $_SESSION['profile_pic'] ?>" alt="Avatar" width="65px" height ="65px" data-bs-toggle="dropdown" aria-expanded="false">
 
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -85,6 +96,7 @@
             </div>
                 
             <?php } ?>
+            
         </div>
         </nav>
         <!-- Top Navigation End-->
