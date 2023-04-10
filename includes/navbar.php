@@ -52,19 +52,44 @@
             </div>
             <?php
                 if(isset($_SESSION['logged_id'])){
+
+                require_once '../classes/notification.class.php';
+
+                $notification = new Notification;
+
+                $notification_total = $notification->count_notification_by_user($_SESSION['logged_id']);
+
             ?>
             <div class="user-bell dropdown">
                 <i class="fa-solid fa-bell position-relative" id="notification-dropdown" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <span class="translate-middle badge rounded-circle bg-danger" id="count">99</span>
+                <span class="translate-middle badge rounded-circle bg-danger" id="count">
+                    <?php 
+                    foreach($notification_total as $row){
+                        echo $row['notification_total'];
+                    }
+                    ?>
+                </span>
 
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification-dropdown">
-                    <li><a class="dropdown-item" href="#"><strong>Payment is Near!</strong> You need to pay so we can continue our services</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#"><strong>Family Monitoring</strong> We would like to announce you</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#"><strong>Payment is Near!</strong> You need to pay so we can continue our services</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#"><strong>Payment is Near!</strong> You need to pay so we can continue our services</a></li>
+
+                    <?php
+
+                    if(!empty($notification->show_notification_by_user($_SESSION['logged_id'])))
+                    {
+                        $notification_list = $notification->show_notification_by_user($_SESSION['logged_id']);
+
+                        foreach($notification_list as $data){ ?>
+                            <li><a class="dropdown-item" href="#"><strong><?php echo $data['subject'] ?></strong></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        <?php }
+                    
+                    } else {
+
+                    ?>
+                
+                        <li><a class="dropdown-item" href="#"><strong>You currently have no notification</strong></a></li>
+
+                    <?php } ?>
                 </ul>   
             </div>
 

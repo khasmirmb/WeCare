@@ -5,6 +5,7 @@
   require_once '../classes/patient.class.php';
   require_once '../classes/reference.class.php';
   require_once '../classes/payment.class.php';
+  require_once '../classes/notification.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
@@ -34,6 +35,7 @@
 
     // Add Payment to Patient
     $payment = new Payment;
+    $notification = new Notification;
 
     $payment->patient_id = $patient->id;
     $payment->start_due = htmlentities($_POST['due-start']);
@@ -45,7 +47,23 @@
     $payment->status = "Not Paid";
 
     if($payment->add_payment()){
-      header('location: payment-list.php?id='. $patient->id);
+
+      // Notification of Payment
+      $notification->patient_id = $patient->id;
+
+      $notification->type = "Payment";
+
+      $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ".";
+
+      $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one's stay at our facility.\n" . " We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one's care is due soon, and we kindly request that you make the payment as soon as possible. \n" . " We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n" . " We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them. \n \n" . " Best regards,\n" . "WeCare Nursing Home";
+
+      $notification->status = 0;
+
+      if($notification->add_notification()){
+
+        header('location: payment-list.php?id='. $patient->id);
+
+      }
     }
 
   }
@@ -146,7 +164,7 @@
     <div class="row pt-3 col-12 col-lg-5">
       <div class="input-group">
         <span class="input-group-text">Total for Other Fees: ₱</span>
-        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" placeholder="0 If None" required>
+        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" required>
       </div><!--End services-->
     </div><!--End row-->
 
