@@ -17,7 +17,7 @@
     <h2 class="ms-3 mt-3"><strong>Family Monitoring Request List</strong></h2>
 
 <div class="new-admission d-flex me-5 justify-content-end">
-    <a type="button" class="btn btn-secondary" id="action-cancel" href="request.php" style="background: #00ACB2; border: #00ACB2; color: #fff;">Request Monitoring</a>
+    <a type="button" class="btn btn-secondary" id="action-cancel" href="request.php" style="background: #198754; border: #198754; color: #fff;">Request Monitoring</a>
 </div>
 
 <div class="p-3 table-responsive">

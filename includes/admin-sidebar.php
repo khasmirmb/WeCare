@@ -1,7 +1,7 @@
 <body>
 <input type="checkbox" id="check">
     <!--header area start-->
-    <header>
+    <!--<header>
       <label for="check">
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
@@ -11,7 +11,7 @@
       <div class="right_area">
         
       </div>
-    </header>
+    </header> -->
     <!--header area end-->
 
    <!--mobile navigation bar start-->
@@ -35,6 +35,9 @@
 
     <!--sidebar start-->
     <div class="sidebar">
+    <div class="left_area">
+        <h3><img src="../images/logo.png" alt="" width="50" height="60">WeCare</h3>
+      </div>
       <a href="../admin/dashboard.php"><i class="fas fa-chart-simple"></i><span>Dashboard</span></a>
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
