@@ -61,7 +61,6 @@
 
         // Survey Info Data
         $survey->id = $s_data['id'];
-        $survey->services = $s_data['services'];
         $survey->inquire = $s_data['inquire'];
         // Survey Answer and Question Data
         $s_answer = $survey->fetch_admission_survey_answers($_GET['id']);

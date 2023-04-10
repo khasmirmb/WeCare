@@ -3,6 +3,7 @@
   $page_title = 'WeCare Admin - Payment List';
   require_once '../includes/admin-header.php';
   require_once '../classes/patient.class.php';
+  require_once '../classes/payment.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
@@ -57,19 +58,29 @@
     <table class="table table-striped table-hover table-bordered">
   <thead class="table-info">
     <tr>
-      <th style="background: #00ACB2; color: #fff;" scope="col" class="text-center">Month</th>
-      <th scope="col" style="background: #00ACB2; color: #fff;" >Patient Name</th>
-      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Recommended Pay Date</th>
-      <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Amount Due</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;" class="text-center">Created Date</th>
+      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due Start Date</th>
+      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due End Date</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Total Amount</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Status</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Payment</th>
     </tr>
   </thead>
+  <?php
+
+    $payment = new Payment;
+
+    $payment_list = $payment->show_payment_list_by_patient($patient->id);
+
+  ?>
   <tbody>
+  <?php foreach($payment_list as $row){ ?>
     <tr>
-        <th scope="row" class="text-center">1</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Dec 20, 2028</td>
-        <td class="text-center">₱30, 000</td>
+        <th class="text-center"><?php echo date("M j, Y", strtotime($row['created_at'])) ?></th>
+        <td class="text-center"><?php echo date("M j, Y", strtotime($row['start_due'])) ?></td>
+        <td class="text-center"><?php echo date("M j, Y", strtotime($row['end_due'])) ?></td>
+        <td class="text-center">₱<?php echo $row['total_amount'] ?></td>
+        <td class="text-center"><?php echo $row['status'] ?></td>
         <td>
         <div class="d-flex gap-2 justify-content-center">
         <button class="btn btn-outline-danger" type="button">Not Paid</button> <!--Should put here the modal-->
@@ -77,30 +88,7 @@
         </div>
         </td>
     </tr>
-    <tr>
-        <th scope="row" class="text-center">1</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Dec 20, 2028</td>
-        <td class="text-center">₱30, 000</td>
-        <td>
-        <div class="d-flex gap-2 justify-content-center">
-        <button class="btn btn-outline-danger" type="button">Not Paid</button> <!--Should put here the modal-->
-        <button class="btn btn-success" type="button">Paid</button><!--Should put here the modal-->
-        </div>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row" class="text-center">1</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Dec 20, 2028</td>
-        <td class="text-center">₱30, 000</td>
-        <td>
-        <div class="d-flex gap-2 justify-content-center">
-        <button class="btn btn-outline-danger" type="button">Not Paid</button> <!--Should put here the modal-->
-        <button class="btn btn-success" type="button">Paid</button> <!--Should put here the modal-->
-        </div>
-        </td>
-    </tr>
+  <?php } ?>
     </tbody>
     </table>
     </div><!--End of table-->

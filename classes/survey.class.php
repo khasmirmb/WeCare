@@ -98,7 +98,7 @@ class Survey{
     }
 
     function fetch_survey_services($record_id){
-        $sql = "SELECT * FROM survey_services WHERE survey_no = :admission_no;";
+        $sql = "SELECT services.services FROM survey_services INNER JOIN services ON survey_services.services = services.id WHERE survey_no = :admission_no;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':admission_no', $record_id);
         if($query->execute()){

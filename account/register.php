@@ -89,7 +89,7 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empt
                                     if($otp){
                                         $reciver = $email;
                                         $subject = "From: $fname $lname <$email>";
-                                        $body = "Name " . "$fname $lname \n Email: " . "$email \n" . "$otp";
+                                        $body = "Name " . "$fname $lname \n Email: " . "$email \n" . "Your Verification Code is " . "$otp";
                                         $sender = "From: WeCare@gmail.com";
 
                                         if(mail($reciver, $subject, $body, $sender)){

@@ -4,6 +4,7 @@
   require_once '../includes/admin-header.php';
   require_once '../classes/patient.class.php';
   require_once '../classes/reference.class.php';
+  require_once '../classes/payment.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
@@ -26,6 +27,26 @@
     $patient->picture = $p_data['image'];
     $patient->date_of_birth = date_diff(date_create($p_data['date_birth']), date_create('today'))->y;
     $patient->gender = $p_data['gender'];
+
+  }
+
+  if(isset($_POST['submit'])){
+
+    // Add Payment to Patient
+    $payment = new Payment;
+
+    $payment->patient_id = $patient->id;
+    $payment->start_due = htmlentities($_POST['due-start']);
+    $payment->end_due = htmlentities($_POST['due-end']);
+    $payment->services_total = $_POST['service-total'];
+    $payment->fee_total = $_POST['fee-total'];
+    $payment->total_amount = $_POST['total-amount'];
+    $payment->fee_note = htmlentities($_POST['fee-note']);
+    $payment->status = "Not Paid";
+
+    if($payment->add_payment()){
+      header('location: payment-list.php?id='. $patient->id);
+    }
 
   }
 
@@ -78,7 +99,7 @@
 
 
 
-  <form action="#" id="add_form" method="GET">
+  <form action="add-payment.php?id=<?php echo $patient->id ?>" id="add_form" method="POST">
 
       <?php 
 
@@ -109,6 +130,7 @@
         $data = $services->patient_service_total($patient->id);
 
         $services->total = $data['total_price'];
+        
       }
 
 
@@ -117,42 +139,45 @@
     <div class="row pt-3 col-12 col-lg-5">
     <div class="input-group">
       <span class="input-group-text">Total for Services: ₱</span>
-      <input class="form-control bg-white" type="number" name="service-total" id="service-total" value="<?php echo  $services->total ?>" disabled>
+      <input class="form-control bg-white" type="number" name="service-total" id="service-total" value="<?php echo  $services->total ?>" required readonly>
     </div><!--End services-->
     </div><!--End row-->
 
     <div class="row pt-3 col-12 col-lg-5">
       <div class="input-group">
         <span class="input-group-text">Total for Other Fees: ₱</span>
-        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" value="">
+        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" placeholder="0 If None" required>
       </div><!--End services-->
     </div><!--End row-->
 
     <div class="row pt-3 col-12 col-lg-5">
       <div class="input-group">
         <span class="input-group-text">Note for Fee</span>
-        <textarea class="form-control bg-white" type="number" name="fee-total" id="fee-total" placeholder="Ex. Pass Due Fee = 500" rows="5"></textarea>
-      </div><!--End services-->
-    </div><!--End row-->
-
-    <div class="row pt-3 col-12 col-lg-5">
-      <div class="input-group">
-        <span class="input-group-text">Total Amount: ₱</span>
-        <input class="form-control bg-white" type="number" name="total" id="total" value="" disabled>
+        <textarea class="form-control bg-white" name="fee-note" id="fee-note" placeholder="Ex. Pass Due Fee = 500" rows="5"></textarea>
       </div><!--End services-->
     </div><!--End row-->
 
       <div class="row pt-3 col-12 col-lg-7">
         <div class="input-group">
           <span class="input-group-text">Due Start Date:</span>
-          <input type="date" aria-label="Services" class="form-control" name="due-start" id="due-start">
+          <input type="date" aria-label="Start" class="form-control" name="due-start" id="due-start" required>
           <span class="input-group-text">Due End Date:</span>
-          <input type="date" aria-label="Amount" class="form-control" name="due-end" id="due-end">
+          <input type="date" aria-label="End" class="form-control" name="due-end" id="due-end" onchange="getDate()" required>
         </div>
       </div><!--End row-->
 
+    <div class="row pt-3 col-12 col-lg-7">
+      <div class="input-group">
+          <span class="input-group-text">Total Amount: ₱</span>
+          <input class="form-control bg-white" type="number" name="total-amount" id="total-amount" required readonly>
+          <span class="input-group-text">Month/s:</span>
+          <input type="number" class="form-control bg-white" name="total_months" id="total_months" readonly>
+          <button type="button" class="btn btn-primary" onclick="getTotal()">Calculate</bu>
+      </div><!--End services-->
+    </div><!--End row-->
+
     <div class="d-flex justify-content-end pt-2"><!--services-->
-    <button type="submit" name="submit" id="submit" class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color: #fff;">Submit</button>
+    <button name="submit" id="submit" class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color: #fff;">Submit</button>
     </div><!--End services-->
     </form>
 
@@ -161,3 +186,49 @@
 </div><!--End Card -->
 </div><!--end pt-3 -->
 </div><!--end content -->
+
+
+    <script>
+
+      function getDate(){
+        var start_date = document.getElementById('due-start').value;
+        var end_date = document.getElementById('due-end').value;
+
+        var date1 = new Date(start_date);
+        var date2 = new Date(end_date);
+
+        var year1=date1.getFullYear();
+        var year2=date2.getFullYear();
+
+        var month1=date1.getMonth();
+        var month2=date2.getMonth();
+
+        if(month1===0){
+          month1++;
+          month2++;
+        }
+
+        var numberOfMonths;
+
+        numberOfMonths = (year2 - year1) * 12 + (month2 - month1);
+
+        document.getElementById('total_months').value = numberOfMonths;
+
+      }
+
+      function getVal() {
+        var service = document.getElementById('service-total').value;
+        var fee = document.getElementById('fee-total').value;
+        var total = parseFloat(service) + parseFloat(fee);
+        document.getElementById('total-amount').value = total;
+      }
+
+      function getTotal(){
+        var total = document.getElementById('total-amount').value;
+        var months = document.getElementById('total_months').value;
+
+        var total_price = parseFloat(total) * parseFloat(months);
+        document.getElementById('total-amount').value = total_price;
+      }
+
+    </script>
