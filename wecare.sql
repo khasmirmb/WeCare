@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2023 at 03:53 PM
+-- Generation Time: Apr 11, 2023 at 08:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -45,7 +45,7 @@ CREATE TABLE `admission` (
 --
 
 INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relative_info`, `staff_id`, `admission_no`, `status`, `created_at`, `updated_at`) VALUES
-(6, 1, 6, 7, 7, 1, 37245855, 'Accepted', '2023-04-07 11:50:01', '2023-04-07 13:30:08');
+(6, 1, 6, 7, 7, 1, 37245855, 'Accepted', '2023-04-07 11:50:01', '2023-04-11 15:34:08');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,8 @@ CREATE TABLE `appointment` (
 
 INSERT INTO `appointment` (`id`, `staff_id`, `user_id`, `staff_schedule_id`, `appointment_number`, `purpose_for_appointment`, `other_purpose`, `appointment_date`, `appointment_time`, `status`, `client_came`) VALUES
 (1, 1, 1, 1, 1, 3, '', '2023-04-17', '12:09:00', 'Canceled', 'Pending'),
-(2, 1, 1, 1, 2, 2, '', '2023-04-24', '20:25:00', 'Accepted', 'Pending');
+(2, 1, 1, 1, 2, 2, '', '2023-04-24', '20:25:00', 'Accepted', 'Pending'),
+(3, 1, 1, 7, 3, 1, '', '2023-04-15', '17:14:00', 'Accepted', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -128,6 +129,13 @@ CREATE TABLE `monitoring` (
   `staff_id` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring`
+--
+
+INSERT INTO `monitoring` (`id`, `patient_id`, `relative_id`, `staff_id`, `updated_at`) VALUES
+(3, 28, 5, 1, '2023-04-10 15:28:53');
 
 -- --------------------------------------------------------
 
@@ -245,6 +253,32 @@ CREATE TABLE `monitoring_report` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `subject` varchar(250) NOT NULL,
+  `message` longtext NOT NULL,
+  `status` int(2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`id`, `patient_id`, `user_id`, `type`, `subject`, `message`, `status`, `created_at`) VALUES
+(10, 36, 0, 'Admission', 'Your admission regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about that your admission regarding Lola D. Cruz have been accepted. \r\nWe appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-04-11 17:55:52'),
+(24, 0, 1, 'Appointment', 'Your appointment on Apr 24th, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 8:25 pm on Apr 24th, 2023 with the purpose of Inquire.', 0, '2023-04-11 18:08:01'),
+(25, 0, 1, 'Appointment', 'Your appointment on Apr 15th, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 5:14 pm on Apr 15th, 2023 with the purpose of OJT.', 0, '2023-04-11 18:08:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `patient`
 --
 
@@ -277,7 +311,7 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`id`, `staff_id`, `fname`, `mname`, `lname`, `suffix`, `date_birth`, `place_birth`, `gender`, `street`, `province`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `status`, `room`, `image`, `admission_no`) VALUES
-(27, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'Cdcp', 'ZAMBOANGA DEL SUR', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Active', 'Room 1', 'Patient_1680868200Vanitas-19.jpg', 37245855);
+(36, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'Cdcp', 'ZAMBOANGA DEL SUR', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Active', 'Room 1', 'Patient_1680868200Vanitas-19.jpg', 37245855);
 
 -- --------------------------------------------------------
 
@@ -323,7 +357,7 @@ INSERT INTO `patient_info` (`id`, `user_id`, `firstname`, `middlename`, `lastnam
 CREATE TABLE `patient_services` (
   `id` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
-  `services` varchar(100) NOT NULL
+  `services` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -331,8 +365,27 @@ CREATE TABLE `patient_services` (
 --
 
 INSERT INTO `patient_services` (`id`, `patient_id`, `services`) VALUES
-(5, 27, 'Caregiving'),
-(6, 27, 'Consultation');
+(56, 36, 1),
+(57, 36, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `start_due` date NOT NULL,
+  `end_due` date NOT NULL,
+  `services_total` varchar(100) NOT NULL,
+  `fee_total` varchar(100) NOT NULL,
+  `total_amount` varchar(100) NOT NULL,
+  `fee_note` varchar(255) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -2158,6 +2211,13 @@ CREATE TABLE `relative` (
   `patient_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `relative`
+--
+
+INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_fname`, `patient_mname`, `patient_lname`, `patient_suffix`, `patient_id`) VALUES
+(5, 1, 'Mother', 'Khasmir M. Basaluddin_Request_1681140506_Annex_ABC_Downloadable_Forms.pdf', 'Denise', 'Que', 'Gerzon', '', 36);
+
 -- --------------------------------------------------------
 
 --
@@ -2378,7 +2438,7 @@ INSERT INTO `survey_question` (`id`, `question`) VALUES
 
 CREATE TABLE `survey_services` (
   `id` int(11) NOT NULL,
-  `services` varchar(100) NOT NULL,
+  `services` int(11) NOT NULL,
   `survey_no` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -2387,8 +2447,8 @@ CREATE TABLE `survey_services` (
 --
 
 INSERT INTO `survey_services` (`id`, `services`, `survey_no`) VALUES
-(3, 'Caregiving', 37245855),
-(4, 'Consultation', 37245855);
+(3, 1, 37245855),
+(4, 3, 37245855);
 
 -- --------------------------------------------------------
 
@@ -2418,11 +2478,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `unique_id`, `fname`, `mname`, `lname`, `email`, `phone`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
-(1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', '', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-03-14 06:54:47'),
+(1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', 'faq.png', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-04-11 18:11:50'),
 (2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', 'homed.jpg', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-03-16 12:37:40'),
 (3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', 'asf', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-03-14 06:54:56'),
 (4, 1039537821, 'Staff2', 'Staff2', 'Staff2', 'staff2@gmail.com', '09152354148', '', '123', 0, 'Verified', 'staff', '2023-03-15 10:54:37', '2023-03-15 10:54:37'),
-(6, 648167998, 'El', 'Car', 'Res', 'armkakuss@gmail.com', '09094731567', 'Profile_1680057603IMG20220326200018.jpg', 'Adhyne10', 5214, '0', 'client', '2023-03-29 02:40:03', '2023-03-29 02:40:03'),
+(6, 648167998, 'El', 'Car', 'Res', 'test@gmail.com', '09094731567', 'Profile_1680057603IMG20220326200018.jpg', '123', 0, 'Verified', 'client', '2023-03-29 02:40:03', '2023-04-11 16:29:14'),
 (7, 247813239, 'Eljen', 'Briones', 'Augusto', 'xt202001173@wmsu.edu.ph', '09563350760', 'Profile_1680069818eljen.jpg', 'Khasmir123', 0, 'Verified', 'client', '2023-03-29 06:03:38', '2023-03-29 06:03:59'),
 (8, 1145276372, 'Machel', 'Briones', 'Augusto', 'maejen019@gmail.com', '09554616786', 'Profile_1680151552e2a0f80716cea9f444bbdec4da54a13e-removebg-preview.png', 'El-El12554680', 0, 'Verified', 'client', '2023-03-30 04:45:52', '2023-03-30 04:46:59');
 
@@ -2511,6 +2571,12 @@ ALTER TABLE `monitoring_report`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `patient`
 --
 ALTER TABLE `patient`
@@ -2526,6 +2592,12 @@ ALTER TABLE `patient_info`
 -- Indexes for table `patient_services`
 --
 ALTER TABLE `patient_services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2628,7 +2700,7 @@ ALTER TABLE `admission`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `appointment_purpose`
@@ -2646,7 +2718,7 @@ ALTER TABLE `attendance`
 -- AUTO_INCREMENT for table `monitoring`
 --
 ALTER TABLE `monitoring`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `monitoring_app_detail`
@@ -2691,10 +2763,16 @@ ALTER TABLE `monitoring_report`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `patient_info`
@@ -2706,7 +2784,13 @@ ALTER TABLE `patient_info`
 -- AUTO_INCREMENT for table `patient_services`
 --
 ALTER TABLE `patient_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `refcitymun`
@@ -2730,7 +2814,7 @@ ALTER TABLE `relationship`
 -- AUTO_INCREMENT for table `relative`
 --
 ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `relative_info`
