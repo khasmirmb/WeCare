@@ -71,9 +71,9 @@
                     <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                     </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Discharged</a></li>
-                    <li><a class="dropdown-item" href="#">Reassigned Patient</a></li>
-                    <li><a class="dropdown-item" href="#">Deceased</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#discharged">Discharged</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#reassigned">Reassigned Patient</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deceased">Deceased</a></li>
                   </ul>
                 </td>
                 </tr>
@@ -88,6 +88,96 @@
   </div>
 </section>
 </div>
+</div>
+
+<!-- Modal of discharge -->
+<div class="modal fade" id="discharged" tabindex="-1" aria-labelledby="dischargedLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="dischargedLabel">Patient Discharge Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you sure you want to discharge this patient?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal of reassigned -->
+<div class="modal fade" id="reassigned" tabindex="-1" aria-labelledby="reassignedLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="reassignedLabel">Patient Reassign</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+          <label for="nurse-name" class="col-form-label">Nurse:</label>
+          <select class="form-select" id="nurse-name">
+            <option selected>Select nurse</option>
+            <option value="1">Nurse 1</option>
+            <option value="2">Nurse 2</option>
+            <option value="3">Nurse 3</option>
+          </select>
+          </div>
+          <div class="mb-3">
+            <label for="reason-text" class="col-form-label">Reason:</label>
+            <textarea class="form-control" id="reason-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reassigned-confirm">Reassigned</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--reassigned-confirm-->
+<div class="modal fade" id="reassigned-confirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="reassigned-confirmLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="reassigned-confirmLabel">Reassign Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure to reassign this patient <strong>[name of the patient]</strong> to <strong>[nurse]</strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal of deceased -->
+<div class="modal fade" id="deceased" tabindex="-1" aria-labelledby="deceasedLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deceasedLabel">Deceased Patient</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you sure this patient <strong>[patient name]</strong> is deceased?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php
