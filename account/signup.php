@@ -82,13 +82,13 @@
               <hr class="my-4">
 
               <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
+                <button type="button" class="btn btn-lg btn-google btn-login fw-bold text-uppercase" style="border: none;">
                     <i class="fa-brands fa-google"></i> Sign up with Google
                 </button>
               </div>
 
               <div class="d-grid">
-                <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
+                <button type="button" class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" style="border: none;">
                     <i class="fa-brands fa-facebook"></i> Sign up with Facebook
                 </button>
               </div>
