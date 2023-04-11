@@ -102,7 +102,7 @@
        Are you sure you want to discharge this patient?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
         <button type="button" class="btn btn-primary">Yes</button>
       </div>
     </div>
@@ -135,7 +135,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reassigned-confirm">Reassigned</button>
       </div>
     </div>
@@ -154,7 +154,7 @@
       Are you sure to reassign this patient <strong>[name of the patient]</strong> to <strong>[nurse]</strong>?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
         <button type="button" class="btn btn-primary">Confirm</button>
       </div>
     </div>
@@ -173,7 +173,7 @@
        Are you sure this patient <strong>[patient name]</strong> is deceased?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
         <button type="button" class="btn btn-primary">Yes</button>
       </div>
     </div>
