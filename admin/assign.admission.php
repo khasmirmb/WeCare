@@ -2,6 +2,7 @@
 
     require_once '../classes/admission.class.php';
     require_once '../classes/patient.class.php';
+    require_once '../classes/notification.class.php';
 
     //resume session here to fetch session values
     session_start();
@@ -65,8 +66,26 @@
                         }
                     }
 
-                    //redirect user to program page after saving
-                    header('location: admission-accepted.php');
+                    $notification = new Notification;
+
+                    // Notification of Payment
+                    $notification->patient_id = $patient->p_id;
+
+                    $notification->type = "Admission";
+
+                    $notification->subject = "Your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " has been accepted.";
+
+                    $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " have been accepted. \n" . "We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+
+                    $notification->status = 0;
+
+                    if($notification->add_notification()){
+
+                        //redirect user to program page after saving
+                        header('location: admission-accepted.php');
+
+                    }
+
                 }
         
 

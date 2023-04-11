@@ -96,6 +96,16 @@
 
           <input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
 
+          <input type="hidden" id="user_iden" name="user_iden" value="<?php echo $row['user_iden'] ?>">
+
+          <input type="hidden" id="appointment_time" name="appointment_time" value="<?php echo $row['appointment_time'] ?>">
+
+          <input type="hidden" id="appointment_date" name="appointment_date" value="<?php echo $row['appointment_date'] ?>">
+
+          <input type="hidden" id="purpose" name="purpose" value="<?php echo $row['purpose'] ?>">
+
+          <input type="hidden" id="other_purpose" name="other_purpose" value="<?php echo $row['other_purpose'] ?>">
+
           </select>
           </div>
       </td>

@@ -58,15 +58,30 @@
                 $notification = new Notification;
 
                 $notification_total = $notification->count_notification_by_user($_SESSION['logged_id']);
+                $notification_total2 = $notification->count_notification_by_user_appointment($_SESSION['logged_id']);
 
             ?>
             <div class="user-bell dropdown">
                 <i class="fa-solid fa-bell position-relative" id="notification-dropdown" data-bs-toggle="dropdown" aria-expanded="false"></i>
                 <span class="translate-middle badge rounded-circle bg-danger" id="count">
+
                     <?php 
                     foreach($notification_total as $row){
-                        echo $row['notification_total'];
+                        $first = $row['notification_total'];
                     }
+                    ?>
+
+                    <?php 
+                    foreach($notification_total2 as $row2){
+                        $second = $row2['notification_total'];
+                    }
+                    ?>
+                    <?php
+
+                    $total = $first + $second;
+
+                    echo $total;
+
                     ?>
                 </span>
 
@@ -74,12 +89,19 @@
 
                     <?php
 
-                    if(!empty($notification->show_notification_by_user($_SESSION['logged_id'])))
+                    if(!empty($notification->show_notification_by_user($_SESSION['logged_id'])) || !empty($notification->show_notification_by_user_appointment($_SESSION['logged_id'])))
                     {
                         $notification_list = $notification->show_notification_by_user($_SESSION['logged_id']);
 
+                        $notification_list2 = $notification->show_notification_by_user_appointment($_SESSION['logged_id']);
+
                         foreach($notification_list as $data){ ?>
-                            <li><a class="dropdown-item" href="#"><strong><?php echo $data['subject'] ?></strong></a></li>
+                            <li><a class="dropdown-item" href="../notification/notification.php?id=<?php echo $data['not_id'] ?>"><strong><?php echo $data['subject'] ?></strong></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        <?php }
+
+                        foreach($notification_list2 as $data2){ ?>
+                            <li><a class="dropdown-item" href="../notification/notification.php?id=<?php echo $data2['not_id2'] ?>"><strong><?php echo $data2['subject'] ?></strong></a></li>
                             <li><hr class="dropdown-divider"></li>
                         <?php }
                     
@@ -104,6 +126,8 @@
                     <li><a href="../appointment/appointment.list.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-calendar-check"></i><span>Appointment List</span></button></a></li>
 
                     <li><a href="../payment/payment.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-money-bill"></i><span>Payment/History</span></button></a></li>
+
+                    <li><a href="../notification/notification-box.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-envelope"></i><span>Notification List</span></button></a></li>
 
                     <li><a href="../admission/admission.list.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-ticket"></i><span>Admission</span></button></a></li>
 

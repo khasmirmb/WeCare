@@ -138,9 +138,9 @@
 
           <select name="services[]" multiple hidden>
           <?php foreach($service_list as $service){ ?>
-            <option value="<?php echo $service['services'] ?>" selected><?php echo $service['services'] ?></option>
+            <option value="<?php echo $service['id'] ?>" selected><?php echo $service['services'] ?></option>
           <?php } ?>
-          </select>    
+          </select>
 
       </td>
 
