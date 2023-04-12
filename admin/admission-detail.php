@@ -62,6 +62,7 @@
         // Survey Info Data
         $survey->id = $s_data['id'];
         $survey->inquire = $s_data['inquire'];
+        $survey->add_date = $s_data['add_date'];
         // Survey Answer and Question Data
         $s_answer = $survey->fetch_admission_survey_answers($_GET['id']);
 
@@ -110,6 +111,16 @@
                 <h8><?php echo $survey->inquire ?></h8>
             </div>
         </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-6 col-lg-4 pt-3">
+                <h8>Admission Date:</h8>
+            </div>
+            <div class="col-6 col-lg-4 pt-3">
+                <h8><?php echo date("M j, Y", strtotime($survey->add_date)) ?></h8>
+            </div>
+        </div>
+
 
     <?php
 

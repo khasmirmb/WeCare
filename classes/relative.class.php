@@ -96,7 +96,7 @@ class Relative{
 
     function show_relative_request(){
         $sql = "SELECT relative.id,
-        relative.user_id,
+        relative.user_id AS user_iden,
         relative.relationship,
         relative.proof,
         relative.patient_fname,
@@ -184,7 +184,47 @@ class Relative{
         }
     }
 
+    function fetch_relative_by_patient($patient_id){
+        $sql = "SELECT * FROM relative WHERE patient_id = :patient_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $patient_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 
+    function add_relative_admission(){
+
+        $sql = "INSERT INTO relative (user_id, relationship, proof, patient_fname, patient_mname, patient_lname, patient_suffix, patient_id) VALUES 
+        (:user_id, :relationship, :proof, :patient_fname, :patient_mname, :patient_lname, :patient_suffix, :patient_id);";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $this->user_id);
+        $query->bindParam(':relationship', $this->relationship);
+        $query->bindParam(':proof', $this->proof);
+        $query->bindParam(':patient_fname', $this->firstname);
+        $query->bindParam(':patient_lname', $this->lastname);
+        $query->bindParam(':patient_mname', $this->middlename);
+        $query->bindParam(':patient_suffix', $this->suffix);
+        $query->bindParam(':patient_id', $this->patient_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }	
+    }
+
+    function fetch_relative_info($user_id){
+        $sql = "SELECT * FROM relative WHERE user_id = :user_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetch();
+        }
+        return $data;
+    }
 
 
 }

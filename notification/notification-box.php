@@ -25,11 +25,10 @@
 
         <?php
 
-        if(!empty($notification->show_notification_by_user($_SESSION['logged_id'])) || !empty($notification->show_notification_by_user_appointment($_SESSION['logged_id'])))
+        if(!empty($notification->show_notification_by_user($_SESSION['logged_id'])))
         {
             $notification_list = $notification->show_notification_by_user($_SESSION['logged_id']);
 
-            $notification_list2 = $notification->show_notification_by_user_appointment($_SESSION['logged_id']);
 
             foreach($notification_list as $data){ ?>
 
@@ -37,11 +36,6 @@
                 
             <?php }
 
-            foreach($notification_list2 as $data2){ ?>
-
-                <button type="button" class="btn btn-light d-flex justify-content-between align-items-center mb-2" style="background: #E5E4E2; border: #00ACB2;"><a href="notification.php?id=<?php echo $data2['not_id2'] ?>" class="text-decoration-none text-color text-dark"><strong><?php echo $data2['subject'] ?></strong></a><i class="fas fa-times ml-2"></i></button>
-                
-            <?php }
 
         } else {
 

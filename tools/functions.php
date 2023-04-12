@@ -122,8 +122,24 @@ function validate_inquire($POST){
     }
     return true;
 }
+
+function validate_addmission_date($POST){
+    if(!isset($POST['add_date'])){
+        return false;
+    }else if($POST['add_date'] == date("Y-m-d")){
+        return false;
+    }
+    else if($POST['add_date'] < date("Y-m-d")){
+        return false;
+    }
+    else if(date('l', strtotime($_POST['add_date'])) == "Sunday"){
+        return false;
+    }
+    return true;
+}
+
 function validate_add_survey($POST){
-    if(!validate_survey_questions($POST) || !validate_services($POST) || !validate_inquire($POST)){
+    if(!validate_survey_questions($POST) || !validate_services($POST) || !validate_inquire($POST) || !validate_addmission_date($POST)){
         return false;
      }
     return true;

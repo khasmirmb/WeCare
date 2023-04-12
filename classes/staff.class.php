@@ -96,15 +96,6 @@ class Staff{
         return $data;
     }
 
-    function show_staff_random(){
-        $sql = "SELECT * FROM staff WHERE status = 'Active' ORDER BY RAND() LIMIT 1;";
-        $query=$this->db->connect()->prepare($sql);
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    }
-
     function staff_schedule(){
         $sql = "SELECT staff.firstname, staff.lastname, staff.middlename, staff_schedule.day, staff_schedule.shift_type, staff_schedule.status FROM staff_schedule INNER JOIN staff ON staff_schedule.staff_id = staff.id;";
         $query=$this->db->connect()->prepare($sql);

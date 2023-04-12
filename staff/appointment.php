@@ -77,12 +77,54 @@
               <td class="text-center"><?php echo $row['client_came']?></td>
 
               <td class="text-center">
-                <a type="button" class="action-completed btn btn-success" data-bs-toggle="modal" data-bs-target="#appointment-done" href="app.completed.php?id=<?php echo $row['id'] ?>">Done</a>
+                <a type="button" class="action-completed btn btn-success" data-bs-toggle="modal" data-bs-target="#appointment-done<?php echo $row['id'] ?>">Done</a>
 
-                <a type="button" class="action-noshow btn btn-danger" style="background: #6c757d; border: #6c757d;" data-bs-toggle="modal" data-bs-target="#appointment-noshow" href="app.noshow.php?id=<?php echo $row['id'] ?>">No-Show</a>
+                <a type="button" class="action-noshow btn btn-danger" data-bs-toggle="modal" data-bs-target="#appointment-noshow<?php echo $row['id'] ?>">No-Show</a>
+
               </td>
 
             </tr>
+
+<!--Modal done-->
+<div class="modal fade" id="appointment-done<?php echo $row['id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="appointment-doneLabel" aria-hidden="true">
+  <div class="modal modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-success" id="appointment-doneLabel">Confirmation Appointment Done</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        Are you sure this <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></strong> show up on <strong><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></strong> at <strong><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
+        <a href="app.completed.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Yes</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!--Modal no show-->
+<div class="modal fade" id="appointment-noshow<?php echo $row['id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="appointment-noshowLabel" aria-hidden="true">
+  <div class="modal modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-danger" id="appointment-noshowLabel">Confirmation Appointment No Show</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        Are you sure this <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></strong> didn't show up on <strong><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></strong> at <strong><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
+        <a href="app.noshow.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Yes</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
           <?php } ?>
           </tbody>
           </table>
@@ -92,45 +134,7 @@
   </div>
 </div>
 
-<!--Modal done-->
-<div class="modal fade" id="admission-done" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="admission-doneLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="admission-doneLabel">Confirmation Appointment Done</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure this <strong>[name of the user]</strong> show up on <strong>[date]</strong> at <strong>[time]</strong>?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
-<!--Modal no show-->
-<div class="modal fade" id="appointment-noshow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="appointment-noshowLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="appointment-noshowLabel">Confirmation Appointment No Show</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure this <strong>[name of the user]</strong> didn't show up on <strong>[date]</strong> at <strong>[time]</strong>?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
 <?php
 

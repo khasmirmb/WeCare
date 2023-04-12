@@ -30,7 +30,7 @@
 
             $notification = new Notification;
 
-            // Notification of Payment
+            // Notification for Appointment Accepted
             $notification->user_id = $appointment->user_id;
 
             $notification->type = "Appointment";
@@ -47,7 +47,7 @@
 
             $notification->status = 0;
 
-            if($notification->add_notification_appointment()){
+            if($notification->add_notification_by_id()){
 
                 //redirect user to program page after saving
                 header('location: appointment-accepted.php');

@@ -67,7 +67,9 @@
     </thead>
     <tbody>
 
-    <?php foreach($appointment_list as $row){ ?>
+    <?php 
+    $i = 0;
+    foreach($appointment_list as $row){ ?>
 
       <tr>
         <td class="pt-4"><a href="../admin/appointment-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
@@ -88,7 +90,9 @@
 
            $staff_list = $show_staff->show_staff_data();
           ?>
-          <select name="assigned" id="assigned" class="form-select text-center">
+          <select name="assigned" id="assigned<?php echo $i; ?>" class="form-select text-center">
+
+          <option value="<?php echo $row['staff_iden'] ?>">--<?php echo $row['s_fname'] ." ". $row['s_mname'][0] . ". " . $row['s_lname'] ?>--</option>
 
           <?php foreach($staff_list as $data){ ?>
           <option value="<?php echo $data['id'] ?>"><?php echo $data['firstname'] ." ". $data['middlename'][0] . ". " . $data['lastname'] ?></option>
@@ -112,19 +116,19 @@
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
       <td class="pt-3">
-      <button type="button" class="btn btn-info" style="background: #198754; color: #fff; border: #198754;" data-bs-toggle="modal" data-bs-target="#appointment-admin">Confirm</button>
+      <button type="button" class="btn btn-info" style="background: #198754; color: #fff; border: #198754;" data-bs-toggle="modal" data-bs-target="#appointment-admin<?php echo $row['id'] ?>" onclick="getUserInput(<?php echo $i; ?>)">Confirm</button>
 
 
 <!-- Modal -->
-<div class="modal fade" id="appointment-admin" tabindex="-1" aria-labelledby="appointment-adminLabel" aria-hidden="true">
-  <div class="modal-md modal-dialog modal-dialog-centered d-flex align-items-center">
+<div class="modal fade" id="appointment-admin<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="appointment-adminLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered d-flex align-items-center">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="appointment-adminLabel">Accept Appointment</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-            Are you sure to accept this appointment?
+            Are you sure to accept the appointment of <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></strong> and assign it to <strong><span id="nurse_assign<?php echo $i; ?>"></span></strong>?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -138,7 +142,11 @@
       </td>
       </tr>
 
-    <?php } ?>
+    <?php
+
+    $i++;
+
+   } ?>
     </tbody>
   </table>
 </div>
@@ -148,6 +156,19 @@
 </div><!--End of Card-->
 </div><!--End of Container-->
 </div>
+
+<script>
+
+  function getUserInput(id) {
+
+    var assign = document.getElementById("assigned"+id);
+    var text1 = assign.options[assign.selectedIndex].text;
+
+    document.getElementById('nurse_assign'+id).innerHTML = text1;
+
+  }
+
+</script>
 
 
 

@@ -3,6 +3,8 @@
     require_once '../classes/admission.class.php';
     require_once '../classes/patient.class.php';
     require_once '../classes/notification.class.php';
+    require_once '../classes/relative.class.php';
+    require_once '../classes/monitoring.class.php';
 
     //resume session here to fetch session values
     session_start();
@@ -18,7 +20,7 @@
     $admission = new Admission;
     $patient_info = new Patient;
 
-    if(isset($_GET['id']) && isset($_GET['assigned']) && isset($_GET['room']) && isset($_GET['p_firstname']) && isset($_GET['p_lastname']) && isset($_GET['p_middlename']) && isset($_GET['p_suffix']) && isset($_GET['p_date_of_birth']) && isset($_GET['p_place_of_birth']) && isset($_GET['p_gender']) && isset($_GET['p_province']) && isset($_GET['p_street']) && isset($_GET['p_barangay']) && isset($_GET['p_city']) && isset($_GET['p_postal']) && isset($_GET['p_background_history']) && isset($_GET['p_doctors_diagnosis']) && isset($_GET['p_allergies']) && isset($_GET['p_picture']) && isset($_GET['admission_no']) && isset($_GET['services'])){
+    if(isset($_GET['id']) && isset($_GET['assigned']) && isset($_GET['room']) && isset($_GET['p_firstname']) && isset($_GET['p_lastname']) && isset($_GET['p_middlename']) && isset($_GET['p_suffix']) && isset($_GET['p_date_of_birth']) && isset($_GET['p_place_of_birth']) && isset($_GET['p_gender']) && isset($_GET['p_province']) && isset($_GET['p_street']) && isset($_GET['p_barangay']) && isset($_GET['p_city']) && isset($_GET['p_postal']) && isset($_GET['p_background_history']) && isset($_GET['p_doctors_diagnosis']) && isset($_GET['p_allergies']) && isset($_GET['p_picture']) && isset($_GET['admission_no']) && isset($_GET['services']) && isset($_GET['user_iden']) && isset($_GET['inquire'])){
 
         $admission->staff_id = $_GET['assigned'];
         $admission->status = "Accepted";
@@ -48,6 +50,7 @@
                 $patient->status = "Active";
                 $patient->room = $_GET['room'];
                 $patient->patient_info_no = $_GET['admission_no'];
+                $patient->user_id = $_GET['user_iden'];
 
                 $patient->add_patient();
 
@@ -66,24 +69,56 @@
                         }
                     }
 
-                    $notification = new Notification;
+                    $relative = new Relative;
 
-                    // Notification of Payment
-                    $notification->patient_id = $patient->p_id;
+                    $relative->user_id = $patient->user_id;
+                    $relative->relationship = $_GET['inquire'];
+                    $relative->firstname = $patient->firstname;
+                    $relative->middlename =  $patient->middlename;
+                    $relative->lastname = $patient->lastname;
+                    $relative->suffix = $patient->suffix;
+                    $relative->patient_id = $patient->p_id;
+                    $relative->proof = "Relative";
 
-                    $notification->type = "Admission";
+                    if($relative->add_relative_admission()){
 
-                    $notification->subject = "Your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " has been accepted.";
+                        if($relative->fetch_relative_info($patient->user_id)){
 
-                    $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " have been accepted. \n" . "We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+                            $data = $relative->fetch_relative_info($patient->user_id);
 
-                    $notification->status = 0;
+                            $relative->id = $data['id'];
 
-                    if($notification->add_notification()){
+                            $monitoring = new Monitoring;
 
-                        //redirect user to program page after saving
-                        header('location: admission-accepted.php');
+                            $monitoring->patient_id = $patient->p_id;
+                            $monitoring->relative_id = $relative->id;
+                            $monitoring->staff_id = $patient->staff_id;
 
+                            if($monitoring->add_monitoring()){
+
+                                $notification = new Notification;
+
+                                // Notification of Payment
+                                $notification->patient_id = $patient->p_id;
+
+                                $notification->user_id = $patient->user_id;
+
+                                $notification->type = "Admission";
+
+                                $notification->subject = "Your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " has been accepted.";
+
+                                $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " have been accepted. \n" . "You can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+
+                                $notification->status = 0;
+
+                                if($notification->add_notification_by_user_patient()){
+
+                                    //redirect user to program page after saving
+                                    header('location: admission-accepted.php');
+
+                                }
+                            }
+                        }
                     }
 
                 }

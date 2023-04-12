@@ -6,6 +6,7 @@
   require_once '../classes/reference.class.php';
   require_once '../classes/payment.class.php';
   require_once '../classes/notification.class.php';
+  require_once '../classes/relative.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
@@ -13,6 +14,7 @@
   }
 
   $patient = new Patient;
+  $relative = new Relative;
 
   if($patient->fetch_patient_data($_GET['id'])){
     // Data for the Patient
@@ -48,22 +50,37 @@
 
     if($payment->add_payment()){
 
-      // Notification of Payment
-      $notification->patient_id = $patient->id;
 
-      $notification->type = "Payment";
+      if(!empty($relative->fetch_relative_by_patient($patient->id))){
 
-      $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ".";
+        $relative_list = $relative->fetch_relative_by_patient($patient->id);
 
-      $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one's stay at our facility.\n" . " We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one's care is due soon, and we kindly request that you make the payment as soon as possible. \n" . " We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n" . " We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+        foreach($relative_list as $r_data){
 
-      $notification->status = 0;
+          // Notification of Payment
+          $notification->patient_id = $patient->id;
 
-      if($notification->add_notification()){
+          $notification->user_id = $r_data['user_id'];
+
+          $notification->type = "Payment";
+
+          $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ".";
+
+          $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one's stay at our facility.\n" . " We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one's care is due soon, and we kindly request that you make the payment as soon as possible. \n" . " We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n" . " We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+
+          $notification->status = 0;
+
+          $notification->add_notification_by_user_patient();
+
+        }
 
         header('location: payment-list.php?id='. $patient->id);
 
+
+      }else{
+        $no_relative = "This patient currently have no relative.";
       }
+
     }
 
   }
@@ -86,6 +103,12 @@
 
   <form action="add-service.php" method="GET">
     <div class="row mb-2">
+          <?php
+          //Display the error message if there is any.
+          if(isset($no_relative)){
+            echo '<div><p class="text-danger">'.$no_relative.'</p></div>';
+          }     
+          ?>
         <div class="col-12 col-lg-9 d-flex">
         <?php
             require_once '../classes/reference.class.php';

@@ -14,6 +14,7 @@ class Survey{
     public $survey_no;
     public $inquire;
     public $services;
+    public $add_date;
 
      // protected property to store the database connection
      protected $db;
@@ -45,13 +46,14 @@ class Survey{
     }
 
     function add_survey_info(){
-        $sql = "INSERT INTO survey_info (user_id, survey_no, inquire) VALUES 
-        (:user_id, :survey_no, :inquire);";
+        $sql = "INSERT INTO survey_info (user_id, survey_no, inquire, add_date) VALUES 
+        (:user_id, :survey_no, :inquire, :add_date);";
 
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $this->user_id);
         $query->bindParam(':survey_no', $this->survey_no);
         $query->bindParam(':inquire', $this->inquire);
+        $query->bindParam(':add_date', $this->add_date);
 
         if($query->execute()){
             return true;
@@ -62,7 +64,7 @@ class Survey{
     }
 
     function fetch_admission_survey_info($record_id){
-        $sql = "SELECT admission.id, survey_info.inquire FROM admission INNER JOIN survey_info ON admission.survey_info = survey_info.id WHERE admission.id = :id;";
+        $sql = "SELECT admission.id, survey_info.inquire, survey_info.add_date FROM admission INNER JOIN survey_info ON admission.survey_info = survey_info.id WHERE admission.id = :id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $record_id);
         if($query->execute()){

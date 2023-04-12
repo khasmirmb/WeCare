@@ -52,22 +52,26 @@
       <tr class="table-primary">
         <th scope="col" style="background: #00ACB2; color: #fff;">USER</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">PATIENT</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">ADMISSION DATE</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ADMISSION NO.</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ASSIGNED TO</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;" class="col-md-2">ROOM</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">ROOM</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">STATUS</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ACTION</th>
       </tr>
     </thead>
     <tbody>
 
-    <?php foreach($admission_list as $row){ ?>
+    <?php 
+    $i = 0;
+    foreach($admission_list as $row){ ?>
 
       <tr>
-      <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></td>
+      <th class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></a></th>
 
       <td class="pt-4"><a href="../admin/admission-detail.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-left"><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></a></td>
 
+      <td scope="row" class="pt-4"><?php echo date("M j, Y", strtotime($row['add_date']))?></td>
 
       <td scope="row" class="pt-4"><?php echo $row['admission_no']?></td>
 
@@ -81,7 +85,7 @@
 
            $staff_list = $show_staff->show_staff_data();
           ?>
-          <select name="assigned" id="assigned" class="form-select text-center">
+          <select name="assigned" id="assigned<?php echo $i; ?>" class="form-select text-center">
 
           <option value="<?php echo $row['staff_iden'] ?>">--<?php echo $row['s_fname'] ." ". $row['s_mname'][0] . ". " . $row['s_lname'] ?>--</option>
             
@@ -127,6 +131,10 @@
 
           <input type="hidden" id="admission_no" name="admission_no" value="<?php echo $row['admission_no'] ?>">
 
+          <input type="hidden" id="user_iden" name="user_iden" value="<?php echo $row['user_iden'] ?>">
+
+          <input type="hidden" id="inquire" name="inquire" value="<?php echo $row['inquire'] ?>">
+
           <?php
            require_once '../classes/survey.class.php';
 
@@ -154,7 +162,7 @@
         $room_list = $room->get_rooms();
 
       ?>
-          <select class="form-select" name="room" id="room">
+          <select class="form-select" name="room" id="room<?php echo $i; ?>">
           <?php foreach($room_list as $data){ ?>
 
             <option value="<?php echo $data['name'] ?>"><?php echo $data['name'] ?></option>
@@ -163,14 +171,14 @@
           </select>
       </td>
 
-      <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
+      <td scope="row" class="pt-4"><?php if($row['status'] == "Completed"){ ?> <strong class="text-success"><?php echo $row['status']; ?></strong> <?php } else { echo $row['status']; } ?></td>
 
       <td scope="row" class="pt-3">
 
-      <button type="button" class="btn btn-info" style="background: #198754; color: #fff; border: #198754;" data-bs-toggle="modal" data-bs-target="#admission-admin" onclick="getUserInput()">Confirm</button>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#admission-admin<?php echo $row['id'] ?>" onclick="getUserInput(<?php echo $i; ?>)">Accept</button>
 
 <!-- Modal -->
-<div class="modal fade" id="admission-admin" tabindex="-1" aria-labelledby="admission-adminLabel" aria-hidden="true">
+<div class="modal fade" id="admission-admin<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="admission-adminLabel" aria-hidden="true">
   <div class="modal-lg modal-dialog modal-dialog-centered d-flex align-items-center">
     <div class="modal-content">
       <div class="modal-header">
@@ -178,7 +186,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-            Are you sure to assign <strong><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></strong> to <strong><span id="nurse_assign"></span></strong> in <strong class="text-primary"><span id="room_assign"></span></strong>?
+            Are you sure to assign <strong><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></strong> to <strong><span id="nurse_assign<?php echo $i; ?>"></span></strong> in <strong class="text-primary"><span id="room_assign<?php echo $i; ?>"></span></strong>?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
@@ -188,12 +196,18 @@
   </div>
 </div>
 
+
+
       </form>
       </td>
 
       </tr>
 
-    <?php } ?>
+    <?php
+
+    $i++;
+  
+  } ?>
 
     </tbody>
   </table>
@@ -206,18 +220,23 @@
 
 <script>
 
-  function getUserInput() {
-    var assign = document.getElementById('assigned'); 
-    var text = assign.options[assign.selectedIndex].text;
+  function getUserInput(id) {
 
-    var room = document.getElementById('room'); 
+    var assign = document.getElementById("assigned"+id);
+    var text1 = assign.options[assign.selectedIndex].text;
+
+    document.getElementById('nurse_assign'+id).innerHTML = text1;
+
+    var room = document.getElementById('room'+id); 
     var text2 = room.options[room.selectedIndex].text;
 
-    document.getElementById('nurse_assign').innerHTML = text;
-    document.getElementById('room_assign').innerHTML = text2;
+    document.getElementById('room_assign'+id).innerHTML = text2;
+
   }
 
 </script>
+
+
 
 
 

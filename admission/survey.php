@@ -3,9 +3,9 @@
         <div class="survey-container form-control">
             <h2 class="text-center">Survey & Services</h2>
             <h6 class="text-center">Just fill out this form, and we will know the initial care level recommendation </h6>
-                    <label for="service"><strong>Services Needed:</strong></label><br>
-                    <div class="row align-items-start">
-                        <div class="col-lg col-md-4 col-sm-5 mb-2">
+                    <div class="d-flex row mt-2">
+                        <div class="col">
+                            <label for="service"><strong>Services Needed:</strong></label><br>
                             <?php
                                 require_once '../classes/reference.class.php';
                                 $services = new Reference();
@@ -18,18 +18,40 @@
                             <?php } ?>
                             </select>
                         </div>
+
+                        <?php
+                            //Display the error message if there is any.
+                            if(isset($error)){
+                                echo '<div><p class="error mt-2 mb-2">'.$error.'</p></div>';
+                            }     
+                        ?>
+
+                        <div class="col">
+                            <label for="add_date"><strong>Date for Admission:</strong></label><br>
+                            <input class="form-control" type="date" name="add_date" id="add_date" required value="<?php if(isset($_POST['add_date'])) { echo $_POST['add_date']; } ?>"><br>
+                        </div>
+
+                        <?php
+                            if(isset($_POST['submit']) && !validate_addmission_date($_POST)){
+                        ?>
+                            <p class="error mt-2 mb-2">Admission date should be available in our schedule and 3 days advance.</p>
+                        <?php
+                            }
+                        ?>
+
+                        <?php
+                            //Display the error message if there is any.
+                            if(isset($error_staff)){
+                                echo '<div><p class="error mt-2 mb-2">'.$error_staff.'</p></div>';
+                            }     
+                        ?>
+
+
                     </div>
 
                     <script>
                         new MultiSelectTag('services')
                     </script>
-
-                        <?php
-                            //Display the error message if there is any.
-                            if(isset($error)){
-                                echo '<div><p class="error">'.$error.'</p></div>';
-                            }     
-                        ?>
 
                     <div class="mb-3">
                         <div class = "inquiries">

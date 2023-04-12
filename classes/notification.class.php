@@ -25,11 +25,12 @@ class Notification{
     }
 
      //Methods
-     function add_notification(){
-        $sql = "INSERT INTO notification (patient_id, type, subject, message, status) VALUES 
-        (:patient_id, :type, :subject, :message, :status);";
+    function add_notification_by_user_patient(){
+        $sql = "INSERT INTO notification (patient_id, user_id, type, subject, message, status) VALUES 
+        (:patient_id, :user_id, :type, :subject, :message, :status);";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':patient_id', $this->patient_id);
+        $query->bindParam(':user_id', $this->user_id);
         $query->bindParam(':type', $this->type);
         $query->bindParam(':subject', $this->subject);
         $query->bindParam(':message', $this->message);
@@ -42,7 +43,7 @@ class Notification{
         }	
     }
 
-    function add_notification_appointment(){
+    function add_notification_by_id(){
         $sql = "INSERT INTO notification (user_id, type, subject, message, status) VALUES 
         (:user_id, :type, :subject, :message, :status);";
         $query=$this->db->connect()->prepare($sql);
@@ -65,7 +66,7 @@ class Notification{
         notification.subject,
         notification.message,
         notification.status,
-        notification.created_at FROM notification INNER JOIN relative ON notification.patient_id = relative.patient_id WHERE relative.user_id = :user_id AND notification.status = 0 ORDER BY notification.created_at ASC;";
+        notification.created_at FROM notification WHERE notification.user_id = :user_id AND notification.status = 0 ORDER BY notification.created_at DESC;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $user_id);
         if($query->execute()){
@@ -75,31 +76,6 @@ class Notification{
     }
 
     function count_notification_by_user($user_id){
-        $sql = "SELECT COUNT(*) AS notification_total FROM notification INNER JOIN relative ON notification.patient_id = relative.patient_id WHERE relative.user_id = :user_id AND notification.status = 0;";
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':user_id', $user_id);
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    }
-
-    function show_notification_by_user_appointment($user_id){
-        $sql = "SELECT notification.type,
-        notification.id AS not_id2,
-        notification.subject,
-        notification.message,
-        notification.status,
-        notification.created_at FROM notification WHERE notification.user_id = :user_id AND notification.status = 0 ORDER BY notification.created_at ASC;";
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':user_id', $user_id);
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    }
-
-    function count_notification_by_user_appointment($user_id){
         $sql = "SELECT COUNT(*) AS notification_total FROM notification WHERE notification.user_id = :user_id AND notification.status = 0;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $user_id);

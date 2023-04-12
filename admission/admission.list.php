@@ -25,6 +25,7 @@
                 <th style="background: #00ACB2; color: #fff;">Patient Name</th>
                 <th style="background: #00ACB2; color: #fff;">Relative Name</th>
                 <th style="background: #00ACB2; color: #fff;">Relationship</th>
+                <th style="background: #00ACB2; color: #fff;">Admission Date</th>
                 <th style="background: #00ACB2; color: #fff;">Admission Number</th>
                 <th style="background: #00ACB2; color: #fff;">Status</th>
                 </tr>
@@ -45,14 +46,14 @@
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="ms-2">
-                            <p class="fw-normal mb-1"><?php echo $row['firstname'] . " ". $row['lastname'] ?></p>
+                            <p class="fw-normal mb-1"><?php echo $row['firstname'] . " ". $row['middlename'][0] . ". " .$row['lastname'] ?></p>
                         </div>
                     </div>
                 </td>
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="ms-2">
-                            <p class="fw-normal mb-1"><?php echo $row['r_firstname'] . " ". $row['r_lastname'] ?></p>
+                            <p class="fw-normal mb-1"><?php echo $row['r_firstname'] . " ". $row['r_middlename'][0] . ". " .$row['r_lastname'] ?></p>
                         </div>
                     </div>
                 </td>
@@ -66,6 +67,13 @@
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="ms-2">
+                            <p class="fw-normal mb-1"><?php echo date("M jS, Y", strtotime($row['add_date'])) ?></p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="ms-2">
                             <p class="fw-normal mb-1"><?php echo $row['admission_no'] ?></p>
                         </div>
                     </div>
@@ -73,7 +81,7 @@
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="ms-2">
-                            <p class="fw-normal mb-1"><?php echo $row['status'] ?></p>
+                            <p class="fw-normal mb-1"><?php if($row['status'] == "Completed"){?> <strong class="text-success"><?php echo $row['status'] ?></strong><?php } else { echo $row['status']; }?> </p>
                         </div>
                     </div>
                 </td>
