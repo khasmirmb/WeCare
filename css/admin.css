@@ -153,7 +153,7 @@ label #sidebar_btn:hover{
   }
 
   .nav_bar{
-      background: #ccc;
+    background: #00ACB2;
     width: (100% - 0px);
     /*margin-top: 70px;*/
     display: flex;
@@ -171,7 +171,7 @@ label #sidebar_btn:hover{
   }
 
   .nav_bar .nav_btn:hover{
-    color: #19B3D3;
+    color: #007bff;
   }
 
   .mobile_nav_items{
