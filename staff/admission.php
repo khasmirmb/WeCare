@@ -79,7 +79,7 @@
               <td class="text-center">
                 <a class="action-completed btn btn-success" data-bs-toggle="modal" data-bs-target="#admission-done" href="add.completed.php?id=<?php echo $row['id'] ?>">Done</a>
 
-                <a class="action-noshow btn btn-danger" data-bs-toggle="modal" data-bs-target="#admission-cancel" href="add.canceled.php?id=<?php echo $row['id'] ?>">Cancel</a>
+                <a class="action-noshow btn btn-danger" style="background: #6c757d; border: #6c757d;" data-bs-toggle="modal" data-bs-target="#admission-cancel" href="add.canceled.php?id=<?php echo $row['id'] ?>">Cancel</a>
               </td>
 
             </tr>

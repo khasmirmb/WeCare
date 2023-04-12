@@ -18,14 +18,14 @@
     <h2 class="ms-3"><strong>Account Settings</strong></h2>
 </div>
 
-<section class="py-5 my-5">
+<section class="py-5 my-5" style="padding-top: 0rem!important;">
 		<div class="container">
 
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
 						<div class="img-circle text-center mb-3">
-							<img src="#" alt="Image" class="shadow">
+							<img src="../images/home1.jpg" alt="Image" class="shadows">
 						</div>
 						<h4 class="text-center">Khasmir M. Basaluddin</h4>
 					</div>
@@ -84,7 +84,7 @@
 						</div>
 						<div>
 							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #dc3545; border: #dc3545; color: #fff">Cancel</button>
+							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff">Cancel</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
@@ -113,7 +113,7 @@
 						</div>
 						<div>
 							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #dc3545; border: #dc3545; color: #fff">Cancel</button>
+							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff">Cancel</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
@@ -144,7 +144,7 @@
 						</div>
 						<div>
 							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #dc3545; border: #dc3545; color: #fff">Cancel</button>
+							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff">Cancel</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
@@ -169,7 +169,7 @@
 						</div>
 						<div>
 							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #dc3545; border: #dc3545; color: #fff">Cancel</button>
+							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d;">Cancel</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
@@ -200,7 +200,7 @@
 						</div>
 						<div>
 							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #dc3545; border: #dc3545; color: #fff">Cancel</button>
+							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff;">Cancel</button>
 						</div>
 					</div>
 				</div>

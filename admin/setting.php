@@ -75,7 +75,7 @@
                     All of the fields on this page are optional and can be deleted at any time, and by filling them out, you're giving us consent to share this data wherever your user profile appears.
                   </div>
                   <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-top: 10px; color: #fff;">Update Profile</button>
-                  <button type="reset" class="btn btn-light" style="background: #dc3545; margin-top: 10px; color: #fff;">Reset Changes</button>
+                  <button type="reset" class="btn btn-light" style="background: #6c757d; margin-top: 10px; color: #fff;">Reset Changes</button>
                 </form>
               </div>
               

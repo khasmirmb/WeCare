@@ -55,7 +55,7 @@
     </div><!--End of search bar-->
 
     <div class="col-6 col-lg-2"><!--Start of add user-->
-    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="../admin/add-user.php">Add User</a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="../admin/add-user.php"><i class="fa-solid fa-user-plus"></i>Add User</a></button>
     </div><!--end of add user-->
 
 

@@ -35,7 +35,7 @@
         </div>
         </div><!--End of Button Filter-->
     <div class="col-6 col-lg-2 pb-3"><!--Add Patient button-->
-        <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #198754;; border: #198754;; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Patient</a>
+        <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #00ACB2; border: #00ACB2;; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Patient</a>
     </div><!--End of Add Patient button-->
     <div class="col-12 col-lg-4"><!--Start of Search bar-->
         <form class="d-flex" role="search">

@@ -398,7 +398,7 @@ thead {
 
 .patient-save-btn{
   padding: 10px 45px 10px;
-  background: #00ACB2;
+  background: #198754;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -407,18 +407,18 @@ thead {
 
 .patient-reset-btn{
   padding: 10px 35px 10px;
-  background: #fff;
-  color: #00ACB2;
-  border: 2px solid #00ACB2;
+  background: #6c757d;
+  color: #fff;
+  border: 2px solid #6c757d;
   border-radius: 10px;
   font-weight: bold;
 }
 
 .patient-reset-btn:hover{
   color:#fff;
-  background: #dc3545;
-  border: #dc3545;
-}  
+  background: #5a6168;
+  border: #5a6168;
+}   
 
 .patient-save-btn:hover{
   background: #0d6efd;

@@ -79,7 +79,7 @@
               <td class="text-center">
                 <a type="button" class="action-completed btn btn-success" data-bs-toggle="modal" data-bs-target="#appointment-done" href="app.completed.php?id=<?php echo $row['id'] ?>">Done</a>
 
-                <a type="button" class="action-noshow btn btn-danger" data-bs-toggle="modal" data-bs-target="#appointment-noshow" href="app.noshow.php?id=<?php echo $row['id'] ?>">No-Show</a>
+                <a type="button" class="action-noshow btn btn-danger" style="background: #6c757d; border: #6c757d;" data-bs-toggle="modal" data-bs-target="#appointment-noshow" href="app.noshow.php?id=<?php echo $row['id'] ?>">No-Show</a>
               </td>
 
             </tr>
