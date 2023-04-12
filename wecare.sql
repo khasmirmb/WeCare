@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2023 at 08:43 PM
+-- Generation Time: Apr 12, 2023 at 09:53 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -45,7 +45,9 @@ CREATE TABLE `admission` (
 --
 
 INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relative_info`, `staff_id`, `admission_no`, `status`, `created_at`, `updated_at`) VALUES
-(6, 1, 6, 7, 7, 1, 37245855, 'Accepted', '2023-04-07 11:50:01', '2023-04-11 15:34:08');
+(6, 1, 6, 7, 7, 1, 37245855, 'Accepted', '2023-04-07 11:50:01', '2023-04-12 19:00:39'),
+(10, 6, 7, 9, 8, 1, 1125331485, 'Pending', '2023-04-12 15:05:36', '2023-04-12 19:36:58'),
+(11, 1, 8, 10, 9, 1, 664919643, 'Pending', '2023-04-12 16:20:32', '2023-04-12 16:20:32');
 
 -- --------------------------------------------------------
 
@@ -73,8 +75,8 @@ CREATE TABLE `appointment` (
 
 INSERT INTO `appointment` (`id`, `staff_id`, `user_id`, `staff_schedule_id`, `appointment_number`, `purpose_for_appointment`, `other_purpose`, `appointment_date`, `appointment_time`, `status`, `client_came`) VALUES
 (1, 1, 1, 1, 1, 3, '', '2023-04-17', '12:09:00', 'Canceled', 'Pending'),
-(2, 1, 1, 1, 2, 2, '', '2023-04-24', '20:25:00', 'Accepted', 'Pending'),
-(3, 1, 1, 7, 3, 1, '', '2023-04-15', '17:14:00', 'Accepted', 'Pending');
+(2, 1, 1, 1, 2, 2, '', '2023-04-24', '20:25:00', 'Completed', 'Yes'),
+(3, 1, 1, 7, 3, 1, '', '2023-04-15', '17:14:00', 'Completed', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -135,7 +137,10 @@ CREATE TABLE `monitoring` (
 --
 
 INSERT INTO `monitoring` (`id`, `patient_id`, `relative_id`, `staff_id`, `updated_at`) VALUES
-(3, 28, 5, 1, '2023-04-10 15:28:53');
+(3, 28, 5, 1, '2023-04-10 15:28:53'),
+(4, 36, 8, 1, '2023-04-12 17:58:35'),
+(5, 42, 10, 1, '2023-04-12 19:00:39'),
+(6, 42, 11, 1, '2023-04-12 19:34:43');
 
 -- --------------------------------------------------------
 
@@ -272,9 +277,9 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`id`, `patient_id`, `user_id`, `type`, `subject`, `message`, `status`, `created_at`) VALUES
-(10, 36, 0, 'Admission', 'Your admission regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about that your admission regarding Lola D. Cruz have been accepted. \r\nWe appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-04-11 17:55:52'),
-(24, 0, 1, 'Appointment', 'Your appointment on Apr 24th, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 8:25 pm on Apr 24th, 2023 with the purpose of Inquire.', 0, '2023-04-11 18:08:01'),
-(25, 0, 1, 'Appointment', 'Your appointment on Apr 15th, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 5:14 pm on Apr 15th, 2023 with the purpose of OJT.', 0, '2023-04-11 18:08:13');
+(28, 0, 1, 'Admission', 'Thank you for submitting and completing an admission.', 'We hope this message finds you well. We would like to take this opportunity to remind you about the admission that you made. \nWe\'re expecting to see you on Apr 22nd, 2023 to discuss the admission further. \n Please provide the documents that you\'re going to need. Thank you for your cooperation.', 0, '2023-04-12 16:22:45'),
+(38, 42, 1, 'Admission', 'Your admission regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Lola D. Cruz have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-04-12 19:00:39'),
+(39, 42, 6, 'Admission', 'Your monitoring request regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your monitoring request regarding Lola D. Cruz have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-04-12 19:34:43');
 
 -- --------------------------------------------------------
 
@@ -311,7 +316,7 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`id`, `staff_id`, `fname`, `mname`, `lname`, `suffix`, `date_birth`, `place_birth`, `gender`, `street`, `province`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `status`, `room`, `image`, `admission_no`) VALUES
-(36, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'Cdcp', 'ZAMBOANGA DEL SUR', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Active', 'Room 1', 'Patient_1680868200Vanitas-19.jpg', 37245855);
+(42, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'Cdcp', 'ZAMBOANGA DEL SUR', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Active', 'Room 1', 'Patient_1680868200Vanitas-19.jpg', 37245855);
 
 -- --------------------------------------------------------
 
@@ -346,7 +351,9 @@ CREATE TABLE `patient_info` (
 --
 
 INSERT INTO `patient_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `gender`, `province`, `street`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `picture`, `patient_info_no`) VALUES
-(7, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'ZAMBOANGA DEL SUR', 'Cdcp', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Patient_1680868200Vanitas-19.jpg', 37245855);
+(7, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'ZAMBOANGA DEL SUR', 'Cdcp', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Patient_1680868200Vanitas-19.jpg', 37245855),
+(9, 6, 'Test', 'Test', 'Test', '', '2023-04-12', 'Test', 'Female', 'ABRA', 'Test', 'Test', 'ABORLAN', 7000, 'Test', 'Test', 'Test', 'Patient_1681311935500849a6e2e651d374ce0f4049e43afe.jpg', 1125331485),
+(10, 1, 'Testing', 'Testing', 'Testing', '', '2023-04-13', 'Testing', 'Female', 'ABRA', 'Testing', 'Testing', 'ABORLAN', 7000, 'Testing', 'Testing', 'Testing', 'Patient_1681316432yuta.jpg', 664919643);
 
 -- --------------------------------------------------------
 
@@ -365,8 +372,8 @@ CREATE TABLE `patient_services` (
 --
 
 INSERT INTO `patient_services` (`id`, `patient_id`, `services`) VALUES
-(56, 36, 1),
-(57, 36, 3);
+(68, 42, 1),
+(69, 42, 3);
 
 -- --------------------------------------------------------
 
@@ -2216,7 +2223,9 @@ CREATE TABLE `relative` (
 --
 
 INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_fname`, `patient_mname`, `patient_lname`, `patient_suffix`, `patient_id`) VALUES
-(5, 1, 'Mother', 'Khasmir M. Basaluddin_Request_1681140506_Annex_ABC_Downloadable_Forms.pdf', 'Denise', 'Que', 'Gerzon', '', 36);
+(8, 6, 'Uncle', 'El C. Res_Request_1681322282_Annex_ABC_Downloadable_Forms.pdf', 'Khasmir', 'Mahadali', 'Basaluddin', '', 36),
+(10, 1, 'Mother', 'Relative', 'Lola', 'Dela', 'Cruz', '', 42),
+(11, 6, 'Mother', 'El C. Res_Request_1681328058_Annex_ABC_Downloadable_Forms.pdf', 'Denise', 'Que', 'Gerzon', '', 42);
 
 -- --------------------------------------------------------
 
@@ -2252,7 +2261,9 @@ CREATE TABLE `relative_info` (
 --
 
 INSERT INTO `relative_info` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `date_of_birth`, `place_of_birth`, `province`, `gender`, `street`, `barangay`, `city`, `postal`, `relationship`, `phone`, `telephone`, `email`, `picture`, `relative_info_no`) VALUES
-(7, 1, 'Juan', 'Dela', 'Cruz', '', '2023-04-15', 'Jolo', 'SULU', 'Male', 'Hill', 'Kasanyangan', 'ZAMBOANGA CITY', 7000, 'Mother', '09152354148', '', 'khasmirbasaluddin@gmail.com', 'Relative_1680868200Vanitas-19.jpg', 37245855);
+(7, 1, 'Juan', 'Dela', 'Cruz', '', '2023-04-15', 'Jolo', 'SULU', 'Male', 'Hill', 'Kasanyangan', 'ZAMBOANGA CITY', 7000, 'Mother', '09152354148', '', 'khasmirbasaluddin@gmail.com', 'Relative_1680868200Vanitas-19.jpg', 37245855),
+(8, 6, 'Test', 'Test', 'Test', '', '2023-04-12', 'Test', 'ABRA', 'Female', 'Test', 'Test', 'ABORLAN', 7000, 'Mother', '09152354148', '', 'test@gmail.com', 'Relative_1681311935500849a6e2e651d374ce0f4049e43afe.jpg', 1125331485),
+(9, 1, 'Testing', 'Testing', 'Testing', '', '2023-04-13', 'Testing', 'BOHOL', 'Female', 'Testing', 'Testing', 'ABORLAN', 7000, 'Mother', '09152354148', '', 'test@gmail.com', 'Relative_1681316432yuta.jpg', 664919643);
 
 -- --------------------------------------------------------
 
@@ -2382,7 +2393,25 @@ INSERT INTO `survey_answer` (`id`, `user_id`, `survey_question`, `answers`, `sur
 (60, 1, 6, 'Yes', 37245855),
 (61, 1, 7, 'Yes', 37245855),
 (62, 1, 8, 'Yes', 37245855),
-(63, 1, 9, '', 37245855);
+(63, 1, 9, '', 37245855),
+(64, 6, 1, 'Yes', 1125331485),
+(65, 6, 2, 'Yes', 1125331485),
+(66, 6, 3, 'Yes', 1125331485),
+(67, 6, 4, 'Yes', 1125331485),
+(68, 6, 5, 'Yes', 1125331485),
+(69, 6, 6, 'Yes', 1125331485),
+(70, 6, 7, 'Yes', 1125331485),
+(71, 6, 8, 'Yes', 1125331485),
+(72, 6, 9, '', 1125331485),
+(73, 1, 1, 'No', 664919643),
+(74, 1, 2, 'No', 664919643),
+(75, 1, 3, 'No', 664919643),
+(76, 1, 4, 'No', 664919643),
+(77, 1, 5, 'No', 664919643),
+(78, 1, 6, 'No', 664919643),
+(79, 1, 7, 'No', 664919643),
+(80, 1, 8, 'No', 664919643),
+(81, 1, 9, '', 664919643);
 
 -- --------------------------------------------------------
 
@@ -2394,6 +2423,7 @@ CREATE TABLE `survey_info` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `survey_no` int(11) NOT NULL,
+  `add_date` date NOT NULL,
   `inquire` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -2401,8 +2431,10 @@ CREATE TABLE `survey_info` (
 -- Dumping data for table `survey_info`
 --
 
-INSERT INTO `survey_info` (`id`, `user_id`, `survey_no`, `inquire`) VALUES
-(6, 1, 37245855, 'Mother');
+INSERT INTO `survey_info` (`id`, `user_id`, `survey_no`, `add_date`, `inquire`) VALUES
+(6, 1, 37245855, '2023-04-04', 'Mother'),
+(7, 6, 1125331485, '2023-04-15', 'Mother'),
+(8, 1, 664919643, '2023-04-22', 'Mother');
 
 -- --------------------------------------------------------
 
@@ -2448,7 +2480,11 @@ CREATE TABLE `survey_services` (
 
 INSERT INTO `survey_services` (`id`, `services`, `survey_no`) VALUES
 (3, 1, 37245855),
-(4, 3, 37245855);
+(4, 3, 37245855),
+(5, 1, 1125331485),
+(6, 2, 1125331485),
+(7, 1, 664919643),
+(8, 3, 664919643);
 
 -- --------------------------------------------------------
 
@@ -2478,10 +2514,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `unique_id`, `fname`, `mname`, `lname`, `email`, `phone`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
-(1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', 'faq.png', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-04-11 18:11:50'),
-(2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', 'homed.jpg', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-03-16 12:37:40'),
-(3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', 'asf', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-03-14 06:54:56'),
-(4, 1039537821, 'Staff2', 'Staff2', 'Staff2', 'staff2@gmail.com', '09152354148', '', '123', 0, 'Verified', 'staff', '2023-03-15 10:54:37', '2023-03-15 10:54:37'),
+(1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-04-12 15:18:29'),
+(2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-04-12 15:18:41'),
+(3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-04-12 15:18:51'),
+(4, 1039537821, 'Staff2', 'Staff2', 'Staff2', 'staff2@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-03-15 10:54:37', '2023-04-12 15:19:01'),
 (6, 648167998, 'El', 'Car', 'Res', 'test@gmail.com', '09094731567', 'Profile_1680057603IMG20220326200018.jpg', '123', 0, 'Verified', 'client', '2023-03-29 02:40:03', '2023-04-11 16:29:14'),
 (7, 247813239, 'Eljen', 'Briones', 'Augusto', 'xt202001173@wmsu.edu.ph', '09563350760', 'Profile_1680069818eljen.jpg', 'Khasmir123', 0, 'Verified', 'client', '2023-03-29 06:03:38', '2023-03-29 06:03:59'),
 (8, 1145276372, 'Machel', 'Briones', 'Augusto', 'maejen019@gmail.com', '09554616786', 'Profile_1680151552e2a0f80716cea9f444bbdec4da54a13e-removebg-preview.png', 'El-El12554680', 0, 'Verified', 'client', '2023-03-30 04:45:52', '2023-03-30 04:46:59');
@@ -2694,7 +2730,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admission`
 --
 ALTER TABLE `admission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `appointment`
@@ -2718,7 +2754,7 @@ ALTER TABLE `attendance`
 -- AUTO_INCREMENT for table `monitoring`
 --
 ALTER TABLE `monitoring`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `monitoring_app_detail`
@@ -2766,31 +2802,31 @@ ALTER TABLE `monitoring_report`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `patient_info`
 --
 ALTER TABLE `patient_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `patient_services`
 --
 ALTER TABLE `patient_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `refcitymun`
@@ -2814,13 +2850,13 @@ ALTER TABLE `relationship`
 -- AUTO_INCREMENT for table `relative`
 --
 ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `relative_info`
 --
 ALTER TABLE `relative_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `rooms`
@@ -2850,13 +2886,13 @@ ALTER TABLE `staff_schedule`
 -- AUTO_INCREMENT for table `survey_answer`
 --
 ALTER TABLE `survey_answer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `survey_info`
 --
 ALTER TABLE `survey_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `survey_question`
@@ -2868,7 +2904,7 @@ ALTER TABLE `survey_question`
 -- AUTO_INCREMENT for table `survey_services`
 --
 ALTER TABLE `survey_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
