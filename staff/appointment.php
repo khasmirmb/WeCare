@@ -34,7 +34,6 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="#">Name</a></li>
               <li><a class="dropdown-item" href="#">Date</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </div>
 
@@ -78,9 +77,9 @@
               <td class="text-center"><?php echo $row['client_came']?></td>
 
               <td class="text-center">
-                <a type="button" class="action-completed btn btn-success" href="app.completed.php?id=<?php echo $row['id'] ?>">Done</a>
+                <a type="button" class="action-completed btn btn-success" data-bs-toggle="modal" data-bs-target="#appointment-done" href="app.completed.php?id=<?php echo $row['id'] ?>">Done</a>
 
-                <a type="button" class="action-noshow btn btn-danger" href="app.noshow.php?id=<?php echo $row['id'] ?>">No-Show</a>
+                <a type="button" class="action-noshow btn btn-danger" data-bs-toggle="modal" data-bs-target="#appointment-noshow" href="app.noshow.php?id=<?php echo $row['id'] ?>">No-Show</a>
               </td>
 
             </tr>
@@ -93,76 +92,45 @@
   </div>
 </div>
 
-<div id="complete-app" class="dialog" title="Complete Appointment">
-    <p><span>Are you sure you want to complete the selected record?</span></p>
+<!--Modal done-->
+<div class="modal fade" id="admission-done" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="admission-doneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="admission-doneLabel">Confirmation Appointment Done</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure this <strong>[name of the user]</strong> show up on <strong>[date]</strong> at <strong>[time]</strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
+<!--Modal no show-->
+<div class="modal fade" id="appointment-noshow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="appointment-noshowLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="appointment-noshowLabel">Confirmation Appointment No Show</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure this <strong>[name of the user]</strong> didn't show up on <strong>[date]</strong> at <strong>[time]</strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $("#complete-app").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".action-completed").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#complete-app").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#complete-app").dialog("open");
-        });
-
-    });
-</script>
-
-<div id="no-show" class="dialog" title="Client No-Show">
-    <p><span>Are you sure you want to declare no-show the selected record?</span></p>
 </div>
-
-</div>
-
-<script>
-    $(document).ready(function() {
-        $("#no-show").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".action-noshow").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#no-show").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#no-show").dialog("open");
-        });
-
-    });
-</script>
-
 
 <?php
 
