@@ -21,6 +21,36 @@
         <h2 class="ms-3"><strong>Notification</strong></h2>
     </div>
 
+      <!--Button-->
+      <div class="row pb-3">
+        <div class="d-grid gap-2 d-md-flex">
+        <button type="button" class="btn position-relative"><!--First button-->
+        All
+        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+        </span>
+        </button><!--all button-->
+        <button type="button" class="btn position-relative"><!--Second button-->
+        Appointment
+        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+        </span>
+        </button><!--second button-->
+        <button type="button" class="btn position-relative"><!--Third button-->
+        Admission
+        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+        </span>
+        </button><!--Third button-->
+        <button type="button" class="btn position-relative"><!--Third button-->
+        Payment
+        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+            <span class="visually-hidden">New alerts</span>
+        </span>
+        </button><!--Third button-->
+        </div>
+    </div><!--row-->
+
     <div class="btn-group-vertical" role="group" aria-label="Vertical button group" style="width: 100%;">
 
         <?php
@@ -47,6 +77,10 @@
 
 
     </div>
+
+  
+   
+
 
 
 </div><!--End of container-->
