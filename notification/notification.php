@@ -17,14 +17,19 @@
 
       $data = $notification->fetch_notification_info($_GET['id']);
 
+      $notification->id = $data['id'];
       $notification->subject = $data['subject'];
       $notification->message = $data['message'];
+
+      $notification->read_notification($_SESSION['logged_id'], $notification->id);
+
+
 
     }
 ?>
  
 <div class="container pt-3">
-<a type="button" class="btn btn-info" href="notification-box.php" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fa-solid fa-arrow-left"></i> Back</a><!--Back button-->
+<a type="button" class="btn btn-info" href="notification-box.php" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fa-solid fa-arrow-left"></i> Notification</a><!--Back button-->
 <div class="row pt-3 pb-3">
   <div class="col-12">
     <div class="card shadow" style="width: 100%;">

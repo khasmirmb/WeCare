@@ -19,7 +19,7 @@
 <div class="d-flex justify-content-center align-items-center pt-4">
   <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Start typing to search..." aria-label="Search">
-    <button class="btn btn-outline-success" type="submit" style="background: #00ACB2; color: #fff;">Search</button>
+    <button class="btn btn-outline-secondary" type="submit" style="background: #00ACB2; color: #fff; border: #00ACB2;">Search</button>
   </form>
 </div>
 

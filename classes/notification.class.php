@@ -95,6 +95,89 @@ class Notification{
         return $data;
     }
 
+    function show_all_notification_by_user($user_id){
+        $sql = "SELECT * FROM notification WHERE notification.user_id = :user_id ORDER BY notification.created_at DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function show_appointment_notification_by_user($user_id){
+        $sql = "SELECT * FROM notification WHERE notification.user_id = :user_id AND type = 'Appointment' ORDER BY notification.created_at DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function show_admission_notification_by_user($user_id){
+        $sql = "SELECT * FROM notification WHERE notification.user_id = :user_id AND type = 'Admission' ORDER BY notification.created_at DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function show_payment_notification_by_user($user_id){
+        $sql = "SELECT * FROM notification WHERE notification.user_id = :user_id AND type = 'Payment' ORDER BY notification.created_at DESC;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function count_appointment_notification_by_user($user_id){
+        $sql = "SELECT COUNT(*) AS appointment_total FROM notification WHERE notification.user_id = :user_id AND notification.status = 0 AND type = 'Appointment';";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function count_admission_notification_by_user($user_id){
+        $sql = "SELECT COUNT(*) AS admission_total FROM notification WHERE notification.user_id = :user_id AND notification.status = 0 AND type = 'Admission';";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function count_payment_notification_by_user($user_id){
+        $sql = "SELECT COUNT(*) AS payment_total FROM notification WHERE notification.user_id = :user_id AND notification.status = 0 AND type = 'Payment';";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function read_notification($user_id, $id){
+        $sql = "UPDATE notification SET status = 1 WHERE user_id = :user_id AND id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':user_id', $user_id);
+        $query->bindParam(':id', $id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
 
 

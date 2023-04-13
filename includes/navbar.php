@@ -89,7 +89,7 @@
 
                     ?>
                 
-                        <li><a class="dropdown-item" href="#"><strong>You currently have no notification</strong></a></li>
+                        <li><a class="dropdown-item" href="#"><strong>You currently have no unread notification</strong></a></li>
 
                     <?php } ?>
                 </ul>   
