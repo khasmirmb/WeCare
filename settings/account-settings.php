@@ -14,201 +14,246 @@
 
 ?>
 
-<div class="header-monitoring pt-3">
-    <h2 class="ms-3"><strong>Account Settings</strong></h2>
-</div>
+<div class="container pt-3"><!--Start of container-->
+    <div class="header-monitoring pb-2"><!--Start of header-->
+        <h2 class="ms-3"><strong>Account Settings</strong></h2>
+    </div>
 
-<section class="py-5 my-5" style="padding-top: 0rem!important;">
-		<div class="container">
+	<div class="pt-2"><!--3 buttons-->
+	<ul class="nav nav-pills">
+	<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="account-settings.php">Profile Settings</a>
+	</li>
+ 	<li class="nav-item">
+    <a class="nav-link" aria-current="page" href="password.php" style="color: black;">Password</a>
+	</li>
+	<li class="nav-item">
+    <a class="nav-link" aria-current="page" href="sett-notification.php" style="color: black;">Notification</a>
+	</li>
+	</ul>
+	</div><!--3 buttons-->
 
-			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
-				<div class="profile-tab-nav border-right">
-					<div class="p-4">
-						<div class="img-circle text-center mb-3">
-							<img src="../images/home1.jpg" alt="Image" class="shadows">
-						</div>
-						<h4 class="text-center">Khasmir M. Basaluddin</h4>
-					</div>
-					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
-							<i class="fa fa-home text-center mr-1"></i> 
-							Account
-						</a>
-						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
-							<i class="fa fa-key text-center mr-1"></i> 
-							Password
-						</a>
-						<a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
-							<i class="fa fa-user text-center mr-1"></i> 
-							Security
-						</a>
-						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
-							<i class="fa fa-bell text-center mr-1"></i> 
-							Notification
-						</a>
-					</div>
-				</div>
-				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>First Name</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Last Name</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Email</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Phone number</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-								  	<label>Relationship/Patient</label>
-									<input type="text" class="form-control" rows="4">
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-						<h3 class="mb-4">Password Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Old password</label>
-								  	<input type="password" class="form-control">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>New password</label>
-								  	<input type="password" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Confirm new password</label>
-								  	<input type="password" class="form-control">
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
-						<h3 class="mb-4">Security Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Login</label>
-								  	<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Two-factor auth</label>
-								  	<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="recovery">
-										<label class="form-check-label" for="recovery">
-										Recovery
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
-						<h3 class="mb-4">Application Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="app-check">
-										<label class="form-check-label" for="app-check">
-										App check
-										</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-										<label class="form-check-label" for="defaultCheck2">
-										Lorem ipsum dolor sit.
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d;">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-						<h3 class="mb-4">Notification Settings</h3>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification1">
-								<label class="form-check-label" for="notification1">
-									2 days ahead
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification2" >
-								<label class="form-check-label" for="notification2">
-									A week ahead
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification3" >
-								<label class="form-check-label" for="notification3">
-									On the day
-								</label>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary" style="margin-top: 10px; background: #198754; border: #198754;">Confirm</button>
-							<button class="btn btn-light" style="margin-top: 10px; background: #6c757d; border:#6c757d; color: #fff;">Cancel</button>
-						</div>
-					</div>
-				</div>
+	<div class="pt-3 pb-3">
+	<div class="card shadow border-0">
+  	<div class="card-body">
+		<div class="row">
+		<div class="col-12 col-lg-3 pt-3 ps-5">
+		<img src="../images/yuta.jpg" class="rounded-circle img-fluid" style="width: 200px; height: 200spx;" alt="Profile">
+		</div>
+		<div class="col-12 col-lg-4 pt-5">
+		<div class="d-grid gap-3 d-md-flex" style="margin-top: 40px;"">
+		<button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#upload-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="upload-prof">Upload New</button>
+		<button class="btn btn-secondary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#delete-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-prof">Delete Profile</button>
+		</div>
+		</div>
+		</div><!--end row-->
+		<!--Form-->
+		<div class="pt-3">
+		<form class="row g-3 needs-validation" novalidate>
+		<div class="col-12 col-lg-3">
+			<label for="firstname" class="form-label">First name</label>
+			<input type="text" class="form-control" id="firstname" required>
+			<div class="valid-feedback">
+			Looks good!
+			</div>
+			<div class="invalid-feedback">
+				Please enter your valid First name.
 			</div>
 		</div>
-	</section>
+		<div class="col-12 col-lg-3">
+			<label for="middlename" class="form-label">Middle Name</label>
+			<input type="text" class="form-control" id="middlename" required>
+			<div class="valid-feedback">
+			Looks good!
+			</div>
+			<div class="invalid-feedback">
+				Please enter your valid Middle name.
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="lastname" class="form-label">Last name</label>
+			<input type="text" class="form-control" id="lastname" required>
+			<div class="valid-feedback">
+			Looks good!
+			</div>
+			<div class="invalid-feedback">
+				Please enter your valid Last name.
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="suffix" class="form-label">Suffix</label>
+			<input type="text" class="form-control" id="suffix" required>
+			<div class="valid-feedback">
+			Looks good!
+			</div>
+			<div class="invalid-feedback">
+				Please enter your valid Suffix.
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="username" class="form-label">Username</label>
+			<div class="input-group has-validation">
+			<span class="input-group-text" id="user-name">@</span>
+			<input type="text" class="form-control" id="username" aria-describedby="user-name" required>
+			<div class="invalid-feedback">
+				Please choose a username.
+			</div>
+			<div class="valid-feedback">
+			Much better!
+			</div>
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="birthdate" class="form-label">Birthdate</label>
+			<div class="input-group has-validation">
+			<input type="date" class="form-control" id="birthdate" aria-describedby="user-name" required>
+			<div class="invalid-feedback">
+			Please enter your valid Birthdate.
+			</div>
+			<div class="valid-feedback">
+			Nice One!
+			</div>
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="city" class="form-label">City</label>
+			<input type="text" class="form-control" id="city" required>
+			<div class="invalid-feedback">
+			Please provide a valid city.
+			</div>
+			<div class="valid-feedback">
+			Nice!
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="barangay" class="form-label">Barangay</label>
+			<input type="text" class="form-control" id="barangay" required>
+			<div class="invalid-feedback">
+			Please provide a valid barangay.
+			</div>
+			<div class="valid-feedback">
+			Nice!
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="validationCustom05" class="form-label">Zip</label>
+			<input type="text" class="form-control" id="validationCustom05" required>
+			<div class="invalid-feedback">
+			Please provide a valid zip.
+			</div>
+			<div class="valid-feedback">
+			Nice!
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="email" class="form-label">Email</label>
+			<input type="email" class="form-control" id="email" required>
+			<div class="invalid-feedback">
+			Please provide a valid Email.
+			</div>
+			<div class="valid-feedback">
+			Nice!
+			</div>
+		</div>
+		<div class="col-12 col-lg-3">
+			<label for="number" class="form-label">Number</label>
+			<input type="number" class="form-control" id="number" required>
+			<div class="invalid-feedback">
+			Please provide a valid number.
+			</div>
+			<div class="valid-feedback">
+			Nice!
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="">
+				
+			</div>
+			<button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#save-change">Save Changes</button>
+		</div>
+		</form>
+		</div>
+	</div><!--card body-->
+	</div><!--last card-->
+	</div><!--padding top-->
+</div><!--Don't touch-->
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Modal -->
+<div class="modal fade" id="save-change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="save-changeLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="save-changeLabel">Save Changes Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to save changes?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Modal delete profile -->
+<div class="modal fade" id="delete-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-profLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="delete-profLabel">Confirmation to Delete the Profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete this profile?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal upload profile -->
+<div class="modal fade" id="upload-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="upload-profLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="upload-profLabel">Uploading Profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+		<input class="form-control" type="file" id="profile">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
