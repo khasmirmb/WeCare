@@ -287,7 +287,7 @@ Delete Modal
 
 .cancel-btn{
   padding: 10px 45px 10px;
-  background: #00ACB2;
+  background: #6c757d;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -301,7 +301,7 @@ margin: 30px 0 -10px;
 
 .del-modal-footer{
   border: none;
-text-align: center;		
+text-align: end;		
 border-radius: 5px;
 font-size: 13px;
 padding: 10px 15px 25px;
@@ -434,6 +434,12 @@ Dashboard
   align-items: center;
   color: #fff;
   }
+
+  .fa-people-roof{
+    font-size: 2.5rem;
+    align-items: center;
+    color: #fff;
+    }
   
   .btn-outline-light{
   color: #fff;
@@ -525,7 +531,7 @@ background: #00ACB2;
 }
 
 /*---------------------
- Icons in Patient List
+ Icons
 -----------------------*/
 
 .fa-receipt{
@@ -545,5 +551,16 @@ background: #00ACB2;
 }
 
 .fa-credit-card{
+  margin-right: 5px;
+}
+
+.fa-clipboard-user{
+  margin-right: 5px;
+}
+
+.fa-calendar-plus{
+  margin-right: 5px;
+}
+.fa-calculator{
   margin-right: 5px;
 }

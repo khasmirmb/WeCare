@@ -68,7 +68,7 @@
 
         <div class="row">
         <div class="col-12 col-lg-3 pt-3"><!--Start of 1 column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
@@ -88,7 +88,7 @@
         </div><!--End of 2nd column-->
 
         <div class="col-12 col-lg-3 pt-3"><!--Start of 2 column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
@@ -108,7 +108,7 @@
         </div><!--End of 3rd column-->
 
         <div class="col-12 col-lg-3 pt-3"><!--Start of 3rd column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
@@ -128,7 +128,7 @@
         </div><!--End of 4th column-->
 
         <div class="col-12 col-lg-3 pt-3"><!--Start of 4th column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
@@ -150,7 +150,7 @@
 
         <div class="row"><!--Start of 2nd row-->
         <div class="col-12 col-lg-3 pt-3"><!--Start of 1 column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
@@ -170,7 +170,7 @@
         </div><!--End of 2nd column-->
 
         <div class="col-12 col-lg-3 pt-3"><!--Start of 2 column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
@@ -190,7 +190,7 @@
         </div><!--End of 3rd column-->
 
         <div class="col-12 col-lg-3 pt-3"><!--Start of 3rd column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
@@ -210,12 +210,12 @@
         </div><!--End of 3rd column-->
         
         <div class="col-12 col-lg-3 pt-3"><!--Start of 4th column-->
-        <div class="card border shadow">
+        <div class="card border shadow h-100">
             <div class="card-body">
                 <div class="row">
                 <div class="col">
                 <div class="card border bg-success">
-                    <p class="icon_background"><img src="../images/room.png" class="room-icon"></p> <!--Here should be icon-->
+                    <p class="icon_background"><i class="fa-sharp fa-solid fa-people-roof"></i><!--<img src="../images/room.png" class="room-icon">--></p> <!--Here should be icon-->
                 </div>
                 </div>
                 <div class="col">
@@ -224,7 +224,7 @@
                 </div>
                 </div>
                 <hr class="bg-secondary">
-                <p class="card-text h9" style="opacity:0.5;"><img src="../images/update-icon.png" class="udpate-icon"><!-- calendar Icon needeed to put here-->Last 1 day ago</p><!--Icons needeed to put here-->
+                <p class="card-text h9" style="opacity:0.5;"><!--<img src="../images/update-icon.png" class="udpate-icon">--><!-- calendar Icon needeed to put here-->Last 1 day ago</p><!--Icons needeed to put here-->
             </div>
         </div>
         </div><!--End of 4th column-->

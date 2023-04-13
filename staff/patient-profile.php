@@ -173,7 +173,7 @@
         <?php } else{ ?>
 
         <div class="edit-info d-flex justify-content-end">
-            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: white;"><strong>Edit Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: #fff; border-radius: 6px;"><strong>Edit Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
         </div>
         
         <?php } ?>
@@ -283,7 +283,7 @@
         <?php } else{ ?>
 
         <div class="edit-info d-flex justify-content-center mb-2">
-            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: white;"><strong>Edit Appointment Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: #fff; border-radius: 6px;"><strong>Edit Appointment Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
         </div>
         
         <?php } ?>

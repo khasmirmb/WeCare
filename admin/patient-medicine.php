@@ -63,7 +63,7 @@
           </div>
           <div class="mb-3">
             <label for="med-dose" class="col-form-label">Dose:</label>
-            <input type="text" class="form-control" id="med-dose" name="med-dose" placeholder="Ex. 1-0-1" required>
+            <input type="text" class="form-control" id="med-dose" name="med-dose" placeholder="Ex. Breakfast-lunch-dinner" required>
           </div>
           <div class="mb-3">
             <label for="med-start" class="col-form-label">Started Date:</label>

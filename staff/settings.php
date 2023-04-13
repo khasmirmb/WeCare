@@ -63,12 +63,12 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
-                                        <label for="inputUsername">Username</label>
+                                    <label for="inputUsername">Email</label>
                                         <input type="text" class="form-control" id="inputUsername" placeholder="Username">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputUsername">Biography</label>
-                                        <textarea rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself"></textarea>
+                                        <label for="inputUsername">Position</label>
+                                        <input type="text" rows="2" class="form-control" id="inputposition" placeholder="Position">
                                     </div>
                                 </div>
                                 <div class="col-md-4">

@@ -54,7 +54,7 @@
     </div><!--End of search bar-->
 
     <div class="col-6 col-lg-2"><!--Start of add user-->
-    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#">Add Schedule</a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#"><i class="fas fa-calendar-plus"></i>Add Schedule</a></button>
     </div><!--end of add user-->
 
 

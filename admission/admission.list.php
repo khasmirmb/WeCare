@@ -16,7 +16,7 @@
     <h2 class="ms-3"><strong>Admission</strong></h2>
 </div>
 <div class="new-admission d-flex me-5 justify-content-end">
-    <a type="button" class="btn btn-info" id="action-cancel" href="admission.php" style="background: #198754; border: #198754; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Admission</a>
+    <a type="button" class="btn btn-info" id="action-cancel" href="admission.php" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Admission</a>
 </div>
     <div class="table-responsive mt-5 mb-5">
         <table class="table align-middle mb-0 bg-white">

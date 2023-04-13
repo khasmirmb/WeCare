@@ -128,7 +128,7 @@
           <input type="text" name="patient_id" id="patient_id" value="<?php echo $patient->id ?>" hidden>
 
         <div class="col">
-          <button class="btn btn-success ms-2">Add Service</button>
+          <button class="btn btn-success ms-2"><i class="fa-solid fa-hand-holding-medical"></i>Add Service</button>
         </div>
         </div>
     </div>
@@ -213,7 +213,7 @@
           <input class="form-control bg-white" type="number" name="total-amount" id="total-amount" required readonly>
           <span class="input-group-text">Month/s:</span>
           <input type="number" class="form-control bg-white" name="total_months" id="total_months" readonly>
-          <button type="button" class="btn btn-primary" onclick="getTotal()">Calculate</bu>
+          <button type="button" class="btn btn-primary" onclick="getTotal()"><i class="fas fa-calculator"></i>Calculate</bu>
       </div><!--End services-->
     </div><!--End row-->
 

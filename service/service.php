@@ -19,7 +19,7 @@
             </div>
             <div class="row g-3">
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-box">
+                    <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/1.png" class="img-fluid w-25" alt="">
                         </div>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-box">
+                    <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/2.png" class="img-fluid w-25" alt="">
                         </div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-box">
+                    <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/3.png" class="img-fluid w-25" alt="">
                         </div>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-box">
+                    <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/4.png" class="img-fluid w-25" alt="">
                         </div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-box">
+                    <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/5.png" class="img-fluid w-25" alt="">
                         </div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-box">
+                    <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/6.png" class="img-fluid w-25" alt="">
                         </div>

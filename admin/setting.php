@@ -59,20 +59,18 @@
                 <hr>
                 <form>
                   <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" placeholder="Enter your fullname" value="">
+                    <label for="fullName">First name</label>
+                    <input type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp" placeholder="Enter your first name" value="">
+                    <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here where you are mentioned. You can change or remove it at any time.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="fullName">Last name</label>
+                    <input type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp" placeholder="Enter your last name" value="">
                     <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here where you are mentioned. You can change or remove it at any time.</small>
                   </div>
                   <div class="form-group">
                     <label for="url">Position</label>
-                    <input type="text" class="form-control" id="text" placeholder="Enter your postion" value="ADMIN">
-                  </div>
-                  <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" class="form-control" id="location" placeholder="Enter your location" value="">
-                  </div>
-                  <div class="form-group small text-muted">
-                    All of the fields on this page are optional and can be deleted at any time, and by filling them out, you're giving us consent to share this data wherever your user profile appears.
+                    <input type="text" class="form-control" id="position" placeholder="Enter your postion" value="ADMIN">
                   </div>
                   <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2; margin-top: 10px; color: #fff;">Update Profile</button>
                   <button type="reset" class="btn btn-light" style="background: #6c757d; margin-top: 10px; color: #fff;">Reset Changes</button>

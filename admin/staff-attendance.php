@@ -41,7 +41,7 @@
  
 
   <div class="col-5 col-lg-2"><!--Start of Staff title-->
-    <h4>Schedule</h3>
+    <h4>Attendance</h3>
   </div><!--End of Staff title-->
 
     <div class="col-12 col-lg-6"><!--Start of search bar-->
@@ -54,7 +54,7 @@
     </div><!--End of search bar-->
 
     <div class="col-6 col-lg-2"><!--Start of add user-->
-    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#">Add Attendance</a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#"><i class="fas fa-clipboard-user"></i>Add Attendance</a></button>
     </div><!--end of add user-->
 
 
