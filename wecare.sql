@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2023 at 09:53 PM
+-- Generation Time: Apr 14, 2023 at 04:31 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -137,10 +137,7 @@ CREATE TABLE `monitoring` (
 --
 
 INSERT INTO `monitoring` (`id`, `patient_id`, `relative_id`, `staff_id`, `updated_at`) VALUES
-(3, 28, 5, 1, '2023-04-10 15:28:53'),
-(4, 36, 8, 1, '2023-04-12 17:58:35'),
-(5, 42, 10, 1, '2023-04-12 19:00:39'),
-(6, 42, 11, 1, '2023-04-12 19:34:43');
+(5, 42, 10, 1, '2023-04-12 19:00:39');
 
 -- --------------------------------------------------------
 
@@ -277,9 +274,11 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`id`, `patient_id`, `user_id`, `type`, `subject`, `message`, `status`, `created_at`) VALUES
-(28, 0, 1, 'Admission', 'Thank you for submitting and completing an admission.', 'We hope this message finds you well. We would like to take this opportunity to remind you about the admission that you made. \nWe\'re expecting to see you on Apr 22nd, 2023 to discuss the admission further. \n Please provide the documents that you\'re going to need. Thank you for your cooperation.', 0, '2023-04-12 16:22:45'),
-(38, 42, 1, 'Admission', 'Your admission regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Lola D. Cruz have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-04-12 19:00:39'),
-(39, 42, 6, 'Admission', 'Your monitoring request regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your monitoring request regarding Lola D. Cruz have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-04-12 19:34:43');
+(28, 0, 1, 'Admission', 'Thank you for submitting and completing an admission.', 'We hope this message finds you well. We would like to take this opportunity to remind you about the admission that you made. \nWe\'re expecting to see you on Apr 22nd, 2023 to discuss the admission further. \n Please provide the documents that you\'re going to need. Thank you for your cooperation.', 1, '2023-04-13 21:17:21'),
+(38, 42, 1, 'Admission', 'Your admission regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Lola D. Cruz have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-13 21:17:30'),
+(46, 42, 1, 'Payment', 'There\'s a new payment regarding patient Lola D. Cruz. Due on May 14, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-14 01:18:45'),
+(47, 42, 1, 'Payment', 'There\'s a new payment regarding patient Lola D. Cruz. Due on Jun 14, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-14 02:13:33'),
+(48, 42, 1, 'Payment', 'There\'s a new payment regarding patient Lola D. Cruz. Due on Jul 14, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-14 02:26:37');
 
 -- --------------------------------------------------------
 
@@ -373,7 +372,9 @@ CREATE TABLE `patient_services` (
 
 INSERT INTO `patient_services` (`id`, `patient_id`, `services`) VALUES
 (68, 42, 1),
-(69, 42, 3);
+(69, 42, 3),
+(71, 42, 4),
+(72, 42, 2);
 
 -- --------------------------------------------------------
 
@@ -386,13 +387,25 @@ CREATE TABLE `payment` (
   `patient_id` int(11) NOT NULL,
   `start_due` date NOT NULL,
   `end_due` date NOT NULL,
+  `services` varchar(255) NOT NULL,
   `services_total` varchar(100) NOT NULL,
   `fee_total` varchar(100) NOT NULL,
   `total_amount` varchar(100) NOT NULL,
   `fee_note` varchar(255) NOT NULL,
   `status` varchar(100) NOT NULL,
+  `payment_method` varchar(100) DEFAULT NULL,
+  `payment_date` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `patient_id`, `start_due`, `end_due`, `services`, `services_total`, `fee_total`, `total_amount`, `fee_note`, `status`, `payment_method`, `payment_date`, `created_at`) VALUES
+(30, 42, '2023-04-14', '2023-05-14', 'Caregiving, Consultation', '9000', '0', '9000', '', 'Paid', 'Cash', '2023-04-15', '2023-04-14 02:12:51'),
+(31, 42, '2023-05-14', '2023-06-14', 'Caregiving, Consultation, Rooms', '14000', '0', '14000', '', 'Paid', 'Digital Wallet', '2023-04-29', '2023-04-14 02:12:44'),
+(32, 42, '2023-06-14', '2023-07-14', 'Caregiving, Consultation, Rooms, Rehabilitation', '21000', '0', '21000', '', 'Not Paid', NULL, NULL, '2023-04-14 02:21:07');
 
 -- --------------------------------------------------------
 
@@ -2223,9 +2236,7 @@ CREATE TABLE `relative` (
 --
 
 INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_fname`, `patient_mname`, `patient_lname`, `patient_suffix`, `patient_id`) VALUES
-(8, 6, 'Uncle', 'El C. Res_Request_1681322282_Annex_ABC_Downloadable_Forms.pdf', 'Khasmir', 'Mahadali', 'Basaluddin', '', 36),
-(10, 1, 'Mother', 'Relative', 'Lola', 'Dela', 'Cruz', '', 42),
-(11, 6, 'Mother', 'El C. Res_Request_1681328058_Annex_ABC_Downloadable_Forms.pdf', 'Denise', 'Que', 'Gerzon', '', 42);
+(10, 1, 'Mother', 'Relative', 'Lola', 'Dela', 'Cruz', '', 42);
 
 -- --------------------------------------------------------
 
@@ -2802,7 +2813,7 @@ ALTER TABLE `monitoring_report`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -2820,13 +2831,13 @@ ALTER TABLE `patient_info`
 -- AUTO_INCREMENT for table `patient_services`
 --
 ALTER TABLE `patient_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `refcitymun`
