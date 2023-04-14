@@ -39,48 +39,55 @@
     $payment = new Payment;
     $notification = new Notification;
 
-    $payment->patient_id = $patient->id;
-    $payment->start_due = htmlentities($_POST['due-start']);
-    $payment->end_due = htmlentities($_POST['due-end']);
-    $payment->services_total = $_POST['service-total'];
-    $payment->fee_total = $_POST['fee-total'];
-    $payment->total_amount = $_POST['total-amount'];
-    $payment->fee_note = htmlentities($_POST['fee-note']);
-    $payment->status = "Not Paid";
+    if(isset($_POST['services'])){
 
-    if($payment->add_payment()){
+      $payment->services = implode(", ", $_POST['services']);
+      $payment->patient_id = $patient->id;
+      $payment->start_due = htmlentities($_POST['due-start']);
+      $payment->end_due = htmlentities($_POST['due-end']);
+      $payment->services_total = $_POST['service-total'];
+      $payment->fee_total = $_POST['fee-total'];
+      $payment->total_amount = $_POST['total-amount'];
+      $payment->fee_note = htmlentities($_POST['fee-note']);
+      $payment->status = "Not Paid";
+
+      if($payment->add_payment()){
 
 
-      if(!empty($relative->fetch_relative_by_patient($patient->id))){
+        if(!empty($relative->fetch_relative_by_patient($patient->id))){
 
-        $relative_list = $relative->fetch_relative_by_patient($patient->id);
+          $relative_list = $relative->fetch_relative_by_patient($patient->id);
 
-        foreach($relative_list as $r_data){
+          foreach($relative_list as $r_data){
 
-          // Notification of Payment
-          $notification->patient_id = $patient->id;
+            // Notification of Payment
+            $notification->patient_id = $patient->id;
 
-          $notification->user_id = $r_data['user_id'];
+            $notification->user_id = $r_data['user_id'];
 
-          $notification->type = "Payment";
+            $notification->type = "Payment";
 
-          $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ".";
+            $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ". Due on " . date("M j, Y", strtotime($payment->end_due));
 
-          $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one's stay at our facility.\n" . " We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one's care is due soon, and we kindly request that you make the payment as soon as possible. \n" . " We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n" . " We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+            $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one's stay at our facility.\n" . " We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one's care is due soon, and we kindly request that you make the payment as soon as possible. \n" . " We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n" . " We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
 
-          $notification->status = 0;
+            $notification->status = 0;
 
-          $notification->add_notification_by_user_patient();
+            $notification->add_notification_by_user_patient();
 
+          }
+
+          header('location: payment-list.php?id='. $patient->id);
+
+
+        }else{
+          $no_relative = "This patient currently have no relative.";
         }
 
-        header('location: payment-list.php?id='. $patient->id);
-
-
-      }else{
-        $no_relative = "This patient currently have no relative.";
       }
 
+    } else {
+      $error = "Please select service";
     }
 
   }
@@ -107,7 +114,10 @@
           //Display the error message if there is any.
           if(isset($no_relative)){
             echo '<div><p class="text-danger">'.$no_relative.'</p></div>';
-          }     
+          }  
+          if(isset($error)){
+            echo '<div><p class="text-danger">'.$error.'</p></div>';
+          }   
           ?>
         <div class="col-12 col-lg-9 d-flex">
         <?php
@@ -147,6 +157,7 @@
       $services = new Patient;
 
       $service_list = $services->fetch_patient_services($patient->id); 
+
       ?>
 
       <?php foreach($service_list as $data) { ?>
@@ -162,8 +173,13 @@
       </div><!--End row-->
       <?php } ?>
 
-    
+        <select name="services[]" multiple hidden>
+          <?php foreach($service_list as $service){ ?>
+            <option value="<?php echo $service['services'] ?>" selected><?php echo $service['services'] ?></option>
+          <?php } ?>
+        </select>
 
+  
     <?php
 
       if($services->patient_service_total($patient->id)){
@@ -187,32 +203,32 @@
     <div class="row pt-3 col-12 col-lg-5">
       <div class="input-group">
         <span class="input-group-text">Total for Other Fees: ₱</span>
-        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" required>
+        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" required placeholder="0 = None" <?php if(isset($_POST['fee-total'])) { echo $_POST['fee-total']; } ?>>
       </div><!--End services-->
     </div><!--End row-->
 
     <div class="row pt-3 col-12 col-lg-5">
       <div class="input-group">
         <span class="input-group-text">Note for Fee</span>
-        <textarea class="form-control bg-white" name="fee-note" id="fee-note" placeholder="Ex. Pass Due Fee = 500" rows="5"></textarea>
+        <textarea class="form-control bg-white" name="fee-note" id="fee-note" placeholder="Ex. Pass Due Fee = 500" rows="5"><?php if(isset($_POST['fee-note'])) { echo $_POST['fee-note']; } ?></textarea>
       </div><!--End services-->
     </div><!--End row-->
 
       <div class="row pt-3 col-12 col-lg-7">
         <div class="input-group">
           <span class="input-group-text">Due Start Date:</span>
-          <input type="date" aria-label="Start" class="form-control" name="due-start" id="due-start" required>
+          <input type="date" aria-label="Start" class="form-control" name="due-start" id="due-start" required value="<?php if(isset($_POST['due-start'])) { echo $_POST['due-start']; } ?>">
           <span class="input-group-text">Due End Date:</span>
-          <input type="date" aria-label="End" class="form-control" name="due-end" id="due-end" onchange="getDate()" required>
+          <input type="date" aria-label="End" class="form-control" name="due-end" id="due-end" onchange="getDate()" required value="<?php if(isset($_POST['due-end'])) { echo $_POST['due-end']; } ?>">
         </div>
       </div><!--End row-->
 
     <div class="row pt-3 col-12 col-lg-7">
       <div class="input-group">
           <span class="input-group-text">Total Amount: ₱</span>
-          <input class="form-control bg-white" type="number" name="total-amount" id="total-amount" required readonly>
+          <input class="form-control bg-white" type="number" name="total-amount" id="total-amount" required readonly value="<?php if(isset($_POST['total-amount'])) { echo $_POST['total-amount']; } ?>">
           <span class="input-group-text">Month/s:</span>
-          <input type="number" class="form-control bg-white" name="total_months" id="total_months" readonly>
+          <input type="number" class="form-control bg-white" name="total_months" id="total_months" readonly value="<?php if(isset($_POST['total_months'])) { echo $_POST['total_months']; } ?>">
           <button type="button" class="btn btn-primary" onclick="getTotal()"><i class="fas fa-calculator"></i>Calculate</bu>
       </div><!--End services-->
     </div><!--End row-->

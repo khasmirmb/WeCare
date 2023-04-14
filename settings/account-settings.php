@@ -2,7 +2,6 @@
 
     $page_title = 'WeCare - Account Settings';
     require_once '../includes/header.php';
-    require_once '../classes/appointment.class.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){
@@ -38,7 +37,7 @@
   	<div class="card-body">
 		<div class="row">
 		<div class="col-12 col-lg-3 pt-3 ps-5">
-		<img src="../images/yuta.jpg" class="rounded-circle img-fluid" style="width: 200px; height: 200spx;" alt="Profile">
+		<img src="../images/<?php echo $_SESSION['profile_pic'] ?>" class="rounded-circle img-fluid" style="width: 200px; height: 200spx;" alt="Profile">
 		</div>
 		<div class="col-12 col-lg-4 pt-5">
 		<div class="d-grid gap-3 d-md-flex" style="margin-top: 40px;"">

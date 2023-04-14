@@ -2,7 +2,6 @@
 
     $page_title = 'WeCare - Account Settings';
     require_once '../includes/header.php';
-    require_once '../classes/appointment.class.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){

@@ -1,7 +1,8 @@
 <?php
 
     $page_title = 'WeCare - Payment';
-    require_once '../includes/header.php';
+    require_once '../includes/header.php';  
+    require_once '../classes/payment.class.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){
@@ -15,16 +16,49 @@
 
 <div class="p-5 text-white" style="background: #00ACB2">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <h5>Next Payment Amount</h5>
-                <h3><strong>₱30,000</strong></h3>
+        <?php
+
+            $recent = new Payment;
+
+            $recent_due = $recent->show_recent_due_date_by_user($_SESSION['logged_id']);
+
+            $recent_total = $recent->show_recent_total_by_user($_SESSION['logged_id']);
+
+            if(!empty($recent->show_payment_list_by_relative($_SESSION['logged_id']))){
+        ?>
+        
+            
+                <div class="row">
+                    <?php foreach($recent_total as $data){ ?>
+                    <div class="col">
+                        <h5>Total Payment Amount</h5>
+                        <h3><strong><?php if(!empty($data['total'])) { echo "₱" . number_format($data['total']); }else { echo 'No Payment'; } ?></strong></h3>
+                    </div>  
+                    <?php } ?>
+                    <?php foreach($recent_due as $data){ ?>
+                        <div class="col">
+                            <h5>Recent Payment Due Date</h5>
+                            <h3><strong><?php if(!empty($data['recent_date'])) { echo date("M j, Y", strtotime($data['recent_date'])); }else { echo 'No Payment'; } ?></strong></h3>
+                        </div>
+                    <?php } ?>
+                </div>
+        <?php 
+        
+        } else {
+        ?>
+
+            <div class="row">
+                <div class="col">
+                    <h5>Total Payment Amount</h5>
+                    <h3><strong>No Payment</strong></h3>
+                </div>
+                <div class="col">
+                    <h5>Recent Payment Due Date</h5>
+                    <h3><strong>No Payment</strong></h3>
+                </div>
             </div>
-            <div class="col">
-                <h5>Next Payment Due Date</h5>
-                <h3><strong>February 23, 2023</strong></h3>
-            </div>
-    </div>
+
+        <?php } ?>
 </div>
 </div>
 
@@ -33,53 +67,33 @@
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info">
         <tr>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Month</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Patient Name</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Services</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Recommended Pay Date</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">Patient Name</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Due Date</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Amount Due</th>
         </tr>
     </thead>
+        <?php
+
+            $payment = new Payment;
+
+            $payment_list = $payment->show_payment_list_by_relative($_SESSION['logged_id']);
+
+        ?>
     <tbody>
+    <?php foreach($payment_list as $row){ ?>
         <tr>
-        <th scope="row" class="text-center">1</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Caregiving</td>
-        <td class="text-center">Jan 25, 2023</td>
-        <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
+            <th><?php echo ucfirst($row['fname']) . " " . ucfirst($row['mname'][0]) . ". " . ucfirst($row['lname']) . " "  . ucfirst($row['suffix'])?></th>
+
+            <td class="text-center"><?php if($row['status'] == "Paid"){ ?><strong><span class="text-success"> <?php echo $row['status'] ?></span></strong><?php } else { ?> <strong><span class="text-danger "><?php echo $row['status'] ?></span></strong><?php } ?></td>
+
+            <td class="text-center"><?php echo date("M j, Y", strtotime($row['end_due'])) ?></td>
+            
+            <td class="text-center gap-2">₱<?php echo number_format($row['total_amount']) ?>
+            <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" type="button" href="payment-details.php?id=<?php echo $row['id'] ?>">Review<a>
+            </td>
         </tr>
-        <tr>
-        <th scope="row" class="text-center">2</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Caregiving</td>
-        <td class="text-center">Jan 25, 2023</td>
-        <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
-        </tr>
-        <tr>
-        <th scope="row" class="text-center">3</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Caregiving</td>
-        <td class="text-center">Jan 25, 2023</td>
-        <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
-        </tr>
-        <th scope="row" class="text-center">4</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Caregiving</td>
-        <td class="text-center">Jan 25, 2023</td>
-        <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" type="button" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
-        </tr>
-        <tr>
-        <th scope="row" class="text-center">5</th>
-        <td>Al-khasmir Basaluddin</td>
-        <td class="text-center">Caregiving</td>
-        <td class="text-center">Jan 25, 2023</td>
-        <td class="text-center gap-2">₱30, 000 
-        <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php">Review<a></td><!--Should position sa dulo ng table-->       
-        </tr>
+    <?php } ?>
     </tbody>
 </table>
 </div>
