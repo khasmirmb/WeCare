@@ -58,7 +58,6 @@
     <table class="table table-striped table-hover table-bordered">
   <thead class="table-info">
     <tr>
-      <th scope="col" style="background: #00ACB2; color: #fff;" class="text-center">Created Date</th>
       <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due Start Date</th>
       <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due End Date</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Total Amount</th>
@@ -76,18 +75,54 @@
   <tbody>
   <?php foreach($payment_list as $row){ ?>
     <tr>
-        <th class="text-center"><?php echo date("M j, Y", strtotime($row['created_at'])) ?></th>
         <td class="text-center"><?php echo date("M j, Y", strtotime($row['start_due'])) ?></td>
         <td class="text-center"><?php echo date("M j, Y", strtotime($row['end_due'])) ?></td>
-        <td class="text-center">₱<?php echo $row['total_amount'] ?></td>
-        <td class="text-center"><?php echo $row['status'] ?></td>
+        <td class="text-center">₱<?php echo number_format($row['total_amount']) ?></td>
+        <td class="text-center"><?php if($row['status'] == "Paid"){ ?><strong><span class="text-success"> <?php echo $row['status'] ?></span></strong><?php } else { ?> <strong><span class="text-danger "><?php echo $row['status'] ?></span></strong><?php } ?></td>
         <td>
-        <div class="d-flex gap-2 justify-content-center">
-        <button class="btn btn-outline-danger" type="button">Not Paid</button> <!--Should put here the modal-->
-        <button class="btn btn-success" type="button">Paid</button><!--Should put here the modal-->
+        <div class="d-flex gap-1 justify-content-center">
+        <?php if($row['status'] != "Paid"){ ?>
+          <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#paid<?php echo $row['pay_id'] ?>">Paid</button><!--Should put here the modal-->
+        <?php } ?>
+        <button class="btn btn-danger" type="button">Delete</button> <!--Should put here the modal-->
         </div>
         </td>
     </tr>
+
+    <div class="modal fade" id="paid<?php echo $row['pay_id'] ?>" tabindex="-1" aria-labelledby="paid_modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paid_modalLabel">Payment Paid</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="payment-paid.php" method="POST">
+              <div class="mb-2">
+                <label for="paid_date" class="col-form-label"><strong>Payment Paid Date:</strong></label>
+                <input type="date" class="form-control" id="paid_date" name="paid_date">
+              </div>
+              <div class="mb-2">
+                <input type="text" class="form-control" id="pay_id" name="pay_id" value="<?php echo $row['pay_id'] ?>" hidden>
+                <input type="text" class="form-control" id="p_id" name="p_id" value="<?php echo $patient->id ?>" hidden>
+                <label for="payment_method" class="col-form-label"><strong>Payment Method:</strong></label>
+                <select class="form-select" aria-label="Default select example" name="payment_method">
+                  <option value="Cash">Cash</option>
+                  <option value="Credit Card">Credit Card</option>
+                  <option value="Digital Wallet">Digital Wallet</option>
+                </select>
+              </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="confirm">Confirm</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   <?php } ?>
     </tbody>
     </table>
