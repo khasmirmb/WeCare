@@ -85,7 +85,7 @@ class Payment{
         payment.fee_total,
         payment.total_amount,
         payment.status,
-        payment.created_at FROM payment INNER JOIN patient ON payment.patient_id = patient.id INNER JOIN relative ON relative.patient_id = patient.id WHERE relative.user_id = :user_id ORDER BY payment.created_at ASC;";
+        payment.created_at FROM payment INNER JOIN patient ON payment.patient_id = patient.id INNER JOIN relative ON relative.patient_id = patient.id WHERE relative.user_id = :user_id ORDER BY payment.status ASC, payment.created_at ASC;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $user_id);
         if($query->execute()){

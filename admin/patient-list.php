@@ -60,7 +60,7 @@
         <div class="card" style="width: 18rem;">
         <div class="card-body rounded shadow">
             <div class="d-flex justify-content-md-end pb-2">
-            <a class="btn btn-secondary me-2" href="payment-list.php?id=<?php echo $row['id'] ?>" role="button" style="background: #28a745; border: #28a745; color: #fff;"><i class="fa-solid fa-receipt"></i>Payment</a>
+            <a class="btn btn-secondary me-2" href="payment-list.php?id=<?php echo $row['id'] ?>" role="button" style="background: #28a745; border: #28a745; color: #fff;"><i class="fa-solid fa-receipt"></i>Billing</a>
             <a class="btn btn-secondary" href="patient-backup.php?id=<?php echo $row['id'] ?>" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fa-solid fa-folder-open"></i>Records</a>
             </div>
             <div class="pb-2">

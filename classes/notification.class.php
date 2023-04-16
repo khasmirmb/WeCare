@@ -126,7 +126,7 @@ class Notification{
     }
 
     function show_payment_notification_by_user($user_id){
-        $sql = "SELECT * FROM notification WHERE notification.user_id = :user_id AND type = 'Payment' ORDER BY notification.created_at DESC;";
+        $sql = "SELECT * FROM notification WHERE notification.user_id = :user_id AND type = 'Billing' ORDER BY notification.created_at DESC;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $user_id);
         if($query->execute()){
@@ -156,7 +156,7 @@ class Notification{
     }
 
     function count_payment_notification_by_user($user_id){
-        $sql = "SELECT COUNT(*) AS payment_total FROM notification WHERE notification.user_id = :user_id AND notification.status = 0 AND type = 'Payment';";
+        $sql = "SELECT COUNT(*) AS payment_total FROM notification WHERE notification.user_id = :user_id AND notification.status = 0 AND type = 'Billing';";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':user_id', $user_id);
         if($query->execute()){

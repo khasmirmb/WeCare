@@ -1,6 +1,6 @@
 <?php
 
-    $page_title = 'WeCare - Payment Details';
+    $page_title = 'WeCare - Billing Details';
     require_once '../includes/header.php';
     require_once '../classes/payment.class.php';
     session_start();
@@ -36,7 +36,7 @@
     </div>
 
 <div class="card">
-  <h5 class="card-header">Payment Details</h5>
+  <h5 class="card-header">Billing Details</h5>
   <div class="card-body">
     <div class="container">
     <div class="row">

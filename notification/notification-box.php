@@ -72,7 +72,7 @@
                 </li>
                 <li class="nav-item">
                 <button class="nav-link" id="pills-payment-tab" data-bs-toggle="pill" data-bs-target="#pills-payment" type="button" role="tab" aria-controls="pills-payment" aria-selected="false">
-                    Payment
+                    Billing
                     <span class="badge bg-danger rounded-pill" style="font-size: small; z-index: 1;">
                         <?php 
                         foreach($payment_total as $row){
@@ -187,7 +187,7 @@
 
             ?>
 
-                <button type="button" class="btn btn-light d-flex justify-content-between align-items-center mb-2" style="background: #E5E4E2; border: #00ACB2;"><h6 class="text-decoration-none text-color text-dark pt-1"><strong>You have no payment notification</strong></h6></button>
+                <button type="button" class="btn btn-light d-flex justify-content-between align-items-center mb-2" style="background: #E5E4E2; border: #00ACB2;"><h6 class="text-decoration-none text-color text-dark pt-1"><strong>You have no billing notification</strong></h6></button>
 
             <?php } ?>
         </div>

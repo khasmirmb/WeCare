@@ -1,6 +1,6 @@
 <?php
 
-    $page_title = 'WeCare - Payment';
+    $page_title = 'WeCare - Billing';
     require_once '../includes/header.php';  
     require_once '../classes/payment.class.php';
     session_start();
@@ -63,7 +63,7 @@
 </div>
 
 <div class="p-5 table-responsive">
-    <h2 class="pb-3"><strong>Payment History</strong></h2>
+    <h2 class="pb-3"><strong>Billing History</strong></h2>
     <table class="table table-hover table-striped table-bordered">
     <thead class="table-info">
         <tr>

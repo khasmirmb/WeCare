@@ -35,7 +35,7 @@
     <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color: #fff;"><a class="text-white text-decoration-none" href="patient-list.php" ><i class="fa-solid fa-arrow-left"></i>Patient List </a></button>
 
     <div class="col-12 col-lg-5 pt-4">
-        <h2><strong>Payment History</strong></h2>
+        <h2><strong>Billing History</strong></h2>
     </div>
   <form action="add-payment.php" method="GET">
       <div class="row pt-3">
@@ -49,7 +49,7 @@
       
       <div class="col-12 col-lg-3"><!--First of button-->
         <div class="pt-4">
-        <button type="submit" class="btn btn-info" style="background: #198754; border: #198754; color: #fff;"><i class="fa-solid fa-credit-card"></i>Add Payment</button> <!--Should put here the modal-->
+        <button type="submit" class="btn btn-info" style="background: #198754; border: #198754; color: #fff;"><i class="fa-solid fa-credit-card"></i>Add Billing</button> <!--Should put here the modal-->
         </div>
       </div><!--End of button-->
       </div><!--End of row-->
@@ -62,7 +62,7 @@
       <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due End Date</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Total Amount</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Status</th>
-      <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Payment</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Action</th>
     </tr>
   </thead>
   <?php
@@ -81,10 +81,7 @@
         <td class="text-center"><?php if($row['status'] == "Paid"){ ?><strong><span class="text-success"> <?php echo $row['status'] ?></span></strong><?php } else { ?> <strong><span class="text-danger "><?php echo $row['status'] ?></span></strong><?php } ?></td>
         <td>
         <div class="d-flex gap-1 justify-content-center">
-        <?php if($row['status'] != "Paid"){ ?>
-          <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#paid<?php echo $row['pay_id'] ?>">Paid</button><!--Should put here the modal-->
-        <?php } ?>
-        <button class="btn btn-danger" type="button">Delete</button> <!--Should put here the modal-->
+          <button class="btn btn-danger" type="button">Delete</button> <!--Should put here the modal-->
         </div>
         </td>
     </tr>

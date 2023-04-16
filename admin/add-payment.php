@@ -1,6 +1,6 @@
 <?php
 
-  $page_title = 'WeCare Admin - Payment Receipt';
+  $page_title = 'WeCare Admin - Billing Receipt';
   require_once '../includes/admin-header.php';
   require_once '../classes/patient.class.php';
   require_once '../classes/reference.class.php';
@@ -60,12 +60,12 @@
 
           foreach($relative_list as $r_data){
 
-            // Notification of Payment
+            // Notification of Billing
             $notification->patient_id = $patient->id;
 
             $notification->user_id = $r_data['user_id'];
 
-            $notification->type = "Payment";
+            $notification->type = "Billing";
 
             $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ". Due on " . date("M j, Y", strtotime($payment->end_due));
 
@@ -102,11 +102,11 @@
 <div class="pt-3">
 <div class="card">
   <div class="card-header">
-    Add Payment
+    Add Billing
   </div>
   <div class="card-body">
 
-  <h3 class="card-title">Payment for <?php echo ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) ?></h3>
+  <h3 class="card-title">Billing for <?php echo ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) ?></h3>
 
   <form action="add-service.php" method="GET">
     <div class="row mb-2">
