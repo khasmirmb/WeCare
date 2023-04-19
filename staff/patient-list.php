@@ -28,7 +28,7 @@
             <div class="d-flex align-items-center justify-content-center">
             <div class="input-group d-flex">
             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary">search</button>
+            <button type="button" class="btn btn-secondary">search</button>
           </div>
           <div class="dropdown d-flex justify-content-center align-items-center">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +40,7 @@
             <li><a class="dropdown-item" href="#">Status</a></li>
           </ul>
         </div>
-        </div>
+        </div><!--alignment-->
       </div>
   </div>
   <section class="intro-table">
