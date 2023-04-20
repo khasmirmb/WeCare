@@ -40,8 +40,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="patient-rese" data-bs-dismiss="modal">Close</button>
-        <a href="../account/logout.php"><button type="button" class="patient-save-btn">Yes</button></a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="../account/logout.php"><button type="button" class="btn btn-primary">Yes</button></a>
       </div>
     </div>
   </div>
