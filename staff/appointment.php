@@ -15,20 +15,22 @@
 ?>
 
 <div class="content">
-  <div class="cont-header">
-    <h3 class="content-text">Appointment</h3>
-  </div>
-  <div class="cont-table">
-    <div class="container mt-5 px-2">
-      <div class="table_border">
-        <div class="mb-2 d-flex justify-content-between align-items-center">
-
-          <div class="position-relative">
-      
+  <div class="container">
+    <div class="row pt-3 pb-3">
+      <div class="col-12 col-lg-3 "><!--Label-->
+        <div class="header-monitoring">
+        <h2 class="ms-3" style="color: #00ACB2;"><strong>Appointment</strong></h2>
+        </div>
+        </div><!--Label-->
+        <div class="col-12 col-lg-4">
+        <div class="input-group d-flex">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <button type="button" class="btn btn-secondary" style="background-color: #00ACB2; color: #ffffff;">search</button>
           </div>
-
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        </div>
+        <div class="col-12 col-lg-3 "><!--Label-->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00ACB2; color: #ffffff;">
             Sort by
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -36,6 +38,8 @@
               <li><a class="dropdown-item" href="#">Date</a></li>
             </ul>
           </div>
+        </div>
+    </div><!--row-->
 
         <?php
           require_once '../classes/appointment.class.php';

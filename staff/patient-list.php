@@ -18,20 +18,22 @@
 ?>
 
     <div class="content">
-    <div class="header-monitoring">
-    <h2 class="ms-3"><strong>Patient List</strong></h2>
-    </div>
-        <div class="container">
-           <div class="row height d-flex justify-content-center align-items-center">
-            <div class="cont-search d-flex justify-content-center align-items-center">
-            <div class="col-md-6">
-            <div class="d-flex align-items-center justify-content-center">
-            <div class="input-group d-flex">
+      <div class="container">
+        <div class="row pt-3">
+          <div class="col-12 col-lg-3 "><!--Label-->
+        <div class="header-monitoring">
+        <h2 class="ms-3" style="color: #00ACB2;"><strong>Patient List</strong></h2>
+        </div>
+        </div><!--Label-->
+        <div class="col-12 col-lg-4">
+        <div class="input-group d-flex">
             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-secondary">search</button>
+            <button type="button" class="btn btn-secondary" style="background-color: #00ACB2; color: #ffffff;">search</button>
           </div>
-          <div class="dropdown d-flex justify-content-center align-items-center">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        </div>
+        <div class="col-12 col-lg-4">
+        <div class="dropdown d-flex">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00ACB2; color: #ffffff;">
             Sort by
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -40,9 +42,9 @@
             <li><a class="dropdown-item" href="#">Status</a></li>
           </ul>
         </div>
-        </div><!--alignment-->
-      </div>
-  </div>
+        </div>
+        </div><!--row-->
+<!--table-->
   <section class="intro-table">
   <div class="gradient-custom-1 h-100">
     <div class="mask d-flex align-items-center h-100">
@@ -90,6 +92,7 @@
 </div>
 </div>
 
+
 <!-- Modal of discharge -->
 <div class="modal fade" id="discharged" tabindex="-1" aria-labelledby="dischargedLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -103,7 +106,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
+        <button type="button" class="btn btn-primary" >Yes</button>
       </div>
     </div>
   </div>

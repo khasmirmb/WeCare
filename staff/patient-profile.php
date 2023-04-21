@@ -203,11 +203,6 @@
         </div>
         
         </div>
-    <div class="card">
-    <div class="card-body">
-    Last Updated and Inputed: 01:00 PM December 07, 2022
-    </div>
-    </div>
 </div> <!--End of details of the patient-->
 
 
@@ -347,7 +342,7 @@
 
     
 
-    <h2 class="pt-4"><strong>Patient Monitoring</strong></h2>
+    <h2 class="pt-4" ><strong>Patient Monitoring</strong></h2>
     
     
     <?php include_once 'patient-medicine.php' ?> <!-- Medicine For Patient --> 
@@ -360,61 +355,6 @@
 
    
 </div> <!--Don't touch-->
-
-<!--Pop Out-->
-<!--
-    <div class="container">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br>
-        
-    <div class="btn-group pt-3" role="group">
-        <button type="button" class="btn btn-primary d-flex"><a class="text-white text-decoration-none" href="#">Rename</a></button>
-        <button type="button" class="btn btn-danger mx-2 d-flex"><a class="text-white text-decoration-none" href="#">Delete</a></button>
-    </div>
-</div>
--->
-<div id="delete-dialog" class="dialog" title="Delete">
-    <p><span>Are you sure you want to delete the selected record?</span></p>
-</div>
-
-</div>
-
-<script>
-    $(document).ready(function() {
-        $("#delete-dialog").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".patient-delete").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#delete-dialog").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#delete-dialog").dialog("open");
-        });
-
-    });
-</script>
-
-<script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script>
-
-
 
 <?php
 

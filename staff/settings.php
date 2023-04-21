@@ -31,9 +31,6 @@
                 <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
                   Password
                 </a>
-                <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                  Delete Account
-                </a>
             </div>
         </div>
     </div>
