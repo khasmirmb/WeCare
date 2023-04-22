@@ -283,6 +283,11 @@
     require_once '../includes/navbar.php';
 
 ?>
+<div class="container">
+    <div class="col-12 col-lg-3 pt-3">
+    <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../admission/admission.list.php"> <i class="fa-solid fa-arrow-left"></i> Back</a></button>
+    </div>
+
 <!--Breadscrumbs-->
 <div class="p-5">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -304,6 +309,13 @@
     <?php include_once 'relative.php' ?>
 
 </form>
+
+    
+</div>
+
+
+
+
 
 <script>
 

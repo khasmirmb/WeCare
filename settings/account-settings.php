@@ -155,19 +155,16 @@
 			</div>
 		</div>
 		<div class="col-12 col-lg-3">
-			<label for="number" class="form-label">Number</label>
+			<label for="number" class="form-label">Phone Number</label>
 			<input type="number" class="form-control" id="number" required>
 			<div class="invalid-feedback">
-			Please provide a valid number.
+			Please provide a valid Phone number.
 			</div>
 			<div class="valid-feedback">
 			Nice!
 			</div>
 		</div>
 		<div class="col-12">
-			<div class="">
-				
-			</div>
 			<button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#save-change">Save Changes</button>
 		</div>
 		</form>
