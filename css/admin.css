@@ -209,33 +209,6 @@ label #sidebar_btn:hover{
 Modal
 -----------------------*/
 
-.yes-btn{
-  padding: 10px 45px 10px;
-  background: #198754;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.close-btn{
-  padding: 10px 35px 10px;
-  background: #6c757d;
-  color: #fff;
-  border: 2px solid #6c757d;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-
-.close-btn:hover{
-  color:#fff;
-  background: #5a6168;
-  border: #5a6168;
-}  
-.yes-btn:hover{
-  background: #198754; 
-}
 
 /*---------------------
 Delete Modal
