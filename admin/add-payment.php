@@ -210,7 +210,7 @@
     <div class="row pt-3 col-12 col-lg-5">
       <div class="input-group">
         <span class="input-group-text">Note for Fee</span>
-        <textarea class="form-control bg-white" name="fee-note" id="fee-note" placeholder="Ex. Pass Due Fee = 500" rows="5"><?php if(isset($_POST['fee-note'])) { echo $_POST['fee-note']; } ?></textarea>
+        <textarea class="form-control bg-white" name="fee-note" id="fee-note" placeholder="Ex. Diaper = 500" rows="5"><?php if(isset($_POST['fee-note'])) { echo $_POST['fee-note']; } ?></textarea>
       </div><!--End services-->
     </div><!--End row-->
 

@@ -14,7 +14,7 @@
                             ?>
                             <select name="services[]" id="services" multiple>
                             <?php foreach($service_list as $data){ ?>
-                                <option value="<?php echo $data['id'] ?>"><?php echo $data['services'] ?></option>
+                                <option value="<?php echo $data['id']; ?>" <?php if($data['id'] == 1){ echo "selected"; } ?>><?php echo $data['services'] ?></option>
                             <?php } ?>
                             </select>
                         </div>
