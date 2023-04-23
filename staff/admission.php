@@ -104,7 +104,7 @@
                     <h1 class="modal-title fs-5" id="admission-doneLabel">Confirmation Admission Done</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body text-center">
+                  <div class="modal-body">
                     Are you sure <strong><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></strong> process is done and he/she is admitted?
                   </div>
                   <div class="modal-footer">
@@ -124,7 +124,7 @@
                     <h1 class="modal-title fs-5" id="admission-cancelLabel">Confirmation Admission Cancel</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body text-center">
+                  <div class="modal-body">
                   Are you sure you want to cancel the admission of <strong><?php echo $row['p_firstname'] . " " . $row['p_middlename'][0] . ". " . $row['p_lastname'] ?></strong> made by <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname'] ?></strong>?
                   </div>
                   <div class="modal-footer">
