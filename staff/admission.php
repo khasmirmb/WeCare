@@ -101,7 +101,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-success" id="admission-doneLabel">Confirmation Admission Done</h1>
+                    <h1 class="modal-title fs-5" id="admission-doneLabel">Confirmation Admission Done</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center">
@@ -121,7 +121,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-danger" id="admission-cancelLabel">Confirmation Admission Cancel</h1>
+                    <h1 class="modal-title fs-5" id="admission-cancelLabel">Confirmation Admission Cancel</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center">

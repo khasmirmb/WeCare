@@ -118,7 +118,7 @@
                     <li><a href="../feedback/feedback.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-comment"></i><span>Give Feedback</span></button></a></li>
 
                     <hr>
-                    <li><a href="../account/logout.php"><button class="dropdown-item" type="button"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></button></a></li>
+                    <li><a href="../account/logout.php" data-bs-toggle="modal" data-bs-target="#logout"><button class="dropdown-item" type="button"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></button></a></li>
                 </ul>
 
 
@@ -129,3 +129,19 @@
         </div>
         </nav>
         <!-- Top Navigation End-->
+
+        <!-- Modal -->
+<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true" data-bs-backdrop="static" aria-labelledby="logoutLabel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutLabel">Do you want to logout?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="../account/logout.php"><button type="button" class="btn btn-primary">Yes</button></a>
+      </div>
+    </div>
+  </div>
+</div>
