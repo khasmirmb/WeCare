@@ -71,6 +71,7 @@
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Due Date</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Amount Due</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Action</th>
         </tr>
     </thead>
         <?php
@@ -89,8 +90,10 @@
 
             <td class="text-center"><?php echo date("M j, Y", strtotime($row['end_due'])) ?></td>
             
-            <td class="text-center gap-2">₱<?php echo number_format($row['total_amount']) ?>
-            <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" type="button" href="payment-details.php?id=<?php echo $row['id'] ?>">Review<a>
+            <td class="text-center gap-2">₱<?php echo number_format($row['total_amount']) ?></td>
+            <td class="text-center gap-2">
+                <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php?id=<?php echo $row['id'] ?>">Review<a>
+                <a class="btn btn-secondary">Download<a>
             </td>
         </tr>
     <?php } ?>

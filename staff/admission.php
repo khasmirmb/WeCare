@@ -23,12 +23,12 @@
         <div class="col-12 col-lg-4">
         <div class="input-group d-flex">
             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-secondary" style="background-color: #00ACB2; color: #ffffff;">search</button>
+            <button type="button" class="btn btn-secondary" style="background-color: #00ACB2; color: #ffffff; border: none;">Search</button>
           </div>
         </div>
         <div class="col-12 col-lg-3 "><!--Label-->
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00ACB2; color: #ffffff;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00ACB2; color: #ffffff; border: none;">
             Sort by
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

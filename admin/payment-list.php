@@ -1,6 +1,6 @@
 <?php
 
-  $page_title = 'WeCare Admin - Payment List';
+  $page_title = 'WeCare Admin - Billing List';
   require_once '../includes/admin-header.php';
   require_once '../classes/patient.class.php';
   require_once '../classes/payment.class.php';

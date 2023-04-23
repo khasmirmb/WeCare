@@ -155,8 +155,12 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
 <div class="container">
+    <div class="col-12 col-lg-3 pt-3">
+      <a class="btn btn-success" href="patient-edit.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+      <a class="btn btn-danger" href=""><i class="fa-solid fa-eraser"></i>Delete</a>
+    </div>
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-2"><!--Big blue thing-->
     <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
@@ -165,18 +169,6 @@
         <img src="../images/<?php echo $patient->picture ?>" class="rounded float-start img-thumbnail img-fluid" alt="Patient Profile">
         </div>
         <div class="col-12 col-lg-8">
-
-        <?php if(empty($monitoring->fetch_monitoring_details($patient->id))){ ?>
-        <div class="add-info d-flex justify-content-end">
-            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: white;" data-bs-toggle="modal" data-bs-target="#add-details"><strong>Add Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-        <?php } else{ ?>
-
-        <div class="edit-info d-flex justify-content-end">
-            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: #fff; border-radius: 6px;"><strong>Edit Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-        
-        <?php } ?>
 
         <div class="row">
         <h4><strong><?php echo ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " " . ucfirst($patient->suffix) ?></strong></h4>
@@ -270,19 +262,7 @@
     
 <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
-
-        <?php if(empty($monitoring->fetch_monitoring_app_details($patient->id))){ ?>
-        <div class="add-info d-flex justify-content-center mb-2">
-            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: white;" data-bs-toggle="modal" data-bs-target="#add-appointment"><strong>Add Appointment Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-        <?php } else{ ?>
-
-        <div class="edit-info d-flex justify-content-center mb-2">
-            <button class="text-white text-decoration-none" style="background: #00ACB2; border-color: #fff; border-radius: 6px;"><strong>Edit Appointment Details</strong> <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
         
-        <?php } ?>
-
             <h5><strong>Appointment</strong></h5>
    
             <h6 class="bg-secondary text-white d-inline">

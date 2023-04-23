@@ -17,7 +17,7 @@
 
 <div class="new-admission d-flex me-5 justify-content-end">
     <a type="button" class="btn btn-secondary me-3" id="action-cancel" href="request-list.php" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fas fa-clipboard-list"></i>Request List</a>
-    <a type="button" class="btn btn-secondary" id="action-cancel" href="request.php" style="background: #00ACB2;"><i class="fas fa-desktop-alt"></i>Request Monitoring</a>
+    <a type="button" class="btn btn-secondary" id="action-cancel" href="request.php" style="background: #00ACB2; border: none;"><i class="fas fa-desktop-alt"></i>Request Monitoring</a>
 </div>
 
 <div class="p-3 table-responsive">

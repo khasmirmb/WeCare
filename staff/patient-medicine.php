@@ -38,7 +38,7 @@
   </tbody>
   </table>
     <div class="d-grid gap-2 pt-3">
-        <button class="btn btn-primary" type="button" style="background: #198754; border: none;" data-bs-toggle="modal" data-bs-target="#med-modal"><i class="fa-solid fa-circle-plus"></i>Add more</button>
+        <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#med-modal"><i class="fa-solid fa-circle-plus"></i>Add More</button>
     </div>
 </div>
 </div>
@@ -60,7 +60,7 @@
           </div>
           <div class="mb-3">
             <label for="med-dose" class="col-form-label">Dose:</label>
-            <input type="text" class="form-control" id="med-dose" name="med-dose" placeholder="Ex. Breakfast-lunch-dinner" required>
+            <input type="text" class="form-control" id="med-dose" name="med-dose" placeholder="Ex. Morning-Noon-Evening" required>
           </div>
           <div class="mb-3">
             <label for="med-start" class="col-form-label">Started Date:</label>
@@ -68,7 +68,7 @@
           </div>
           <div class="mb-3">
             <label for="med-status" class="col-form-label">Status:</label>
-            <input type="text" class="form-control" id="med-status" name="med-status" placeholder="Ex. On" required>
+            <input type="text" class="form-control" id="med-status" name="med-status" placeholder="Ex. Active" required>
           </div>
           <div class="mb-3">
             <label for="med-note" class="col-form-label">Note:</label>
