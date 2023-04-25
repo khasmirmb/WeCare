@@ -245,11 +245,11 @@
               <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                <th scope="col" class="text-success">Username</th>
-                <th scope="col" class="text-success">Fullname</th>
-                <th scope="col" class="text-success">Contact</th>
-                <th scope="col" class="text-success">Address</th>
-                <th scope="col" class="text-success">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col">Fullname</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Address</th>
+                <th scope="col">Email</th>
                 </tr>
             </thead>
             <tbody>
@@ -303,6 +303,7 @@
             </div> 
             </div><!--End of col-->
 
+            <!--Might Remove-->
         <div class="col-12 col-lg-5 pt-3 pb-3">
             <div class="card border shadow">
                 <div class="card-body p-0">
