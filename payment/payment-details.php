@@ -22,6 +22,7 @@
         $payment->status = $data['status'];
         $payment->payment_method = $data['payment_method'];
         $payment->payment_date = $data['payment_date'];
+        $payment->receipt = $data['receipt'];
 
     }
 
@@ -44,7 +45,9 @@
         <h5 class="card-title">Date Paid:</h5>
         </div>
         <div class="col-6 col-lg-8">
-        <p class="card-text"><?php if(!empty($payment->payment_date)){ echo date("M j, Y", strtotime($payment->payment_date)); } else { echo $payment->status; } ?></p>
+        <strong>
+        <p class="card-text <?php if(!empty($payment->payment_method)){ echo "text-success"; } else { echo "text-danger"; } ?>"><?php if(!empty($payment->payment_date)){ echo date("M j, Y", strtotime($payment->payment_date)); } else { echo $payment->status; } ?></p>
+        </strong>
         </div>
     </div>
     <div class="row">
@@ -52,7 +55,9 @@
         <h5 class="card-title">Services:</h5>
         </div>
         <div class="col-6 col-lg-8">
+        <strong>
         <p class="card-text"><?php echo $payment->services; ?></p>
+        </strong>
         </div>
     </div>
     <div class="row">
@@ -60,7 +65,9 @@
         <h5 class="card-title">Payment Method:</h5>
         </div>
         <div class="col-6 col-lg-8">
-        <p class="card-text"><?php if(!empty($payment->payment_method)){ echo $payment->payment_method; } else { echo $payment->status; } ?></p>
+        <strong>
+        <p class="card-text <?php if(!empty($payment->payment_method)){ echo "text-success"; } else { echo "text-danger"; } ?>"><?php if(!empty($payment->payment_method)){ echo $payment->payment_method; } else { echo $payment->status; } ?></p>
+        </strong>
         </div>
     </div>
     <div class="row">
@@ -68,7 +75,9 @@
         <h5 class="card-title">Services Amount Total:</h5>
         </div>
         <div class="col-6 col-lg-8">
+        <strong>
         <p class="card-text">₱<?php echo number_format($payment->services_total) ?></p>
+        </strong>
         </div>
     </div>
     <div class="row">
@@ -76,7 +85,9 @@
         <h5 class="card-title">Other Fees Total:</h5>
         </div>
         <div class="col-6 col-lg-8">
+        <strong>
         <p class="card-text">₱<?php echo number_format($payment->fee_total) ?></p>
+        </strong>
         </div>
     </div>
     <div class="row">
@@ -84,7 +95,9 @@
         <h5 class="card-title">Fees Note:</h5>
         </div>
         <div class="col-6 col-lg-8">
+        <strong>
         <p class="card-text"><?php if(!empty($payment->fee_note)){ echo $payment->fee_note; } else { echo "None"; } ?></p>
+        </strong>
         </div>
     </div>
     <div class="row">
@@ -92,7 +105,23 @@
         <h5 class="card-title">Total Amount:</h5>
         </div>
         <div class="col-6 col-lg-8">
+        <strong>
         <p class="card-text">₱<?php echo number_format($payment->total_amount) ?></p>
+        </strong>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-6 col-lg-4">
+        <h5 class="card-title">Receipt:</h5>
+        </div>
+        <div class="col-6 col-lg-8">
+        <strong>
+        <?php if(!empty($payment->receipt)){ ?>
+
+                <a class="btn btn-success" href="../receipt/<?php echo $payment->receipt ?>" download>Download</a>
+
+             <?php } else {?> <p class="card-text text-danger"> <?php echo $payment->status; } ?></p>
+        </strong>
         </div>
     </div>
     </div>

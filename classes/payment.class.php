@@ -19,6 +19,7 @@ class Payment{
     public $status;
     public $payment_method;
     public $payment_date;
+    public $receipt;
 
      // protected property to store the database connection
      protected $db;
@@ -125,12 +126,13 @@ class Payment{
     }
 
     function paid_payment($id){
-        $sql = "UPDATE payment SET payment_method = :payment_method, payment_date = :payment_date, status = :status WHERE id = :id;";
+        $sql = "UPDATE payment SET payment_method = :payment_method, payment_date = :payment_date, status = :status, receipt = :receipt WHERE id = :id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $id);
         $query->bindParam(':payment_method', $this->payment_method);
         $query->bindParam(':payment_date', $this->payment_date);
         $query->bindParam(':status', $this->status);
+        $query->bindParam(':receipt', $this->receipt);
         if($query->execute()){
             return true;
         }

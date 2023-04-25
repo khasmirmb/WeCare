@@ -58,7 +58,7 @@
                     <th scope="col" class="text-center" >NAMES</th>
                     <th scope="col" class="text-center">ROOM</th>
                     <th scope="col" class="text-center" >STATUS</th>
-                    <th scope="col" class="text-center" >BILLING</th>
+                    <th scope="col" class="text-center" >ACTION</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -68,15 +68,18 @@
 
                     <td class="text-center"><?php echo $row['room'] ?></td>
 
-                    <td class="text-center"><?php echo $row['status'] ?></span>
-
+                    <td class="text-center"><?php echo $row['status'] ?>
                     <button type="button" class="Discharge-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                     </svg></button> <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#discharged">Discharged</a></li>
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#reassigned">Reassigned Patient</a></li>
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deceased">Deceased</a></li>
-                  </ul>
+                    </ul>
+                    </td>
+
+                    <td class="text-center"><a class="btn btn-success" href="payment-list.php?id=<?php echo $row['id'] ?>"><i class="fa-solid fa-money-bill me-2"></i>Billing</a></td>
+
                 </td>
                 </tr>
                 <?php } ?>

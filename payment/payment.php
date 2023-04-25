@@ -93,7 +93,6 @@
             <td class="text-center gap-2">₱<?php echo number_format($row['total_amount']) ?></td>
             <td class="text-center gap-2">
                 <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php?id=<?php echo $row['id'] ?>">Review<a>
-                <a class="btn btn-secondary">Download<a>
             </td>
         </tr>
     <?php } ?>
