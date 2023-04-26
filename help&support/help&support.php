@@ -109,11 +109,11 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
       Who is eligible for admission to your home?
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
       <div class="accordion-body">
       Late 40's and is non-ambulant.
       </div>
@@ -121,11 +121,11 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
       How can I request a quotation for a room at WeCare Nursing Home?
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
       <div class="accordion-body">
       We make it easy for interested parties to request a quotation for a room at WeCare Nursing Home. Simply contact us directly to schedule a visit and tour of our facilities. During the visit, one of our staff members will be happy to discuss our various room options and associated costs, as well as answer any other questions you may have. Alternatively, you can also call us to request a quotation or to receive more information about our services and rates.
       </div>
@@ -133,11 +133,11 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
       How long can someone stay at WeCare Nursing Home?
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+    <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
       <div class="accordion-body">
       At WeCare Nursing Home, we offer both short-term and long-term care options for our residents. The length of stay can vary depending on the individual's needs and the type of care required.
       </div>
@@ -145,11 +145,11 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
       What are the visiting hours for WeCare Nursing Home?
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+    <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse">
       <div class="accordion-body">
       WeCare Nursing Home welcomes visitors during our designated visiting hours, which are from 9:00 am to 3:00 pm. We understand the importance of family and friends in our residents' lives and encourage visits from loved ones as much as possible. During the visiting hours, visitors can spend time with their loved ones, enjoy meals together, and participate in activities and events. However, to ensure the safety and well-being of our residents, we ask that visitors comply with our visiting policies and guidelines, which may include signing in and out, wearing masks, and adhering to social distancing guidelines. We appreciate your cooperation and understanding in helping us maintain a safe and welcoming environment for everyone.
       </div>
@@ -157,12 +157,12 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">
       Do I need to make an appointment to visit WeCare Nursing Home?
 
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+    <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse">
       <div class="accordion-body">
       To ensure that we can provide the best possible experience for you and your loved one, we highly recommend scheduling an appointment prior to your visit to WeCare Nursing Home. By scheduling an appointment, we can ensure that a staff member is available to provide you with a personalized tour of our facilities, answer any questions you may have, and address any concerns. We also ask that visitors comply with our visiting policies and guidelines to ensure the safety and well-being of our residents. To schedule an appointment, fill out the form on the website or simply contact us directly by phone, and we will be happy to arrange a time that is convenient for you.
       </div>
