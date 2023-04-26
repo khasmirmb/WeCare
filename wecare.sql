@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2023 at 04:31 AM
+-- Generation Time: Apr 26, 2023 at 05:56 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -154,6 +154,13 @@ CREATE TABLE `monitoring_app_detail` (
   `current_problem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `monitoring_app_detail`
+--
+
+INSERT INTO `monitoring_app_detail` (`id`, `patient_id`, `time_start`, `time_end`, `date`, `current_problem`) VALUES
+(6, 42, '11:02:00', '13:02:00', '2023-04-29', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ');
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +180,13 @@ CREATE TABLE `monitoring_detail` (
   `observation` varchar(255) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `monitoring_detail`
+--
+
+INSERT INTO `monitoring_detail` (`id`, `patient_id`, `health_status`, `blood_pressure`, `condition_1`, `condition_2`, `condition_3`, `last_checked`, `checked_date`, `observation`, `updated_at`) VALUES
+(6, 42, 'Very Good', 'High BP', 'Bedridden', 'Depress', 'Sad', 'Eljen Mae Augusto', '2023-04-26', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', '2023-04-26 03:02:10');
 
 -- --------------------------------------------------------
 
@@ -275,10 +289,7 @@ CREATE TABLE `notification` (
 
 INSERT INTO `notification` (`id`, `patient_id`, `user_id`, `type`, `subject`, `message`, `status`, `created_at`) VALUES
 (28, 0, 1, 'Admission', 'Thank you for submitting and completing an admission.', 'We hope this message finds you well. We would like to take this opportunity to remind you about the admission that you made. \nWe\'re expecting to see you on Apr 22nd, 2023 to discuss the admission further. \n Please provide the documents that you\'re going to need. Thank you for your cooperation.', 1, '2023-04-13 21:17:21'),
-(38, 42, 1, 'Admission', 'Your admission regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Lola D. Cruz have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-13 21:17:30'),
-(46, 42, 1, 'Payment', 'There\'s a new payment regarding patient Lola D. Cruz. Due on May 14, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-14 01:18:45'),
-(47, 42, 1, 'Payment', 'There\'s a new payment regarding patient Lola D. Cruz. Due on Jun 14, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-14 02:13:33'),
-(48, 42, 1, 'Payment', 'There\'s a new payment regarding patient Lola D. Cruz. Due on Jul 14, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-14 02:26:37');
+(38, 42, 1, 'Admission', 'Your admission regarding Lola D. Cruz has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Lola D. Cruz have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-13 21:17:30');
 
 -- --------------------------------------------------------
 
@@ -315,7 +326,7 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`id`, `staff_id`, `fname`, `mname`, `lname`, `suffix`, `date_birth`, `place_birth`, `gender`, `street`, `province`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `status`, `room`, `image`, `admission_no`) VALUES
-(42, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'Cdcp', 'ZAMBOANGA DEL SUR', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Active', 'Room 1', 'Patient_1680868200Vanitas-19.jpg', 37245855);
+(42, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'Cdcp', 'ZAMBOANGA DEL SUR', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Active', 'Room 1', 'yuta.jpg', 37245855);
 
 -- --------------------------------------------------------
 
@@ -371,10 +382,7 @@ CREATE TABLE `patient_services` (
 --
 
 INSERT INTO `patient_services` (`id`, `patient_id`, `services`) VALUES
-(68, 42, 1),
-(69, 42, 3),
-(71, 42, 4),
-(72, 42, 2);
+(68, 42, 1);
 
 -- --------------------------------------------------------
 
@@ -395,17 +403,9 @@ CREATE TABLE `payment` (
   `status` varchar(100) NOT NULL,
   `payment_method` varchar(100) DEFAULT NULL,
   `payment_date` date DEFAULT NULL,
+  `receipt` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`id`, `patient_id`, `start_due`, `end_due`, `services`, `services_total`, `fee_total`, `total_amount`, `fee_note`, `status`, `payment_method`, `payment_date`, `created_at`) VALUES
-(30, 42, '2023-04-14', '2023-05-14', 'Caregiving, Consultation', '9000', '0', '9000', '', 'Paid', 'Cash', '2023-04-15', '2023-04-14 02:12:51'),
-(31, 42, '2023-05-14', '2023-06-14', 'Caregiving, Consultation, Rooms', '14000', '0', '14000', '', 'Paid', 'Digital Wallet', '2023-04-29', '2023-04-14 02:12:44'),
-(32, 42, '2023-06-14', '2023-07-14', 'Caregiving, Consultation, Rooms, Rehabilitation', '21000', '0', '21000', '', 'Not Paid', NULL, NULL, '2023-04-14 02:21:07');
 
 -- --------------------------------------------------------
 
@@ -2315,11 +2315,7 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `services`, `price`) VALUES
-(1, 'Caregiving', 5000),
-(2, 'Rehabilitation', 7000),
-(3, 'Consultation', 4000),
-(4, 'Rooms', 5000),
-(5, 'Bundle', 15000);
+(1, 'Bundle', 18000);
 
 -- --------------------------------------------------------
 
@@ -2371,11 +2367,8 @@ CREATE TABLE `staff_schedule` (
 
 INSERT INTO `staff_schedule` (`id`, `staff_id`, `day`, `shift_type`, `status`) VALUES
 (1, 1, 'Monday', 'Day Shift', 'Active'),
-(2, 1, 'Tuesday', 'Day Shift', 'Active'),
 (4, 1, 'Wednesday', 'Day Shift', 'Active'),
-(5, 1, 'Thursday', 'Day Shift', 'Active'),
-(7, 1, 'Saturday', 'Day Shift', 'Active'),
-(8, 1, 'Sunday', 'Day Shift', 'Active');
+(9, 2, 'Friday', 'Day Shift', 'Active');
 
 -- --------------------------------------------------------
 
@@ -2771,13 +2764,13 @@ ALTER TABLE `monitoring`
 -- AUTO_INCREMENT for table `monitoring_app_detail`
 --
 ALTER TABLE `monitoring_app_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `monitoring_detail`
 --
 ALTER TABLE `monitoring_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `monitoring_hyiegne`
@@ -2813,7 +2806,7 @@ ALTER TABLE `monitoring_report`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -2837,7 +2830,7 @@ ALTER TABLE `patient_services`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `refcitymun`
@@ -2861,7 +2854,7 @@ ALTER TABLE `relationship`
 -- AUTO_INCREMENT for table `relative`
 --
 ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `relative_info`
@@ -2879,7 +2872,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -2891,7 +2884,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `staff_schedule`
 --
 ALTER TABLE `staff_schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `survey_answer`
