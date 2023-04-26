@@ -68,11 +68,19 @@
 
             $patient_list = $patient->show_patient_data();
           ?>
-            <select name="patient" id="patient<?php echo $i; ?>" class="form-select form-select-sm">
-
+            <select class="select-patient" name="patient" id="patient<?php echo $i; ?>" style="width: 100%">
+            
             <?php foreach($patient_list as $data){ ?>
             <option value="<?php echo $data['id'] ?>"><?php echo ucfirst($data['fname']) ." ". ucfirst($data['mname'][0]) . ". " . ucfirst($data['lname']) . " " . ucfirst($data['suffix']) ?></option>
             <?php } ?>
+
+            <script>
+            $(document).ready(function() {
+                $('.select-patient').select2({
+                  theme: "classic"
+                });
+            });
+            </script>
 
             <input type="hidden" id="id" name="id" value="<?php echo $row['id'] ?>">
 
