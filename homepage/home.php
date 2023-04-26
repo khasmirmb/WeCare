@@ -123,7 +123,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="team__item">
                         <img src="../images/display-6.jpg" alt="">
-                        <h5>Entrace</h5>
+                        <h5>Entrance</h5>
                     </div>
                 </div>
             </div>
