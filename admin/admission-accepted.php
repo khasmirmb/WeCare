@@ -76,8 +76,8 @@
 
       <td>
         <div class="d-grid gap-2">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#delete-admission">Delete</button>
-        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-admission">Delete</button>
+        <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
         </div>
       </td>
 
