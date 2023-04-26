@@ -97,22 +97,20 @@
 </div><!--End of buttons-->
     </div><!--End of first container-->
 
-  <!-- Clear Modal -->
-  <div class="modal fade" id="clearModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <!-- Delete Modal -->
+<div class="modal fade" id="clearModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="clearModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="del-modal-header">
-      <div class="icon-box">
-					<i class="material-icons">&#xE5CD;</i>
-				</div>	
-        <h5 class="del-modal-title" id="exampleModalLabel">Are you sure?</h5>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="clearModalLabel">Delete User Data</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="del-modal-body">
-				<p>Do you really want to clear the data? This process cannot be undone.</p>
-			</div>
-      <div class="del-modal-footer">
-        <button type="button" class="cancel-btn" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="del-btn">Delete</button></a>
+      <div class="modal-body">
+        Are you sure you want to clear data? This data cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
       </div>
     </div>
   </div>
