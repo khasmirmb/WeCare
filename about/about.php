@@ -22,8 +22,7 @@
                             <span class="about_span">ABOUT OUR BUSINESS</span>
                             <h2 class="about_h2">Welcome to WeCare <br> Nursing Home, Inc.</h2>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                        <p>WeCare Nursing Home Inc. is a dedicated healthcare provider committed to providing compassionate and professional nursing care services to elderly residents in a comfortable and nurturing environment.</p>
                         <ul>
                             <li><i class="fa fa-check-circle"></i> Routine and Giving care</li>
                             <li><i class="fa fa-check-circle"></i> Excellence in Healthcare every</li>
