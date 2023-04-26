@@ -113,7 +113,7 @@
     }
     ?>
 <p><strong>Type:</strong> <?php echo $staff->shift_type ?></p>
-<p><strong>Date:</strong> <?php  date_default_timezone_set('Asia/Manila'); echo date("M d, Y"); ?></p>
+<p><strong>Date:</strong> <?php date_default_timezone_set('Asia/Manila'); echo date("M d, Y"); ?></p>
 
 
     <div class="dropdown d-grid gap-2 d-md-flex justify-content-md-end pb-3">
@@ -216,13 +216,89 @@
 
             <input type="hidden" id="status" name="status" value="Present">
 
-            <button name="present" class="btn btn-outline-info text-light" style="background: #00ACB2;" type="button" data-bs-toggle="modal" data-bs-target="#staff-present">Present</button>
+            <button name="present" class="btn btn-outline-info text-light" style="background: #00ACB2; border: none;" type="button" data-bs-toggle="modal" data-bs-target="#staff-present">Present</button>
 
-            <button name="absent" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2;" type="button" data-bs-toggle="modal" data-bs-target="#staff-absent">Absent</button>
+            <button name="absent" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2; border: none;" type="button" data-bs-toggle="modal" data-bs-target="#staff-absent">Absent</button>
 
-            <button name="leave" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2;" type="button" data-bs-toggle="modal" data-bs-target="#staff-leave">Leave</button>
+            <button name="leave" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2; border: none;" type="button" data-bs-toggle="modal" data-bs-target="#staff-leave">Leave</button>
 
-            <button name="sick-leave" class="btn btn-outline-info text-light ms-2" style="background: #00ACB2;" type="button" data-bs-toggle="modal" data-bs-target="#staff-sick">Sick Leave</button>
+            <button class="btn btn-outline-info text-light ms-2" style="background: #00ACB2; border: none;" type="button" data-bs-toggle="modal" data-bs-target="#staff-sick">Sick Leave</button>
+
+<!-- Present Modal -->
+<div class="modal fade" id="staff-present" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-presentLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staff-presentLabel">Staff Attendance Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to mark you as Present, today?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-primary" name="present">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Absent Modal -->
+<div class="modal fade" id="staff-absent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-absentLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staff-absentLabel">Staff Attendance Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure you want to mark you as Absent, today?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-primary" name="absent">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- leave Modal -->
+<div class="modal fade" id="staff-leave" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-leaveLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staff-leaveLabel">Staff Attendance Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure you want to mark you as Leave, today?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-primary" name="leave">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sick Modal -->
+<div class="modal fade" id="staff-sick" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-sickLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staff-sickLabel">Staff Attendance Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure you want to mark you as Sick Leave, today?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-primary" name="sick-leave">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
             </form>
 
@@ -267,97 +343,15 @@
         <td class="text-center"><?php echo $row['shift_type'] ?></td>
         <td class="text-center">
             <?php if($row['status'] == "Present" && $row['time_out'] == "00:00:00"){ ?>
-            <a class="btn btn-info" href="time-out.php?id=<?php echo $row['id'] ?>" style="background: #00ACB2; color: #fff;" type="button" data-bs-toggle="modal" data-bs-target="#staff-timeout">Time-Out</a>
+            <button class="btn btn-info" style="background: #00ACB2; color: #fff; border: none;" type="button" data-bs-toggle="modal" data-bs-target="#staff-timeout<?php echo $row['id'] ?>">Time-Out</butt>
             <?php } else { ?>
                 None
             <?php } ?>
         </td>
     </tr>
-    <?php } ?>
-    </tbody>
-</table>
-</div>
-</div>
-</div>
 
-<!-- Present Modal -->
-<div class="modal fade" id="staff-present" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-presentLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staff-presentLabel">Staff Attendance Confirmation</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to mark you as Present, today?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Absent Modal -->
-<div class="modal fade" id="staff-absent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-absentLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staff-absentLabel">Staff Attendance Confirmation</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      Are you sure you want to mark you as Absent, today?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- leave Modal -->
-<div class="modal fade" id="staff-leave" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-leaveLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staff-leaveLabel">Staff Attendance Confirmation</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      Are you sure you want to mark you as Leave, today?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Sick Modal -->
-<div class="modal fade" id="staff-sick" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-sickLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staff-sickLabel">Staff Attendance Confirmation</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      Are you sure you want to mark you as Sick Leave, today?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- time out Modal -->
-<div class="modal fade" id="staff-timeout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-timeoutLabel" aria-hidden="true">
+<!-- Time out Modal -->
+<div class="modal fade" id="staff-timeout<?php echo $row['id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staff-timeoutLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -369,10 +363,16 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
+        <a href="time-out.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Yes</a>
       </div>
     </div>
   </div>
+</div>
+    <?php } ?>
+    </tbody>
+</table>
+</div>
+</div>
 </div>
 
 
