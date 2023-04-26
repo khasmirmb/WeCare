@@ -270,7 +270,7 @@
     </div><!--End of Fourth row-->
 
   <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3 pb-3"><!--Starting of buttons-->
-    <button class="btn btn-danger me-md-2" type="button" onclick="clearinput(); return confirm('Are you sure you to clear data?');" >Clear Data</button> <!--Should have modal-->
+    <button class="btn btn-danger me-md-2" type="button" type="button" data-bs-toggle="modal" data-bs-target="#delete-staffdata">Clear Data</button> <!--Should have modal-->
 
     <button class="btn btn-info" name="submit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Add Staff</button> <!--Should have modal-->
     
@@ -284,6 +284,25 @@
 </div><!--End of first container-->
 
 
+</div>
+
+<!-- Delete data -->
+<div class="modal fade" id="delete-staffdata" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-staffdataLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="delete-staffdataLabel">Delete User Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to clear this data?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>

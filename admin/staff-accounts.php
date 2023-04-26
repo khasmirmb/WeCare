@@ -107,7 +107,7 @@
 
         <td class="text-center"><?php echo $row['position'] ?></td>
 
-        <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash" type="button" data-bs-toggle="modal" data-bs-target="#delete-staff"></i></td><!--Edit and Delete Icons-->
        </tr>
 
     <?php } ?>
@@ -135,6 +135,25 @@
     
     <!--End of first container-->
     <!--Container Main end-->
+
+    <!-- Delete User -->
+<div class="modal fade" id="delete-staff" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-staffLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="delete-staffLabel">Delete User Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this staff?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php
 
