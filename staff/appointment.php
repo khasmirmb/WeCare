@@ -98,7 +98,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        Are you sure this <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></strong> show up on <strong><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></strong> at <strong><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></strong>?
+        Are you sure <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></strong> show up on <strong><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></strong> at <strong><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></strong>?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
@@ -119,7 +119,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        Are you sure this <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></strong> didn't show up on <strong><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></strong> at <strong><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></strong>?
+        Are you sure <strong><?php echo $row['fname'] . " " . $row['mname'][0] . ". " . $row['lname']?></strong> didn't show up on <strong><?php echo date("M jS, Y", strtotime($row['appointment_date'])) ?></strong> at <strong><?php echo date("g:i a", strtotime($row['appointment_time'])) ?></strong>?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark bg-secondary text-white border-secondary" data-bs-dismiss="modal">No</button>
