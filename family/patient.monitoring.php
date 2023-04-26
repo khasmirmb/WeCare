@@ -185,27 +185,6 @@
 </div>
 </div>
 
-
-    <div class="col-12 col-lg-4 pt-3">
-        <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
-        <h4 class="pb-3"><strong>Reports</strong></h4>
-        <?php foreach($report_list as $report){ ?>
-            <div class="row">
-
-                <div class="col-8 col-lg-8">
-                    <!--Blood Image-->
-                    <h6><strong><?php echo $report['report_type'] ?></strong></h6>
-                    <p class="text-black-50"><?php echo date("M j, Y", strtotime($report['report_date'])) ?></p>
-                </div>
-    
-                <div class="col-4 col-lg-4">
-                    <!--Eye image-->
-                </div>
-            </div>
-
-        <?php } ?>
-    </div>
-    </div>
     
 <!--Table Nutrition-->
 <div class="col-12 col-lg-8 p-3">
@@ -240,26 +219,6 @@
 </table>
 </div>
 </div>
-
-
-    <div class="col-12 col-lg-4 pt-3">
-    <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
-        <h4 class="pb-3"><strong>Photo Update</strong></h4>
-        <?php foreach($photo_update_list as $photo){ ?>
-        <div class="row">
-                <div class="col-8">
-                <img src="../images/<?php echo $photo['photo_image'] ?>" class="rounded float-start img-thumbnail img-fluid" alt="Patient Image">
-                    <!--Image-->
-                </div>
-                <div class="col-4">
-                <p><strong><?php echo $photo['photo_title'] ?></strong></p>
-                    <!--Eye Image-->
-                </div>
-        </div>
-        <?php } ?>
-    </div>
-    </div>
-    </div>
 
 <!--Table Hygiene-->
 <div class="col-12 col-lg-8 p-3">
