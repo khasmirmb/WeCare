@@ -339,18 +339,7 @@ Feedback
   border-color: #000;
 }
 
-/*---------------------
-Admission
------------------------*/
 
-.btn-outline-secondary{
-border: 1px solid #dc3545;
-color: #00ACB2;
-}
-
-.btn-outline-secondary:hover{
-background: #dc3545;
-}
 
 
 

@@ -40,6 +40,14 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
         <!-- Feedback Here -->
+            <div class="btn-group-vertical" role="group" aria-label="Vertical button group" style="width: 100%;">
+            <button type="button" class="btn btn-outline-secondary">Button</button>
+            <button type="button" class="btn btn-outline-secondary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            <button type="button" class="btn btn-primary">Button</button>
+            </div>
 
         </div>
     </div>
