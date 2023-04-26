@@ -37,60 +37,40 @@
     </section>
     <!-- About Section End -->
 
-    <!-- Team Founder Begin -->
-    <section class="founder spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-title">
-                        <h2>Founders</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="../img/user.jpeg" alt="">
-                        <h5>Gianelli Delos Santos</h5>
-                        <span>Founder</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="../img/user.jpeg" alt="">
-                        <h5>Sheila Padua</h5>
-                        <span>Founder</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="team__item">
-                        <img src="../img/user.jpeg" alt="">
-                        <h5>Jarah Bernardo</h5>
-                        <span>Founder</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Vision -->
+    <div class="container pt-3 pb-3">
+    <div class="card shadow border-0">
+        <div class="card-body">
+            <h1 class="text-center pb-3">Vision</h1>
+            <h5 class="ms-4">A vision statement is a company's road map. Indicating both what the company wants to become and guiding transformational initiatives by setting a defined direction for the company's growth. Vision statements undergo minimal revision during the life of a business.</h5>
+            <ul class="list-style pt-3 pb-3">
+            <li class="ms-5 pt-2">To provide quality care and treatment for the elders.</li>
+            <li class="ms-5 pt-2">To build up patient's individual physical, social, emotional, and spiritual well-being.</li>
+            <li class="ms-5 pt-2">To give proper nourishment to patient for rapid recovery.</li>
+            <li class="ms-5 pt-2">To support the patient will full force of professional care managers consisting with physicians, physical therapists, nutritionist, nurses, social workers and caregivers.</li>
+            <li class="ms-5 pt-2">To maintain a state of equilibrium between the patient and the family.</li>
+            <li class="ms-5 pt-2">To act as mediator by bridging any untoward gap between patient and family.</li>
+            <li class="ms-5 pt-2">To improve the economic quantity of life of the patient that they may eventually contribute to a sustainable economy of the nation.</li>
+            </ul>
         </div>
-    </section>
-<!-- Team Founder Begin -->
+        </div>
+    </div>
+    <!-- Vision -->
+   
+      <!-- Mission -->
+    <div class="container pt-3 pb-4">
+    <div class="card shadow border-0">
+        <div class="card-body pb-3">
+            <h1 class="text-center pb-3">Mission</h1>
+            <h5 class="ms-4">A mission is a constant reminder to its employees of why the company exist and why the founders envisioned when they put their fame and fortune at risk to breathe life into their dreams.</h5>
+            <ul class="list-style pt-3 pb-3">
+            <li class="ms-5 pt-2">WeCare Nursing Home Inc. believes that education and training are the essential factors that mold the total persona, and no educational and training program is complete without strengthening the physical, spiritual, moral, emotional, and social foundation of a man.</li>
+            <li class="ms-5 pt-2">WeCare Nursing Home Inc. responds to the call for care and special treatment of the patient that members of the family could not extend because of certain limitations. This special care will enhance the quality of life both patient and the family through medical and professional intervention and therapy.</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+     <!-- Mission -->
 
 <?php
 
