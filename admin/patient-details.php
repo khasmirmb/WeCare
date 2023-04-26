@@ -144,7 +144,7 @@
       <?php } else { ?>
       <a class="btn btn-success" href="patient-add-details.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-pen-to-square"></i>Add Details</a>
       <?php } ?>
-      <a class="btn btn-danger" href=""><i class="fa-solid fa-eraser"></i>Delete</a>
+      <a class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-details"><i class="fa-solid fa-eraser"></i>Delete</a>
     </div>
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-2"><!--Big blue thing-->
@@ -340,7 +340,24 @@
   </div>
 </div>
 
-
+<!--delete Modal -->
+<div class="modal fade" id="delete-details" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-detailsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="delete-detailsLabel">Delete Details Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure you want to clear this data?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
     if ( window.history.replaceState ) {
