@@ -314,13 +314,27 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Aila Chrishel Dagalea</li>
-        <li class="list-group-item">Aila Chrishel Dagalea</li>
-        <li class="list-group-item">Aila Chrishel Dagalea</li>
-        <li class="list-group-item">Aila Chrishel Dagalea</li>
-        <li class="list-group-item">Aila Chrishel Dagalea</li>
-        </ul>
+            <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Contact #</th>
+            <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Mark</td>
+            <td>55446688</td>
+            <td>mario@fat.com</td>
+            </tr>
+            <tr>
+            <td>Jacob</td>
+            <td>55446666</td>
+            <td>mario@fat.com</td>
+            </tr>
+        </tbody>
+        </table>
       </div>
     </div>
   </div>
