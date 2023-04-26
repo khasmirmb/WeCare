@@ -151,7 +151,7 @@
 
 <!--Table medicine-->
 <div class="row">
-<div class="col-12 col-lg-8 p-3">
+<div class="col-12 col-lg-12 p-3">
     <h4 class="pb-3"><strong>Medicine</strong></h4>
     <div class="table-responsive">
     <table class="table table-hover table-bordered">
@@ -187,7 +187,7 @@
 
     
 <!--Table Nutrition-->
-<div class="col-12 col-lg-8 p-3">
+<div class="col-12 col-lg-12 p-3">
     <h4 class="pb-3"><strong>Nutrition</strong></h4>
     <div class="table-responsive">
     <table class="table table-hover table-bordered">
@@ -221,7 +221,7 @@
 </div>
 
 <!--Table Hygiene-->
-<div class="col-12 col-lg-8 p-3">
+<div class="col-12 col-lg-12 p-3">
 <div class="row">
     <h4 class="pb-3"><strong>Hygiene</strong></h4>
     <div class="table-responsive">
