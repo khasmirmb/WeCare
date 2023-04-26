@@ -212,7 +212,7 @@
         </div>
     <div class="text-wrap py-3 px-5 text-light rounded" style="background: #00ACB2; border: #00ACB2; color: #fff;">
         <div class="d-grid justify-content-md-end">
-        <button type="button" class="btn btn-outline-light text-secondary"><a class="text-decoration-none text-light" href="#">Previous Nurse</a></button>
+        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#previous-nurse">Previous Nurse</button>
         </div>
     <div class="row pb-3">
         <div class="col-12 col-lg-4">
@@ -304,6 +304,29 @@
     </div>
     </div>
 </div><!--Don't touch-->
+
+<!-- Modal -->
+<div class="modal fade" id="previous-nurse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="previous-nurseLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="previous-nurseLabel">Previous Nurse</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Aila Chrishel Dagalea</li>
+        <li class="list-group-item">Aila Chrishel Dagalea</li>
+        <li class="list-group-item">Aila Chrishel Dagalea</li>
+        <li class="list-group-item">Aila Chrishel Dagalea</li>
+        <li class="list-group-item">Aila Chrishel Dagalea</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <script>
     if ( window.history.replaceState ) {
