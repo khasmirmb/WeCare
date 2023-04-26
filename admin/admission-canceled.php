@@ -79,8 +79,8 @@
 
       <td>
         <div class="d-grid gap-2">
-        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-        <button type="button" class="btn btn-primary" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#delete-admission">Delete</button>
+        <button type="button" class="btn btn-primary">Edit</button>
         </div>
       </td>
 
@@ -92,11 +92,27 @@
   </table>
 </div>
 </div><!--End of 1st Table-->
-
-
 </div>
 </div>
+</div>
 
+<!-- Modal -->
+<div class="modal fade" id="delete-admission" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-admissionLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="delete-admissionLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this admission?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php
