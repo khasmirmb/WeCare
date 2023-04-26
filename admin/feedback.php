@@ -47,7 +47,6 @@
             <li class="list-group-item"><a href="#"><strong>Carla Paganini</strong></a> Some of the navbar are not...</li>
             <li class="list-group-item"><a href="#"><strong>Carla Paganini</strong></a> Some of the navbar are not...</li>
             </ul>
-
         </div>
     </div>
 

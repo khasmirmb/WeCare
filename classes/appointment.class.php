@@ -137,7 +137,7 @@ class Appointment{
     }
 
     function accepted_appointment_admin(){
-        $sql = "SELECT appointment.id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id INNER JOIN staff ON appointment.staff_id = staff.id WHERE appointment.status = 'Accepted' ORDER BY appointment_date DESC;";
+        $sql = "SELECT appointment.id, users.id as user_id, users.fname, users.mname, users.lname, appointment_purpose.purpose, appointment.other_purpose, appointment_date, appointment_time, appointment.status, appointment.client_came, staff.firstname AS s_fname, staff.middlename AS s_mname, staff.lastname AS s_lname, staff.id AS staff_iden FROM appointment INNER JOIN appointment_purpose ON purpose_for_appointment = appointment_purpose.id INNER JOIN users ON appointment.user_id = users.id INNER JOIN staff ON appointment.staff_id = staff.id WHERE appointment.status = 'Accepted' ORDER BY appointment_date DESC;";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();
@@ -187,8 +187,33 @@ class Appointment{
             return false;
         }
     }
+    function delete_appointment($record_id){
+        $sql = "DELETE FROM appointment WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
-
+    function reschedule_appointment($record_id){
+        $sql = "UPDATE appointment SET appointment_date = :appointment_date, appointment_time = :appointment_time, status = :status, client_came = :client_came WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        $query->bindParam(':appointment_date', $this->appointment_date);
+        $query->bindParam(':appointment_time', $this->appointment_time);
+        $query->bindParam(':status', $this->status);
+        $query->bindParam(':client_came', $this->client_came);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 
 ?>

@@ -2,10 +2,12 @@
 
   $page_title = 'WeCare Admin - Appointment';
   require_once '../includes/admin-header.php';
+  require_once '../classes/appointment.class.php';
+  require_once '../tools/functions.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-  header('location: ../account/signin.php');
+   header('location: ../account/signin.php');
   }
 
   require_once '../includes/admin-sidebar.php';
@@ -15,7 +17,7 @@
 <div class="content">
 
 <div class="container align-items-center pt-3">
-<div class="card text-center">
+<div class="card">
 
 <div class="card-header"><!--Start of Card-->
     <ul class="nav nav-tabs card-header-tabs">
@@ -37,7 +39,7 @@
     </ul>
   </div><!--End of Card-->
   
-  <div class="col-7 col-lg-2 pt-4"> <!--Start of name of appointment-->
+  <div class="col-7 col-lg-2 pt-4 text-center"> <!--Start of name of appointment-->
     <h4 class="mb-4">Appointment</h4>
   </div><!--End of name of appointment-->
 
@@ -52,7 +54,7 @@
           $appointment_list = $admin_appointment->completed_appointment_admin();
 
       ?>
-  <table class="table table-hover table-sm">
+  <table class="table table-hover table-sm text-center">
     <thead>
       <tr class="table-primary">
         <th scope="col" style="background: #00ACB2; color: #fff;">USER</th>
@@ -61,7 +63,7 @@
         <th scope="col" style="background: #00ACB2; color: #fff;">PURPOSE</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ASSIGNED TO</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">STATUS</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;">CAME</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">APPROVED</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ACTION</th>
       </tr>
     </thead>
@@ -82,26 +84,14 @@
       <td scope="row" class="pt-4"><?php echo $row['status'] ?></td>
       <td scope="row" class="pt-4"><?php echo $row['client_came'] ?></td>
       <td>
-        <div class="d-grid gap-1">
-        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-appointment">Delete</button>
-        <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;">Edit</button>
+        <div class="d-grid gap-1 pt-2 pb-2">
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-appointment<?php echo $row['id'] ?>">Delete</button>
         </div>
       </td>
       </tr>
 
-    <?php } ?>
-    </tbody>
-  </table>
-</div>
-</div><!--End of 1st Table-->
-
-
-</div><!--End of Card-->
-</div><!--End of Container-->
-</div>
-
 <!-- Modal -->
-<div class="modal fade" id="delete-appointment" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-appointmentLabel" aria-hidden="true">
+<div class="modal fade" id="delete-appointment<?php echo $row['id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-appointmentLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -113,10 +103,21 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
+        <a href="appointment-delete.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Yes</a>
       </div>
     </div>
   </div>
+</div> 
+
+    <?php } ?>
+    </tbody>
+  </table>
+</div>
+</div><!--End of 1st Table-->
+
+
+</div><!--End of Card-->
+</div><!--End of Container-->
 </div>
 
 
