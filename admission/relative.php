@@ -1,4 +1,27 @@
     <!--Relative Details-->
+    <?php
+        require_once '../classes/users.class.php';
+                        
+        $user_info = new Users;
+                        
+        if(isset($_SESSION['logged_id'])){
+
+            if($user_info->fetch_user_information($_SESSION['logged_id'])){
+
+                $user_data = $user_info->fetch_user_information($_SESSION['logged_id']);
+
+                $user_info->firstname = $user_data['fname'];
+                $user_info->middlename = $user_data['mname'];
+                $user_info->lastname = $user_data['lname'];
+                $user_info->email = $user_data['email'];
+                $user_info->phone = $user_data['phone'];
+                $user_info->birthdate = $user_data['birthdate'];
+
+            }
+        }
+    ?>
+
+
     <div class="container align-items-center pt-3" id="relative-details">
         <div class="container form-control">
             <div class="container-fluid">
@@ -22,7 +45,7 @@
 
                 <div class="col-sm">
                 <label for="r_firstname"><strong>Firstname:</strong></label><br>
-                    <input class="form-control" type="text" name="r_firstname" id="r_firstname" placeholder="Ex.Juan" required value="<?php if(isset($_POST['r_firstname'])) { echo $_POST['r_firstname']; } ?>"><br>
+                    <input class="form-control" type="text" name="r_firstname" id="r_firstname" placeholder="Ex.Juan" required value="<?php if(isset($_POST['r_firstname'])) { echo $_POST['r_firstname']; } else { echo $user_info->firstname; } ?>"><br>
                 </div>
 
                     <?php
@@ -35,7 +58,7 @@
 
                 <div class="col-sm">
                     <label for="r_middlename"><strong>Middlename:</strong></label><br>
-                    <input class="form-control" type="text" name="r_middlename" id="r_middlename" placeholder="Ex. Buenaventura" required value="<?php if(isset($_POST['r_middlename'])) { echo $_POST['r_middlename']; } ?>"><br>
+                    <input class="form-control" type="text" name="r_middlename" id="r_middlename" placeholder="Ex. Buenaventura" required value="<?php if(isset($_POST['r_middlename'])) { echo $_POST['r_middlename']; } else { echo $user_info->middlename; } ?>"><br>
                 </div>
 
                     <?php
@@ -48,7 +71,7 @@
 
                 <div class="col-sm">
                     <label for="r_lastname"><strong>Lastname:</strong></label><br>
-                    <input class="form-control" type="text" name="r_lastname" id="r_lastname" placeholder="Ex. Carlos" required value="<?php if(isset($_POST['r_lastname'])) { echo $_POST['r_lastname']; } ?>"><br>
+                    <input class="form-control" type="text" name="r_lastname" id="r_lastname" placeholder="Ex. Carlos" required value="<?php if(isset($_POST['r_lastname'])) { echo $_POST['r_lastname']; } else { echo $user_info->lastname; } ?>"><br>
                 </div>
 
                     <?php
@@ -68,7 +91,7 @@
                 <div class="row">
                 <div class="col-sm">
                     <label for="r_date_birth"><strong>Date of Birth</strong></label><br>
-                    <input class="form-control" type="date" id="r_date_birth" name="r_date_birth" required value="<?php if(isset($_POST['r_date_birth'])) { echo $_POST['r_date_birth']; } ?>"><br>
+                    <input class="form-control" type="date" id="r_date_birth" name="r_date_birth" required value="<?php if(isset($_POST['r_date_birth'])) { echo $_POST['r_date_birth']; } else { echo $user_info->birthdate; } ?>"><br>
                 </div>
 
                 <div class="col-sm">
@@ -189,7 +212,7 @@
 
                 <div class="col-sm">
                     <label for="phone"><strong>Phone Number:</strong></label><br>
-                    <input type="number" name="phone" class="form-control" id="phone" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')" required value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } ?>"><br>
+                    <input type="number" name="phone" class="form-control" id="phone" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')" required value="<?php if(isset($_POST['phone'])) { echo $_POST['phone']; } else { echo $user_info->phone; } ?>"><br>
                 </div>
 
                 <div class="col-sm">
@@ -199,7 +222,7 @@
 
                 <div class="col-sm">
                     <label for="email"><strong>Email:</strong></label><br>
-                    <input class="form-control" type="email" name="email" id="email" required value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
+                    <input class="form-control" type="email" name="email" id="email" required value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } else { echo $user_info->email; } ?>">
                 </div>
 
                     <?php
