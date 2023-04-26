@@ -36,22 +36,16 @@
         </ul>
 	</div>
 
-    <div class="tab-content pt-3" id="pills-tabContent">
+    <div class="tab-content pt-1" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
         <!-- Feedback Here -->
-        <div class="row">
-            <div class="col-12">
-                
-
-            </div>
-        </div>
         <ul class="list-group pt-3">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
+            <li class="list-group-item"><a href="feedback-details.php"><strong>Carla Paganini</strong></a> Some of the navbar are not...</li>
+            <li class="list-group-item"><a href="#"><strong>Carla Paganini</strong></a> Some of the navbar are not...</li>
+            <li class="list-group-item"><a href="#"><strong>Carla Paganini</strong></a> Some of the navbar are not...</li>
+            <li class="list-group-item"><a href="#"><strong>Carla Paganini</strong></a> Some of the navbar are not...</li>
+            <li class="list-group-item"><a href="#"><strong>Carla Paganini</strong></a> Some of the navbar are not...</li>
             </ul>
 
         </div>
