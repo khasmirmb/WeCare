@@ -112,9 +112,9 @@
             </div>
         </div>
 </div>
-<div class="container">
+<div class="container"> 
     <div class="col-12 col-lg-3 pt-3">
-        <button class="btn btn-success" name="confirm" type="submit"><i class="fa-solid fa-check me-1"></i>Confirm</button>
+        <button class="btn btn-success" name="confirm" type="submit" data-bs-toggle="modal" data-bs-target="#confirmation"><i class="fa-solid fa-check me-1"></i>Confirm</button>
     </div>
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-2"><!--Big blue thing-->
@@ -202,10 +202,26 @@
 </form>
 </div>
 </div>
-
-
-   
 </div> <!--Don't touch-->
+
+<!-- Modal -->
+<div class="modal fade" id="confirmation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confirmationLabel">Update Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you to save this patient details?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" >Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php
 
