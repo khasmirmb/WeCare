@@ -158,7 +158,11 @@
 </div>
 <div class="container">
     <div class="col-12 col-lg-3 pt-3">
-      <a class="btn btn-success" href="patient-edit.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+      <?php if(!empty($monitoring->fetch_monitoring_details($patient->id)) && !empty($monitoring->fetch_monitoring_app_details($patient->id))) { ?>
+      <a class="btn btn-success" href="patient-edit.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-pen-to-square"></i>Edit Details</a>
+      <?php } else { ?>
+      <a class="btn btn-success" href="patient-add-details.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-pen-to-square"></i>Add Details</a>
+      <?php } ?>
       <a class="btn btn-danger" href=""><i class="fa-solid fa-eraser"></i>Delete</a>
     </div>
     <div class="row"><!--Details of the patient-->

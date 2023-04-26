@@ -56,6 +56,7 @@
         if($monitoring->fetch_monitoring_details($monitoring->patient_id) && $monitoring->fetch_monitoring_app_details($monitoring->patient_id)){
             $input = $monitoring->fetch_monitoring_details($monitoring->patient_id);
             $monitoring->health_status = $input['health_status'];
+            $monitoring->date_updated = $input['update_date'];
             $monitoring->detail_bp = $input['detail_bp'];
             $monitoring->detail_con1 = $input['detail_con1'];
             $monitoring->detail_con2 = $input['detail_con2'];
@@ -125,7 +126,7 @@
 </div>
     <div class="card">
     <div class="card-body">
-    Last Updated and Inputed: 01:00 PM December 07, 2022
+    Last Updated and Inputed: <?php echo date('M d Y h:i A', strtotime($monitoring->date_updated)) ?>
     </div>
     </div>
 </div> <!--End of details of the patient-->

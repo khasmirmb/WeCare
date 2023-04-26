@@ -1,60 +1,79 @@
 <?php
 
-    $page_title = 'WeCare Staff - Patient Edit';
-    require_once '../includes/staff-header.php';
-    require_once '../classes/monitoring.class.php';
-    require_once '../classes/patient.class.php';
-    require_once '../classes/medicine.class.php';
-    require_once '../classes/hyiegne.class.php';
-    require_once '../classes/nutrition.class.php';
-    session_start();
+  $page_title = 'WeCare Admin - Patient Add Details';
+  require_once '../includes/admin-header.php';
+  require_once '../classes/patient.class.php';
+  require_once '../classes/monitoring.class.php';
+  require_once '../classes/hyiegne.class.php';
+  require_once '../classes/medicine.class.php';
+  require_once '../classes/nutrition.class.php';
+  session_start();
 
-    if(!isset($_SESSION['staff_logged']) || $_SESSION['user_type'] != 'staff'){
-        header('location: ../account/signin.php');
+  if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
+  header('location: ../account/signin.php');
+  }
+
+  $patient = new Patient;
+  $monitoring = new Monitoring;
+
+  if($patient->fetch_patient_data($_GET['id'])){
+    // Data for the Patient
+    $p_data = $patient->fetch_patient_data($_GET['id']);
+    $patient->staff_id = $p_data['staff_id'];
+    $patient->id = $p_data['id'];
+    $patient->firstname = $p_data['fname'];
+    $patient->middlename = $p_data['mname'];
+    $patient->lastname = $p_data['lname'];
+    $patient->suffix = $p_data['suffix'];
+    $patient->picture = $p_data['image'];
+    $patient->date_of_birth = date_diff(date_create($p_data['date_birth']), date_create('today'))->y;
+    $patient->gender = $p_data['gender'];
+
+
+    // Data for Staff Assigned
+    if($monitoring->fetch_monitoring_staff_info($patient->staff_id)){
+        $staff = $monitoring->fetch_monitoring_staff_info($patient->staff_id);
+        $monitoring->s_fname = $staff['s_fname'];
+        $monitoring->s_mname = $staff['s_mname'];
+        $monitoring->s_lname = $staff['s_lname'];
+        $monitoring->s_email = $staff['s_email'];
+        $monitoring->s_phone = $staff['s_phone'];
+        $monitoring->s_image = $staff['s_image'];
     }
-    
 
-    $monitoring = new Monitoring;
-    $patient = new Patient;
+    // Data for Report List
+    $report_list = $monitoring->fetch_monitoring_records_patient($patient->id);
 
-    if($patient->fetch_patient_info($_GET['id'], $_SESSION['staff_logged'])){
+    // Data for Medecine List
+    $medecine_list = $monitoring->fetch_monitoring_medecine_patient($patient->id);
 
-        $p_data = $patient->fetch_patient_info($_GET['id'], $_SESSION['staff_logged']);
+    // Data for Nutrition List
+    $nutrition_list = $monitoring->fetch_monitoring_nutrition_patient($patient->id);
 
-        $patient->id = $p_data['id'];
-        $patient->firstname = $p_data['fname'];
-        $patient->lastname = $p_data['lname'];
-        $patient->middlename = $p_data['mname'];
-        $patient->suffix = $p_data['suffix'];
-        $patient->gender = $p_data['gender'];
-        $patient->date_of_birth = date_diff(date_create($p_data['date_birth']), date_create('today'))->y;
-        $patient->picture = $p_data['image'];
+    // Data for Photo Update List
+    $photo_update_list = $monitoring->fetch_monitoring_photo_update_patient($patient->id);
 
-        if($monitoring->fetch_monitoring_details($patient->id)){
-            // Details Info
-            $input = $monitoring->fetch_monitoring_details($patient->id);
-            $monitoring->detail_id = $input['detail_id'];
-            $monitoring->health_status = $input['health_status'];
-            $monitoring->detail_bp = $input['detail_bp'];
-            $monitoring->detail_con1 = $input['detail_con1'];
-            $monitoring->detail_con2 = $input['detail_con2'];
-            $monitoring->detail_con3 = $input['detail_con3'];
-            $monitoring->detail_lastchecked = $input['detail_lastchecked'];
-            $monitoring->detail_datechecked = $input['detail_datechecked'];
-            $monitoring->detail_observation = $input['detail_observation'];
-    
-        }
+    // Data for Hyiegne List
+    $hyiegne_list = $monitoring->fetch_monitoring_hygiene_patient($patient->id);
 
-        if($monitoring->fetch_monitoring_app_details($patient->id)){
-            // App Details Info
-            $input2 = $monitoring->fetch_monitoring_app_details($patient->id);
-            $monitoring->app_detail_id = $input2['app_detail_id'];
-            $monitoring->app_detail_time_start = $input2['app_detail_time_start'];
-            $monitoring->app_detail_time_end = $input2['app_detail_time_end'];
-            $monitoring->app_detail_date = $input2['app_detail_date'];
-            $monitoring->app_detail_problem = $input2['app_detail_problem'];
+    // Data for Patient Details and Appointment
+    if($monitoring->fetch_monitoring_details($patient->id) && $monitoring->fetch_monitoring_app_details($patient->id)){
+        $input = $monitoring->fetch_monitoring_details($patient->id);
+        $monitoring->health_status = $input['health_status'];
+        $monitoring->date_updated = $input['update_date'];
+        $monitoring->detail_bp = $input['detail_bp'];
+        $monitoring->detail_con1 = $input['detail_con1'];
+        $monitoring->detail_con2 = $input['detail_con2'];
+        $monitoring->detail_con3 = $input['detail_con3'];
+        $monitoring->detail_lastchecked = $input['detail_lastchecked'];
+        $monitoring->detail_datechecked = $input['detail_datechecked'];
+        $monitoring->detail_observation = $input['detail_observation'];
 
-        }
+        $input2 = $monitoring->fetch_monitoring_app_details($patient->id);
+        $monitoring->app_detail_time_start = $input2['app_detail_time_start'];
+        $monitoring->app_detail_time_end = $input2['app_detail_time_end'];
+        $monitoring->app_detail_date = $input2['app_detail_date'];
+        $monitoring->app_detail_problem = $input2['app_detail_problem'];
 
     }
 
@@ -78,23 +97,24 @@
         $moni_insert->app_detail_date = htmlentities($_POST['app_date']);
         $moni_insert->app_detail_problem = htmlentities($_POST['app_prob']);
 
-        if($moni_insert->update_monitoring_details() && $moni_insert->update_monitoring_appointment()){
-            header('location: patient-profile.php?id=' . $patient->id);
+        if($moni_insert->add_monitoring_details() && $moni_insert->add_monitoring_appointment_details()){
+            header('location: patient-details.php?id=' . $patient->id);
         }
 
     }
+  }
 
-    require_once '../includes/staff-sidebar.php';
+  require_once '../includes/admin-sidebar.php';
 
 ?>
 
 <div class="content">
 
     <div class="container align-items-center pt-3 container-fluid">
-    <button type="button" class="patient-back-btn"><a class="text-white text-decoration-none" href="../staff/patient-profile.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-arrow-left"></i>Back</a></button>
+    <a class="btn btn-secondary text-white text-decoration-none" href="patient-details.php?id=<?php echo $patient->id ?>" style="background: #00ACB2; border: #00ACB2; color: #fff;"><i class="fa-solid fa-arrow-left"></i>Back</a>
 
 <div class="container">
-    <form action="patient-edit.php?id=<?php echo $patient->id ?>" method="POST">
+    <form action="patient-add-details.php?id=<?php echo $patient->id ?>" method="POST">
         <div class="row">
             <div class="col pt-3 text-center">
                 <div class="badge rounded-pill text-wrap py-4 px-4" style="background: #00ACB2;">
@@ -203,12 +223,12 @@
 </div>
 </div>
 
-
+</div>
    
 </div> <!--Don't touch-->
 
 <?php
 
-  require_once '../includes/staff-footer.php';
+  require_once '../includes/admin-footer.php';
 
 ?>

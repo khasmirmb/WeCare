@@ -42,6 +42,7 @@ class Monitoring{
     public $detail_lastchecked;
     public $detail_datechecked;
     public $detail_observation;
+    public $date_updated;
     // App Details Data
     public $app_detail_id;
     public $app_detail_time_start;
@@ -114,7 +115,8 @@ class Monitoring{
         monitoring_detail.condition_3 AS detail_con3,
         monitoring_detail.last_checked AS detail_lastchecked,
         monitoring_detail.checked_date AS detail_datechecked,
-        monitoring_detail.observation AS detail_observation FROM monitoring_detail
+        monitoring_detail.observation AS detail_observation,
+        monitoring_detail.updated_at AS update_date FROM monitoring_detail
         WHERE monitoring_detail.patient_id = :id ;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $patient_id);
@@ -279,6 +281,48 @@ class Monitoring{
         $query->bindParam(':patient_id', $this->patient_id);
         $query->bindParam(':relative_id', $this->relative_id);
         $query->bindParam(':staff_id', $this->staff_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+            
+    }
+
+    function update_monitoring_details(){
+
+        $sql = "UPDATE monitoring_detail SET patient_id = :patient_id, health_status = :health_status, blood_pressure = :blood_pressure, condition_1 = :condition_1, condition_2 = :condition_2, condition_3 = :condition_3, last_checked = :last_checked, checked_date = :checked_date, observation = :observation;";
+    
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $this->patient_id);
+        $query->bindParam(':health_status', $this->health_status);
+        $query->bindParam(':blood_pressure', $this->detail_bp);
+        $query->bindParam(':condition_1', $this->detail_con1);
+        $query->bindParam(':condition_2', $this->detail_con2);
+        $query->bindParam(':condition_3', $this->detail_con3);
+        $query->bindParam(':last_checked', $this->detail_lastchecked);
+        $query->bindParam(':checked_date', $this->detail_datechecked);
+        $query->bindParam(':observation', $this->detail_observation);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+            
+    }
+
+    function update_monitoring_appointment(){
+
+        $sql = "UPDATE monitoring_app_detail SET patient_id = :patient_id, time_start = :time_start, time_end = :time_end, date = :date, current_problem = :current_problem;";
+    
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $this->patient_id);
+        $query->bindParam(':time_start', $this->app_detail_time_start);
+        $query->bindParam(':time_end', $this->app_detail_time_end);
+        $query->bindParam(':date', $this->app_detail_date);
+        $query->bindParam(':current_problem', $this->app_detail_problem);
         if($query->execute()){
             return true;
         }

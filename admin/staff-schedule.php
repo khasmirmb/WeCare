@@ -2,10 +2,27 @@
 
   $page_title = 'WeCare Admin - Staff Schedule';
   require_once '../includes/admin-header.php';
+  require_once '../classes/staff.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
-  header('location: ../account/signin.php');
+    header('location: ../account/signin.php');
+  }
+
+
+  if(isset($_POST['submit'])){
+
+    $staff = new Staff;
+
+    $staff->staff_id = $_POST['staff'];
+    $staff->day = $_POST['day'];
+    $staff->shift_type = $_POST['shift'];
+    $staff->status = "Active";
+
+    if($staff->add_staff_schedule()){
+      header('location: staff-schedule.php');
+    }
+
   }
 
   require_once '../includes/admin-sidebar.php';
@@ -13,7 +30,7 @@
 ?>
 
   <!--Container Main start-->
-  <div class="content">
+<div class="content">
   <div class="container align-items-center pt-3">
 <div class="card text-center">
 
@@ -54,9 +71,8 @@
     </div><!--End of search bar-->
 
     <div class="col-6 col-lg-2"><!--Start of add user-->
-    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#"><i class="fas fa-calendar-plus"></i>Add Schedule</a></button>
+    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;" data-bs-toggle="modal" data-bs-target="#staff_sched"><i class="fas fa-calendar-plus"></i>Add Schedule</button>
     </div><!--end of add user-->
-
 
       <div class="col-2 col-lg-1"><!--Start of filter-->
       <div class="dropdown">
@@ -104,7 +120,7 @@
 
         <td class="text-center"><?php echo $row['status'] ?></td>
 
-        <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><i class="fa-solid fa-trash"></i></td><!--Edit and Delete Icons-->
        </tr>
 
     <?php } ?>
@@ -127,11 +143,63 @@
   </div><!--container-->
 </div><!--End of Card body-->
   </div><!--End of Card text center-->
+
+  <div class="modal fade" id="staff_sched" tabindex="-1" aria-labelledby="staff_schedLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staff_schedLabel">Add Staff Schedule</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="staff-schedule.php" method="POST">
+            <div class="mb-3">
+              <label for="staff"><strong>Select Staff:</strong></label>
+              <?php
+              require_once '../classes/staff.class.php';
+              $staff = new Staff;
+
+              $staff_list = $staff->show_staff_data();
+              ?>
+              <select class="form-select" name="staff" id="staff">
+                
+              <?php foreach($staff_list as $row){ ?>
+              <option value="<?php echo $row['id'] ?>"><?php echo $row['firstname'] . " " . $row['middlename'][0] . ". " . $row['lastname'] ?></option>
+              <?php } ?>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="day"><strong>Select Day:</strong></label>
+              <select class="form-select" name="day" id="day">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="shift"><strong>Select Shift:</strong></label>
+              <select class="form-select" name="shift" id="shift">
+                <option value="Day Shift">Day Shift</option>
+                <option value="Night Shift">Night Shift</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" name="submit">Confirm</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  
 </div><!--End of container-->
-</div>
-    
-    <!--End of first container-->
-    <!--Container Main end-->
+
 
 <?php
 

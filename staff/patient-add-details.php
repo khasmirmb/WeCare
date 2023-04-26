@@ -1,6 +1,6 @@
 <?php
 
-    $page_title = 'WeCare Staff - Patient Edit';
+    $page_title = 'WeCare Staff - Patient Add Details';
     require_once '../includes/staff-header.php';
     require_once '../classes/monitoring.class.php';
     require_once '../classes/patient.class.php';
@@ -78,7 +78,7 @@
         $moni_insert->app_detail_date = htmlentities($_POST['app_date']);
         $moni_insert->app_detail_problem = htmlentities($_POST['app_prob']);
 
-        if($moni_insert->update_monitoring_details() && $moni_insert->update_monitoring_appointment()){
+        if($moni_insert->add_monitoring_details() && $moni_insert->add_monitoring_appointment_details()){
             header('location: patient-profile.php?id=' . $patient->id);
         }
 
@@ -94,18 +94,18 @@
     <button type="button" class="patient-back-btn"><a class="text-white text-decoration-none" href="../staff/patient-profile.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-arrow-left"></i>Back</a></button>
 
 <div class="container">
-    <form action="patient-edit.php?id=<?php echo $patient->id ?>" method="POST">
+    <form action="patient-add-details.php?id=<?php echo $patient->id ?>" method="POST">
         <div class="row">
             <div class="col pt-3 text-center">
                 <div class="badge rounded-pill text-wrap py-4 px-4" style="background: #00ACB2;">
-                <h4 class="p-2">Health Status:
+                        <h4 class="p-2">Health Status:
                             <select class="form-select form-select-lg mt-2" name="health_status" id="health_status">
-                                <option value="Excellent" <?php if ($monitoring->health_status == 'Excellent') echo 'selected="selected"'; ?>>Excellent</option>
-                                <option value="Very Good" <?php if ($monitoring->health_status == 'Very Good') echo 'selected="selected"'; ?>>Very Good</option>
-                                <option value="Good" <?php if ($monitoring->health_status == 'Good') echo 'selected="selected"'; ?>>Good</option>
-                                <option value="Fair" <?php if ($monitoring->health_status == 'Fair') echo 'selected="selected"'; ?>>Fair</option>
-                                <option value="Poor" <?php if ($monitoring->health_status == 'Poor') echo 'selected="selected"'; ?>>Poor</option>
-                                <option value="Very Bad" <?php if ($monitoring->health_status == 'Very Bad') echo 'selected="selected"'; ?>>Very Bad</option>
+                                <option value="Excellent">Excellent</option>
+                                <option value="Very Good">Very Good</option>
+                                <option value="Good">Good</option>
+                                <option value="Fair">Fair</option>
+                                <option value="Poor">Poor</option>
+                                <option value="Very Bad">Very Bad</option>
                             </select>
                         </h4>
                 </div>
@@ -114,7 +114,7 @@
 </div>
 <div class="container">
     <div class="col-12 col-lg-3 pt-3">
-      <button class="btn btn-success" name="confirm"><i class="fa-solid fa-check me-1"></i>Confirm</button>
+        <button class="btn btn-success" name="confirm" type="submit"><i class="fa-solid fa-check me-1"></i>Confirm</button>
     </div>
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-2"><!--Big blue thing-->

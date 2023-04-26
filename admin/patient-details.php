@@ -1,6 +1,6 @@
 <?php
 
-  $page_title = 'WeCare Admin - Payment Details';
+  $page_title = 'WeCare Admin - Patient Details';
   require_once '../includes/admin-header.php';
   require_once '../classes/patient.class.php';
   require_once '../classes/monitoring.class.php';
@@ -62,6 +62,7 @@
     if($monitoring->fetch_monitoring_details($patient->id) && $monitoring->fetch_monitoring_app_details($patient->id)){
         $input = $monitoring->fetch_monitoring_details($patient->id);
         $monitoring->health_status = $input['health_status'];
+        $monitoring->date_updated = $input['update_date'];
         $monitoring->detail_bp = $input['detail_bp'];
         $monitoring->detail_con1 = $input['detail_con1'];
         $monitoring->detail_con2 = $input['detail_con2'];
@@ -122,7 +123,6 @@
 
   }
 
-
 ?>
 <div class="content">
 <div class="container align-items-center pt-3">
@@ -139,8 +139,12 @@
 </div>
 <div class="container">
     <div class="col-12 col-lg-3 pt-3">
-    <button class="btn btn-secondary" type="edit" style="background: #28a745; border: #28a745; color: #fff;"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
-    <button class="btn btn-secondary" type="edit" style="background: #dc3545; border: #dc3545; color: #fff;"><i class="fa-solid fa-eraser"></i>Delete</button>
+      <?php if(!empty($monitoring->fetch_monitoring_details($patient->id)) && !empty($monitoring->fetch_monitoring_app_details($patient->id))) { ?>
+      <a class="btn btn-success" href="patient-edit.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-pen-to-square"></i>Edit Details</a>
+      <?php } else { ?>
+      <a class="btn btn-success" href="patient-add-details.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-pen-to-square"></i>Add Details</a>
+      <?php } ?>
+      <a class="btn btn-danger" href=""><i class="fa-solid fa-eraser"></i>Delete</a>
     </div>
     <div class="row"><!--Details of the patient-->
     <div class="col-12 col-lg-8 pt-2"><!--Big blue thing-->
@@ -177,7 +181,7 @@
 </div>
     <div class="card">
     <div class="card-body">
-    Last Updated and Inputed: 01:00 PM December 07, 2022
+    Last Updated and Inputed: <?php echo date('M d Y h:i A', strtotime($monitoring->date_updated)) ?>
     </div>
     </div>
 </div> <!--End of details of the patient-->

@@ -115,6 +115,25 @@ class Staff{
         return $data;
     }
 
+    function add_staff_schedule(){
+        // SQL statement to add staff
+        $sql = "INSERT INTO staff_schedule (staff_id, day, shift_type, status) VALUES 
+        (:staff_id, :day, :shift_type, :status);";
+
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':staff_id', $this->staff_id);
+        $query->bindParam(':day', $this->day);
+        $query->bindParam(':shift_type', $this->shift_type);
+        $query->bindParam(':status', $this->status);
+        
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }	
+    }
+
 
 }
 
