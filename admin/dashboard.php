@@ -310,73 +310,53 @@
                     <div class="row">
                         <div class="card-body text-white rounded" style="background: #00ACB2;">
                             <div class="col-12 col-lg-8">
-                            <h5 class="card-title">Tasks:</h5>
-                            </div>
-                            <div class="col-12 col-lg-12">
-                            <div class="text-center">
-                            <div class="btn-group" role="group" aria-label="Default button group">
-                            <input type="checkbox" class="btn-check" id="bugs">
-                            <label class="btn btn-outline-light" for="bugs"><i class="fa-solid fa-bug-slash"></i>BUGS</label> <!--Should have icon here-->
-                            <input type="checkbox" class="btn-check" id="website">
-                            <label class="btn btn-outline-light" for="website"><i class="fa-solid fa-globe"></i>WEBSITE</label> <!--Should have icon here-->
-                            <input type="checkbox" class="btn-check" id="server">
-                            <label class="btn btn-outline-light" for="server"><i class="fa-solid fa-cloud"></i>SERVER</label> <!--Should have icon here-->
-                            </div>
-                            </div>
+                            <h3 class="card-title">Patient</h3>
                             </div>
                         </div>
                     </div><!--End of row-->
                     <div class="container-fluid pt-3 pb-3"><!--Start of container-->
                     <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="row">
-                            <div class="col-2 col-lg-1 pt-5">
-                                <input class="form-check-input" type="checkbox" value="check" id="mark">
-                            </div>
-                            <div class="col-10 col-lg-7 pt-3">
-                                <p>Sign contact for "What are conference organizers afraid of?"</p>
-                            </div>
-                            <div class="col-12 col-lg-4 pt-3">
-                            <div class="d-grid gap-2 p-0">
-                            <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;">Edit</button> 
-                            <button type="button" class="btn btn-outline-danger">Delete</button>
-                            </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                    <div class="row">
-                            <div class="col-2 col-lg-1 pt-5">
-                                <input class="form-check-input" type="checkbox" value="check" id="mark">
-                            </div>
-                            <div class="col-10 col-lg-7 pt-3">
-                                <p>Sign contact for "What are conference organizers afraid of?"</p>
-                            </div>
-                            <div class="col-12 col-lg-4 pt-3">
-                            <div class="d-grid gap-2 p-0">
-                            <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;">Edit</button> 
-                            <button type="button" class="btn btn-outline-danger">Delete</button>
-                            </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                    <div class="row">
-                            <div class="col-2 col-lg-1 pt-5">
-                                <input class="form-check-input" type="checkbox" value="check" id="mark">
-                            </div>
-                            <div class="col-10 col-lg-7 pt-3">
-                                <p>Sign contact for "What are conference organizers afraid of?"</p>
-                            </div>
-                            <div class="col-12 col-lg-4 pt-3">
-                            <div class="d-grid gap-2 p-0">
-                            <button type="button" class="btn btn-primary" style="background: #00ACB2; border: #00ACB2;">Edit</button> 
-                            <button type="button" class="btn btn-outline-danger">Delete</button>
-                            </div>
-                            </div>
-                        </div>
-                    </a>
-                        </div><!--End of list group-->
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>1</td>
+                            </tr>
+                            <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>2</td>
+                            </tr>
+                            <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>2</td>
+                            </tr>
+                            <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>2</td>
+                            </tr>
+                            <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>2</td>
+                            </tr>
+                            <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>2</td>
+                            </tr>
+                        </tbody>
+                        </table>
                     </div> <!--End of container-->
                 </div><!--End of card body-->
             </div><!--End of card border-->
