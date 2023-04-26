@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2023 at 05:56 AM
+-- Generation Time: Apr 26, 2023 at 03:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -186,7 +186,7 @@ CREATE TABLE `monitoring_detail` (
 --
 
 INSERT INTO `monitoring_detail` (`id`, `patient_id`, `health_status`, `blood_pressure`, `condition_1`, `condition_2`, `condition_3`, `last_checked`, `checked_date`, `observation`, `updated_at`) VALUES
-(6, 42, 'Very Good', 'High BP', 'Bedridden', 'Depress', 'Sad', 'Eljen Mae Augusto', '2023-04-26', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', '2023-04-26 03:02:10');
+(6, 42, 'Very Good', 'High BP', 'Bedridden', 'Depress', 'Sad', 'Eljen Mae Augusto', '2023-04-26', '  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', '2023-04-26 11:34:26');
 
 -- --------------------------------------------------------
 
@@ -2504,6 +2504,8 @@ CREATE TABLE `users` (
   `lname` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(25) NOT NULL,
+  `birthdate` date DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `image` varchar(255) NOT NULL,
   `password` varchar(100) NOT NULL,
   `otp` int(50) NOT NULL,
@@ -2517,14 +2519,14 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `unique_id`, `fname`, `mname`, `lname`, `email`, `phone`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
-(1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-04-12 15:18:29'),
-(2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-04-12 15:18:41'),
-(3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-04-12 15:18:51'),
-(4, 1039537821, 'Staff2', 'Staff2', 'Staff2', 'staff2@gmail.com', '09152354148', 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-03-15 10:54:37', '2023-04-12 15:19:01'),
-(6, 648167998, 'El', 'Car', 'Res', 'test@gmail.com', '09094731567', 'Profile_1680057603IMG20220326200018.jpg', '123', 0, 'Verified', 'client', '2023-03-29 02:40:03', '2023-04-11 16:29:14'),
-(7, 247813239, 'Eljen', 'Briones', 'Augusto', 'xt202001173@wmsu.edu.ph', '09563350760', 'Profile_1680069818eljen.jpg', 'Khasmir123', 0, 'Verified', 'client', '2023-03-29 06:03:38', '2023-03-29 06:03:59'),
-(8, 1145276372, 'Machel', 'Briones', 'Augusto', 'maejen019@gmail.com', '09554616786', 'Profile_1680151552e2a0f80716cea9f444bbdec4da54a13e-removebg-preview.png', 'El-El12554680', 0, 'Verified', 'client', '2023-03-30 04:45:52', '2023-03-30 04:46:59');
+INSERT INTO `users` (`id`, `unique_id`, `fname`, `mname`, `lname`, `email`, `phone`, `birthdate`, `address`, `image`, `password`, `otp`, `verification_status`, `type`, `created_at`, `updated_at`) VALUES
+(1, 1039537853, 'Khasmir', 'Mahadali', 'Basaluddin', 'khasmirbasaluddin@gmail.com', '09152354148', '2023-03-26', 'Sta. Catalina', 'yuta.jpg', '123', 0, 'Verified', 'client', '2023-02-20 06:23:07', '2023-04-26 13:08:29'),
+(2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', NULL, NULL, 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-04-12 15:18:41'),
+(3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', NULL, NULL, 'yuta.jpg', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-04-12 15:18:51'),
+(4, 1039537821, 'Staff2', 'Staff2', 'Staff2', 'staff2@gmail.com', '09152354148', NULL, NULL, 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-03-15 10:54:37', '2023-04-12 15:19:01'),
+(6, 648167998, 'El', 'Car', 'Res', 'test@gmail.com', '09094731567', NULL, NULL, 'Profile_1680057603IMG20220326200018.jpg', '123', 0, 'Verified', 'client', '2023-03-29 02:40:03', '2023-04-11 16:29:14'),
+(7, 247813239, 'Eljen', 'Briones', 'Augusto', 'xt202001173@wmsu.edu.ph', '09563350760', NULL, NULL, 'Profile_1680069818eljen.jpg', 'Khasmir123', 0, 'Verified', 'client', '2023-03-29 06:03:38', '2023-03-29 06:03:59'),
+(8, 1145276372, 'Machel', 'Briones', 'Augusto', 'maejen019@gmail.com', '09554616786', NULL, NULL, 'Profile_1680151552e2a0f80716cea9f444bbdec4da54a13e-removebg-preview.png', 'El-El12554680', 0, 'Verified', 'client', '2023-03-30 04:45:52', '2023-03-30 04:46:59');
 
 --
 -- Indexes for dumped tables
