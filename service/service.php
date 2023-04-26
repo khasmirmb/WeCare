@@ -29,39 +29,36 @@
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="col-lg-4 col-md-6">
                     <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/2.png" class="img-fluid w-25" alt="">
                         </div>
+                        
                         <div class="service-content">
                             <h3 class="mb-3">Rehabilitation</h3>
                             <p>WeCare offers that can help you regain, maintain, or develop the abilities you require for day-to-day functioning. These skills could be cognitive, mental, or physical.</p>
                         </div>
+                        
                     </div>
                 </div>
+                -->
+                <!--
                 <div class="col-lg-4 col-md-6">
                     <div class="service-box h-100">
                         <div class="service-icon mb-3">
                             <img src="img/3.png" class="img-fluid w-25" alt="">
                         </div>
+                         
                         <div class="service-content">
                             <h3 class="mb-3">Consultation</h3>
                             <p>Involves consulting and seeking advice from a licensed medical expert for assessment and diagnostic findings, therapeutic interventions, or other services that will be beneficial to the client.</p>
                         </div>
+                        
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-box h-100">
-                        <div class="service-icon mb-3">
-                            <img src="img/4.png" class="img-fluid w-25" alt="">
-                        </div>
-                        <div class="service-content">
-                            <h3 class="mb-3">Apply Now</h3>
-                            <p>Our current openings offer the chance to work on cutting-edge projects and make a meaningful impact in your field. Before you apply, please check whether you have fulfilled all the requirements and got all the required Documents to be submitted.</p>
-                        </div>
-                    </div>
-                </div>
+                -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-box h-100">
                         <div class="service-icon mb-3">
@@ -81,6 +78,17 @@
                         <div class="service-content">
                             <h3 class="mb-3">Bundle</h3>
                             <p>Our bundles offer affordable and convenient options for individuals looking for quality services.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-box h-100">
+                        <div class="service-icon mb-3">
+                            <img src="img/4.png" class="img-fluid w-25" alt="">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="mb-3">Apply Now</h3>
+                            <p>Our current openings offer the chance to work on cutting-edge projects and make a meaningful impact in your field. Before you apply, please check whether you have fulfilled all the requirements and got all the required Documents to be submitted.</p>
                         </div>
                     </div>
                 </div>
