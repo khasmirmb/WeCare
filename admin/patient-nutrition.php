@@ -1,5 +1,5 @@
 <!--Table Nutrition-->
-<div class="col-12 col-lg-8 p-3">
+<div class="col-12 col-lg-12 p-3">
     <div class="header d-flex">
         <h4 class="pb-3"><strong>Nutrition</strong></h4>
     <div class="button justify-content-right ms-4">

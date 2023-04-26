@@ -2,11 +2,54 @@
 
     $page_title = 'WeCare - Account Settings';
     require_once '../includes/header.php';
+	require_once '../classes/users.class.php';
+	require_once '../tools/functions.php';
     session_start();
 
     if(!isset($_SESSION['logged_id'])){
         header('location: ../account/signin.php');
     }
+
+	$user_info = new Users;
+
+
+	if($user_info->fetch_user_information($_SESSION['logged_id'])){
+
+		$user_data = $user_info->fetch_user_information($_SESSION['logged_id']);
+
+		$user_info->firstname = $user_data['fname'];
+		$user_info->middlename = $user_data['mname'];
+		$user_info->lastname = $user_data['lname'];
+		$user_info->email = $user_data['email'];
+		$user_info->phone = $user_data['phone'];
+		$user_info->birthdate = $user_data['birthdate'];
+		$user_info->address = $user_data['address'];
+
+	}
+
+	if(isset($_POST['submit'])){
+
+		$user = new Users;
+
+		if(validate_change_details($_POST)){
+
+			$user->firstname = htmlentities($_POST['firstname']);
+			$user->middlename = htmlentities($_POST['middlename']);
+			$user->lastname = htmlentities($_POST['lastname']);
+			$user->phone = htmlentities($_POST['phone']);
+			$user->birthdate = htmlentities($_POST['birthdate']);
+			$user->address = htmlentities($_POST['address']);
+
+			if($user->update_user_info($_SESSION['logged_id'])){
+				header('location: ../settings/account-settings.php');
+			}
+
+		} else {
+			$error = "There was something wrong please try again.";
+		}
+
+
+	}
 
     require_once '../includes/navbar.php';
     
@@ -26,9 +69,6 @@
  	<li class="nav-item">
     <a class="nav-link" aria-current="page" href="password.php" style="color: black;">Password</a>
 	</li>
-	<li class="nav-item">
-    <a class="nav-link" aria-current="page" href="sett-notification.php" style="color: black;">Notification</a>
-	</li>
 	</ul>
 	</div><!--3 buttons-->
 
@@ -36,76 +76,69 @@
 	<div class="card shadow border-0">
   	<div class="card-body">
 		<div class="row">
-		<div class="col-12 col-lg-3 pt-3 ps-5">
-		<img src="../images/<?php echo $_SESSION['profile_pic'] ?>" class="rounded-circle img-fluid" style="width: 200px; height: 200spx;" alt="Profile">
-		</div>
-		<div class="col-12 col-lg-4 pt-5">
-		<div class="d-grid gap-3 d-md-flex" style="margin-top: 40px;"">
-		<button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#upload-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="upload-prof">Upload New</button>
-		<button class="btn btn-secondary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#delete-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-prof">Delete Profile</button>
-		</div>
+		<div class="col-12 col-lg-12 pt-3 pb-3 ps-5 justify-content-center d-flex">
+		<img src="../images/<?php echo $_SESSION['profile_pic'] ?>" class="rounded-circle img-fluid" style="width: 200px; height: 200spx;" alt="Profile" id="current_profile">
 		</div>
 		</div><!--end row-->
 		<!--Form-->
+		<form class="needs-validation" action="account-settings.php" novalidate runat="server" method="POST">
 		<div class="pt-3">
-		<form class="row g-3 needs-validation" novalidate>
+		<div class="row g-3">
 		<div class="col-12 col-lg-3">
-			<label for="firstname" class="form-label">First name</label>
-			<input type="text" class="form-control" id="firstname" required>
+			<label for="firstname" class="form-label">First Name</label>
+			<input type="text" class="form-control" id="firstname" name="firstname" required value="<?php echo $user_info->firstname ?>">
 			<div class="valid-feedback">
 			Looks good!
 			</div>
 			<div class="invalid-feedback">
 				Please enter your valid First name.
 			</div>
+			<?php
+            	if(isset($_POST['submit']) && !validate_first_name($_POST)){
+             ?>
+                <p class="text-danger mt-2 mb-2">Invalid Firstname Input.</p>
+            <?php
+            	}
+            ?>
 		</div>
 		<div class="col-12 col-lg-3">
 			<label for="middlename" class="form-label">Middle Name</label>
-			<input type="text" class="form-control" id="middlename" required>
+			<input type="text" class="form-control" id="middlename" name="middlename" required value="<?php echo $user_info->middlename ?>">
 			<div class="valid-feedback">
 			Looks good!
 			</div>
 			<div class="invalid-feedback">
 				Please enter your valid Middle name.
 			</div>
+			<?php
+            	if(isset($_POST['submit']) && !validate_middlename_name($_POST)){
+             ?>
+                <p class="text-danger mt-2 mb-2">Invalid Middlename Input.</p>
+            <?php
+            	}
+            ?>
 		</div>
 		<div class="col-12 col-lg-3">
-			<label for="lastname" class="form-label">Last name</label>
-			<input type="text" class="form-control" id="lastname" required>
+			<label for="lastname" class="form-label">Last Name</label>
+			<input type="text" class="form-control" id="lastname" name="lastname" required value="<?php echo $user_info->lastname ?>">
 			<div class="valid-feedback">
 			Looks good!
 			</div>
 			<div class="invalid-feedback">
 				Please enter your valid Last name.
 			</div>
-		</div>
-		<div class="col-12 col-lg-3">
-			<label for="suffix" class="form-label">Suffix</label>
-			<input type="text" class="form-control" id="suffix" required>
-			<div class="valid-feedback">
-			Looks good!
-			</div>
-			<div class="invalid-feedback">
-				Please enter your valid Suffix.
-			</div>
-		</div>
-		<div class="col-12 col-lg-3">
-			<label for="username" class="form-label">Username</label>
-			<div class="input-group has-validation">
-			<span class="input-group-text" id="user-name">@</span>
-			<input type="text" class="form-control" id="username" aria-describedby="user-name" required>
-			<div class="invalid-feedback">
-				Please choose a username.
-			</div>
-			<div class="valid-feedback">
-			Much better!
-			</div>
-			</div>
+			<?php
+            	if(isset($_POST['submit']) && !validate_last_name($_POST)){
+             ?>
+                <p class="text-danger mt-2 mb-2">Invalid Lastname Input.</p>
+            <?php
+            	}
+            ?>
 		</div>
 		<div class="col-12 col-lg-3">
 			<label for="birthdate" class="form-label">Birthdate</label>
 			<div class="input-group has-validation">
-			<input type="date" class="form-control" id="birthdate" aria-describedby="user-name" required>
+			<input type="date" class="form-control" id="birthdate" name="birthdate" required value="<?php echo $user_info->birthdate ?>">
 			<div class="invalid-feedback">
 			Please enter your valid Birthdate.
 			</div>
@@ -114,65 +147,54 @@
 			</div>
 			</div>
 		</div>
-		<div class="col-12 col-lg-3">
-			<label for="city" class="form-label">City</label>
-			<input type="text" class="form-control" id="city" required>
+		<div class="col-12 col-lg-4">
+			<label for="address" class="form-label">Address</label>
+			<input type="text" class="form-control" id="address" name="address" required value="<?php echo $user_info->address ?>">
 			<div class="invalid-feedback">
-			Please provide a valid city.
+			Please provide a valid address.
 			</div>
 			<div class="valid-feedback">
 			Nice!
 			</div>
+			<?php
+            	if(isset($_POST['submit']) && !validate_address($_POST)){
+             ?>
+                <p class="text-danger mt-2 mb-2">Invalid Address Input.</p>
+            <?php
+            	}
+            ?>
 		</div>
 		<div class="col-12 col-lg-3">
-			<label for="barangay" class="form-label">Barangay</label>
-			<input type="text" class="form-control" id="barangay" required>
-			<div class="invalid-feedback">
-			Please provide a valid barangay.
-			</div>
-			<div class="valid-feedback">
-			Nice!
-			</div>
-		</div>
-		<div class="col-12 col-lg-3">
-			<label for="validationCustom05" class="form-label">Zip</label>
-			<input type="text" class="form-control" id="validationCustom05" required>
-			<div class="invalid-feedback">
-			Please provide a valid zip.
-			</div>
-			<div class="valid-feedback">
-			Nice!
-			</div>
-		</div>
-		<div class="col-12 col-lg-3">
-			<label for="email" class="form-label">Email</label>
-			<input type="email" class="form-control" id="email" required>
-			<div class="invalid-feedback">
-			Please provide a valid Email.
-			</div>
-			<div class="valid-feedback">
-			Nice!
-			</div>
-		</div>
-		<div class="col-12 col-lg-3">
-			<label for="number" class="form-label">Phone Number</label>
-			<input type="number" class="form-control" id="number" required>
+			<label for="phone" class="form-label">Phone Number</label>
+			<input type="number" class="form-control" id="phone" name="phone" value="<?php echo $user_info->phone ?>" required pattern="[0-9]{11}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')">
 			<div class="invalid-feedback">
 			Please provide a valid Phone number.
 			</div>
 			<div class="valid-feedback">
 			Nice!
 			</div>
+			<?php
+            	if(isset($_POST['submit']) && !validate_phone($_POST)){
+             ?>
+                <p class="text-danger mt-2 mb-2">Invalid Phone Input.</p>
+            <?php
+            	}
+            ?>
+			<?php
+				//Display the error message if there is any.
+				if(isset($error)){
+				echo '<div><p class="text-danger mt-2 mb-2">'.$error.'</p></div>';
+				}
+				if(isset($success)){
+					echo '<div><p class="text-success mt-2 mb-2">'.$success.'</p></div>';
+					}
+			?>
 		</div>
-		<div class="col-12">
-			<button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#save-change">Save Changes</button>
+		<div class="col-12 justify-content-end d-flex">
+			<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#save-change">Save Changes</button>
 		</div>
-		</form>
 		</div>
-	</div><!--card body-->
-	</div><!--last card-->
-	</div><!--padding top-->
-</div><!--Don't touch-->
+		</div>
 
 <!-- Modal -->
 <div class="modal fade" id="save-change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="save-changeLabel" aria-hidden="true">
@@ -187,50 +209,16 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
+        <button type="submit" class="btn btn-primary" name="submit">Yes</button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Modal delete profile -->
-<div class="modal fade" id="delete-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-profLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="delete-profLabel">Confirmation to Delete the Profile</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure to delete this profile?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal upload profile -->
-<div class="modal fade" id="upload-prof" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="upload-profLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="upload-profLabel">Uploading Profile</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-		<input class="form-control" type="file" id="profile">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Done</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+		</form>
+	</div><!--card body-->
+	</div><!--last card-->
+	</div><!--padding top-->
+</div><!--Don't touch-->
 
 <script>
 	// Example starter JavaScript for disabling form submissions if there are invalid fields

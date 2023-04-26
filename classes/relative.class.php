@@ -226,6 +226,25 @@ class Relative{
         return $data;
     }
 
+    function count_relative_requests(){
+        $sql = "SELECT COUNT(*) AS request FROM relative WHERE relative.patient_id = 0;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function fetch_patient_relative($patient_id){
+        $sql = "SELECT users.image, users.fname, users.mname, users.lname, relative.relationship, users.phone FROM relative INNER JOIN users ON relative.user_id = users.id WHERE patient_id = :patient_id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $patient_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 
 }
 

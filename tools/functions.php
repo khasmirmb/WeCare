@@ -5,6 +5,8 @@ function validate_first_name($POST){
         return false;
     }else if(strlen(trim($POST['firstname']))<1){
         return false;
+    }else if(strlen($POST['firstname']) > 30 ){
+        return false;
     }
     else if(!preg_match("/^[a-zA-z]*$/", $POST['firstname'])){
         return false;
@@ -16,6 +18,8 @@ function validate_middlename_name($POST){
     if(!isset($POST['middlename'])){
         return false;
     }else if(strlen(trim($POST['middlename']))<1){
+        return false;
+    }else if(strlen($POST['middlename']) > 30 ){
         return false;
     }
     else if(!preg_match("/^[a-zA-z]*$/", $POST['middlename'])){
@@ -29,6 +33,8 @@ function validate_last_name($POST){
     if(!isset($POST['lastname'])){
         return false;
     }else if(strlen(trim($POST['lastname']))<1){
+        return false;
+    }else if(strlen($POST['lastname']) > 30 ){
         return false;
     }
     if(!preg_match("/^[a-zA-z]*$/", $POST['lastname'])){
@@ -355,6 +361,8 @@ function validate_password($POST){
         return false;
     }else if(strlen($POST['password']) < 8 ){
         return false;
+    }else if(strlen($POST['password']) > 20 ){
+        return false;
     }
     else if(!preg_match("#[0-9]+#", $POST['password'])){
         return false;
@@ -363,6 +371,20 @@ function validate_password($POST){
         return false;
     }
     else if(!preg_match("#[a-z]+#", $POST['password'])){
+        return false;
+    }
+    return true;
+}
+
+function validate_current_password($POST){
+    if(!isset($POST['current-password'])){
+        return false;
+    }
+    return true;
+}
+
+function validate_confirm_password($POST){
+    if(!isset($POST['cpassword'])){
         return false;
     }
     return true;
@@ -412,6 +434,13 @@ function validate_position($POST){
 
 function validate_add_staff($POST){
     if(!validate_first_name($POST) || !validate_last_name($POST) || !validate_middlename_name($POST) || !validate_address($POST) || !validate_phone($POST) || !validate_degree($POST) || !validate_position($POST) || !validate_email_fully($POST) || !validate_password($POST)){
+        return false;
+     }
+    return true;
+}
+
+function validate_change_details($POST){
+    if(!validate_first_name($POST) || !validate_last_name($POST) || !validate_middlename_name($POST) || !validate_address($POST) || !validate_phone($POST)){
         return false;
      }
     return true;

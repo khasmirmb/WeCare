@@ -212,7 +212,7 @@
         </div>
     <div class="text-wrap py-3 px-5 text-light rounded" style="background: #00ACB2; border: #00ACB2; color: #fff;">
         <div class="d-grid justify-content-md-end">
-        <button type="button" class="btn btn-outline-light text-secondary"><a class="text-decoration-none text-light" href="nurse-list.php">Previous Nurse</a></button>
+        <button type="button" class="btn btn-outline-light text-secondary"><a class="text-decoration-none text-light" href="#">Previous Nurse</a></button>
         </div>
     <div class="row pb-3">
         <div class="col-12 col-lg-4">
@@ -258,58 +258,9 @@
 
     <?php include_once 'patient-medicine.php' ?> <!-- Medicine For Patient --> 
 
-
-    <div class="col-12 col-lg-4 pt-3">
-        <div class="col-12 col-lg-8 pb-2">
-        <!--<button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button> --> <!--Edit button-->
-        </div>
-        <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
-        <h4 class="pb-3"><strong>Reports</strong></h4>
-        <?php foreach($report_list as $report){ ?>
-            <div class="row">
-
-                <div class="col-8 col-lg-8">
-                    <!--Blood Image-->
-                    <h6><strong><?php echo $report['report_type'] ?></strong></h6>
-                    <p class="text-black-50"><?php echo date("M j, Y", strtotime($report['report_date'])) ?></p>
-                </div>
-    
-                <div class="col-4 col-lg-4">
-                    <!--Eye image-->
-                </div>
-            </div>
-
-        <?php } ?>
-            
-    </div>
-    </div>
     
 
     <?php include_once 'patient-nutrition.php' ?> <!-- Nutrition For Patient --> 
-
-
-
-    <div class="col-12 col-lg-4 pt-3">
-    <div class="col-12 col-lg-4 pb-2">
-    <!-- <button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button> --> <!--Edit button-->
-    </div>
-    <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
-        <h4 class="pb-3"><strong>Photo Update</strong></h4>
-        <?php foreach($photo_update_list as $photo){ ?>
-        <div class="row">
-                <div class="col-8">
-                <img src="../images/<?php echo $photo['photo_image'] ?>" class="rounded float-start img-thumbnail img-fluid" alt="Patient Image">
-                    <!--Image-->
-                </div>
-                <div class="col-4">
-                <p><strong><?php echo $photo['photo_title'] ?></strong></p>
-                    <!--Eye Image-->
-                </div>
-        </div>
-        <?php } ?>
-    </div>
-    </div>
-    </div>
 
 
     <?php include_once 'patient-hyiegne.php' ?> <!-- Hyiegne For Patient --> 
@@ -319,7 +270,7 @@
     <h4><strong>Relatives</strong></h4>
 </div>
 
-<div class="col-12 col-lg-12">
+<div class="table-responsive col-12 col-lg-12">
     <div class="p-3 mb-2 rounded" style="background: #00ACB2; border: #00ACB2; color: #fff;">
     <table class="table table-borderless text-white">
     <thead>
@@ -330,25 +281,24 @@
       <th scope="col">Contact #</th>
     </tr>
   </thead>
+    <?php
+
+    require_once '../classes/relative.class.php';
+
+    $relative = new Relative;
+
+    $relative_list = $relative->fetch_patient_relative($patient->id);
+
+    ?>
   <tbody>
+    <?php foreach ($relative_list as $relative){ ?>
     <tr>
-      <td class="pl-5"><img src="../images/download.jpg" class="gap-2" alt="Marites D. Karen" style="width: 50px; height: 50px; border: 2px solid white; border-radius: 50%;"></td>
-      <td>Marites D. Karen</td>
-      <td>Father</td>
-      <td>09812356</td>
+      <td class="pl-5"><img src="../images/<?php echo $relative['image'] ?>" class="gap-2" alt="Marites D. Karen" style="width: 50px; height: 50px; border: 2px solid white; border-radius: 50%;"></td>
+      <td><?php echo $relative['fname'] . " " . $relative['mname'][0] . ". " . $relative['lname'] ?></td>
+      <td><?php echo $relative['relationship'] ?></td>
+      <td><?php echo $relative['phone'] ?></td>
     </tr>
-    <tr>
-      <td class="p1-5"><img src="../images/download.jpg" class="gap-2" alt="Marites D. Karen" style="width: 50px; height: 50px; border: 2px solid white; border-radius: 50%;"></td>
-      <td>Marites D. Karen</td>
-      <td>Father</td>
-      <td>09812356</td>
-    </tr>
-    <tr>
-      <td class="p1-5"><img src="../images/download.jpg" class="gap-2" alt="Marites D. Karen" style="width: 50px; height: 50px; border: 2px solid white; border-radius: 50%;"></td>
-      <td>Marites D. Karen</td>
-      <td>Father</td>
-      <td>09812356</td> 
-    </tr>
+    <?php } ?>
     </tbody>    
     </table>
     </div>

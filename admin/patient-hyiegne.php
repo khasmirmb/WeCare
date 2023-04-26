@@ -1,5 +1,5 @@
 <!--Table Hygiene-->
-<div class="col-12 col-lg-8 p-3">
+<div class="col-12 col-lg-12 p-3">
 <div class="row">
     <div class="header d-flex">
         <h4 class="pb-3"><strong>Hyiegne</strong></h4>

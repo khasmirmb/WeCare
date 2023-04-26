@@ -18,6 +18,8 @@ class Users{
     public $otp;
     public $type;
     public $image;
+    public $birthdate;
+    public $address;
     
 
      // protected property to store the database connection
@@ -149,6 +151,41 @@ class Users{
             $data = $query->fetch();
         }
         return $data;
+    }
+
+    function update_user_info($id){
+
+        $sql = "UPDATE users SET fname = :fname, mname = :mname, lname = :lname, phone = :phone, birthdate = :birthdate, address = :address WHERE id = :id;";
+    
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $id);
+        $query->bindParam(':fname', $this->firstname);
+        $query->bindParam(':mname', $this->middlename);
+        $query->bindParam(':lname', $this->lastname);
+        $query->bindParam(':phone', $this->phone);
+        $query->bindParam(':birthdate', $this->birthdate);
+        $query->bindParam(':address', $this->address);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function update_user_password($id){
+
+        $sql = "UPDATE users SET password = :password WHERE id = :id;";
+    
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $id);
+        $query->bindParam(':password', $this->password);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 

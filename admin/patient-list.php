@@ -2,11 +2,16 @@
 
   $page_title = 'WeCare Admin - Patient List';
   require_once '../includes/admin-header.php';
+  require_once '../classes/relative.class.php';
   session_start();
 
   if(!isset($_SESSION['logged_id']) || $_SESSION['user_type'] != 'admin'){
   header('location: ../account/signin.php');
   }
+
+  $relative = new Relative;
+
+  $request_total = $relative->count_relative_requests();
 
   require_once '../includes/admin-sidebar.php';
 
@@ -17,12 +22,28 @@
 <div class="container align-items-center pt-3">
 
 <div class="row">
-    <div class="col-7 col-lg-4"> <!--Name-->
+    <div class="col-7 col-lg-2"> <!--Name-->
     <h3>Patient List</h3>
     </div><!--End of Name-->
-    <div class="col-4 col-lg-1 pb-3"><!--Request button-->
-        <a class="btn btn-secondary" href="request.php" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Request</a>
+    <div class="col-6 col-lg-2 pb-3"><!--Request button-->
+        <a class="btn btn-secondary" href="request.php" role="button" style="background: #00ACB2; border: #00ACB2; color: #fff;">Request List<span class="badge bg-danger ms-1">
+        <?php 
+            foreach($request_total as $row){
+                echo $row['request'];
+            }
+        ?>
+        </span>
+        </a>
     </div>
+    <div class="col-6 col-lg-2 pb-3"><!--Add Patient button-->
+        <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #00ACB2; border: #00ACB2;; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Patient</a>
+    </div><!--End of Add Patient button-->
+    <div class="col-12 col-lg-4 pb-3"><!--Start of Search bar-->
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary" type="submit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Search</button>
+        </form>
+    </div><!--End of search bar-->
     <div class="col-4 col-lg-1"><!--Button Filter-->
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: #00ACB2; border: #00ACB2; color: #fff;">
@@ -34,15 +55,6 @@
             </ul>
         </div>
         </div><!--End of Button Filter-->
-    <div class="col-6 col-lg-2 pb-3"><!--Add Patient button-->
-        <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #00ACB2; border: #00ACB2;; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Patient</a>
-    </div><!--End of Add Patient button-->
-    <div class="col-12 col-lg-4"><!--Start of Search bar-->
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary" type="submit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Search</button>
-        </form>
-    </div><!--End of search bar-->
     </div><!--End of row-->
 
     <?php 

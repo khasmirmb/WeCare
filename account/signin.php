@@ -113,7 +113,7 @@
                     <?php
                         //Display the error message if there is any.
                         if(isset($error)){
-                        echo '<div><p class="error">'.$error.'</p></div>';
+                        echo '<div><p class="text-danger mt-2 mb-2">'.$error.'</p></div>';
                         }
                                     
                      ?>

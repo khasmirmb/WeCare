@@ -89,7 +89,6 @@
         <th scope="col" class="text-left" style="background: #00ACB2; color: #fff;">Email</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Action</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Remind</th>
         </tr>
     </thead>
     <tbody>
@@ -102,7 +101,6 @@
         <td class="text-center"><?php echo $row['email'] ?></td>
         <td class="text-center"><?php echo $row['verification_status'] ?></td>
         <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash" type="button" data-bs-toggle="modal" data-bs-target="#delete-user"></i></td><!--Edit and Delete Icons-->
-        <td class="text-center"><i class="fas fa-bell"></i></td><!--Remind Icon-->
        </tr>
 
     <?php } ?>

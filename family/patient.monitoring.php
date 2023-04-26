@@ -258,7 +258,7 @@
 <div class="col-12 col-lg-12">
     <div class="text-wrap py-3 px-5 text-light rounded" style="background: #00ACB2;">
         <div class="d-grid justify-content-md-end">
-        <button type="button" class="btn btn-outline-secondary text-primary"><a class="text-decoration-none text-light" href="nurse-list.php">Previous Nurse</a></button>
+        <button type="button" class="btn btn-outline-secondary text-primary"><a class="text-decoration-none text-light" href="#">Previous Nurse</a></button>
         </div>
         
     <div class="row">
