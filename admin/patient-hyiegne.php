@@ -2,7 +2,7 @@
 <div class="col-12 col-lg-12 p-3">
 <div class="row">
     <div class="header d-flex">
-        <h4 class="pb-3"><strong>Hyiegne</strong></h4>
+        <h4 class="pb-3"><strong>Hygiene</strong></h4>
     <div class="button justify-content-right ms-4">
         <button class="btn btn-primary" type="button" style="background: #198754; border: none;" data-bs-toggle="modal" data-bs-target="#hy-modal"><i class="fa-solid fa-circle-plus"></i>Add more</button>
     </div>
