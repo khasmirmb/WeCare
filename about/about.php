@@ -24,9 +24,9 @@
                         </div>
                         <p>WeCare Nursing Home Inc. is a dedicated healthcare provider committed to providing compassionate and professional nursing care services to elderly residents in a comfortable and nurturing environment.</p>
                         <ul>
-                            <li><i class="fa fa-check-circle"></i> Routine and Giving care</li>
-                            <li><i class="fa fa-check-circle"></i> Excellence in Healthcare every</li>
-                            <li><i class="fa fa-check-circle"></i> Building a healthy environment</li>
+                            <li><i class="fa fa-check-circle"></i> Routine and Giving Care</li>
+                            <li><i class="fa fa-check-circle"></i> Excellence in Healthcare</li>
+                            <li><i class="fa fa-check-circle"></i> Building a Healthy Environment</li>
                         </ul>
                         <a href="../contact/contact.php" class="btn btn-info">Contact us</a>
                     </div>

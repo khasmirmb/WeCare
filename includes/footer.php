@@ -38,7 +38,7 @@
             <img src="../images/logo.png" alt="Logo" width="35px"></i>WeCare Nursing Home Inc.
           </h6>
           <p>
-          We specialized in taking care of your loved ones. Even away from home.
+          We specialize in taking care of your loved ones. Even away from home.
           </p>
         </div>
         <!-- Grid column -->
@@ -52,10 +52,7 @@
             <a href="../service/service.php" class="text-reset">Caregiving</a>
           </p>
           <p>
-            <a href="../service/service.php" class="text-reset">Rehabilitation</a>
-          </p>
-          <p>
-            <a href="../service/service.php" class="text-reset">Consultation</a>
+            <a href="../service/service.php" class="text-reset">Bundle</a>
           </p>
           <p>
             <a href="../service/service.php" class="text-reset">Apply to us</a>
@@ -78,7 +75,7 @@
             <a href="../contact/contact.php" class="text-reset">Contact</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Faq</a>
+            <a href="../help&support/help&support.php" class="text-reset">Faq</a>
           </p>
         </div>
         <!-- Grid column -->

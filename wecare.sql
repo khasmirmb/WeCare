@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2023 at 09:41 PM
+-- Generation Time: Apr 27, 2023 at 06:02 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -117,6 +117,29 @@ CREATE TABLE `attendance` (
   `shift_type` varchar(100) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `subject` varchar(250) NOT NULL,
+  `message` longtext NOT NULL,
+  `status` int(2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `user_id`, `subject`, `message`, `status`, `created_at`) VALUES
+(4, 1, 'Very Satisfied', 'Please Improve Your UI', 1, '2023-04-27 16:01:32'),
+(5, 1, 'Very Dissatisfied', 'I\'m a Hater', 1, '2023-04-27 15:33:17');
 
 -- --------------------------------------------------------
 
@@ -2574,6 +2597,12 @@ ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `monitoring`
 --
 ALTER TABLE `monitoring`
@@ -2763,6 +2792,12 @@ ALTER TABLE `appointment_purpose`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --

@@ -95,7 +95,7 @@
         <label for="password" class="form-label">New Password</label>
         <input type="password" class="form-control" id="password" name="password" required>
         <div id="passwordHelpBlock" class="form-text">
-        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        Your password must be 8-20 characters long, must contain one upper case and lower case letters and one numbers, and must not contain spaces, special characters, or emoji.
         </div>
         <?php
         	if(isset($_POST['submit']) && !validate_password($_POST)){

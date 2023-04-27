@@ -5,10 +5,6 @@
     require_once '../classes/appointment.class.php';
     session_start();
 
-    if(!isset($_SESSION['logged_id'])){
-        header('location: ../account/signin.php');
-    }
-
     require_once '../includes/navbar.php';
     
 
@@ -174,3 +170,9 @@
 
 
 </div><!--Inside the container--->s
+
+<?php
+
+require_once '../includes/footer.php';
+
+?>
