@@ -169,7 +169,7 @@
 </div>
 
 
-</div><!--Inside the container--->s
+</div><!--Inside the container--->
 
 <?php
 

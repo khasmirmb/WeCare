@@ -46,17 +46,12 @@
 
     <div class="col-12 col-lg-6"><!--Start of search bar-->
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Search...">
         <div class="input-group-append">
           <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;">Search</button>
         </div>
       </div>
     </div><!--End of search bar-->
-
-    <div class="col-6 col-lg-2"><!--Start of add user-->
-    <button class="btn btn-info" type="button" style="background: #00ACB2; border: #00ACB2; color:#fff;"><a class="text-white text-decoration-none" href="#"><i class="fas fa-clipboard-user"></i>Add Attendance</a></button>
-    </div><!--end of add user-->
-
 
       <div class="col-2 col-lg-1"><!--Start of filter-->
       <div class="dropdown">
@@ -110,7 +105,7 @@
 
         <td class="text-center"><?php echo $row['shift_type'] ?></td>
 
-        <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash" type="button" data-bs-toggle="modal" data-bs-target="#delete-sched"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="#" class="edit-a"></a><i class="fa-solid fa-trash" type="button" data-bs-toggle="modal" data-bs-target="#delete-sched"></i></td><!--Edit and Delete Icons-->
        </tr>
 
     <?php } ?>
@@ -145,7 +140,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="delete-schedLabel">Delete Staff Schedule Confirmation</h1>
+        <h1 class="modal-title fs-5" id="delete-schedLabel">Delete Staff Attendance Confirmation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
