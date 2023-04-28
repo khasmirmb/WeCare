@@ -110,7 +110,7 @@
         <th scope="col" style="background: #00ACB2; color: #fff;">PURPOSE</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ASSIGNED TO</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">STATUS</th>
-        <th scope="col" style="background: #00ACB2; color: #fff;">APPROVED</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">CLIENT SHOWED</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ACTION</th>
       </tr>
     </thead>

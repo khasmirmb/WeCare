@@ -27,7 +27,7 @@
       <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span></a>
       <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
       <a href="../admin/setting.php"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
-      <a href="../account/logout.php" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
+      <a href="../account/logout.php" data-bs-toggle="modal" data-bs-target="#logout"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
       </div>
     </div>
 
@@ -49,7 +49,7 @@
     </div>
     <!--sidebar end-->
 
-     <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="logout" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true" data-bs-backdrop="static" aria-labelledby="logoutLabel">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">

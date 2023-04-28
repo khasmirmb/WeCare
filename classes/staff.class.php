@@ -97,7 +97,7 @@ class Staff{
     }
 
     function staff_schedule(){
-        $sql = "SELECT staff.firstname, staff.lastname, staff.middlename, staff_schedule.day, staff_schedule.shift_type, staff_schedule.status FROM staff_schedule INNER JOIN staff ON staff_schedule.staff_id = staff.id;";
+        $sql = "SELECT staff_schedule.id as sched_id, staff.firstname, staff.lastname, staff.middlename, staff_schedule.day, staff_schedule.shift_type, staff_schedule.status FROM staff_schedule INNER JOIN staff ON staff_schedule.staff_id = staff.id;";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();
@@ -132,6 +132,18 @@ class Staff{
         else{
             return false;
         }	
+    }
+
+    function delete_staff_schedule($record_id){
+        $sql = "DELETE FROM staff_schedule WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 

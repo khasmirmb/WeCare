@@ -9,17 +9,11 @@
     <!-- Left -->
     <!-- Right -->
     <div class="social-right">
-      <a href="" class="me-4 text-reset">
+      <a href="https://www.facebook.com/pages/We-Care-Nursing-Home-zamboanga-city/340004616038796" class="me-4 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
+      <a href="https://www.yahoo.com/" class="me-4 text-reset">
+        <i class="fab fa-yahoo"></i>
       </a>
     </div>
     <!-- Right -->

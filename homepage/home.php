@@ -44,7 +44,7 @@
           <div class="carousel-item carousel-image bg-img-4">
             <div class="carousel-caption">
                 <h3 class="fw-bolder fst-italic text-white display-4" >Our Services</strong></h3>
-                <p>Check Out Our Different Types of Bundle</p>
+                <p>Check Out Our Different Types of Services</p>
                 <p><a href="#" class="btn btn-info mt3">Learn More</a></p>
             </div>
           </div>

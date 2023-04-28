@@ -123,10 +123,6 @@
                     <div class ="signin_icon text-center">
                     <div class="flex-row align-items-center justify-content-center justify-content-lg-start">
                         <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                        </button>
-                        
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
                         <i class="fab fa-google"></i>
                         </button>
                     </div>

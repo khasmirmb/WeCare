@@ -87,12 +87,6 @@
                 </button>
               </div>
 
-              <div class="d-grid">
-                <button type="button" class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" style="border: none;">
-                    <i class="fa-brands fa-facebook"></i> Sign up with Facebook
-                </button>
-              </div>
-
               </div>
             </form>
           </div>
