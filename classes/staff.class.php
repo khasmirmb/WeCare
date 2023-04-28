@@ -146,18 +146,6 @@ class Staff{
         }
     }
 
-    function delete_staff($record_id){
-        $sql = "DELETE FROM staff WHERE id = :id;";
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':id', $record_id);
-        if($query->execute()){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
 
 }
 

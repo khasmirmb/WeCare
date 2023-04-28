@@ -107,27 +107,8 @@
 
         <td class="text-center"><?php echo $row['position'] ?></td>
 
-        <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a><i class="fa-solid fa-trash" type="button" data-bs-toggle="modal" data-bs-target="#delete-staff<?php echo $row['id'] ?>"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><a href="#" class="edit-a"><i class="fa-solid fa-pen"></i></a></td><!--Edit and Delete Icons-->
        </tr>
-
-      <!-- Delete User -->
-      <div class="modal fade" id="delete-staff<?php echo $row['id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-staffLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="delete-staffLabel">Delete Staff Confirmation</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Are you sure you want to delete this staff?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-              <a href="delete-staff.php?id=<?php echo $row['id'] ?>&user_id=<?php echo $row['user_id'] ?>" class="btn btn-primary">Yes</a>
-            </div>
-          </div>
-        </div>
-      </div>
 
     <?php } ?>
     </tbody>
