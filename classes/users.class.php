@@ -188,6 +188,18 @@ class Users{
         }
     }
 
+    function delete_user($record_id){
+        $sql = "DELETE FROM users WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }
 

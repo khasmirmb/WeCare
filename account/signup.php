@@ -93,4 +93,11 @@
         </div>
       </div>
   </div>
-  <script src="../js/signup.js"></script>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+<script src="../js/signup.js"></script>

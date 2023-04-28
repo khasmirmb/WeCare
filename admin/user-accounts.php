@@ -100,8 +100,27 @@
         <td class="text-center"><?php echo $row['phone'] ?></td>
         <td class="text-center"><?php echo $row['email'] ?></td>
         <td class="text-center"><?php echo $row['verification_status'] ?></td>
-        <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash" type="button" data-bs-toggle="modal" data-bs-target="#delete-user"></i></td><!--Edit and Delete Icons-->
+        <td class="text-center"><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash" type="button" data-bs-toggle="modal" data-bs-target="#delete-user<?php echo $row['id'] ?>"></i></td><!--Edit and Delete Icons-->
        </tr>
+
+       <!-- Delete User -->
+      <div class="modal fade" id="delete-user<?php echo $row['id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-userLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="delete-userLabel">Delete User Confirmation</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this user?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <a href="delete-user.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Yes</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <?php } ?>
     </tbody>
@@ -126,25 +145,6 @@
 </div><!--End of container-->
 
 
-</div>
-
-<!-- Delete User -->
-<div class="modal fade" id="delete-user" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-userLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="delete-userLabel">Delete User Confirmation</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete this user?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <?php

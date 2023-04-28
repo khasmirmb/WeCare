@@ -70,20 +70,8 @@
 
     <div class="row"> <!--Third row-->
     <div class="col-sm">
-    <label for="street"><strong>Street:</strong></label><br>
-    <input class="form-control" type="street" name="street" id="street"><br>
-    </div>
-    <div class="col-sm">
-    <label for="city"><strong>City:</strong></label><br>
-    <input class="form-control" type="text" name="city" id="city"><br>
-    </div>
-    <div class="col-sm">
-    <label for="patient-name"><strong>Name of the Patient:</strong></label><br>
-    <input class="form-control" type="text" name="patient-name" id="patient-name"><br>
-    </div>
-    <div class="col-sm">
-    <label for="patient-relationship"><strong>Patient's Relationship:</strong></label><br>
-    <input class="form-control" type="text" name="patient-relationship" id="patient-relationship"><br>
+    <label for="address"><strong>Address:</strong></label><br>
+    <input class="form-control" type="text" name="address" id="address"><br>
     </div>
     </div><!--End of Third row-->
     </div><!--Last of the div inside of the form-->
@@ -96,25 +84,6 @@
   <button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;">Add User</button> <!--Should have modal-->
 </div><!--End of buttons-->
     </div><!--End of first container-->
-
-  <!-- Delete Modal -->
-<div class="modal fade" id="clearModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="clearModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="clearModalLabel">Delete User Data</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to clear data? This data cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 

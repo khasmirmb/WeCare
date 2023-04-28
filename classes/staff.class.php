@@ -88,7 +88,7 @@ class Staff{
     }
 
     function show_staff_on_admin(){
-        $sql = "SELECT * FROM staff INNER JOIN users ON staff.user_id = users.id;";
+        $sql = "SELECT staff.id, staff.user_id, staff.firstname, staff.lastname, staff.middlename, users.phone, users.email, staff.status, staff.position FROM staff INNER JOIN users ON staff.user_id = users.id;";
         $query=$this->db->connect()->prepare($sql);
         if($query->execute()){
             $data = $query->fetchAll();
@@ -136,6 +136,18 @@ class Staff{
 
     function delete_staff_schedule($record_id){
         $sql = "DELETE FROM staff_schedule WHERE id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function delete_staff($record_id){
+        $sql = "DELETE FROM staff WHERE id = :id;";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':id', $record_id);
         if($query->execute()){
