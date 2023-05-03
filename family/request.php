@@ -132,6 +132,10 @@
     <label for="relationship"><strong>Relationship to the patient:</strong></label><br>
     <select name="relationship" id="relationship" class="form-select" style="width: 50%;">
 
+      <option value="Wife" <?php if(isset($_POST['relationship'])) { if ($_POST['relationship'] == 'Wife') echo ' selected="selected"'; } ?>>Wife</option>
+
+      <option value="Husband" <?php if(isset($_POST['relationship'])) { if ($_POST['relationship'] == 'Husband') echo ' selected="selected"'; } ?>>Husband</option>
+
       <option value="Mother" <?php if(isset($_POST['relationship'])) { if ($_POST['relationship'] == 'Mother') echo ' selected="selected"'; } ?>>Mother</option>
 
       <option value="Father" <?php if(isset($_POST['relationship'])) { if ($_POST['relationship'] == 'Father') echo ' selected="selected"'; } ?>>Father</option>
