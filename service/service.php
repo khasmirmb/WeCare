@@ -74,6 +74,7 @@
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="col-lg-4 col-md-6">
                     <div class="service-box h-100">
                         <div class="service-icon mb-3">
@@ -84,9 +85,9 @@
                             <h3 class="mb-3">OJT</h3>
                             <p>Our current openings offer the chance to work on cutting-edge projects and make a meaningful impact in your field. Before you apply, please check whether you have fulfilled all the requirements and got all the required Documents to be submitted.</p>
                         </div>
-                        
                     </div>
                 </div>
+                -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-box h-100">
                         <div class="service-icon mb-3">
@@ -94,7 +95,7 @@
                         </div>
                         <div class="service-content">
                             <h3 class="mb-3">Inquire Now</h3>
-                            <p>Our current openings offer the chance to work on cutting-edge projects and make a meaningful impact in your field. Before you apply, please check whether you have fulfilled all the requirements and got all the required Documents to be submitted.NOt done pa</p>
+                            <p>Experience exceptional care at WeCare Nursing Home Inc. Our dedicated team provides personalized attention and comfortable facilities for every resident. Trust us for compassionate and respectful care that promotes independence, dignity, and quality of life. Inquire now for more information.</p>
                         </div>
                     </div>
                 </div>
