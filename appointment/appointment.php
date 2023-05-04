@@ -160,6 +160,9 @@
                         } 
                 ?>
 
+          
+                <small class="appointment-agree-text">You want to go for </small> <a href="../admission/admission.php" class="terms">admission?</a>
+              
                 <div class=" d-flex flex-column text-center px-5 mt-3 mb-3">
                     <small class="appointment-agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a>
                 </div>
