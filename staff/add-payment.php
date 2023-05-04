@@ -200,22 +200,61 @@
     </div><!--End services-->
     </div><!--End row-->
 
-    <div class="row pt-3 col-12 col-lg-5">
-      <div class="input-group">
-        <span class="input-group-text">Total for Other Fees: ₱</span>
-        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" required placeholder="0 = None" <?php if(isset($_POST['fee-total'])) { echo $_POST['fee-total']; } ?>>
+    <div class="row pt-3 col-12 col-lg-8">
+        <h5>Other Fees:</h5>
+        <div class="col-12 col-lg-7">
+        <div class="input-group mb-3">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+            <span class="ms-3">Medicine</span>
+          </div>
+          <input type="number" class="form-control" aria-label="Quantity" placeholder="Quantity">
+          <span class="input-group-text">₱</span>
+          <input type="number" class="form-control" aria-label="Amount" placeholder="Amount">
+        </div>
+        </div><!--col-->
+        <div class="col-12 col-lg-7">
+        <div class="input-group mb-3">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+            <span class="ms-3">Diaper</span>
+          </div>
+          <input type="number" class="form-control" aria-label="Quantity" placeholder="Quantity">
+          <span class="input-group-text">₱</span>
+          <input type="number" class="form-control" aria-label="Amount" placeholder="Amount">
+        </div>
+        </div><!--col-->
+        <div class="col-12 col-lg-7">
+        <div class="input-group mb-3">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+            <span class="ms-3">Oxygen tank</span>
+          </div>
+          <input type="number" class="form-control" aria-label="Quantity" placeholder="Quantity">
+          <span class="input-group-text">₱</span>
+          <input type="number" class="form-control" aria-label="Amount" placeholder="Amount">
+        </div>
+        </div><!--col-->
+       
+       
+        <div class="input-group pt-3">
+        <span class="input-group-text">Total Amount of Fees: ₱</span>
+        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" required placeholder="0" <?php if(isset($_POST['fee-total'])) { echo $_POST['fee-total']; } ?>>
       </div><!--End services-->
     </div><!--End row-->
-
+    
+    <!--
     <div class="row pt-3 col-12 col-lg-5">
       <div class="input-group">
         <span class="input-group-text">Note for Fee</span>
         <textarea class="form-control bg-white" name="fee-note" id="fee-note" placeholder="Ex. Diaper = 500" rows="5"><?php if(isset($_POST['fee-note'])) { echo $_POST['fee-note']; } ?></textarea>
-      </div><!--End services-->
+      </div>
     </div><!--End row-->
 
-      <div class="row pt-3 col-12 col-lg-7">
+      <div class="row pt-3 col-12 col-lg-9">
         <div class="input-group">
+        <span class="input-group-text">Date of Billing:</span>
+          <input type="date" aria-label="Start" class="form-control" name="date-billing" id="date-billing" required value="<?php if(isset($_POST['date-billing'])) { echo $_POST['date-billing']; } ?>">
           <span class="input-group-text">Due Start Date:</span>
           <input type="date" aria-label="Start" class="form-control" name="due-start" id="due-start" required value="<?php if(isset($_POST['due-start'])) { echo $_POST['due-start']; } ?>">
           <span class="input-group-text">Due End Date:</span>
