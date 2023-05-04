@@ -49,7 +49,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="med-modalLabel">Add Medecine</h5>
+        <h5 class="modal-title" id="med-modalLabel">Add Medicine</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -60,7 +60,16 @@
           </div>
           <div class="mb-3">
             <label for="med-dose" class="col-form-label">Dose:</label>
-            <input type="text" class="form-control" id="med-dose" name="med-dose" placeholder="Ex. Morning-Noon-Evening" required>
+            <select class="form-select" aria-label="Default select example" required>
+              <option value="50">50 mg</option>
+              <option value="75">75 ml</option>
+              <option value="100">100 mg</option>
+              <option value="150">150 mg</option>
+              <option value="200">200 mg</option>
+              <option value="250">250 mg</option>
+              <option value="300">300 mg</option>
+              <option value="400">400 mg</option>
+          </select>
           </div>
           <div class="mb-3">
             <label for="med-start" class="col-form-label">Started Date:</label>
