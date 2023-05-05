@@ -5,6 +5,8 @@
     require_once '../classes/notification.class.php';
     require_once '../classes/relative.class.php';
     require_once '../classes/monitoring.class.php';
+    require_once '../classes/reference.class.php';
+    require_once '../classes/payment.class.php';
 
     //resume session here to fetch session values
     session_start();
@@ -67,55 +69,83 @@
 
                             $patient->add_patient_services();
                         }
+                        
                     }
 
-                    $relative = new Relative;
+                    $services = new Patient;
 
-                    $relative->user_id = $patient->user_id;
-                    $relative->relationship = $_GET['inquire'];
-                    $relative->firstname = $patient->firstname;
-                    $relative->middlename =  $patient->middlename;
-                    $relative->lastname = $patient->lastname;
-                    $relative->suffix = $patient->suffix;
-                    $relative->patient_id = $patient->p_id;
-                    $relative->proof = "Relative";
+                    $services_list = $services->fetch_patient_service_total($patient->p_id);
 
-                    if($relative->add_relative_admission()){
+                    foreach($services_list as $total){
 
-                        if($relative->fetch_relative_info($patient->user_id)){
+                        $services->total = $total['services_total'];
+                        
+                    }
 
-                            $data = $relative->fetch_relative_info($patient->user_id);
 
-                            $relative->id = $data['id'];
+                    $payment = new Payment;
 
-                            $monitoring = new Monitoring;
+                    $payment_number = rand(time(), 1000000);
 
-                            $monitoring->patient_id = $patient->p_id;
-                            $monitoring->relative_id = $relative->id;
-                            $monitoring->staff_id = $patient->staff_id;
+                    $payment->services = implode(", ", $_GET['services']);
+                    $payment->patient_id = $patient->p_id;
+                    $payment->date = date("Y-m-d");
+                    $payment->services_total = $services->total;
+                    $payment->fee_total = 0;
+                    $payment->total_amount = $services->total;
+                    $payment->payment_no = $payment_number;
+                    $payment->status = "Not Paid";
 
-                            if($monitoring->add_monitoring()){
+                    if($payment->add_payment()){
 
-                                $notification = new Notification;
+                        $relative = new Relative;
 
-                                // Notification of Payment
-                                $notification->patient_id = $patient->p_id;
+                        $relative->user_id = $patient->user_id;
+                        $relative->relationship = $_GET['inquire'];
+                        $relative->firstname = $patient->firstname;
+                        $relative->middlename =  $patient->middlename;
+                        $relative->lastname = $patient->lastname;
+                        $relative->suffix = $patient->suffix;
+                        $relative->patient_id = $patient->p_id;
+                        $relative->proof = "Relative";
 
-                                $notification->user_id = $patient->user_id;
+                        if($relative->add_relative_admission()){
 
-                                $notification->type = "Admission";
+                            if($relative->fetch_relative_info($patient->user_id)){
 
-                                $notification->subject = "Your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " has been accepted.";
+                                $data = $relative->fetch_relative_info($patient->user_id);
 
-                                $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " have been accepted. \n" . "You can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+                                $relative->id = $data['id'];
 
-                                $notification->status = 0;
+                                $monitoring = new Monitoring;
 
-                                if($notification->add_notification_by_user_patient()){
+                                $monitoring->patient_id = $patient->p_id;
+                                $monitoring->relative_id = $relative->id;
+                                $monitoring->staff_id = $patient->staff_id;
 
-                                    //redirect user to program page after saving
-                                    header('location: admission-accepted.php');
+                                if($monitoring->add_monitoring()){
 
+                                    $notification = new Notification;
+
+                                    // Notification of Payment
+                                    $notification->patient_id = $patient->p_id;
+
+                                    $notification->user_id = $patient->user_id;
+
+                                    $notification->type = "Admission";
+
+                                    $notification->subject = "Your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " has been accepted.";
+
+                                    $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . " have been accepted. \n" . "You can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
+
+                                    $notification->status = 0;
+
+                                    if($notification->add_notification_by_user_patient()){
+
+                                        //redirect user to program page after saving
+                                        header('location: admission-accepted.php');
+
+                                    }
                                 }
                             }
                         }

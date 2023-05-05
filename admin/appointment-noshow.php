@@ -131,7 +131,7 @@
       <td>
         <div class="d-grid gap-1">
         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-appointment<?php echo $row['id'] ?>">Delete</button>
-        <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#reschedule<?php echo $row['id'] ?>">Reschedule</button>
+        <button type="button" class="btn btn-info" style="background: #00ACB2; color: #fff; border: #00ACB2;" data-bs-toggle="modal" data-bs-target="#reschedule<?php echo $row['id'] ?>">Follow-Up</button>
         </div>
       </td>
       </tr>

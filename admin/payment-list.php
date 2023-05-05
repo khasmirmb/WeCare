@@ -26,6 +26,52 @@
     $patient->gender = $p_data['gender'];
   }
 
+  if(isset($_POST['confirm'])){
+
+    $payment = new Payment;
+
+    if(isset($_FILES['receipt'])){
+
+        $file_name = $_FILES['receipt']['name'];
+        $file_type = $_FILES['receipt']['type'];
+        $file_tmp_name = $_FILES['receipt']['tmp_name'];
+        $file_explode = explode('.', $file_name);
+        $file_extension = end($file_explode);
+
+        $extensions = ['pdf'];
+
+        if(in_array($file_extension, $extensions) === true){
+
+            $date = date("Y_m_d");
+            $patient_fullname = $patient->firstname . "_" . $patient->middlename[0] . "_" . $patient->lastname;
+            $file_new_name = $patient_fullname . "_Receipt_" . $date . "_" . $file_name;
+
+            if(move_uploaded_file($file_tmp_name, "../receipt/". $file_new_name)){
+
+                $payment->payment_method = $_POST['payment_method'];
+                $payment->payment_date = $_POST['paid_date'];
+                $payment->receipt = $file_new_name;
+                $payment->status = "Paid";
+
+                if($payment->paid_payment($_POST['pay_id'])){
+
+                    //redirect user to program page after saving
+                    header('location: payment-list.php?id=' . $patient->id);
+        
+                }
+            }
+
+        }else{
+            $error_file_type = "Please Upload a PDF FILE";
+          
+        }
+    
+    } else{
+        $error_image = "Please Complete the Form";
+    }
+
+  }
+
   require_once '../includes/admin-sidebar.php';
 
 ?>
@@ -58,8 +104,7 @@
     <table class="table table-striped table-hover table-bordered">
   <thead class="table-info">
     <tr>
-      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due Start Date</th>
-      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due End Date</th>
+      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Billing Date</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Total Amount</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Status</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Action</th>
@@ -75,12 +120,12 @@
   <tbody>
   <?php foreach($payment_list as $row){ ?>
     <tr>
-        <td class="text-center"><?php echo date("M j, Y", strtotime($row['start_due'])) ?></td>
-        <td class="text-center"><?php echo date("M j, Y", strtotime($row['end_due'])) ?></td>
-        <td class="text-center">₱<?php echo number_format($row['total_amount']) ?></td>
+        <td class="text-center"><?php echo date("M j, Y", strtotime($row['date'])) ?></td>
+        <td class="text-center">₱<?php echo number_format($row['total_amount'], 2) ?></td>
         <td class="text-center"><?php if($row['status'] == "Paid"){ ?><strong><span class="text-success"> <?php echo $row['status'] ?></span></strong><?php } else { ?> <strong><span class="text-danger "><?php echo $row['status'] ?></span></strong><?php } ?></td>
         <td>
         <div class="d-flex gap-1 justify-content-center">
+          <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#paid<?php echo $row['pay_id'] ?>">Paid</button> <!--Should put here the modal-->
           <button class="btn btn-danger" type="button">Delete</button> <!--Should put here the modal-->
         </div>
         </td>
@@ -94,7 +139,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="payment-paid.php" method="POST">
+            <form action="payment-list.php?id=<?php echo $patient->id ?>" method="POST" enctype="multipart/form-data">
               <div class="mb-2">
                 <label for="paid_date" class="col-form-label"><strong>Payment Paid Date:</strong></label>
                 <input type="date" class="form-control" id="paid_date" name="paid_date">
@@ -102,13 +147,19 @@
               <div class="mb-2">
                 <input type="text" class="form-control" id="pay_id" name="pay_id" value="<?php echo $row['pay_id'] ?>" hidden>
                 <input type="text" class="form-control" id="p_id" name="p_id" value="<?php echo $patient->id ?>" hidden>
+
                 <label for="payment_method" class="col-form-label"><strong>Payment Method:</strong></label>
+
                 <select class="form-select" aria-label="Default select example" name="payment_method">
                   <option value="Cash">Cash</option>
-                  <option value="Credit Card">Credit Card</option>
-                  <option value="Digital Wallet">Digital Wallet</option>
+                  <option value="Credit Card">Credit</option>
+                  <option value="Digital Wallet">Check</option>
                 </select>
-              </div>
+                </div>
+                <div class="mb-2">
+                    <label for="receipt" class="form-label"><strong>Receipt:</strong></label>
+                    <input class="form-control" type="file" id="receipt" name="receipt" required accept="application/pdf, .pdf">
+                </div>
             
           </div>
           <div class="modal-footer">

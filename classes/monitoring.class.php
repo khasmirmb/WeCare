@@ -157,6 +157,7 @@ class Monitoring{
     function fetch_monitoring_medecine_patient($patient_id){
         $sql = "SELECT monitoring_medecine.id, monitoring_medecine.name AS medecine_name,
         monitoring_medecine.dose AS medecine_dose,
+        monitoring_medecine.frequency AS medecine_frequency,
         monitoring_medecine.status AS medecine_status,
         monitoring_medecine.note AS medecine_note,
         monitoring_medecine.started_at AS medecine_started FROM monitoring_medecine

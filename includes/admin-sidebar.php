@@ -14,6 +14,22 @@
     </header> -->
     <!--header area end-->
 
+    <?php
+
+      require_once '../classes/admission.class.php';
+
+      $admission = new Admission;
+
+      $total_admission = $admission->show_admission_notification();
+
+      require_once '../classes/appointment.class.php';
+
+      $appointment = new Appointment;
+
+      $total_appointment = $appointment->show_appointment_notification();
+
+    ?>
+
    <!--mobile navigation bar start-->
    <div class="mobile_nav">
       <div class="nav_bar">
@@ -24,8 +40,24 @@
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="../admin/patient-list.php"><i class="fas fa-list-check"></i><span>Patient List</span></a>
-      <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span></a>
-      <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
+      <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span>
+      <span class="badge bg-danger ms-1" id="count">
+        <?php 
+        foreach($total_admission as $row){
+          echo $row['admission_total'];
+        }
+        ?>
+      </span>
+      </a>
+      <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span>
+      <span class="badge bg-danger ms-1" id="count">
+        <?php 
+        foreach($total_appointment as $row){
+          echo $row['appointment_total'];
+        }
+        ?>
+      </span>
+    </a>
       <a href="../admin/setting.php"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
       <a href="../account/logout.php" data-bs-toggle="modal" data-bs-target="#logout"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
       </div>
@@ -42,8 +74,24 @@
       <a href="../admin/staff-accounts.php"><i class="fas fa-user"></i><span>Accounts</span></a>
       <a href="../admin/feedback.php"><i class="fas fa-envelope"></i><span>Feedback</span></a>
       <a href="../admin/patient-list.php"><i class="fas fa-list-check"></i><span>Patient List</span></a>
-      <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span></a>
-      <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span></a>
+      <a href="../admin/admission.php"><i class="fas fa-clipboard-list"></i><span>Admission</span>
+        <span class="badge bg-danger ms-1" id="count">
+        <?php 
+        foreach($total_admission as $row){
+          echo $row['admission_total'];
+        }
+        ?>
+        </span>
+      </a>
+      <a href="../admin/appointment.php"><i class="fas fa-calendar"></i><span>Appointment</span>
+      <span class="badge bg-danger ms-1" id="count">
+        <?php 
+        foreach($total_appointment as $row){
+          echo $row['appointment_total'];
+        }
+        ?>
+      </span>
+    </a>
       <a href="../admin/setting.php"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
       <a href="../account/logout.php" data-bs-toggle="modal" data-bs-target="#logout"><i class="fas fa-right-from-bracket"></i><span>Logout</span></a>
     </div>

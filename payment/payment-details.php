@@ -18,7 +18,6 @@
         $payment->services_total = $data['services_total'];
         $payment->fee_total = $data['fee_total'];
         $payment->total_amount = $data['total_amount'];
-        $payment->fee_note = $data['fee_note'];
         $payment->status = $data['status'];
         $payment->payment_method = $data['payment_method'];
         $payment->payment_date = $data['payment_date'];
@@ -76,7 +75,7 @@
         </div>
         <div class="col-6 col-lg-8">
         <strong>
-        <p class="card-text">₱<?php echo number_format($payment->services_total) ?></p>
+        <p class="card-text">₱<?php echo number_format($payment->services_total, 2) ?></p>
         </strong>
         </div>
     </div>
@@ -86,17 +85,7 @@
         </div>
         <div class="col-6 col-lg-8">
         <strong>
-        <p class="card-text">₱<?php echo number_format($payment->fee_total) ?></p>
-        </strong>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6 col-lg-4">
-        <h5 class="card-title">Fees Note:</h5>
-        </div>
-        <div class="col-6 col-lg-8">
-        <strong>
-        <p class="card-text"><?php if(!empty($payment->fee_note)){ echo $payment->fee_note; } else { echo "None"; } ?></p>
+        <p class="card-text">₱<?php echo number_format($payment->fee_total, 2) ?></p>
         </strong>
         </div>
     </div>
@@ -106,7 +95,7 @@
         </div>
         <div class="col-6 col-lg-8">
         <strong>
-        <p class="card-text">₱<?php echo number_format($payment->total_amount) ?></p>
+        <p class="card-text">₱<?php echo number_format($payment->total_amount, 2) ?></p>
         </strong>
         </div>
     </div>

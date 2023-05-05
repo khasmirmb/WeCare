@@ -9,17 +9,19 @@ class Payment{
     // Class attributes
     public $id;
     public $patient_id;
-    public $start_due;
-    public $end_due;
+    public $date;
     public $services_total;
     public $services;
     public $fee_total;
     public $total_amount;
-    public $fee_note;
     public $status;
     public $payment_method;
     public $payment_date;
     public $receipt;
+    public $payment_no;
+    public $type;
+    public $quantity;
+    public $amount;
 
      // protected property to store the database connection
      protected $db;
@@ -32,17 +34,16 @@ class Payment{
 
      //Methods
      function add_payment(){
-        $sql = "INSERT INTO payment (patient_id, start_due, end_due, services, services_total, fee_total, total_amount, fee_note, status) VALUES 
-        (:patient_id, :start_due, :end_due, :services,:services_total, :fee_total, :total_amount, :fee_note, :status);";
+        $sql = "INSERT INTO payment (patient_id, date, services, services_total, fee_total, total_amount, payment_no, status) VALUES 
+        (:patient_id, :date, :services,:services_total, :fee_total, :total_amount, :payment_no, :status);";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':patient_id', $this->patient_id);
-        $query->bindParam(':start_due', $this->start_due);
-        $query->bindParam(':end_due', $this->end_due);
+        $query->bindParam(':date', $this->date);
         $query->bindParam(':services', $this->services);
         $query->bindParam(':services_total', $this->services_total);
         $query->bindParam(':fee_total', $this->fee_total);
         $query->bindParam(':total_amount', $this->total_amount);
-        $query->bindParam(':fee_note', $this->fee_note);
+        $query->bindParam(':payment_no', $this->payment_no);
         $query->bindParam(':status', $this->status);
         if($query->execute()){
             return true;
@@ -59,8 +60,7 @@ class Payment{
         lname,
         suffix,
         payment.id AS pay_id,
-        payment.start_due,
-        payment.end_due,
+        payment.date,
         payment.services_total,
         payment.fee_total,
         payment.total_amount,
@@ -80,8 +80,7 @@ class Payment{
         mname,
         lname,
         suffix,
-        payment.start_due,
-        payment.end_due,
+        payment.date,
         payment.services_total,
         payment.fee_total,
         payment.total_amount,
@@ -139,6 +138,23 @@ class Payment{
         else{
             return false;
         }
+    }
+
+    function add_payment_fee(){
+        $sql = "INSERT INTO payment_fee (payment_no, patient_id, type, quantity, amount) VALUES 
+        (:payment_no, :patient_id, :type, :quantity, :amount);";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':patient_id', $this->patient_id);
+        $query->bindParam(':payment_no', $this->payment_no);
+        $query->bindParam(':type', $this->type);
+        $query->bindParam(':quantity', $this->quantity);
+        $query->bindParam(':amount', $this->amount);
+        if($query->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }	
     }
 
 }

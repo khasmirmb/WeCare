@@ -214,6 +214,15 @@ class Appointment{
             return false;
         }
     }
+
+    function show_appointment_notification(){
+        $sql = "SELECT COUNT(*) AS appointment_total FROM appointment WHERE status = 'Pending' OR status = 'Completed';";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 }
 
 ?>

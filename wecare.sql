@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2023 at 06:02 PM
+-- Generation Time: May 05, 2023 at 11:08 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -46,8 +46,8 @@ CREATE TABLE `admission` (
 
 INSERT INTO `admission` (`id`, `user_id`, `survey_info`, `patient_info`, `relative_info`, `staff_id`, `admission_no`, `status`, `created_at`, `updated_at`) VALUES
 (6, 1, 6, 7, 7, 1, 37245855, 'Accepted', '2023-04-07 11:50:01', '2023-04-12 19:00:39'),
-(11, 1, 8, 10, 9, 1, 664919643, 'Pending', '2023-04-12 16:20:32', '2023-04-12 16:20:32'),
-(12, 6, 9, 11, 10, 1, 1078493218, 'Accepted', '2023-04-26 14:00:41', '2023-04-26 14:01:40');
+(11, 1, 8, 10, 9, 1, 664919643, 'Accepted', '2023-04-12 16:20:32', '2023-05-05 20:59:06'),
+(12, 6, 9, 11, 10, 1, 1078493218, 'Accepted', '2023-04-26 14:00:41', '2023-05-05 20:41:50');
 
 -- --------------------------------------------------------
 
@@ -118,6 +118,13 @@ CREATE TABLE `attendance` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`id`, `staff_id`, `date`, `time_in`, `time_out`, `status`, `shift_type`, `updated_at`) VALUES
+(6, 1, '2023-04-28', '12:43:02', '12:43:32', 'Present', 'Day Shift', '2023-04-27 16:43:32');
+
 -- --------------------------------------------------------
 
 --
@@ -161,7 +168,10 @@ CREATE TABLE `monitoring` (
 
 INSERT INTO `monitoring` (`id`, `patient_id`, `relative_id`, `staff_id`, `updated_at`) VALUES
 (5, 42, 10, 1, '2023-04-12 19:00:39'),
-(7, 43, 13, 1, '2023-04-26 14:01:40');
+(7, 43, 13, 1, '2023-04-26 14:01:40'),
+(8, 44, 10, 1, '2023-05-05 18:39:43'),
+(9, 51, 10, 1, '2023-05-05 20:49:40'),
+(10, 60, 10, 1, '2023-05-05 20:59:06');
 
 -- --------------------------------------------------------
 
@@ -239,6 +249,7 @@ CREATE TABLE `monitoring_medecine` (
   `patient_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `dose` varchar(100) NOT NULL,
+  `frequency` varchar(100) NOT NULL,
   `started_at` date NOT NULL,
   `status` varchar(100) NOT NULL,
   `note` varchar(255) NOT NULL,
@@ -320,7 +331,13 @@ INSERT INTO `notification` (`id`, `patient_id`, `user_id`, `type`, `subject`, `m
 (56, 0, 1, 'Appointment', 'Your appointment on May 1st, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 9:30 am on May 1st, 2023 with the purpose of OJT.', 1, '2023-04-26 17:16:42'),
 (57, 0, 6, 'Appointment', 'Your appointment on May 15th, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 3:57 pm on May 15th, 2023 with the purpose of OJT.', 0, '2023-04-26 18:57:28'),
 (58, 0, 6, 'Appointment', 'Your appointment on May 22nd, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 3:57 pm on May 22nd, 2023 with the purpose of OJT.', 0, '2023-04-26 19:11:04'),
-(59, 0, 6, 'Appointment', 'Your appointment on May 29th, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 3:57 pm on May 29th, 2023 with the purpose of OJT.', 0, '2023-04-26 19:12:38');
+(59, 0, 6, 'Appointment', 'Your appointment on May 29th, 2023 has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your appointment have been accepted. \nWe\'re expecting to see you on 3:57 pm on May 29th, 2023 with the purpose of OJT.', 0, '2023-04-26 19:12:38'),
+(64, 42, 1, 'Billing', 'There\'s a new payment regarding patient Lola D. Cruz. Due on May 28, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 1, '2023-04-28 01:59:10'),
+(65, 44, 1, 'Admission', 'Your admission regarding Testing T. Testing has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Testing T. Testing have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-05-05 18:39:44'),
+(66, 42, 1, 'Billing', 'There\'s a new payment regarding patient Lola D. Cruz. Due on Jun 5, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-05-05 19:57:54'),
+(67, 42, 1, 'Billing', 'There\'s a new payment regarding patient Lola D. Cruz. Due on Jun 5, 2023', 'We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one\'s stay at our facility.\n We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one\'s care is due soon, and we kindly request that you make the payment as soon as possible. \n We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-05-05 20:06:32'),
+(68, 51, 1, 'Admission', 'Your admission regarding Testing T. Testing has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Testing T. Testing have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-05-05 20:49:40'),
+(69, 60, 1, 'Admission', 'Your admission regarding Testing T. Testing has been accepted.', 'We hope this message finds you well. We would like to take this opportunity to remind you about your admission regarding Testing T. Testing have been accepted. \nYou can now access family monitoring for this patient. We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one\'s home, and we look forward to continuing to provide exceptional care for them.', 0, '2023-05-05 20:59:06');
 
 -- --------------------------------------------------------
 
@@ -358,7 +375,8 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`id`, `staff_id`, `fname`, `mname`, `lname`, `suffix`, `date_birth`, `place_birth`, `gender`, `street`, `province`, `barangay`, `city`, `postal`, `background_history`, `doctors_diagnosis`, `allergies`, `status`, `room`, `image`, `admission_no`) VALUES
 (42, 1, 'Lola', 'Dela', 'Cruz', '', '2023-04-16', 'Zamboanga', 'Female', 'Cdcp', 'ZAMBOANGA DEL SUR', 'Sta.Catalina', 'ZAMBOANGA CITY', 7000, 'Lola ni Panday', '', '', 'Active', 'Room 1', 'yuta.jpg', 37245855),
-(43, 1, 'Test', 'Test', 'Test', 'Test', '2023-04-26', 'Test', 'Female', 'Test', 'ABRA', 'Test', 'ABORLAN', 7000, 'Test', 'Test', 'Test', 'Active', 'Room 3', 'Patient_1682517640yuta.jpg', 1078493218);
+(43, 1, 'Test', 'Test', 'Test', 'Test', '2023-04-26', 'Test', 'Female', 'Test', 'ABRA', 'Test', 'ABORLAN', 7000, 'Test', 'Test', 'Test', 'Active', 'Room 3', 'Patient_1682517640yuta.jpg', 1078493218),
+(60, 1, 'Testing', 'Testing', 'Testing', '', '2023-04-13', 'Testing', 'Female', 'Testing', 'ABRA', 'Testing', 'ABORLAN', 7000, 'Testing', 'Testing', 'Testing', 'Active', 'Room 1', 'Patient_1681316432yuta.jpg', 664919643);
 
 -- --------------------------------------------------------
 
@@ -415,7 +433,31 @@ CREATE TABLE `patient_services` (
 
 INSERT INTO `patient_services` (`id`, `patient_id`, `services`) VALUES
 (68, 42, 1),
-(73, 43, 1);
+(73, 43, 1),
+(74, 44, 1),
+(75, 45, 1),
+(76, 45, 1),
+(77, 46, 1),
+(78, 47, 1),
+(79, 47, 1),
+(80, 48, 1),
+(81, 49, 1),
+(82, 49, 1),
+(83, 50, 1),
+(84, 51, 1),
+(85, 52, 1),
+(86, 52, 1),
+(87, 53, 1),
+(88, 54, 1),
+(89, 54, 1),
+(90, 55, 1),
+(91, 56, 1),
+(92, 56, 1),
+(93, 57, 1),
+(94, 58, 1),
+(95, 58, 1),
+(96, 59, 1),
+(97, 60, 1);
 
 -- --------------------------------------------------------
 
@@ -426,18 +468,40 @@ INSERT INTO `patient_services` (`id`, `patient_id`, `services`) VALUES
 CREATE TABLE `payment` (
   `id` int(11) NOT NULL,
   `patient_id` int(11) NOT NULL,
-  `start_due` date NOT NULL,
-  `end_due` date NOT NULL,
+  `date` date NOT NULL,
   `services` varchar(255) NOT NULL,
   `services_total` varchar(100) NOT NULL,
   `fee_total` varchar(100) NOT NULL,
   `total_amount` varchar(100) NOT NULL,
-  `fee_note` varchar(255) NOT NULL,
   `status` varchar(100) NOT NULL,
   `payment_method` varchar(100) DEFAULT NULL,
   `payment_date` date DEFAULT NULL,
   `receipt` varchar(255) DEFAULT NULL,
+  `payment_no` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `patient_id`, `date`, `services`, `services_total`, `fee_total`, `total_amount`, `status`, `payment_method`, `payment_date`, `receipt`, `payment_no`, `created_at`) VALUES
+(37, 42, '2023-04-28', 'Bundle', '18000', '0', '18000', 'Paid', 'Cash', '2023-05-24', 'Lola_D_Cruz_Receipt_2023_04_28_Test.pdf', 0, '2023-04-28 01:58:30'),
+(42, 60, '2023-05-05', '1', '18000', '0', '18000', 'Not Paid', NULL, NULL, NULL, 263327127, '2023-05-05 20:59:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_fee`
+--
+
+CREATE TABLE `payment_fee` (
+  `id` int(11) NOT NULL,
+  `payment_no` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -2244,7 +2308,10 @@ INSERT INTO `relationship` (`id`, `relationship`) VALUES
 (9, 'Aunt'),
 (10, 'Uncle'),
 (11, 'Other Relative'),
-(12, 'Friend');
+(12, 'Friend'),
+(13, 'Husband'),
+(14, 'Wife'),
+(15, 'Self');
 
 -- --------------------------------------------------------
 
@@ -2270,7 +2337,10 @@ CREATE TABLE `relative` (
 
 INSERT INTO `relative` (`id`, `user_id`, `relationship`, `proof`, `patient_fname`, `patient_mname`, `patient_lname`, `patient_suffix`, `patient_id`) VALUES
 (10, 1, 'Mother', 'Relative', 'Lola', 'Dela', 'Cruz', '', 42),
-(13, 6, 'Mother', 'Relative', 'Test', 'Test', 'Test', 'Test', 43);
+(13, 6, 'Mother', 'Relative', 'Test', 'Test', 'Test', 'Test', 43),
+(15, 1, 'Mother', 'Relative', 'Testing', 'Testing', 'Testing', '', 44),
+(16, 1, 'Mother', 'Relative', 'Testing', 'Testing', 'Testing', '', 51),
+(17, 1, 'Mother', 'Relative', 'Testing', 'Testing', 'Testing', '', 60);
 
 -- --------------------------------------------------------
 
@@ -2380,7 +2450,8 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`id`, `user_id`, `firstname`, `middlename`, `lastname`, `suffix`, `address`, `date_of_birth`, `degree`, `position`, `status`, `added_on`, `retired_on`) VALUES
 (1, 2, 'Alice', 'Johnson', 'Yue', 'Jr', 'Sta Catalina', '2023-02-16', 'Graduate', 'Nurse', 'Active', '2023-02-20 07:25:37', NULL),
-(2, 4, 'Jessica', 'Bottom', 'Apple', 'Sr', 'Staff2', '2012-04-13', 'Staff2', 'Staff2', 'Active', '2023-03-15 11:54:50', NULL);
+(2, 4, 'Jessica', 'Bottom', 'Apple', 'Sr', 'Staff2', '2012-04-13', 'Staff2', 'Staff2', 'Active', '2023-03-15 11:54:50', NULL),
+(5, 10, 'Khasmir', 'Mahadali', 'Basaluddin', '', 'Sta. Catalina', '2000-05-04', 'Hoe', 'Stripper', 'Active', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2401,9 +2472,10 @@ CREATE TABLE `staff_schedule` (
 --
 
 INSERT INTO `staff_schedule` (`id`, `staff_id`, `day`, `shift_type`, `status`) VALUES
-(1, 1, 'Monday', 'Day Shift', 'Active'),
 (4, 1, 'Wednesday', 'Day Shift', 'Active'),
-(9, 2, 'Friday', 'Day Shift', 'Active');
+(11, 1, 'Tuesday', 'Day Shift', 'Active'),
+(12, 1, 'Thursday', 'Day Shift', 'Active'),
+(14, 1, 'Monday', 'Day Shift', 'Active');
 
 -- --------------------------------------------------------
 
@@ -2556,9 +2628,7 @@ INSERT INTO `users` (`id`, `unique_id`, `fname`, `mname`, `lname`, `email`, `pho
 (2, 42139240, 'Staff', 'Staff', 'Staff', 'staff@gmail.com', '09152354148', NULL, NULL, 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-02-20 06:24:31', '2023-04-12 15:18:41'),
 (3, 1039537853, 'admin', 'admin', 'admin', 'admin@gmail.com', '09152354148', NULL, NULL, 'yuta.jpg', '123', 0, 'Verified', 'admin', '2023-03-07 14:33:48', '2023-04-12 15:18:51'),
 (4, 1039537821, 'Staff2', 'Staff2', 'Staff2', 'staff2@gmail.com', '09152354148', NULL, NULL, 'yuta.jpg', '123', 0, 'Verified', 'staff', '2023-03-15 10:54:37', '2023-04-12 15:19:01'),
-(6, 648167998, 'El', 'Car', 'Res', 'test@gmail.com', '09094731567', NULL, NULL, 'Profile_1680057603IMG20220326200018.jpg', '123', 0, 'Verified', 'client', '2023-03-29 02:40:03', '2023-04-11 16:29:14'),
-(7, 247813239, 'Eljen', 'Briones', 'Augusto', 'xt202001173@wmsu.edu.ph', '09563350760', NULL, NULL, 'Profile_1680069818eljen.jpg', 'Khasmir123', 0, 'Verified', 'client', '2023-03-29 06:03:38', '2023-03-29 06:03:59'),
-(8, 1145276372, 'Machel', 'Briones', 'Augusto', 'maejen019@gmail.com', '09554616786', NULL, NULL, 'Profile_1680151552e2a0f80716cea9f444bbdec4da54a13e-removebg-preview.png', 'El-El12554680', 0, 'Verified', 'client', '2023-03-30 04:45:52', '2023-03-30 04:46:59');
+(6, 648167998, 'El', 'Car', 'Res', 'test@gmail.com', '09094731567', NULL, NULL, 'Profile_1680057603IMG20220326200018.jpg', '123', 0, 'Verified', 'client', '2023-03-29 02:40:03', '2023-04-11 16:29:14');
 
 --
 -- Indexes for dumped tables
@@ -2681,6 +2751,12 @@ ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment_fee`
+--
+ALTER TABLE `payment_fee`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `refcitymun`
 --
 ALTER TABLE `refcitymun`
@@ -2792,7 +2868,7 @@ ALTER TABLE `appointment_purpose`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -2804,7 +2880,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `monitoring`
 --
 ALTER TABLE `monitoring`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `monitoring_app_detail`
@@ -2828,7 +2904,7 @@ ALTER TABLE `monitoring_hyiegne`
 -- AUTO_INCREMENT for table `monitoring_medecine`
 --
 ALTER TABLE `monitoring_medecine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `monitoring_nutrition`
@@ -2852,13 +2928,13 @@ ALTER TABLE `monitoring_report`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `patient_info`
@@ -2870,13 +2946,19 @@ ALTER TABLE `patient_info`
 -- AUTO_INCREMENT for table `patient_services`
 --
 ALTER TABLE `patient_services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `payment_fee`
+--
+ALTER TABLE `payment_fee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `refcitymun`
@@ -2894,13 +2976,13 @@ ALTER TABLE `refprovince`
 -- AUTO_INCREMENT for table `relationship`
 --
 ALTER TABLE `relationship`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `relative`
 --
 ALTER TABLE `relative`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `relative_info`
@@ -2918,19 +3000,19 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `staff_schedule`
 --
 ALTER TABLE `staff_schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `survey_answer`
@@ -2960,7 +3042,7 @@ ALTER TABLE `survey_services`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
@@ -2974,12 +3056,6 @@ ALTER TABLE `admission`
   ADD CONSTRAINT `admission_ibfk_2` FOREIGN KEY (`relative_info`) REFERENCES `relative_info` (`id`),
   ADD CONSTRAINT `admission_ibfk_3` FOREIGN KEY (`survey_info`) REFERENCES `survey_info` (`id`),
   ADD CONSTRAINT `admission_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `staff`
---
-ALTER TABLE `staff`
-  ADD CONSTRAINT `user_staff` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `staff_schedule`

@@ -213,5 +213,14 @@ class Admission{
         }
     }
 
+    function show_admission_notification(){
+        $sql = "SELECT COUNT(*) AS admission_total FROM admission WHERE status = 'Pending' OR status = 'Completed';";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 }
 ?>

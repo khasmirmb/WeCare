@@ -228,6 +228,16 @@ class Patient{
         }
     }
 
+    function fetch_patient_service_total($record_id){
+        $sql = "SELECT SUM(price) as services_total FROM patient_services INNER JOIN services ON patient_services.services = services.id WHERE patient_id = :id;";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':id', $record_id);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
 }
 
 

@@ -1,6 +1,6 @@
 <?php
 
-  $page_title = 'WeCare Staff - Billing Receipt';
+  $page_title = 'WeCare staff - Billing Receipt';
   require_once '../includes/staff-header.php';
   require_once '../classes/patient.class.php';
   require_once '../classes/reference.class.php';
@@ -41,18 +41,28 @@
 
     if(isset($_POST['services'])){
 
+      $payment_number = rand(time(), 1000000);
+
       $payment->services = implode(", ", $_POST['services']);
       $payment->patient_id = $patient->id;
-      $payment->start_due = htmlentities($_POST['due-start']);
-      $payment->end_due = htmlentities($_POST['due-end']);
+      $payment->date = htmlentities($_POST['date-billing']);
       $payment->services_total = $_POST['service-total'];
       $payment->fee_total = $_POST['fee-total'];
       $payment->total_amount = $_POST['total-amount'];
-      $payment->fee_note = htmlentities($_POST['fee-note']);
+      $payment->payment_no = $payment_number;
       $payment->status = "Not Paid";
 
       if($payment->add_payment()){
 
+        foreach($_POST['type'] as $key => $value){
+
+          $payment->payment_no = $payment_number;
+          $payment->type = $_POST['type'][$key];
+          $payment->quantity = $_POST['quan'][$key];
+          $payment->amount = $_POST['amount'][$key];
+
+          $payment->add_payment_fee();
+        }
 
         if(!empty($relative->fetch_relative_by_patient($patient->id))){
 
@@ -67,7 +77,9 @@
 
             $notification->type = "Billing";
 
-            $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ". Due on " . date("M j, Y", strtotime($payment->end_due));
+            $mothnly =  strtotime($payment->date);
+
+            $notification->subject = "There's a new payment regarding patient " . ucfirst($patient->firstname) . " " . ucfirst($patient->middlename[0]) . ". " . ucfirst($patient->lastname) . ". Due on " . date("M j, Y", strtotime("+1 month", $monthly));
 
             $notification->message = "We hope this message finds you well. We would like to take this opportunity to remind you about the payment for your loved one's stay at our facility.\n" . " We understand that managing finances can be challenging, and we want to ensure that you are aware of the upcoming payment deadline to avoid any late fees or inconvenience. The payment for your loved one's care is due soon, and we kindly request that you make the payment as soon as possible. \n" . " We offer payment plans and other forms of financial assistance to help make the payment process more manageable. Please do not hesitate to contact us if you need further assistance or if you have any questions or concerns regarding the payment.\n" . " We appreciate your commitment to providing the best care for your loved one, and we are dedicated to supporting you in any way we can. Thank you for choosing WeCare Nursing Home as your loved one's home, and we look forward to continuing to provide exceptional care for them.";
 
@@ -97,7 +109,7 @@
 ?>
 <div class="content">
 
-<button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="../staff/payment-list.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-arrow-left"></i> Back </a></button>
+<button class="btn btn-primary" type="button" style="background: #00ACB2; border: #00ACB2;"><a class="text-white text-decoration-none" href="payment-list.php?id=<?php echo $patient->id ?>"><i class="fa-solid fa-arrow-left"></i> Back </a></button>
 
 <div class="pt-3">
 <div class="card">
@@ -138,7 +150,7 @@
           <input type="text" name="patient_id" id="patient_id" value="<?php echo $patient->id ?>" hidden>
 
         <div class="col">
-          <button class="btn btn-success ms-2"><i class="fa-solid fa-hand-holding-medical me-2"></i>Add Service</button>
+          <button class="btn btn-success ms-2"><i class="fa-solid fa-hand-holding-medical"></i>Add Service</button>
         </div>
         </div>
     </div>
@@ -205,74 +217,61 @@
         <div class="col-12 col-lg-7">
         <div class="input-group mb-3">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+            <input class="form-check-input mt-0" type="checkbox" value="Medicine" name="type[]">
             <span class="ms-3">Medicine</span>
           </div>
-          <input type="number" class="form-control" aria-label="Quantity" placeholder="Quantity">
+          <input type="number" class="form-control" placeholder="Quantity" name="quan[]">
           <span class="input-group-text">₱</span>
-          <input type="number" class="form-control" aria-label="Amount" placeholder="Amount">
+          <input type="number" class="form-control" placeholder="Amount" name="amount[]" id="medicine">
         </div>
         </div><!--col-->
+
         <div class="col-12 col-lg-7">
         <div class="input-group mb-3">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+            <input class="form-check-input mt-0" type="checkbox" value="Diaper" name="type[]">
             <span class="ms-3">Diaper</span>
           </div>
-          <input type="number" class="form-control" aria-label="Quantity" placeholder="Quantity">
+          <input type="number" class="form-control" placeholder="Quantity" name="quan[]">
           <span class="input-group-text">₱</span>
-          <input type="number" class="form-control" aria-label="Amount" placeholder="Amount">
+          <input type="number" class="form-control" placeholder="Amount" name="amount[]" id="diaper" onchange="getFee()">
         </div>
         </div><!--col-->
+
         <div class="col-12 col-lg-7">
         <div class="input-group mb-3">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+            <input class="form-check-input mt-0" type="checkbox" value="Oxygen tank" name="type[]">
             <span class="ms-3">Oxygen tank</span>
           </div>
-          <input type="number" class="form-control" aria-label="Quantity" placeholder="Quantity">
+          <input type="number" class="form-control" placeholder="Quantity" name="quan[]">
           <span class="input-group-text">₱</span>
-          <input type="number" class="form-control" aria-label="Amount" placeholder="Amount">
+          <input type="number" class="form-control" placeholder="Amount" name="amount[]" id="oxygen" onchange="getFee()">
         </div>
-        </div><!--col-->
-       
-       
-        <div class="input-group pt-3">
-        <span class="input-group-text">Total Amount of Fees: ₱</span>
-        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" required placeholder="0" <?php if(isset($_POST['fee-total'])) { echo $_POST['fee-total']; } ?>>
-      </div><!--End services-->
-    </div><!--End row-->
-    
-    <!--
-    <div class="row pt-3 col-12 col-lg-5">
-      <div class="input-group">
-        <span class="input-group-text">Note for Fee</span>
-        <textarea class="form-control bg-white" name="fee-note" id="fee-note" placeholder="Ex. Diaper = 500" rows="5"><?php if(isset($_POST['fee-note'])) { echo $_POST['fee-note']; } ?></textarea>
-      </div>
-    </div><!--End row-->
+      </div><!--col-->
 
-      <div class="row pt-3 col-12 col-lg-9">
+      <div class="row col-12 col-lg-12">
+      <div class="input-group">
+        <span class="input-group-text">Total Amount of Fees: ₱</span>
+        <input class="form-control bg-white" type="number" name="fee-total" id="fee-total" onchange="getVal()" required placeholder="0" value="<?php if(isset($_POST['fee-total'])) { echo $_POST['fee-total']; } ?>">
+      </div><!--End services-->
+      </div><!--End row-->
+       
+      <div class="row pt-3 col-12 col-lg-12">
         <div class="input-group">
         <span class="input-group-text">Date of Billing:</span>
           <input type="date" aria-label="Start" class="form-control" name="date-billing" id="date-billing" required value="<?php if(isset($_POST['date-billing'])) { echo $_POST['date-billing']; } ?>">
-          <span class="input-group-text">Due Start Date:</span>
-          <input type="date" aria-label="Start" class="form-control" name="due-start" id="due-start" required value="<?php if(isset($_POST['due-start'])) { echo $_POST['due-start']; } ?>">
-          <span class="input-group-text">Due End Date:</span>
-          <input type="date" aria-label="End" class="form-control" name="due-end" id="due-end" onchange="getDate()" required value="<?php if(isset($_POST['due-end'])) { echo $_POST['due-end']; } ?>">
         </div>
       </div><!--End row-->
 
-    <div class="row pt-3 col-12 col-lg-7">
+    <div class="row pt-3 col-12 col-lg-12">
       <div class="input-group">
           <span class="input-group-text">Total Amount: ₱</span>
           <input class="form-control bg-white" type="number" name="total-amount" id="total-amount" required readonly value="<?php if(isset($_POST['total-amount'])) { echo $_POST['total-amount']; } ?>">
-          <span class="input-group-text">Month/s:</span>
-          <input type="number" class="form-control bg-white" name="total_months" id="total_months" readonly value="<?php if(isset($_POST['total_months'])) { echo $_POST['total_months']; } ?>">
-          <button type="button" class="btn btn-primary" onclick="getTotal()"><i class="fas fa-calculator me-2"></i>Calculate</bu>
       </div><!--End services-->
     </div><!--End row-->
 
-    <div class="d-flex justify-content-end pt-2"><!--services-->
+    <div class="d-flex justify-content-end pt-3"><!--services-->
     <button name="submit" id="submit" class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color: #fff;">Submit</button>
     </div><!--End services-->
     </form>
@@ -286,45 +285,23 @@
 
     <script>
 
-      function getDate(){
-        var start_date = document.getElementById('due-start').value;
-        var end_date = document.getElementById('due-end').value;
-
-        var date1 = new Date(start_date);
-        var date2 = new Date(end_date);
-
-        var year1=date1.getFullYear();
-        var year2=date2.getFullYear();
-
-        var month1=date1.getMonth();
-        var month2=date2.getMonth();
-
-        if(month1===0){
-          month1++;
-          month2++;
-        }
-
-        var numberOfMonths;
-
-        numberOfMonths = (year2 - year1) * 12 + (month2 - month1);
-
-        document.getElementById('total_months').value = numberOfMonths;
-
-      }
-
       function getVal() {
+
         var service = document.getElementById('service-total').value;
         var fee = document.getElementById('fee-total').value;
         var total = parseFloat(service) + parseFloat(fee);
+
         document.getElementById('total-amount').value = total;
       }
 
-      function getTotal(){
-        var total = document.getElementById('total-amount').value;
-        var months = document.getElementById('total_months').value;
+      function getFee() {
 
-        var total_price = parseFloat(total) * parseFloat(months);
-        document.getElementById('total-amount').value = total_price;
+        var medicine = document.getElementById('medicine').value;
+        var diaper = document.getElementById('diaper').value;
+        var oxygen = document.getElementById('oxygen').value;
+        var total = parseFloat(oxygen) + parseFloat(diaper) + parseFloat(medicine);
+
+        document.getElementById('fee-total').value = total;
       }
 
     </script>

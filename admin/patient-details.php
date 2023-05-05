@@ -82,15 +82,18 @@
     if(isset($_POST['submit-med'])){
 
         $medicine = new Medicine;
-    
+
         $medicine->patient_id = $patient->id;
         $medicine->name = htmlentities($_POST['med-name']);
         $medicine->dose = htmlentities($_POST['med-dose']);
+        $medicine->frequency = htmlentities($_POST['med-intake']);
         $medicine->started_at = htmlentities($_POST['med-start']);
         $medicine->status = htmlentities($_POST['med-status']);
         $medicine->note = htmlentities($_POST['med-note']);
-    
+
         $medicine->add_medicine();
+
+
     }
 
     if(isset($_POST['submit-hy'])){

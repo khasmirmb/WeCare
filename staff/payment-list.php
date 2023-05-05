@@ -120,8 +120,7 @@
     <table class="table table-striped table-hover table-bordered">
   <thead class="table-info">
     <tr>
-      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due Start Date</th>
-      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Due End Date</th>
+      <th scope="col"  style="background: #00ACB2; color: #fff;" class="text-center">Billing Date</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Total Amount</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Status</th>
       <th scope="col" style="background: #00ACB2; color: #fff;"  class="text-center">Action</th>
@@ -137,9 +136,8 @@
   <tbody>
   <?php foreach($payment_list as $row){ ?>
     <tr>
-        <th class="text-center"><a class="link-primary" href="" style="text-decoration: none;"><?php echo date("M j, Y", strtotime($row['start_due'])) ?></a></th>
-        <th class="text-center"><a class="link-primary" href="" style="text-decoration: none;"><?php echo date("M j, Y", strtotime($row['end_due'])) ?></a></th>
-        <td class="text-center">₱<?php echo number_format($row['total_amount']) ?></td>
+        <th class="text-center"><a class="link-primary" href="" style="text-decoration: none;"><?php echo date("M j, Y", strtotime($row['date'])) ?></a></th>
+        <td class="text-center">₱<?php echo number_format($row['total_amount'], 2) ?></td>
         <td class="text-center"><?php if($row['status'] == "Paid"){ ?><strong><span class="text-success"> <?php echo $row['status'] ?></span></strong><?php } else { ?> <strong><span class="text-danger "><?php echo $row['status'] ?></span></strong><?php } ?></td>
         <td>
         <div class="d-flex gap-1 justify-content-center">

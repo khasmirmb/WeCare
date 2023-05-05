@@ -25,6 +25,7 @@
         <tr>
         <th scope="row" class="text-left"><?php echo $med['medecine_name'] ?></th>
         <td class="text-center"><?php echo $med['medecine_dose'] ?></td>
+        <td class="text-center"><?php echo $med['medecine_frequency'] ?></td>
         <td class="text-center"><?php echo date("M j, Y", strtotime($med['medecine_started'])) ?></td>
         <td class="text-center"><?php echo $med['medecine_status'] ?></td>
         <td class="text-center"><?php echo $med['medecine_note'] ?></td>
@@ -61,7 +62,7 @@
           </div>
           <div class="mb-3">
             <label for="med-dose" class="col-form-label">Dose:</label>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" name="med-dose" required>
               <option value="50">50 mg</option>
               <option value="75">75 ml</option>
               <option value="100">100 mg</option>

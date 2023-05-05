@@ -32,7 +32,7 @@
                     <?php foreach($recent_total as $data){ ?>
                     <div class="col">
                         <h5>Total Payment Amount</h5>
-                        <h3><strong><?php if(!empty($data['total'])) { echo "₱" . number_format($data['total']); }else { echo 'No Payment'; } ?></strong></h3>
+                        <h3><strong><?php if(!empty($data['total'])) { echo "₱" . number_format($data['total'], 2); }else { echo 'No Payment'; } ?></strong></h3>
                     </div>  
                     <?php } ?>
                     <?php foreach($recent_due as $data){ ?>
@@ -69,7 +69,7 @@
         <tr>
         <th scope="col" style="background: #00ACB2; color: #fff;">Patient Name</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Due Date</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Billing Date</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Amount Due</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Action</th>
         </tr>
@@ -88,9 +88,9 @@
 
             <td class="text-center"><?php if($row['status'] == "Paid"){ ?><strong><span class="text-success"> <?php echo $row['status'] ?></span></strong><?php } else { ?> <strong><span class="text-danger "><?php echo $row['status'] ?></span></strong><?php } ?></td>
 
-            <td class="text-center"><?php echo date("M j, Y", strtotime($row['end_due'])) ?></td>
+            <td class="text-center"><?php echo date("M j, Y", strtotime($row['date'])) ?></td>
             
-            <td class="text-center gap-2">₱<?php echo number_format($row['total_amount']) ?></td>
+            <td class="text-center gap-2">₱<?php echo number_format($row['total_amount'], 2) ?></td>
             <td class="text-center gap-2">
                 <a class="btn btn-info" style="background: #00ACB2; border: #00ACB2; color:#fff; margin-left: 30px" href="payment-details.php?id=<?php echo $row['id'] ?>">Review<a>
             </td>
