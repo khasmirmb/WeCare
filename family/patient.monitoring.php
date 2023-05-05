@@ -159,7 +159,7 @@
         <tr>
         <th scope="col" style="background: #00ACB2; color: #fff;">Name</th>
         <th cope="col" class="text-center" style="background: #00ACB2; color: #fff;">Dose</th>
-        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Intake</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Frequency</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Started at</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Note</th>

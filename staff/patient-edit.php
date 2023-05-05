@@ -174,26 +174,28 @@
 <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
         
-            <h5><strong>Appointment</strong></h5>
+            <h5><strong>Follow Up</strong></h5>
    
             <div class="d-inline">
                 <div class="mb-2">
-                    <label for="exampleInputPassword1" class="form-label"><strong>Appointment Start Time:</strong></label>
+                    <label for="exampleInputPassword1" class="form-label"><strong>Follow Up Time:</strong></label>
                     <input type="time" class="form-control" id="app_start" name="app_start" value="<?php echo $monitoring->app_detail_time_start ?>" required>
                 </div>
+                <!--
                 <div class="mb-2">
                     <label for="exampleInputPassword1" class="form-label"><strong>Appointment End Time:</strong></label>
                     <input type="time" class="form-control" id="app_end" name="app_end" value="<?php echo $monitoring->app_detail_time_end ?>" required>
                 </div>
+                -->
             </div>
             
             <div class="mb-2">
-                <label for="exampleInputPassword1" class="form-label"><strong>Appointment Date:</strong></label>
+                <label for="exampleInputPassword1" class="form-label"><strong>Follow Up Date:</strong></label>
                 <input type="date" class="form-control" id="app_date" name="app_date" value="<?php echo $monitoring->app_detail_date ?>" required>
             </div>
 
             <div class="mb-2">
-                <label for="exampleInputPassword1" class="form-label"><strong>Appointment Reason:</strong></label> 
+                <label for="exampleInputPassword1" class="form-label"><strong>Follow Up Reason:</strong></label> 
                 <textarea class="form-control" id="app_prob" name="app_prob" rows="4" required><?php echo $monitoring->app_detail_problem ?></textarea>
             </div>
         </div>

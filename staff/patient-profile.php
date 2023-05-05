@@ -267,7 +267,7 @@
 <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
         
-            <h5><strong>Appointment</strong></h5>
+            <h5><strong>Follow Up</strong></h5>
    
             <h6 class="bg-secondary text-white d-inline">
             <?php if(!empty($monitoring->app_detail_time_start) && !empty($monitoring->app_detail_time_end)){ echo date("g:i A", strtotime($monitoring->app_detail_time_start)); ?> - <?php echo date("g:i A", strtotime($monitoring->app_detail_time_end)); } else{ echo "Currently No Data"; }?></strong></h6>
@@ -286,24 +286,24 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="add-appointmentLabel">Add Appointment Details</h5>
+        <h5 class="modal-title" id="add-appointmentLabel">Add Follow Up Details</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form action="patient-profile.php?id=<?php echo $patient->id ?>" method="POST">
 
           <div class="mb-3">
-            <label for="time_start" class="col-form-label">Time Start:</label>
+            <label for="time_start" class="col-form-label">Follow Up Time:</label>
             <input type="time" class="form-control" id="time_start" name="time_start" required>
           </div>
-
+          <!--
           <div class="mb-3">
             <label for="time_end" class="col-form-label">Time End:</label>
             <input type="time" class="form-control" id="time_end" name="time_end" required>
           </div>
-
+            -->
           <div class="mb-3">
-            <label for="app_date" class="col-form-label">Date:</label>
+            <label for="app_date" class="col-form-label">Follow Up Date:</label>
             <input type="date" class="form-control" id="app_date" name="app_date" required>
           </div>
 

@@ -76,7 +76,7 @@
           </select>
           </div>
           <div class="mb-3">
-            <label for="med-intake" class="col-form-label">Intake:</label>
+            <label for="med-intake" class="col-form-label">Frequency:</label>
             <input type="text" class="form-control" id="med-intake" name="med-intake" placeholder="Ex. 3x a day" required>
           </div>
           <div class="mb-3">
