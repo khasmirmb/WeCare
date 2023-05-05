@@ -8,6 +8,7 @@
     <tr>
       <th scope="col" style="background: #00ACB2; color: #fff;" class="text-left">Name</th>
       <th scope="col" style="background: #00ACB2; color: #fff;" class="text-center">Dose</th>
+      <th scope="col" style="background: #00ACB2; color: #fff;" class="text-center">Intake</th>
       <th scope="col" style="background: #00ACB2; color: #fff;" class="text-center">Started</th>
       <th scope="col" style="background: #00ACB2; color: #fff;" class="text-center">Status</th>
       <th scope="col" style="background: #00ACB2; color: #fff;" class="text-center">Note</th>
@@ -70,6 +71,10 @@
               <option value="300">300 mg</option>
               <option value="400">400 mg</option>
           </select>
+          </div>
+          <div class="mb-3">
+            <label for="med-intake" class="col-form-label">Intake:</label>
+            <input type="text" class="form-control" id="med-intake" name="med-intake" placeholder="Ex. 3x a day" required>
           </div>
           <div class="mb-3">
             <label for="med-start" class="col-form-label">Started Date:</label>
