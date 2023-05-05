@@ -201,7 +201,7 @@
     </div><!--End row-->
 
     <div class="row pt-3 col-12 col-lg-8">
-        <h5>Other Fees:</h5>
+        <h5>Add On:</h5>
         <div class="col-12 col-lg-7">
         <div class="input-group mb-3">
           <div class="input-group-text">
