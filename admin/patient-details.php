@@ -191,7 +191,7 @@
     <!--<button class="btn btn-secondary" type="edit" style="background: #00ACB2; border: #00ACB2; color: #fff;">Edit</button> --> <!--Edit button-->
     </div>
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
-            <h5><strong>Appointment</strong></h5>
+            <h5><strong>Follow Up</strong></h5>
             
             <h6 class="bg-secondary text-white d-inline">
             <?php if(!empty($monitoring->app_detail_time_start) && !empty($monitoring->app_detail_time_end)){ echo date("g:i A", strtotime($monitoring->app_detail_time_start)); ?> - <?php echo date("g:i A", strtotime($monitoring->app_detail_time_end)); } else{ echo "Currently No Data"; }?></strong></h6>
