@@ -27,6 +27,9 @@
       <li class="nav-item">
         <a class="nav-link active" aria-current="true" href="../admin/admission-canceled.php">Admission Canceled</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="true" href="../admin/admission-walk-in.php">Walk-in</a>
+      </li>
     </ul>
   </div><!--End of Card-->
   

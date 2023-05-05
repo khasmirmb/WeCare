@@ -38,6 +38,9 @@
     <div class="col-6 col-lg-2 pb-3"><!--Add Patient button-->
         <a class="btn btn-secondary" href="add-patient.php" role="button" style="background: #00ACB2; border: #00ACB2;; color: #fff;"><i class="fa-solid fa-user-plus"></i>Add Patient</a>
     </div><!--End of Add Patient button-->
+    <div class="col-6 col-lg-1 pb-3"><!--Reports-->
+    <a class="btn btn-secondary" href="reports.php" role="button" style="background: #00ACB2; border: #00ACB2;; color: #fff;"><i class="bi bi-file-earmark-post"></i>Reports</a>
+    </div>
     <div class="col-12 col-lg-4 pb-3"><!--Start of Search bar-->
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
