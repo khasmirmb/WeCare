@@ -133,7 +133,7 @@
 
     <div class="col-12 col-lg-4 pt-3"> <!--Appointment-->
         <div class="text-wrap py-3 px-3 text-light rounded float-start" style="background: #00ACB2;">
-            <h5><strong>Appointment</strong></h5>
+            <h5><strong>Follow Up</strong></h5>
 
             <h6 class="bg-secondary text-white d-inline">
             <?php if(!empty($monitoring->app_detail_time_start) && !empty($monitoring->app_detail_time_end)){ echo date("g:i A", strtotime($monitoring->app_detail_time_start)); ?> - <?php echo date("g:i A", strtotime($monitoring->app_detail_time_end)); } else{ echo "Currently No Data"; }?></strong></h6>
@@ -159,6 +159,7 @@
         <tr>
         <th scope="col" style="background: #00ACB2; color: #fff;">Name</th>
         <th cope="col" class="text-center" style="background: #00ACB2; color: #fff;">Dose</th>
+        <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Intake</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Started at</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; color: #fff;">Note</th>

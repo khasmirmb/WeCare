@@ -13,6 +13,7 @@
         <tr>
         <th scope="col" style="background: #00ACB2; border: #00ACB2; color: #fff;">Name</th>
         <th cope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Dose</th>
+        <th cope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Intake</th>
         <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Started at</th>
         <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Status</th>
         <th scope="col" class="text-center" style="background: #00ACB2; border: #00ACB2; color: #fff;">Note</th>
@@ -63,7 +64,20 @@
           </div>
           <div class="mb-3">
             <label for="med-dose" class="col-form-label">Dose:</label>
-            <input type="text" class="form-control" id="med-dose" name="med-dose" placeholder="Ex. Breakfast-lunch-dinner" required>
+            <select class="form-select" aria-label="Default select example" required>
+              <option value="50">50 mg</option>
+              <option value="75">75 ml</option>
+              <option value="100">100 mg</option>
+              <option value="150">150 mg</option>
+              <option value="200">200 mg</option>
+              <option value="250">250 mg</option>
+              <option value="300">300 mg</option>
+              <option value="400">400 mg</option>
+          </select>
+          </div>
+          <div class="mb-3">
+            <label for="med-intake" class="col-form-label">Intake:</label>
+            <input type="text" class="form-control" id="med-intake" name="med-intake" placeholder="Ex. 3x a day" required>
           </div>
           <div class="mb-3">
             <label for="med-start" class="col-form-label">Started Date:</label>

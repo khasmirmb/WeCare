@@ -56,6 +56,7 @@
         <th scope="col" style="background: #00ACB2; color: #fff;">ADMISSION NO.</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ASSIGNED TO</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ROOM</th>
+        <th scope="col" style="background: #00ACB2; color: #fff;">BED AVAIL.</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">STATUS</th>
         <th scope="col" style="background: #00ACB2; color: #fff;">ACTION</th>
       </tr>
@@ -170,7 +171,7 @@
           <?php } ?>
           </select>
       </td>
-
+      <td scope="row" class="pt-4">2</td>
       <td scope="row" class="pt-4"><?php if($row['status'] == "Completed"){ ?> <strong class="text-success"><?php echo $row['status']; ?></strong> <?php } else { echo $row['status']; } ?></td>
 
       <td scope="row" class="pt-3">
